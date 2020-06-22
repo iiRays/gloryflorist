@@ -11,7 +11,14 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // put your code here
+        include 'Controllers/Util/DB.php';
+        include 'TestClasses.php';
+        
+        $result = DB::select("SELECT * from subjects", "Subject");
+        foreach($result as $subject){
+           echo $subject->yearOfStudy;
+        }
+        
         ?>
     </body>
 </html>
