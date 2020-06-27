@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Retro Gaming:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Retro Gaming:wght@500&display=swap');
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://steamuserimages-a.akamaihd.net/ugc/931558048640073381/82E090624DE0C8984BA537891CD03C5986BED025/');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+#container #feature {
+  opacity: 0.7;
+  height: 300px;
+  transition: opacity 0.5s;
+}
+#container #feature:hover {
+  opacity: 1;
+}
+#container #links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -70px;
+  left: 70px;
+}
+#container #links .link {
+  font-size: 30px;
+  margin-right: 30px;
+  font-weight: 400;
+  font-family: 'Retro Gaming';
+  text-decoration: none;
+  color: #F3B5B1;
+  opacity: 0.4;
+  transition: opacity 0.5s;
+}
+#container #links .link:hover {
+  opacity: 1;
+}
+#container:hover {
+  opacity: 1;
+}
