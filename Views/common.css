@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Retro Gaming:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Retro Gaming:wght@500&display=swap');
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://steamuserimages-a.akamaihd.net/ugc/931558048640073381/82E090624DE0C8984BA537891CD03C5986BED025/');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+a {
+  font-family: 'Retro Gaming';
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+#container #hotbar {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  top: 30px;
+  left: 60px;
+}
+#container #hotbar #glory {
+  font-size: 22px;
+  font-weight: 500;
+  color: #f3b5b1;
+  opacity: 0.8;
+  text-decoration: none;
+  margin-right: 25px;
+  transition: opacity 0.5s;
+}
+#container #hotbar #glory:hover {
+  opacity: 1;
+}
+#container #hotbar .link {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fcf8ee;
+  opacity: 0.6;
+  text-decoration: none;
+  margin-right: 20px;
+  transition: opacity 0.5s;
+}
+#container #hotbar .link:hover {
+  opacity: 1;
+}
+#container #hotbar #currentLink {
+  opacity: 1;
+}
+#container #top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 150px;
+  margin-bottom: 50px;
+}
+#container #top #text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -100px;
+  transition: margin-top 0.5s;
+}
+#container #top #text #back {
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: 400;
+  color: #fcf8ee;
+  opacity: 0.5;
+  margin-left: 0px;
+  margin-bottom: -32px;
+  transition: opacity 0.5s;
+}
+#container #top #text #back:hover {
+  opacity: 1;
+}
+#container #top #text #title {
+  font-size: 70px;
+  font-weight: 500;
+  color: #f3b5b1;
+}
+#container #content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+#container:hover {
+  opacity: 1;
+}
+#container:hover #top #text {
+  margin-top: 0px;
+}
+#container:hover #content #left {
+  margin-right: 50px;
+}
+#container:hover #content #right {
+  margin-left: 50px;
+}
