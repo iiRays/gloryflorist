@@ -1,0 +1,34 @@
+body{
+    font-family: "Cute Font";
+}
+#container #top #text #back{
+    margin-left: 220px;
+}
+
+.item{
+    position: relative;
+    color: white;
+    font-size: 40px;
+    transition: 0.3s;
+    margin-top: -30px;
+    padding: 0;
+    z-index: 1;
+    font-weight: 700;
+}
+
+.item:hover{
+    color: #f3b5b1;
+    font-size: 48px;
+}
+
+.item:hover #counter{
+    color: white;
+}
+
+#counter{
+   margin: 0;
+   float: right;
+   color: #f3b5b1;
+   line-height: 0.8;
+   transition: 0.3s;
+}
