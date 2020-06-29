@@ -12,6 +12,7 @@ html, body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
 }
 a {
   font-family: 'Cute Font';
@@ -26,6 +27,7 @@ a {
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 0;
   transition: opacity 0.8s;
+  overflow: hidden;
 }
 #container #hotbar {
   position: absolute;

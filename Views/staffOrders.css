@@ -1,0 +1,48 @@
+body{
+    font-family: "Cute Font";
+}
+#container #top #text #back{
+    margin-left: 240px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+#top{
+    margin-top: 300px;
+}
+
+body{
+  text-align: center;
+}
+.masonryContainer{
+  
+  position: relative;
+  display: inline-block;
+  width: 70%;
+  column-count: 4;
+  column-gap: 1em;
+  padding: 10px;
+  font-size: 40px;
+}
+
+.item{
+  break-inside: avoid;
+  background: #fff;
+  padding: 1em;
+  margin: 0 0 1.5em;
+}
+
+#high{
+  background-color: blue;
+  vertical-align: middle;
+}
+
+
