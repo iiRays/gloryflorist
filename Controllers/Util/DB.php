@@ -64,7 +64,7 @@ class DB {
     
     //Returns data as an object
     public static function select($sql, $className){
-        $results = self::select($sql);
+        $results = self::selectAsArray($sql);
         $objects = array();
         
         foreach($results as $item){
