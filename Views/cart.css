@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Retro Gaming:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Retro Gaming:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cute Font&display=swap');
 html, body {
   margin: 0px;
   padding: 0px;
@@ -15,7 +14,7 @@ html, body {
   background-size: cover;
 }
 a {
-  font-family: 'Retro Gaming';
+  font-family: 'Cute Font';
 }
 #container {
   display: flex;
@@ -38,8 +37,7 @@ a {
   left: 60px;
 }
 #container #hotbar #glory {
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 40px;
   color: #f3b5b1;
   opacity: 0.8;
   text-decoration: none;
@@ -50,8 +48,7 @@ a {
   opacity: 1;
 }
 #container #hotbar .link {
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 30px;
   color: #fcf8ee;
   opacity: 0.6;
   text-decoration: none;
@@ -83,20 +80,18 @@ a {
 }
 #container #top #text #back {
   text-decoration: none;
-  font-size: 23px;
-  font-weight: 400;
+  font-size: 35px;
   color: #fcf8ee;
   opacity: 0.5;
-  margin-left: 0px;
-  margin-bottom: -32px;
+  margin-left: 20px;
+  margin-bottom: -65px;
   transition: opacity 0.5s;
 }
 #container #top #text #back:hover {
   opacity: 1;
 }
 #container #top #text #title {
-  font-size: 70px;
-  font-weight: 500;
+  font-size: 125px;
   color: #f3b5b1;
 }
 #container #content {
@@ -121,10 +116,9 @@ a {
   justify-content: center;
 }
 #container #content #left #list .heading {
-  font-weight: 500;
-  font-size: 15px;
+  font-size: 30px;
   color: #f3b5b1;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 #container #content #left #list .item {
   display: flex;
@@ -142,8 +136,7 @@ a {
 #container #content #left #list .item .name {
   text-decoration: none;
   color: #fcf8ee;
-  font-weight: 400;
-  font-size: 25px;
+  font-size: 30px;
   margin-left: 15px;
 }
 #container #content #left #list .item .quantity {
@@ -151,9 +144,8 @@ a {
   background: none;
   border: none;
   color: #fcf8ee;
-  font-family: 'Retro Gaming';
-  font-weight: 500;
-  font-size: 25px;
+  font-family: 'Cute Font';
+  font-size: 30px;
   text-align: center;
   width: 50px;
   background-color: rgba(0, 0, 0, 0.25);
@@ -178,18 +170,17 @@ a {
   transition: margin-left 0.5s;
 }
 #container #content #right .heading {
-  font-weight: 500;
-  font-size: 15px;
+  font-size: 25px;
   color: #f3b5b1;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 #container #content #right #save_button {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   background: none;
   border: none;
   color: #fcf8ee;
-  font-family: 'Retro Gaming';
-  font-size: 22px;
+  font-family: 'Cute Font';
+  font-size: 30px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 20px;
@@ -206,7 +197,7 @@ a {
 #container #content #right #proceed_button {
   color: #fcf8ee;
   text-decoration: none;
-  font-size: 22px;
+  font-size: 30px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 20px;
