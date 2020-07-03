@@ -1,5 +1,7 @@
 body{
     font-family: "Cute Font";
+    text-align: center;
+    overflow: hidden;
 }
 #container #top #text #back{
     margin-left: 240px;
@@ -16,33 +18,65 @@ html {
 }
 
 #top{
-    margin-top: 300px;
+    position: relative;
 }
 
-body{
-  text-align: center;
-}
-.masonryContainer{
+#content{
   
   position: relative;
   display: inline-block;
-  width: 70%;
+  
+}
+
+#text{
+    width: 100%;
+}
+
+#container{
+    vertical-align: middle;
+    height: 100%;
+    
+}
+
+#content{
+    position: relative;
+    height: 100%;
+}
+
+.masonryContainer{
+  position: relative;
+  display: inline-block;
+  width: 100%;
   column-count: 4;
   column-gap: 1em;
   padding: 10px;
+  margin: 0;
+  
   font-size: 40px;
 }
 
 .item{
+  display: inline-block;
   break-inside: avoid;
   background: #fff;
-  padding: 1em;
   margin: 0 0 1.5em;
+  
+  vertical-align: top;
 }
 
 #high{
-  background-color: blue;
+  background-color: aqua;
   vertical-align: middle;
 }
 
+.orderID{
+    position: relative;
+    display: inline-block;
+    color: darkslategray;
+    font-weight: 700;
+}
+
+.arrangement{
+    padding: 10px;
+}
 

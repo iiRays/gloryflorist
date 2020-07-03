@@ -23,33 +23,80 @@
                 </div>
             </div>
             <div id="content">
+               
                 <div class="masonryContainer">
                     <div class='item'>
-                        Item 1 <br> asdkajsldkasjl
-                    </div>
-                    <div class='item' id="high">
-                        Item<br><br><br>ss<br><br>ss
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
                     </div>
                     <div class='item'>
-                        Item 1
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
                     </div>
                     <div class='item'>
-                        Item 1
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div>
+                   
+                    <div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
                     </div>
                     <div class='item'>
-                        Item 1
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div><div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
                     </div>
                     <div class='item'>
-                        Item<br><br><br>ss<br><br>ss
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
                     </div>
                     <div class='item'>
-                        Item 1
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div><div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
                     </div>
                     <div class='item'>
-                        Item 1
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
                     </div>
-
-
+                    <div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div>
+                    <div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div><div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div>
+                    <div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div>
+                    <div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div><div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div><div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div>
+                    <div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div>
+                    <div class='item'>
+                        <div class="orderID">O2938</div> 
+                        <div class="arrangement">Extreme bouquet x 3</div> 
+                    </div>
                 </div>
             </div>
         </div>
