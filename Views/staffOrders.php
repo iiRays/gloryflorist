@@ -26,112 +26,70 @@
             <div id="content">
 
                 <div class="masonryContainer">
-                    <div class='item' id="order1">
-                        <div class="orderID">O2938</div> 
-                        <div class="arrangement" data-quantity="3">Extreme bouquet x 3</div> 
+                    <?php
+                    $order1 = '<div class="item" id="order1" data-arrangementcount="4">
+                        <div class="orderID" >O2938</div> 
+                        <div class="arrangement" id="order1arrangement1" data-quantity="3" data-name="Extreme bouquet" data-stalk="12" data-flower="Rose">Extreme bouquet x 3</div> 
                         <div class="flowers">12 stalks</div>
                         <div class="flowers">Rose</div>
-                        <div class="arrangement">Supreme Flowers x 3</div> 
-                        <div class="deadline">3 hours left</div>
-                    </div>
-                    <div class='item'>
-                        <div class="orderID">O2938</div> 
-                        <div class="arrangement">Extreme bouquet x 3</div> 
+                        <div class="arrangement" id="order1arrangement2" data-quantity="2" data-name="Supreme Flowers" data-stalk="10" data-flower="Lily">Supreme Flowers x 2</div> 
+                        <div class="flowers">10 stalks</div>
+                        <div class="flowers">Lily</div>
+                        <div class="arrangement" id="order1arrangement3" data-quantity="3" data-name="Extreme bouquet" data-stalk="12" data-flower="Rose">Extreme bouquet x 3</div> 
                         <div class="flowers">12 stalks</div>
                         <div class="flowers">Rose</div>
-                        <div class="arrangement">Supreme Flowers x 3</div> 
+                        <div class="arrangement" id="order1arrangement4" data-quantity="2" data-name="Supreme Flowers" data-stalk="10" data-flower="Lily">Supreme Flowers x 2</div> 
+                        <div class="flowers">10 stalks</div>
+                        <div class="flowers">Lily</div>
                         <div class="deadline">3 hours left</div>
                     </div>
-                    <div class='item'>
-                        <div class="orderID">O2938</div> 
-                        <div class="arrangement">Extreme bouquet x 3</div> 
-                        <div class="flowers">12 stalks</div>
-                        <div class="flowers">Rose</div>
-                        <div class="arrangement">Supreme Flowers x 3</div> 
-                        <div class="deadline">3 hours left</div>
-                    </div>
-                    <div class='item'>
-                        <div class="orderID">O2938</div> 
-                        <div class="arrangement">Extreme bouquet x 3</div> 
-                        <div class="flowers">12 stalks</div>
-                        <div class="flowers">Rose</div>
-                        <div class="arrangement">Supreme Flowers x 3</div> 
-                        <div class="deadline">3 hours left</div>
-                    </div>
-                    <div class='item'>
-                        <div class="orderID">O2938</div> 
-                        <div class="arrangement">Extreme bouquet x 3</div> 
-                        <div class="flowers">12 stalks</div>
-                        <div class="flowers">Rose</div>
-                        <div class="arrangement">Supreme Flowers x 3</div> 
-                        <div class="deadline">3 hours left</div>
-                    </div>
-                    <div class='item'>
-                        <div class="orderID">O2938</div> 
-                        <div class="arrangement">Extreme bouquet x 3</div> 
-                        <div class="flowers">12 stalks</div>
-                        <div class="flowers">Rose</div>
-                        <div class="arrangement">Supreme Flowers x 3</div> 
-                        <div class="deadline">3 hours left</div>
-                    </div>
-                    <div class='item'>
-                        <div class="orderID">O2938</div> 
-                        <div class="arrangement">Extreme bouquet x 3</div> 
-                        <div class="flowers">12 stalks</div>
-                        <div class="flowers">Rose</div>
-                        <div class="arrangement">Supreme Flowers x 3</div> 
-                        <div class="deadline">3 hours left</div>
-                    </div>
-                    <div class='item'>
-                        <div class="orderID">O2938</div> 
-                        <div class="arrangement">Extreme bouquet x 3</div> 
-                        <div class="flowers">12 stalks</div>
-                        <div class="flowers">Rose</div>
-                        <div class="arrangement">Supreme Flowers x 3</div> 
-                        <div class="deadline">3 hours left</div>
-                    </div>
-                    <div class='item'>
-                        <div class="orderID">O2938</div> 
-                        <div class="arrangement">Extreme bouquet x 3</div> 
-                        <div class="flowers">12 stalks</div>
-                        <div class="flowers">Rose</div>
-                        <div class="arrangement">Supreme Flowers x 3</div> 
-                        <div class="deadline">3 hours left</div>
-                    </div>
+                </div>';
+                            
+                     echo $order1;
+                    ?>
+                </div>
+            </div>
+            <div class="overlay">
+            </div>
+            <div class="itemFocus">
+                <div class="orderID" id="itemFocusOrderID"></div> 
+                <div class="arrangementContainer">
+
                 </div>
 
+                <div class="deadline">3 hours left</div>
             </div>
-        </div>
-        <div class="overlay">
-        </div>
-        <div class="itemFocus">
-            <div class="orderID">O2938</div> 
-            <div class="arrangement">Extreme bouquet <div class="arrangementQuantity"></div></div> 
-            <div class="flowers">12 stalks</div>
-            <div class="flowers">Rose</div>
-            <div class="arrangement">Supreme Flowers x 3</div> 
-            <div class="deadline">3 hours left</div>
-        </div>
-        
+
     </body>
     <script>
         $(".item").click(function () {
             $(".itemFocus").addClass("itemFocusVisible");
             $(".overlay").addClass("overlayVisible");
-            
+
             //get order ID
             var id = this.id;
-            var quantity = $("#" + id +" > .arrangement").data("quantity");
-           
-           // Set values into itemFocus
-           $(".itemFocus > .arrangement > .arrangementQuantity").html(quantity);
+            $("#itemFocusOrderID").html(id);
+            var arrangementCount = $("#" + id).data("arrangementcount");
+            var arrangementContainer = "";
+
+            for (var i = 0; i < arrangementCount; i++) {
+                var quantity = $("#" + id + "arrangement" + (i + 1)).data("quantity");
+                var name = $("#" + id + "arrangement" + (i + 1)).data("name");
+                var flower = $("#" + id + "arrangement" + (i + 1)).data("flower");
+                var stalk = $("#" + id + "arrangement" + (i + 1)).data("stalk");
+
+                arrangementContainer += "<div class='arrangement'>" + name + "<div class='arrangementQuantity'>" + quantity + "</div></div><div class='flowers'>" + stalk + " stalks</div> <div class='flowers'>" + flower + "</div>";
+            }
+
+            // Set values into itemFocus
+            $(".itemFocus > .arrangementContainer").html(arrangementContainer);
         });
         $(".overlay").click(function () {
             $(".itemFocus").removeClass("itemFocusVisible");
             $(".overlay").removeClass("overlayVisible");
         });
         $(document).ready(function () {
-            
+
         });
     </script>
 </html>
