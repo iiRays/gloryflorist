@@ -107,15 +107,14 @@ html {
 }
 
 .deadline{
-    width: 100%;
-    text-align: center;
-    bottom: 0;
-    margin: 0;
+    
     color: red;
 }
 
 
 .itemFocus{
+    align-items: flex-start;
+    justify-content: flex-start;
     visibility: hidden;
     opacity: 0;
     position: absolute;
@@ -124,13 +123,13 @@ html {
     right: 0;
     top: 0;
     bottom: 0;
-    height: 70%;
+    height: 90%;
     margin: auto;
     font-size: 40px;
-    background-color: white;
+    background-color: transparent;
     
-    margin-bottom: 50px;
-    transition: 0.3s;
+    margin-left: -120px;
+    transition: 0.5s;
     text-align: left;
 }
 
@@ -146,8 +145,8 @@ html {
 .itemFocusVisible{
    visibility: visible;
    opacity: 1;
-   margin-bottom: 200px;
-   transition: 0.3s;
+   margin-left: 25%;
+   transition: 0.5s;
 }
 
 .overlayVisible{
@@ -162,15 +161,10 @@ html {
     float: right;
 }
 
-.itemFocus .deadline{
-    display: inline-block;
-    position: absolute;
-    bottom: 0;
-}
 
 .arrangementContainer{
     width: 100%;
-    height: 80%;
+    height: 75%;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -184,8 +178,87 @@ html {
 }
 
 .arrangementContainer::-webkit-scrollbar-thumb {
-    background-color: black;
-    border-width: 5px;
+    background-color: darkturquoise;
+    border-width: 3px;
     border-color: white;
     
+}
+
+.bottomBar{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+.orderStatus{
+    display: flex;
+    width: 100%;
+    
+}
+
+.orderStatus div{
+    flex-grow: 1;
+    text-align: center;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+
+
+.pending{
+    background-color: orange;
+    opacity: 0.3;
+    border-radius: 12px;
+}
+
+.delivering{
+    background-color: lime;
+    opacity: 0.3;
+    border-radius: 12px;
+}
+
+.doing{
+    background-color:  cyan;
+    opacity: 0.3;
+    border-radius: 12px;
+}
+
+.dropped{
+    background-color: red;
+    opacity: 0.3;
+    border-radius: 12px;
+}
+
+.selected{
+    opacity: 1;
+}
+
+.hover{
+    opacity: 1;
+}
+
+.arrangementContainer > .arrangement{
+    position: relative;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 50px;
+}
+
+.arrangementContainer > .arrangement > .flowers{
+    
+    margin-left: 0;
+}
+
+.arrangementQuantity{
+    position: absolute;
+    right: 30px;
+    top: 0;
+    color: darkgray;
+    font-size: 100px;
+}
+
+.itemFocus > .orderID{
+    background-color: transparent;
+    color: white;
 }
