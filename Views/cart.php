@@ -7,24 +7,18 @@
     </head>
     <body>
         
-        <?php
-            /*if (filter_input(INPUT_SERVER, "REQUEST_METHOD") == "POST") { 
-               echo "<script type='text/javascript'>alert('sup');</script>";
-            }*/
-        ?>
-        
-        <form id='container' method='POST' action='order.php'> <!-- <form id='container'> ??? -->
+        <form id='container' method='POST' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> <!-- <form id='container'> ??? -->
 
           <div id='hotbar'>
-            <a href='#' id='glory'>glory florist</a>
+            <a href='home.php' id='glory'>glory florist</a>
             <a href='#' class='link'>shop</a>
-            <a href='#' class='link' id='currentLink'>cart</a>
+            <a href='cart.php' class='link' id='currentLink'>cart</a>
             <a href='#' class='link'>account</a>
           </div>
 
           <div id='top'>
             <div id='text'>
-              <a href='#' id='back'>back to the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shop</a>
+              <a href='home.php' id='back'>back to the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shop</a>
               <a id='title'>Your Cart</a>
             </div>
           </div>
@@ -39,7 +33,9 @@
                 <input type='hidden' name='quantities' id='quantities' value=''>
                 
                 <?php
-                $noOfItems = 3;
+                // TODO: add 'order' and 'orderitem' classes, and use them to store dummy data for this shit
+                
+                $noOfItems = 3; // all this stuff should gotten from db, in reality
                 
                 echo "<div class='item'>
                   <img src='https://i.dlpng.com/static/png/6858266_preview.png'>
@@ -67,7 +63,7 @@
               <a class='heading'>Save changes to your cart</a>
               <input type='submit' id='save_button' name='save' value='SAVE'>
               <a class='heading'>Ready to make your order?</a>
-              <a href='#' id='proceed_button'>PROCEED</a>
+              <a href='confirmOrder.php' id='proceed_button'>PROCEED</a>
             </div>
 
           </div>
@@ -77,6 +73,7 @@
         </body>
         
         <script>
+            // upon saving, get all the quantities (from textboxes) and set their array as value of hidden field
             $('#save_button').click(function(){
                 var quantities = $('input[class="quantity"]').map(function(){
                     return this.value;
@@ -84,4 +81,18 @@
                 $('#quantities').val(quantities);
             });
         </script>
+        
+        <?php
+            
+            // upon saving
+            if (filter_input(INPUT_SERVER, "REQUEST_METHOD") == "POST") {
+                // declare variables
+                $quantities = explode(",", filter_input(INPUT_POST, "quantities"));
+                
+                //echo "<script type='text/javascript'>alert('$quantities[0]');</script>"; // debug
+                
+                // TODO: when saving, actually update records in db
+            }
+        
+        ?>
 </html>
