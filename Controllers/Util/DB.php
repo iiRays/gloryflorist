@@ -7,14 +7,13 @@ class DB {
         // Database connection settings
         $username = "root";
         $password = "";
-        $dbName = "collegedb";
+        $dbName = "flowerdb";
 
         // Establish connection
-        $conn = new mysqli("localhost", $username, $password, $dbName);
+        $conn = new PDO("mysql:host=localhost;dbname=$dbName", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+
 
         return $conn;
     }
@@ -25,7 +24,7 @@ class DB {
 
     // CRUD
     public static function insert($object) {
-        $conn = $this::connectDB();
+        $conn = DB::connectDB();
 
         //For this to work, object MUST have a "generate insert statement".
         $sql = $object->generateInsert();
@@ -44,31 +43,35 @@ class DB {
 
     // Returns data as associative array
     // eg. resultArray[0]['name'] refers to the first result's "name" column.
-    public static function selectAsArray($sql) {
-        $conn = DB::connectDB();
-
-        $result = $conn->query($sql);
-        $resultArray = array();
-
-        //Store results in array
-        // Code is possible thanks to https://stackoverflow.com/questions/26191873/how-to-store-data-as-an-associative-array-from-mysql-database-in-php
-        while ($row = $result->fetch_assoc()) {
-            array_push($resultArray, $row);
-            
-        }
-
-        DB::disconnectDB($conn);
-
-        return $resultArray;
+    public static function selectAsArray($sql, $conn) {
+        $sql->execute();
+        return $sql->fetchAll();
     }
-    
+
+    public static function selectByID($id, $class) {
+        $conn = DB::connectDB();
+        $sql = $conn->prepare('SELECT * FROM :tableName WHERE id = :id');
+
+
+
+        if (!$sql)
+            die('prepare() failed: ' . htmlspecialchars($conn->error));
+
+        $sql->bindParam(":tableName", $class);
+        $sql->bindParam(":id", $id);
+
+        $conn = null;
+
+        return $sql->fetchObject($class);
+    }
+
     //Returns data as an object
-    public static function select($sql, $className){
+    public static function select($sql, $className) {
         $results = self::selectAsArray($sql);
         $objects = array();
-        
-        foreach($results as $item){
-            
+
+        foreach ($results as $item) {
+
             array_push($objects, self::arrayToObject($item, $className));
         }
         return $objects;
@@ -76,21 +79,38 @@ class DB {
 
     //Converts array to an object
     public static function arrayToObject($item, $className) {
-            $object = new $className(); //Creates the object based on className
+        $object = new $className(); //Creates the object based on className
 
+        foreach ($item as $key => $value) {
+
+            // Set's the array's key value to object's property (name = array key) 
+            // Ensure that the sql result column (or array key) is the SAME as object's attribute name (eg. customer.custID = array['custID']
+            // Eg. array['name'] will be set to customer.name
+            $object->$key = $value;
+        }
+
+        return $object;
+    }
+
+    //Converts array with many subarrays to an object list
+    public static function arrayToObjectList($array, $className) {
+        $resultArray = array();
+
+
+        foreach ($array as $item) {
+            $object = new $className(); //Creates the object based on className
             foreach ($item as $key => $value) {
-                
+
                 // Set's the array's key value to object's property (name = array key) 
                 // Ensure that the sql result column (or array key) is the SAME as object's attribute name (eg. customer.custID = array['custID']
                 // Eg. array['name'] will be set to customer.name
                 $object->$key = $value;
-               
             }
-        
-        return $object;
-    }
-    
-    
 
+            array_push($resultArray, $object);
+        }
+
+        return $resultArray;
+    }
 
 }
