@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cute Font&display=swap');
-html, body, form {
+html, body {
   margin: 0px;
   padding: 0px;
   height: 100%;
@@ -73,7 +73,7 @@ a {
 #container #top #text {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin-top: -100px;
   transition: margin-top 0.5s;
@@ -83,7 +83,7 @@ a {
   font-size: 35px;
   color: #fcf8ee;
   opacity: 0.5;
-  margin-left: 20px;
+  margin-left: 70px;
   margin-bottom: -65px;
   transition: opacity 0.5s;
 }
@@ -109,57 +109,53 @@ a {
   margin-right: -20px;
   transition: margin-right 0.5s;
 }
-#container #content #left #list {
+#container #content #left .heading {
+  font-size: 30px;
+  color: #f3b5b1;
+  margin-bottom: 10px;
+}
+#container #content #left #receipt {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 }
-#container #content #left #list .heading {
-  font-size: 30px;
-  color: #f3b5b1;
-  margin-bottom: 10px;
-}
-#container #content #left #list .item {
+#container #content #left #receipt .item {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  height: 40px;
   opacity: 0.7;
   transition: opacity 0.5s;
 }
-#container #content #left #list .item img {
-  height: 50px;
+#container #content #left #receipt .item .amount {
+  color: #f3b5b1;
+  font-size: 40px;
+  width: 60px;
 }
-#container #content #left #list .item .name {
+#container #content #left #receipt .item .name {
+  color: #fcf8ee;
+  font-size: 30px;
+  width: 200px;
   text-decoration: none;
-  color: #fcf8ee;
-  font-size: 30px;
-  margin-left: 15px;
 }
-#container #content #left #list .item .quantity {
-  margin-left: 15px;
-  background: none;
-  border: none;
-  color: #fcf8ee;
-  font-family: 'Cute Font';
-  font-size: 30px;
-  text-align: center;
-  width: 50px;
-  background-color: rgba(0, 0, 0, 0.25);
-  transition: background-color 0.5s;
+#container #content #left #receipt .item .price {
+  color: #f3b5b1;
+  font-size: 20px;
+  width: 80px;
 }
-#container #content #left #list .item .quantity:focus {
-  outline: none;
-  background-color: rgba(252, 248, 238, 0.25);
-}
-#container #content #left #list .item .quantity:hover {
-  background-color: rgba(252, 248, 238, 0.25);
-}
-#container #content #left #list .item:hover {
+#container #content #left #receipt .item:hover {
   opacity: 1;
+}
+#container #content #left #total {
+  color: #fcf8ee;
+  font-size: 30px;
+  margin-top: 10px;
+}
+#container #content #left #total span {
+  font-size: 40px;
+  color: #f3b5b1;
 }
 #container #content #right {
   display: flex;
@@ -170,43 +166,9 @@ a {
   transition: margin-left 0.5s;
 }
 #container #content #right .heading {
-  font-size: 25px;
+  font-size: 30px;
   color: #f3b5b1;
   margin-bottom: 10px;
-}
-#container #content #right #save_button {
-  margin-bottom: 30px;
-  background: none;
-  border: none;
-  color: #fcf8ee;
-  font-family: 'Cute Font';
-  font-size: 30px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: rgba(243, 181, 177, 0.25);
-  transition: background-color 0.5s;
-}
-#container #content #right #save_button:focus {
-  outline: none;
-}
-#container #content #right #save_button:hover {
-  background-color: rgba(243, 181, 177, 0.5);
-}
-#container #content #right #proceed_button {
-  color: #fcf8ee;
-  text-decoration: none;
-  font-size: 30px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: rgba(243, 181, 177, 0.25);
-  transition: background-color 0.5s;
-}
-#container #content #right #proceed_button:hover {
-  background-color: rgba(243, 181, 177, 0.5);
 }
 #container:hover {
   opacity: 1;
