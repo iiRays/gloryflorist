@@ -1,5 +1,5 @@
 <?php
-include "Model/Flower.php";
+include "Model/FloralArrangement.php";
 include "Controllers/Util/DB.php";
 
 //$flower = new Flower();
@@ -11,10 +11,12 @@ include "Controllers/Util/DB.php";
 //
 //$flower->save();
 
+//I want get floral arrangement
 $conn = DB::connectDB();
-$sql = $conn->prepare("select * from flower where flowerID = :id");
-$id = "TEST";
+$sql = $conn->prepare("select * from floralArrangement where floralArrangementID = :id");
+$id = "Test";
 $sql->bindParam(":id", $id);
-$array = DB::selectAsArray($sql, $conn); // get result
-$flowerList = DB::arrayToObjectList($array, "Flower"); //conver to object array
-echo $flowerList[0]->flowerID;
+$result = DB::get($sql, $conn, "FloralArrangement");
+
+//I want to know what flowers are used
+echo ($result[0]->flowerItemCollection[0]->flower->flowerName);

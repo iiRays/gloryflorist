@@ -1,5 +1,8 @@
 <?php
 
+include "Model/FlowerItem.php";
+include "Model/Flower.php";
+
 class DB {
 
     // Connection
@@ -65,6 +68,11 @@ class DB {
         return $sql->fetchObject($class);
     }
 
+    // Fetch data from database as objects
+    public static function get($sql, $conn, $className) {
+        return DB::arrayToObjectList(DB::selectAsArray($sql, $conn), $className);
+    }
+
     //Returns data as an object
     public static function select($sql, $className) {
         $results = self::selectAsArray($sql);
@@ -112,5 +120,7 @@ class DB {
 
         return $resultArray;
     }
+
+  
 
 }
