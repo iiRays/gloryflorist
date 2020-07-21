@@ -1,8 +1,5 @@
 <?php
 
-include "Model/FlowerItem.php";
-include "Model/Flower.php";
-
 class DB {
 
     // Connection
