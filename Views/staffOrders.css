@@ -196,14 +196,19 @@ html {
     
 }
 
-.orderStatus div{
+.orderStatus a{
     flex-grow: 1;
     text-align: center;
     margin: 10px;
     transition: 0.3s;
+    color: black;
 }
 
-
+a{
+    transition: 0.2s;
+    text-decoration: none;
+    
+}
 
 .pending{
     background-color: orange;

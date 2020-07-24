@@ -40,14 +40,14 @@
                         //Get order item
                         $orderItemList = R::find("orderitem", "order_id = ?", [$id]);
                         $count = count($orderItemList);
-                        $order .= "<div class=\"item\" id=\"{$id}\" data-arrangementcount=\"{$count}\">
+                        $order .= "<div class=\"item\" id=\"{$id}\" data-arrangementcount=\"{$count}\" data-status=\"{$individualOrder->status}\">
                         <div class=\"orderID\" >order {$id}</div>";
 
                         $counter = 0;
                         foreach ($orderItemList as $orderItem) {
                             $arrangement = $orderItem->arrangement;
                             $counter += 1;
-                            $order .= "  <div class=\"arrangement\" id=\"{$id}arrangement{$counter}\" data-status=\"{$arrangement->status}\" data-quantity=\"{$orderItem->quantity}\" data-name=\"{$arrangement->name}\" data-stalk=\"{$arrangement->stalks}\" data-flower=\"{$arrangement->flower->flowerName}\">{$arrangement->name} x {$orderItem->quantity}</div> 
+                            $order .= "  <div class=\"arrangement\" id=\"{$id}arrangement{$counter}\"  data-quantity=\"{$orderItem->quantity}\" data-name=\"{$arrangement->name}\" data-stalk=\"{$arrangement->stalks}\" data-flower=\"{$arrangement->flower->flowerName}\">{$arrangement->name} x {$orderItem->quantity}</div> 
                         <div class=\"flowers\">{$arrangement->stalks} stalks</div>
                         <div class=\"flowers\">{$arrangement->flower->flowerName}</div>";
                         }
@@ -90,10 +90,10 @@
                 <div class="bottomBar">
                     <div class="deadline">3 hours left</div>
                     <div class="orderStatus">
-                        <a href="" id="pendingBt"><div class="pending selected" id="pending">Pending</div></a>
-                        <a href="" id="doingBt"><div class="doing" id="doing">Doing</div></a>
-                        <a href="" id="deliveringBt"> <div class="delivering" id="delivering">Delivering</div></a>
-                        <a href="" id="droppedBt"> <div class="dropped" id="dropped" >Dropped</div></a>
+                        <a href="" class="pending" id="pending"><div>Pending</div></a>
+                        <a href="" class="doing" id="doing"><div>Doing</div></a>
+                        <a href="" class="delivering" id="delivering"> <div>Delivering</div></a>
+                        <a href="" class="dropped" id="dropped"> <div >Dropped</div></a>
                     </div>
                 </div>
             </div>
@@ -124,27 +124,27 @@
 
 
             //Wrap the status buttons with the correct order ID
-            $("#pendingBt").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=pending");
-            $("#doingBt").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=doing");
-            $("#deliveringBt").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=delivering");
-            $("#droppedBt").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=dropped");
+            $("#pending").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=pending");
+            $("#doing").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=doing");
+            $("#delivering").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=delivering");
+            $("#dropped").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=dropped");
 
             //Highlight the current status
             switch (status) {
                 case "doing":
-                    $(".orderStatus div").removeClass("selected");
+                    $(".orderStatus a").removeClass("selected");
                     $("#doing").addClass("selected");
                     break;
                 case "delivering":
-                    $(".orderStatus div").removeClass("selected");
+                    $(".orderStatus a").removeClass("selected");
                     $("#delivering").addClass("selected");
                     break;
                 case "dropped":
-                    $(".orderStatus div").removeClass("selected");
-                    $("#pending").addClass("selected");
+                    $(".orderStatus a").removeClass("selected");
+                    $("#dropped").addClass("selected");
                     break;
                 default: //Default will be pending
-                    $(".orderStatus div").removeClass("selected");
+                    $(".orderStatus a").removeClass("selected");
                     $("#pending").addClass("selected");
                     break;
             }
@@ -154,14 +154,14 @@
             $(".itemFocus").removeClass("itemFocusVisible");
             $(".overlay").removeClass("overlayVisible");
         });
-        $(".orderStatus div").click(function () {
-            $(".orderStatus div").removeClass("selected");
+        $(".orderStatus a").click(function () {
+            $(".orderStatus a").removeClass("selected");
             $(this).addClass("selected");
         });
-        $(".orderStatus div").mouseover(function () {
+        $(".orderStatus a").mouseover(function () {
             $(this).addClass("hover");
         });
-        $(".orderStatus div").mouseleave(function () {
+        $(".orderStatus a").mouseleave(function () {
             $(this).removeClass("hover");
         });
         $(document).ready(function () {

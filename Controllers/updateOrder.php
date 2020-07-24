@@ -7,14 +7,16 @@ $query = Quick::getQueryStr();
 $orderId = $query["id"];
 $status = $query["status"];
 
+
 if($orderId == null || $status == null){
     header("Location: ../Views/staffOrders.php");
     return;
 }
 
-
+R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql or mariaDB
+//
 //Obtain latest data
-$order = R::find("orders", "where id = ?", [$orderId]);
+$order = R::load("orders", $orderId);
 
 if($order == null){
     header("Location: ../Views/staffOrders.php");
@@ -36,12 +38,12 @@ switch($status){
         $order->status = "delivering";
         break;
     default:
-        $order->status = "canceled";
+        $order->status = "dropped";
         break;
 }
 
 R::store($order);
 
 //Redirect
-header("Location: ../Views/staffOrders.php");
+header("Location: ../Views/staffOrders.php?success=".$status);
 return;
