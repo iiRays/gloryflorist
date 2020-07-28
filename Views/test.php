@@ -50,6 +50,7 @@ $order = R::dispense("orders");
 $order->grandTotal = 100.00;
 $order->deliveryAddress = "Sabah";
 $order->status = "pending";
+$order->targetDate = date_create("2020-07-28 20:00");
 
 
 // Each arrangement, 1 order item

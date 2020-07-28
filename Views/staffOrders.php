@@ -28,6 +28,7 @@
                 <div class="masonryContainer">
                     <?php
                     include "../Controllers/Util/rb.php";
+                    include "../Controllers/Util/Quick.php";
 
                     R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql or mariaDB
                     $orderList = R::findAll("orders");
@@ -36,11 +37,13 @@
                     foreach ($orderList as $individualOrder) {
 
                         $id = $individualOrder->id;
-
+                        $deadline =(new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->targetDate))))->diff(Quick::getCurrentTime())->format("%dd %hh %im");
+                        
+                        
                         //Get order item
                         $orderItemList = R::find("orderitem", "order_id = ?", [$id]);
                         $count = count($orderItemList);
-                        $order .= "<div class=\"item\" id=\"{$id}\" data-arrangementcount=\"{$count}\" data-status=\"{$individualOrder->status}\">
+                        $order .= "<div class=\"item\" id=\"{$id}\" data-arrangementcount=\"{$count}\" data-status=\"{$individualOrder->status}\" data-deadline=\"{$deadline}\">
                         <div class=\"orderID\" >order {$id}</div>";
 
                         $counter = 0;
@@ -52,8 +55,10 @@
                         <div class=\"flowers\">{$arrangement->flower->flowerName}</div>";
                         }
 
-                        $order .= "<div class=\"deadline\">3 hours left</div></div></div>";
+                        $order .= "<div class=\"deadline\">$deadline left</div></div></div>";
                     }
+                    
+                    
 //
 //                    //Generate an order
 //                    $id = "order2";
@@ -88,7 +93,7 @@
                 </div>
 
                 <div class="bottomBar">
-                    <div class="deadline">3 hours left</div>
+                    <div class="deadline" id="overlayDeadline">3 hours left</div>
                     <div class="orderStatus">
                         <a href="" class="pending" id="pending"><div>Pending</div></a>
                         <a href="" class="doing" id="doing"><div>Doing</div></a>
@@ -108,7 +113,10 @@
             $("#itemFocusOrderID").html("order " + id);
             var arrangementCount = $("#" + id).data("arrangementcount");
             var status = $("#" + id).data("status");
+            var deadline = $("#" + id).data("deadline");
             var arrangementContainer = "";
+            
+            $("#overlayDeadline").html(deadline + " left");
 
             for (var i = 0; i < arrangementCount; i++) {
                 var quantity = $("#" + id + "arrangement" + (i + 1)).data("quantity");
