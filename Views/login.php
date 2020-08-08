@@ -3,7 +3,7 @@
     <head>
         <title>Glory Florist : Login</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="logins.css">
+        <link type="text/css" rel="stylesheet" href="CSS/logins.css">
     </head>
     <body>
         <div class="header">

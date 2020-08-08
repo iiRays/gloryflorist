@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Glory Florist :: Order</title>
-        <link rel="stylesheet" href="confirmOrder.css">
+        <link rel="stylesheet" href="CSS/confirmOrder.css">
     </head>
     <body>
 

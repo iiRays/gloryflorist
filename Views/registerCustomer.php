@@ -3,7 +3,7 @@
     <head>
         <title>Glory Florist : Register</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="registerCustomer.css">
+        <link type="text/css" rel="stylesheet" href="CSS/registerCustomer.css">
     </head>
     <body>
         <div class="header">

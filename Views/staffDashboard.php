@@ -2,8 +2,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Glory Florist : Staff Dashboard</title>
-        <link rel="stylesheet" href="common.css">
-        <link rel="stylesheet" href="staffDashboard.css">
+        <link rel="stylesheet" href="CSS/common.css">
+        <link rel="stylesheet" href="CSS/staffDashboard.css">
     </head>
     <body>
         <div id='container'> <!-- <form id='container'> ??? -->
