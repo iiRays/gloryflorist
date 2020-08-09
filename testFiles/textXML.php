@@ -1,7 +1,7 @@
 <?php
 
-include "../Controllers/Util/XMLConverter.php";
+include "../Controllers/Util/XUtil.php";
 
-// Obtain data
- header('Content-type:  text/xml');
-echo XMLConverter::getInstance()->getAll("flower");
+ $converter = XUtil::getInstance();
+ $xml = $converter->getAll("flower");
+echo $converter->applyStyle($xml, "testXSL.xsl");

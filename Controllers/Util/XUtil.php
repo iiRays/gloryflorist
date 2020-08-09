@@ -5,7 +5,7 @@
 
 require_once("rb.php");
 
-class XMLConverter {
+class XUtil {
 
     private static $converter = null;
 
@@ -16,7 +16,7 @@ class XMLConverter {
 
     public static function getInstance() {
         if (self::$converter == null) {
-            self::$converter = new XMLConverter();
+            self::$converter = new XUtil();
         }
 
         return self::$converter;
@@ -33,22 +33,22 @@ class XMLConverter {
         }
         
         //Perform conversion
-        return self::convertToXML($result);
+        return self::convertToXML($result, $type);
     }
 
     // Accepts a RedBeanPHP result as input and returns an XML design
-    public function convertToXML($result) {
+    public function convertToXML($result, $nodeName) {
         $xml = new DOMDocument();
 
         //Create the root element
-        $xml->appendChild($xml->createElement('testResults'));
+        $xml->appendChild($xml->createElement($nodeName . "s"));
         $xmlRoot = $xml->documentElement;
 
         // Reference: (Peel 2013) @ https://stackoverflow.com/questions/12576676/converting-mysql-table-data-directly-to-an-xml-in-php
 
         foreach ($result as $item) {
             // Create a node
-            $node = $xml->appendChild($xml->createElement('flower'));
+            $node = $xml->appendChild($xml->createElement($nodeName));
 
             // Each data inside flower
             foreach ($item as $key => $value) {
@@ -67,7 +67,25 @@ class XMLConverter {
         }
 
 
-        return $xml->saveXML();
+        return $xml;
+    }
+    
+    public function applyStyle($xml, $xslFileName){
+        
+        //Load XSL file
+        $xsl = new DOMDocument();
+        $xsl->load($xslFileName);
+        
+        
+        $xlstProc = new XSLTProcessor();
+        $xlstProc->importStylesheet($xsl);
+        
+        return $xlstProc->transformToXml($xml);
+    }
+    
+    public function display($xml){
+        header('Content-type:  text/xml');
+        echo $xml->saveHTML();
     }
 
 }
