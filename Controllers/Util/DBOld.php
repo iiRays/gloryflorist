@@ -1,6 +1,8 @@
 <?php
 
-class DB {
+// NOTE: OLD CLASS
+
+class DBOld {
 
     // Connection
     public static function connectDB() {
