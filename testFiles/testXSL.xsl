@@ -20,7 +20,7 @@
                 <title>testXSL.xsl</title>
             </head>
             <body>
-                <h2>My CD Collection</h2>
+                <h2>My Flower Collection</h2>
                 <table border="1">
                     <tr bgcolor="#9acd32">
                         <th>Flower Name</th>

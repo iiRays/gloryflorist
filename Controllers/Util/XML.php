@@ -1,43 +1,19 @@
 <?php
 
-// Author: Johann Lee Jia Xuan
-// Implements Singleton pattern
-
-require_once("rb.php");
-
-class XUtil {
-
-    private static $converter = null;
-
-    // Private to disable object creation outside of this class
-    private function __construct() {
-        R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql or mariaDB
+/**
+ * 
+ *
+ * @author Johann Lee Jia Xuan
+ */
+class XML {
+    private $xml;
+    
+    public function __construct(){
+         $this->xml = new DOMDocument();
     }
 
-    public static function getInstance() {
-        if (self::$converter == null) {
-            self::$converter = new XUtil();
-        }
-
-        return self::$converter;
-    }
-
-    // Get all items
-    public function getAll($type) {
-
-        // Get data
-        $result = R::findAll($type);
-
-        if (!$result) {
-            return null;
-        }
-        
-        //Perform conversion
-        return self::convertToXML($result, $type);
-    }
-
-    // Accepts a RedBeanPHP result as input and returns an XML design
-    public function convertToXML($result, $nodeName) {
+    // Accepts a RedBeanPHP result as input and stores the XML design
+    public function loadIntoXML($result, $nodeName) {
         $xml = new DOMDocument();
 
         //Create the root element
@@ -47,6 +23,7 @@ class XUtil {
         // Reference: (Peel 2013) @ https://stackoverflow.com/questions/12576676/converting-mysql-table-data-directly-to-an-xml-in-php
 
         foreach ($result as $item) {
+            
             // Create a node
             $node = $xml->appendChild($xml->createElement($nodeName));
 
@@ -67,10 +44,10 @@ class XUtil {
         }
 
 
-        return $xml;
+        $this->xml = $xml;
     }
     
-    public function applyStyle($xml, $xslFileName){
+    public function styleWith($xslFileName){
         
         //Load XSL file
         $xsl = new DOMDocument();
@@ -80,12 +57,18 @@ class XUtil {
         $xlstProc = new XSLTProcessor();
         $xlstProc->importStylesheet($xsl);
         
-        return $xlstProc->transformToXml($xml);
+        return $xlstProc->transformToXml($this->xml);
     }
     
-    public function display($xml){
+    public function display(){
         header('Content-type:  text/xml');
-        echo $xml->saveHTML();
+        echo $this->xml->saveHTML();
+    }
+    
+    function getXml() {
+        return $this->xml;
     }
 
+    
+  
 }
