@@ -33,7 +33,10 @@
                 <input type='hidden' name='quantities' id='quantities' value=''>
                 
                 <?php
-                // TODO: add 'order' and 'orderitem' classes, and use them to store dummy data for this shit
+                include "../Controllers/Util/rb.php";
+                
+                R::setup('mysql:host=localhost;dbname=flowerdb', 'root', '');
+                $orderItems = R::findAll("orderItems");
                 
                 $noOfItems = 3; // all this stuff should gotten from db, in reality
                 

@@ -33,6 +33,11 @@ class XMLDatabaseFactory extends XMLFactory{
         return $xml;
     }
 
-    
+    // Create XML based on pre-queried result
+    public function createXMLFromResult($result, $nodeName) {
+        $xml = new XML();
+        $xml->loadIntoXML($result, $nodeName);
+        return $xml;
+    }
 
 }
