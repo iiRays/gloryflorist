@@ -16,6 +16,11 @@ html, body {
 a {
   font-family: 'Cute Font';
 }
+input[type=submit] {
+  font-family: 'Cute Font';
+  outline: none;
+  border: none;
+}
 #container {
   display: flex;
   flex-direction: column;
@@ -175,9 +180,7 @@ a {
 #container #bottom #content #changes #text span {
   color: #f3b5b1;
 }
-#container #bottom #content #changes:hover {
-  opacity: 1;
-}
+
 #container #bottom #content #list {
   display: flex;
   flex-direction: column;

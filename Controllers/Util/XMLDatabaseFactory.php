@@ -29,15 +29,8 @@ class XMLDatabaseFactory extends XMLFactory{
     public function createXMLFromDB($tableName){
         $result = R::findAll($tableName);
         $xml = new XML();
-        $xml->loadIntoXML($result, $tableName);
+        $xml->createRoot($tableName."List");
+        $xml->appendXML($result, $tableName);
         return $xml;
     }
-
-    // Create XML based on pre-queried result
-    public function createXMLFromResult($result, $nodeName) {
-        $xml = new XML();
-        $xml->loadIntoXML($result, $nodeName);
-        return $xml;
-    }
-
 }

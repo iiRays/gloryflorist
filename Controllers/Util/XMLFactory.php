@@ -7,13 +7,11 @@ require_once("rb.php");
 require_once("XML.php");
 
 class XMLFactory {
-    
-    public function createXML($data, $nodeName){
+
+    public function createXML($rootName) {
         $xml = new XML();
-        $xml->loadIntoXML($data, $nodeName);
+        $xml->createRoot($rootName);
         return $xml;
     }
-
-    
 
 }

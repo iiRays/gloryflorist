@@ -7,27 +7,27 @@
  */
 class XML {
     private $xml;
+    private $xmlRoot;
     
     public function __construct(){
          $this->xml = new DOMDocument();
     }
-
-    // Accepts a RedBeanPHP result as input and stores the XML design
-    public function loadIntoXML($result, $nodeName) {
-        $xml = new DOMDocument();
-
-        //Create the root element
-        $xml->appendChild($xml->createElement($nodeName . "s"));
+    
+    public function appendXML($result, $nodeName){
+         //Create the root element
+        $xml = $this->xml;
         $xmlRoot = $xml->documentElement;
 
         // Reference: (Peel 2013) @ https://stackoverflow.com/questions/12576676/converting-mysql-table-data-directly-to-an-xml-in-php
+        
+        $mainNode = $xml->createElement($nodeName."s");
 
         foreach ($result as $item) {
             
             // Create a node
             $node = $xml->appendChild($xml->createElement($nodeName));
 
-            // Each data inside flower
+            // Each data inside node
             foreach ($item as $key => $value) {
 
                 // Create a String node
@@ -39,13 +39,26 @@ class XML {
             }
 
 
-            // Put the flower inside the entire result
-            $xmlRoot->appendChild($node);
+            // Put the node inside the entire result
+            $mainNode->appendChild($node);
+            $xmlRoot->appendChild($mainNode);
         }
 
 
         $this->xml = $xml;
     }
+    
+    
+    public function createRoot($rootName){
+        $xml = new DOMDocument();
+        $xmlRoot = $xml->documentElement;
+        
+        $xml->appendChild($xml->createElement($rootName));
+        $this->xmlRoot = $xmlRoot;
+        $this->xml = $xml;
+    }
+    
+    
     
     public function styleWith($xslFileName){
         
