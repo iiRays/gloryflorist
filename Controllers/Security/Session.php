@@ -27,22 +27,29 @@ class Session{
         }
     }
    
-    
+    // Starts a session if none exists
     public static function start(){
         if(session_id() == ""){
             session_start();
         }
     }
     
+    // Stops a session if one exists
     public static function stop(){
         self::start();
         if(session_id() != ""){
+             session_regenerate_id(true);
             session_unset();
             session_destroy();
+            
             session_write_close();
+             
+             
+            
         }
     }
     
+    // Checks whether a user is logged in
     public static function isLoggedIn(){
         self::start();
         if(isset($_SESSION["user"])){
@@ -56,23 +63,28 @@ class Session{
     public static function loginUser($user){
         
         // If this user already logged in somewhere else
-         if($user->sessionID != null){
+         if($user->sessionToken != null){
            // This user has already logged in somewhere else
            // Solution: Make this user the active one
            
            // Stop the other login
-           self::stopSpecificSession($user->sessionID);
-           $user->sessionID = null;
+           self::stopSpecificSession($user->sessionToken);
+          
+           $user->sessionToken = null;
        }
         
         // Add session ID (or replace if already have)
         self::start();
         
-        $user->sessionID = session_id();
+        // New session ID
+        session_regenerate_id(true);
+        $user->sessionToken = session_id();
         self::set("user", $user);
+        echo "New session: " . session_id();
+        
         // Update session ID in user in the database
         R::store($user);  
-        echo var_dump($user->sessionID);
+        
     }
     
     public static function logoutUser($user){
@@ -86,16 +98,17 @@ class Session{
         self::stop();
         
         //Remove session ID in the database
-        $user->sessionID = null;
+        $user->sessionToken = null;
         R::store($user);
     }
    
    public static function stopSpecificSession($id){
+        echo "Stopping session " . $id . "<br/>";
+        
        session_id($id);
        session_start();
        session_unset();
+       
        session_destroy();
-       session_commit();
-       return;
    }
 }

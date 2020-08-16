@@ -7,11 +7,9 @@ require_once("../Controllers/Util/DB.php");
 
 
 
-if(Session::get("user")){
+if(Session::isLoggedIn()){
     echo "logged in";
 } else{
     echo "GUEST";
 }
-
-echo session_id();
 
