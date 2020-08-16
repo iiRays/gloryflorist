@@ -5,6 +5,7 @@
 
 require_once("rb.php");
 require_once("XML.php");
+require_once("DB.php");
 
 class XMLFactory {
 
@@ -19,11 +20,7 @@ class XMLFactory {
         // Create the XML
         $xml = $this->buildXML($tableName."List"); // Root node will be eg. userList
         
-        // If this is an XML meant from database
-        // Check if redbeanphp is already setup
-        if (!R::testConnection()) {
-            R::setup('mysql:host=localhost;dbname=flowerdb', 'root', '');
-        }
+        DB::connect();
         
         // Root name MUST BE EQUAL to a database table name for this to work
         $result = R::findAll($tableName);

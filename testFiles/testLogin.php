@@ -1,8 +1,10 @@
 <?php
-include "../Controllers/Util/Quick.php";
-include "../Controllers/Util/rb.php";
+require_once("../Controllers/Util/Quick.php");
+require_once("../Controllers/Util/rb.php");
+require_once("../Controllers/Security/Session.php");
+require_once("../Controllers/Util/DB.php");
 
-R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql or mariaDB
+DB::connect();
 
 //Get data from form
 $email = Quick::getPostData("email");
@@ -18,7 +20,8 @@ if($user == null){
 }else{
     //Compare password
     if($user->password == $password){
-        echo "Login successful";
+        
+        Session::loginUser($user);
     }
     else{
         echo "incorrect password";
