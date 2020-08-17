@@ -19,13 +19,13 @@ include('services.php');
             <div id='links'>
                 <a class='link' href='#'>shop</a>
                 <a class='link' href='cart.php'>cart</a>
-                <a class='link' href='#'>account</a>
+                <a class='link' href='Account.php'>account</a>
             </div>
         </div>
 
         <div class="content">
-            <?php if (isset($_SESSION["userID"])): ?>
-                <p>Welcome <strong><?php echo $_SESSION['userID']; ?></strong></p>
+            <?php if (isset($_SESSION["name"])): ?>
+                <p>Welcome <strong><?php echo $_SESSION['name']; ?></strong></p>
                 <p><a href="home.php?logout='1'" style="color: red">Logout</a></p>
             <?php endif ?>
         </div>

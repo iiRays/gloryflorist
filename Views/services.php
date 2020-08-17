@@ -27,10 +27,15 @@ if (isset($_POST['register'])) {
     }
     if ($password_1 != $password_2) {
         array_push($errors, "Password does not match");
+    }   
+    
+    // Check for existing email
+    if(R::find("user", "email = ?", [$email])){
+        array_push($errors, "An account with this email already exists.");
     }
 
     if (count($errors) == 0) {
-        $user = R::dispense("users");
+        $user = R::dispense("user");
         $user->email = $email;
         $user->password = "$password_1";
         $user->name = "$name";
@@ -49,8 +54,8 @@ if (isset($_POST['login'])) {
 //Get data from form
     $email = Quick::getPostData("email");
     $password = Quick::getPostData("password_1");
-
-    $users = R::findOne("users", "email = ?", [$email]);
+    
+    $user = R::findOne("user", "email = ?", [$email]);
     
     //validation
     if (empty($email)) {
@@ -59,9 +64,12 @@ if (isset($_POST['login'])) {
     if (empty($password)) {
         array_push($errors, "Password is required");
     }
+    
     if (count($errors) == 0) {
-        if ($users->password == $password) {
-            Session::loginUser($users);
+        
+         
+        if ($user != null && $user->password == $password) {
+            Session::loginUser($user);
             header('location: home.php');
         } else {
             array_push($errors, "Wrong Email/Password");

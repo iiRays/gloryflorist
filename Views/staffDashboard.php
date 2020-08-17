@@ -1,3 +1,8 @@
+<?php
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("staff");
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -29,9 +34,12 @@
                         <div id="counter">7</div>
                     </div>
                     <br/><br/><br/>
-                    <div class="item" id="staff">
-                        Manage staff
-                    </div>
+                    <?php
+                    if (Authorize::isUserA("admin")) {
+                        
+                        echo '<div class="item" id="staff">Manage staff</div>';
+                    }
+                    ?>
                 </div>
                 <div id="right">
                     <div class="item" id="arrangement">
