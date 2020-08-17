@@ -13,8 +13,8 @@
         <form method="post" action="login.php">
             <?php include('errors.php'); ?>
             <div class="input-group">
-                <label>User ID</label>
-                <input type="text" name="userID" value="<?php echo $userID; ?>">
+                <label>Email</label>
+                <input type="text" name="email">
             </div>
             <div class="input-group">
                 <label>Password</label>

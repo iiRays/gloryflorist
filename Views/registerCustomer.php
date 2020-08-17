@@ -18,15 +18,11 @@
             </div>
             <div class="input-group">
                 <label>Name</label>
-                <input type="text" name="name" value="<?php echo $name; ?>">
+                <input type="text" name="name">
             </div>
             <div class="input-group">
                 <label>Email</label>
-                <input type="text" name="email" value="<?php echo $email; ?>"> 
-            </div>
-            <div class="input-group">
-                <label>User ID</label>
-                <input type="text" name="userID" value="<?php echo $userID; ?>">
+                <input type="text" name="email"> 
             </div>
             <div class="input-group">
                 <label>Password</label>
