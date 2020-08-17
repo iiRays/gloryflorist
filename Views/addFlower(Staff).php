@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="CSS/common.css">
         <link rel="stylesheet" href="CSS/addFlower(Staff).css">
         <title>Glory Florist : Add Flower</title>
@@ -57,14 +58,18 @@
 
     <script type="text/javascript">
         function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+            try {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    $('#flowerImg').attr('src', e.target.result);
-                };
+                    reader.onload = function (e) {
+                        $('#flowerImg').attr('src', e.target.result);
+                    };
 
-                reader.readAsDataURL(input.files[0]);
+                    reader.readAsDataURL(input.files[0]);
+                }
+            } catch (error) {
+                alert(error);
             }
         }
     </script>
