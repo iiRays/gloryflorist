@@ -10,7 +10,6 @@ DB::connect();
 
 //when register button clicked
 if (isset($_POST['register'])) {
-    $role = Quick::getPostData("role");
     $name = Quick::getPostData("name");
     $email = Quick::getPostData("email");
     $password_1 = Quick::getPostData("password_1");
@@ -35,8 +34,10 @@ if (isset($_POST['register'])) {
         $user->email = $email;
         $user->password = "$password_1";
         $user->name = "$name";
-        $user->role = "$role";
-        $user->status = "active";
+        $user->role = "Customer";
+        $user->status = "Active";
+        $user->phone = "";
+        $user->address = "";
 
         R::store($user);
         header('location: login.php');
@@ -67,10 +68,5 @@ if (isset($_POST['login'])) {
         }
     }
 }
- 
-//logout
-if (isset($_GET['logout'])) {
-    Session::logoutUser(Session::get("user"));
-    header('location: home.php');
-}
+
 ?>
