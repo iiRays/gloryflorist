@@ -2,6 +2,24 @@
 
 class Session{
     
+    // Starts a session if none exists
+    public static function start(){
+        if(session_id() == ""){
+            session_start();
+        }
+    }
+    
+    // Stops a session if one exists
+    public static function stop(){
+        self::start();
+        if(session_id() != ""){
+             session_regenerate_id(true);
+            session_unset();
+            session_destroy();
+            session_write_close();
+        }
+    }
+    
     public static function get(String $key){
         self::start();
         if(isset($_SESSION[$key])){
@@ -24,28 +42,6 @@ class Session{
         }
         else{
             return false;
-        }
-    }
-   
-    // Starts a session if none exists
-    public static function start(){
-        if(session_id() == ""){
-            session_start();
-        }
-    }
-    
-    // Stops a session if one exists
-    public static function stop(){
-        self::start();
-        if(session_id() != ""){
-             session_regenerate_id(true);
-            session_unset();
-            session_destroy();
-            
-            session_write_close();
-             
-             
-            
         }
     }
     
