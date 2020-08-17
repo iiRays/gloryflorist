@@ -13,10 +13,6 @@
         <form method="post" action="registerCustomer.php">
             <?php include('errors.php'); ?>
             <div class="input-group">
-                <label>Role</label>
-                <input type="text" name="role" value="Customer" readonly>
-            </div>
-            <div class="input-group">
                 <label>Name</label>
                 <input type="text" name="name">
             </div>
@@ -26,11 +22,11 @@
             </div>
             <div class="input-group">
                 <label>Password</label>
-                <input type="text" name="password_1">
+                <input type="password" name="password_1">
             </div>
             <div class="input-group">
                 <label>Confirm Password</label>
-                <input type="text" name="password_2">
+                <input type="password" name="password_2">
             </div>
             <div class="input-group">
                 <button type="submit" name="register" class="btn">Register</button>
