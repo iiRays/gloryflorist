@@ -28,7 +28,7 @@
 
             <div id='content'>
 
-                <form method="POST" action="" id="addFlower">
+                <form method="POST" action="" id="editflower">
 
                     <div id="form">
                         <label>Name:</label>
@@ -36,16 +36,16 @@
                         <label>Image:</label><br />
                         <div id="left"> 
                             <img id="flowerImg" src="http://placehold.it/180" alt="your image" />
-                            
+
                         </div>
                         <div id="right"> 
                             <input type="file" id="img" name="image" accept="image/*"><br />
                         </div>
                         <div id="bottom">
                             <label>Description:</label>
-                            <span class="desc" role="textbox" contenteditable></span><br />
+                            <textarea rows="4" cols="50" id="desc" name="desc" form="editflower"></textarea>
                             <label>Price:</label>
-                            <input type="number" id="price" value="" size="20" /><br />
+                            <input type="number" step=0.01 id="price" name="price" value="" size="20" /><br />
                         </div>
                     </div>
                     <input type="checkbox" id="isAvailable" value="ON" /> Available to sell<br />
@@ -69,6 +69,7 @@
             }
         }
     </script>
+
 
 </html>     
 

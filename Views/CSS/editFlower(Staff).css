@@ -39,7 +39,7 @@ label{
     margin: 5px;
 }
 
-#container #content #addFlower #form input[type="text"], input[type="number"]{
+#container #content #editflower #form input[type="text"], input[type="number"]{
     height: 30px;
     width: 93%;
     padding: 5px 10px;
@@ -48,14 +48,14 @@ label{
     border: 1px solid gray;
 }
 
-#container #content #addFlower #form #img{
+#container #content #editflower #form #img{
     text-align: center;
     margin: auto;
     margin-bottom: 10px;
     font-size: 20px;
 }
 
-#container #content #addFlower #form .desc {
+#container #content #editflower #form #desc {
     border: 1px solid gray;
     font-size: 20px;
     padding: 5px 10px;
@@ -70,13 +70,13 @@ label{
     font-family: "Arial";
 }
 
-#container #content #addFlower input[type="checkbox"]{
+#container #content #editflower input[type="checkbox"]{
     margin-top: 5px;
     width: 15px;
     height: 15px;
 }
 
-#container #content #addFlower input[type="submit"]{
+#container #content #editflower input[type="submit"]{
     text-decoration: none;
     font-size: 30px;
     padding-top: 0px;
@@ -101,12 +101,12 @@ img{
     max-width:180px;
 }
 
-#container #content #addFlower #form #left{
+#container #content #editflower #form #left{
     float: left;
     margin-left: 150px;
 }
 
-#container #content #addFlower #form #right{
+#container #content #editflower #form #right{
     float: right;
     
     padding-bottom: 50px;
@@ -114,6 +114,6 @@ img{
     margin-right: 150px;
 }
 
-#container #content #addFlower #form #bottom{
+#container #content #editflower #form #bottom{
     margin-top: 250px;
 }

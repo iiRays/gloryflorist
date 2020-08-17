@@ -29,11 +29,11 @@
 
             <div id='content'>
 
-                <form method="POST" action="" id="addFlower">
+                <form method="POST" action="add_flower.php" id="addFlower">
 
                     <div id="form">
                         <label>Name:</label>
-                        <input type="text" id="name" value="" size="20" /><br />
+                        <input type="text" id="name" name="name" value="" size="20" /><br />
                         <label>Image:</label><br />
                         <div id="left"> 
                             <input type="file" id="img" name="image" accept="image/*" onchange="readURL(this);">
@@ -43,9 +43,9 @@
                         </div>
                         <div id="bottom">
                             <label>Description:</label>
-                            <span class="desc" role="textbox" contenteditable></span><br />
+                            <textarea rows="4" cols="50" id="desc" name="desc" form="addFlower"></textarea>
                             <label>Price:</label>
-                            <input type="number" id="price" value="" size="20" /><br />
+                            <input type="number" step=0.01 id="price" name="price" value="" size="20" /><br />
                         </div>
                     </div>
                     <input type="checkbox" id="isAvailable" value="ON" /> Available to sell<br />
@@ -72,7 +72,30 @@
                 alert(error);
             }
         }
+
+        function postToImgur() {
+            var formData = new FormData();
+            formData.append("image", $("[name='uploads[]']")[0].files[0]);
+            $.ajax({
+                url: "https://api.imgur.com/3/image",
+                type: "POST",
+                datatype: "json",
+                headers: {
+                    "Authorization": "0e66933dd04ce48"
+                },
+                data: formData,
+                success: function (response) {
+                    //console.log(response);
+                    var photo = response.data.link;
+                    var photo_hash = response.data.deletehash;
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        }
     </script>
+
 
 </html>     
 
