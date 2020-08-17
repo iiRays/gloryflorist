@@ -11,6 +11,9 @@ DB::connect();
 $email = Quick::getPostData("email");
 $name = Quick::getPostData("name");
 
+// Generate random password
+$password = Quick::generateRandomString(10);
+
 //Create new staff data
 // Password will be inputted by the new staff later
 $user = R::dispense("user");
@@ -18,9 +21,11 @@ $user->email = $email;
 $user->name = $name;
 $user->role = "staff";
 $user->status = "inactive";
+$user->password = $password;
 R::store($user);
 
-Email::send($email, "Welcome to the workforce!", "Greetings, $name! You are the latest addition to our family at Glory Florist. To complete your staff account registration, proceed to this link: <a href='https://localhost/GloryFlorist/Views/staffDashboard'> click me </a>");
+Email::send($email, "Welcome to the workforce!", "Greetings, $name! You are the latest addition to our family at Glory Florist. A default password has been generated for you: <b>$password</b>. Please login and change it.<br/>"
+        . "<a href='https://localhost/GloryFlorist/Views/home.php'> Navigate to the home page </a>");
 
 
 // Show successful message
