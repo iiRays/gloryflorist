@@ -1,3 +1,8 @@
+<?php 
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("staff");
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">

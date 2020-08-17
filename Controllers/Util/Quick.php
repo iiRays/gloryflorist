@@ -24,5 +24,9 @@ class Quick {
         $charPool = "01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         return substr(str_shuffle($charPool), 1, $length);
     }
+    
+    static function redirect(String $location){
+        header("location: /GloryFlorist/$location");
+    }
 
 }
