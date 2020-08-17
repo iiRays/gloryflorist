@@ -1,4 +1,6 @@
 <?php
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("admin");
 
 require_once("../Controllers/Util/rb.php");
 require_once("../Controllers/Util/XML.php");
