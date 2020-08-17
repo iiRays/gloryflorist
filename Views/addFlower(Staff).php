@@ -36,10 +36,11 @@
                         <input type="text" id="name" name="name" value="" size="20" /><br />
                         <label>Image:</label><br />
                         <div id="left"> 
-                            <input type="file" id="img" name="image" accept="image/*" onchange="readURL(this);">
+                            <input type="file" id="img" name="image" accept="image/*">
                         </div>
                         <div id="right"> 
                             <img id="flowerImg" src="http://placehold.it/180" alt="your image" /><br />
+                            <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value=""/>
                         </div>
                         <div id="bottom">
                             <label>Description:</label>
@@ -48,7 +49,7 @@
                             <input type="number" step=0.01 id="price" name="price" value="" size="20" /><br />
                         </div>
                     </div>
-                    <input type="checkbox" id="isAvailable" value="ON" /> Available to sell<br />
+                    <input type="checkbox" id="isAvailable" name="isAvailable" value="ON" /> Available to sell<br />
 
                     <input type="submit" value="Add" name="add" />
                 </form>
@@ -57,43 +58,59 @@
     </body>
 
     <script type="text/javascript">
-        function readURL(input) {
-            try {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
+        $("document").ready(function () {
 
-                    reader.onload = function (e) {
-                        $('#flowerImg').attr('src', e.target.result);
-                    };
+            $('input[type=file]').on("change", function () {
 
-                    reader.readAsDataURL(input.files[0]);
+
+                var $files = $(this).get(0).files;
+
+                if ($files.length) {
+
+                    // Reject big files
+                    if ($files[0].size > $(this).data("max-size") * 1024) {
+                        console.log("Please select a smaller file");
+                        return false;
+                    }
+
+                    // Replace ctrlq with your own API key
+                    var apiUrl = 'https://api.imgur.com/3/image';
+                    var apiKey = '0e66933dd04ce48';
+
+                    var formData = new FormData();
+                    formData.append("image", $files[0]);
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": apiUrl,
+                        "method": "POST",
+                        "datatype": "json",
+                        "headers": {
+                            "Authorization": "Client-ID " + apiKey
+                        },
+                        "processData": false,
+                        "contentType": false,
+                        "data": formData,
+                        beforeSend: function (xhr) {
+                            console.log("Uploading");
+                        },
+                        success: function (res) {
+                            console.log(res.data.link);
+                            document.getElementById("flowerImg").src = res.data.link;
+                            document.getElementById("flowerImgSrc").value = res.data.link;
+                            document.getElementById("test").innerHTML = document.getElementById("flowerImgSrc").value;
+                        },
+                        error: function () {
+                            alert("Failed");
+                        }
+                    }
+                    $.ajax(settings).done(function (response) {
+                        console.log("Done");
+                    });
                 }
-            } catch (error) {
-                alert(error);
-            }
-        }
-
-        function postToImgur() {
-            var formData = new FormData();
-            formData.append("image", $("[name='uploads[]']")[0].files[0]);
-            $.ajax({
-                url: "https://api.imgur.com/3/image",
-                type: "POST",
-                datatype: "json",
-                headers: {
-                    "Authorization": "0e66933dd04ce48"
-                },
-                data: formData,
-                success: function (response) {
-                    //console.log(response);
-                    var photo = response.data.link;
-                    var photo_hash = response.data.deletehash;
-                },
-                cache: false,
-                contentType: false,
-                processData: false
             });
-        }
+        });
     </script>
 
 
