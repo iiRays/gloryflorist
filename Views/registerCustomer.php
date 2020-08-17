@@ -1,4 +1,8 @@
-<?php include('services.php'); ?>
+<?php include('services.php'); 
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("guest");
+?>
+
 <html>
     <head>
         <title>Glory Florist : Register</title>

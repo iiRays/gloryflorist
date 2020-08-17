@@ -1,10 +1,6 @@
 <?php
 include('services.php');
 
-//If user not logged in, cannot access home page
-//    if(empty($_SESSION['userID'])){
-//        header('location: login.php');
-//    }
 ?>
 <html>
     <head>

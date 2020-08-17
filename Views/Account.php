@@ -1,5 +1,7 @@
 <?php 
 include('AccountDetails.php'); 
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("customer");
 ?>
 <!DOCTYPE html>
 <html>
