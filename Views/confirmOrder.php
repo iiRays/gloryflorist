@@ -1,76 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Glory Florist :: Order</title>
-        <link rel="stylesheet" href="CSS/confirmOrder.css">
-    </head>
-    <body>
+<?php
 
-    <form id='container'>
+require_once("../Controllers/Util/rb.php");
+require_once("../Controllers/Util/XML.php");
+require_once("../Controllers/Util/XMLFactory.php");
+require_once("../Controllers/Util/Cart.php");
+require_once("../Controllers/Util/Item.php");
 
-      <div id='hotbar'>
-        <a href='home.php' id='glory'>glory florist</a>
-        <a href='#' class='link'>shop</a>
-        <a href='cart.php' class='link' id='currentLink'>cart</a>
-        <a href='#' class='link'>account</a>
-      </div>
+R::setup('mysql:host=localhost;dbname=flowerdb', 'root', '');
 
-      <div id='top'>
-        <div id='text'>
-          <a href='cart.php' id='back'>back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to your&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cart</a>
-          <a id='title'>Confirm Order</a>
-        </div>
-      </div>
+// simulate cart in session
+$cart = new Cart();
+$cart->addItem("1", 3);
+$cart->addItem("2", 5);
 
-      <div id='content'>
-
-        <div id='left'>
-
-          <a class='heading'>Receipt</a>
-         
-          <?php
-          
-            $quantities = explode(",", filter_input(INPUT_POST, "quantities"));
-            
-            // change to get from db
-          
-          ?>
-
-          <div id='receipt'>
-            <div class='item'>
-              <!--<a class='amount'><?php echo $quantities[0];?></a> -->
-              <a class='amount'>1</a>
-              <a class='name' href='#'>White rose</a>
-              <a class='price'>$10.00</a>
-            </div>
-
-            <div class='item'>
-              <a class='amount'>3</a>
-              <a class='name' href='#'>White flower</a>
-              <a class='price'>$30.00</a>
-            </div>
-
-            <div class='item'>
-              <a class='amount'>2</a>
-              <a class='name' href='#'>White thing</a>
-              <a class='price'>$20.00</a>
-            </div>
-          </div>
-
-          <a id='total'>Total: <span>$150.00</span></a>
-
-        </div>
-
-        <div id='right'>
-
-          <a class='heading'>Payment details</a>
-
-        </div>
-
-      </div>
-
-    </form>
-
-    </body>
-</html>
+$factory = new XMLFactory();
+$xml = $factory->build("confirmOrder");
+$xml->appendXML($cart->items, "items");
+echo $xml->styleWith("confirmOrderStyle.xsl");

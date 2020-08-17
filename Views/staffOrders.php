@@ -1,3 +1,7 @@
+<?php
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("staff");
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -29,6 +33,8 @@
                     <?php
                     include "../Controllers/Util/rb.php";
                     include "../Controllers/Util/Quick.php";
+                    require_once("../Controllers/Security/Authorize.php");
+                    Authorize::onlyAllow("staff");
 
                     R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql or mariaDB
                     $orderList = R::findAll("orders");

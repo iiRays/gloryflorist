@@ -21,11 +21,15 @@ $flower = R::dispense("flower");
 $flower->flowerName = "Rose";
 $flower->price = 12.00;
 $flower->description = "Very beautiful";
+$flower->img = "https://i.imgur.com/yd4JiYF.png";
+$flower->isAvailable = "true";
 
 $flower2 = R::dispense("flower");
 $flower2->flowerName = "Lily";
 $flower2->price = 12.00;
 $flower2->description = "Very beautiful";
+$flower2->img = "https://i.imgur.com/yd4JiYF.png";
+$flower2->isAvailable = "false";
 
 $arrangement = R::dispense("arrangement");
 $arrangement->name = "Rose Bouquet";

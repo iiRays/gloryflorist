@@ -1,3 +1,7 @@
+<?php
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("admin");
+?>
 <html>
 
   <head>
@@ -26,15 +30,15 @@
         </div>
       </div>
       <div id="content">
-        <form>
+          <form action="../Controllers/registerStaff.php" method="POST">
 
           <div class="field">
             <h4 class="label">NAME</h4>
-            <input type="text" >
+            <input type="text" name="name">
           </div>
           <div class="field">
             <h4 class="label">EMAIL</h4>
-            <input type="text" >
+            <input type="text" name="email">
           </div>
           <input type="submit" value="REGISTER"/>
         </form>

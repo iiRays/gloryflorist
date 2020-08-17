@@ -1,4 +1,7 @@
-<?php include('services.php'); ?>
+<?php include('services.php'); 
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("guest");
+?>
 <html>
     <head>
         <title>Glory Florist : Login</title>
@@ -13,12 +16,12 @@
         <form method="post" action="login.php">
             <?php include('errors.php'); ?>
             <div class="input-group">
-                <label>User ID</label>
-                <input type="text" name="userID" value="<?php echo $userID; ?>">
+                <label>Email</label>
+                <input type="text" name="email">
             </div>
             <div class="input-group">
                 <label>Password</label>
-                <input type="text" name="password_1">
+                <input type="password" name="password_1">
             </div>
             <div class="input-group">
                 <button type="submit" name="login" class="btn">Login</button>
