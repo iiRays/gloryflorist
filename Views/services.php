@@ -10,6 +10,7 @@ DB::connect();
 
 //when register button clicked
 if (isset($_POST['register'])) {
+
     $name = Quick::getPostData("name");
     $email = Quick::getPostData("email");
     $password_1 = Quick::getPostData("password_1");
