@@ -1,0 +1,119 @@
+body{
+    font-family: "Cute Font";
+    text-align: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 0px; 
+}
+
+#container #top #text #back{
+    margin-left: 240px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+#top{
+    position: relative;
+    margin-top: 100px;
+}
+
+form{
+    width: 50%;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 30px;
+}
+
+label{
+    display: black;
+    text-align: left;
+    margin: 5px;
+}
+
+#container #content #addFlower #form input[type="text"], input[type="number"]{
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+#container #content #addFlower #form #img{
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+#container #content #addFlower #form .desc {
+    border: 1px solid gray;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+    display: block;
+    width: 93%;
+    overflow: hidden;
+    resize: both;
+    min-height: 40px;
+    line-height: 20px;
+    font-family: "Arial";
+}
+
+#container #content #addFlower input[type="checkbox"]{
+    margin-top: 5px;
+    width: 15px;
+    height: 15px;
+}
+
+#container #content #addFlower input[type="submit"]{
+    text-decoration: none;
+    font-size: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: background-color 0.5s;
+    font-family: "Cute Font";
+}
+
+#container #content {
+    margin-left: -50px;
+    margin-bottom: 100px;
+    transition: margin-left 0.5s;
+}
+
+#container:hover > #content {
+    margin-left: 50px;
+}
+
+img{
+    max-width:180px;
+}
+
+#container #content #addFlower #form #left{
+    float: left;
+    margin-left: 150px;
+}
+
+#container #content #addFlower #form #right{
+    float: right;
+    
+    padding-bottom: 50px;
+    padding-top: 100px;
+    margin-right: 150px;
+}
+
+#container #content #addFlower #form #bottom{
+    margin-top: 250px;
+}
