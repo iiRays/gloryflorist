@@ -1,11 +1,9 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+require_once("../Controllers/Util/rb.php");
+require_once("../Controllers/Util/XML.php");
+require_once("../Controllers/Util/XMLFactoryInterface.php");
+require_once("../Controllers/Util/DB.php");
 /**
  * Description of XMLDatabaseFactory
  *

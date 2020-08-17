@@ -19,5 +19,10 @@ class Quick {
     static function getPostData($item){
         return isset($_POST[$item]) ? $_POST[$item] : null;
     }
+    
+    static function generateRandomString(int $length){
+        $charPool = "01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        return substr(str_shuffle($charPool), 1, $length);
+    }
 
 }

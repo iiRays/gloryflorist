@@ -10,8 +10,14 @@ DB::connect();
 $email = Quick::getPostData("email");
 $password = Quick::getPostData("password");
 
+
 //Get from DB
-$user = R::find("user", "email = ?", [$email])[1];
+$result = R::find("user", "email = ?", [$email]);
+$user = null;
+
+foreach($result as $resultItem){
+    $user = $resultItem;
+}
 
 //Authenticate
 if($user == null){
