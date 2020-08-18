@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Author: kelvin tham yit hang
+-->
+
+<!ELEMENT deliveries (delivery*)>
+<!ELEMENT delivery (cardmessage, remark, name, contact, datetime, method)>
+<!ATTLIST delivery deliveryID ID #REQUIRED>
+<!ELEMENT method (delivery|selfpickup)>
+<!ELEMENT delivery (address, deliveryfee)>
+<!ELEMENT selfpickup(#PCDATA)>
+<!ELEMENT cardmessage(#PCDATA)>
+<!ELEMENT remarks (#PCDATA)>
+<!ELEMENT name (first, middle?, last)>
+<!ELEMENT first (#PCDATA)>
+<!ELEMENT middle (#PCDATA)>
+<!ELEMENT last (#PCDATA)>
+<!ELEMENT contact (#PCDATA)>
+<!ATTLIST contact kind (Home | Work | Cell | Fax) "Cell">
+

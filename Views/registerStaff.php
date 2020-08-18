@@ -1,3 +1,7 @@
+<?php
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("admin");
+?>
 <html>
 
   <head>

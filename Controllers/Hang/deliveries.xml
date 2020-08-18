@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deliveries>
+    <Delivery Id="2">
+        <Address>xxx</Address>
+        <DeliveryFee>5.90</DeliveryFee>
+        <CardMessage>Every year with you is sweeter than the last.</CardMessage>
+        <Remark/>
+        <Name>Jaren Yeap Wei Loon</Name>
+        <Contact>012-4307437</Contact>
+        <Datetime>2020-08-17 14:50:42</Datetime>
+    </Delivery>
+</deliveries>
