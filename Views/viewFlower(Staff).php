@@ -49,7 +49,7 @@ $flower = R::findAll('flower');
                         foreach ($flower as $item) {
                             echo '<div class="item">' .
                             '<img id="img" name="img" src = "' . $item->img . '">' .
-                            '<a href="flower.php?id=' . $item->id . '" class="name">' . $item->flowerName . '</a>' .
+                            '<a href="flower%28Staff%29.php?id=' . $item->id . '" class="name">' . $item->flowerName . '</a>' .
                             '<a href="editFlower%28Staff%29.php?id=' . $item->id . '" id="edit_button">Edit</a>' .
                             '</div>';
                         }
