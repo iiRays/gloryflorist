@@ -13,10 +13,9 @@ class Session{
     public static function stop(){
         self::start();
         if(session_id() != ""){
-             session_regenerate_id(true);
+             //session_regenerate_id(true);
             session_unset();
             session_destroy();
-            session_write_close();
         }
     }
     
