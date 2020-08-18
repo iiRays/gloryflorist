@@ -3,6 +3,9 @@
 require_once("Util/Quick.php");
 require_once("Util/rb.php");
 require_once("Security/Session.php");
+require_once("Security/Authorize.php");
+
+Authorize::onlyAllow("admin");
 
 R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql or mariaDB
 

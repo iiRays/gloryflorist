@@ -1,6 +1,7 @@
-
 <?php
 require_once("../Controllers/Security/Session.php");
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("customer");
 ?>
 <html>
     <head>
@@ -11,7 +12,7 @@ require_once("../Controllers/Security/Session.php");
     </head>
     <body>
 
-        <form id='container' method='POST' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"> <!-- <form id='container'> ??? -->
+        <form id='container' method='POST' action="save_cart.php"> <!-- <form id='container'> ??? -->
 
             <div id='hotbar'>
                 <a href='home.php' id='glory'>glory florist</a>
@@ -42,16 +43,10 @@ require_once("../Controllers/Security/Session.php");
 
                         <?php
                         
-                        include "../Controllers/Util/rb.php";
-                        include "../Controllers/Util/Cart.php";
-                        include "../Controllers/Util/Item.php";
-                        
                         R::setup('mysql:host=localhost;dbname=flowerdb', 'root', '');
                         
-                        // simulate cart in session
-                        $cart = new Cart();
-                        $cart->addItem("1", 3);
-                        $cart->addItem("2", 5);
+                        // get cart from session
+                        $cart = Session::get("cart");
                         
                         foreach ($cart->items as $item) {
                             echo "<div class='item'>
@@ -96,19 +91,17 @@ require_once("../Controllers/Security/Session.php");
         
         //echo "<script type='text/javascript'>alert('$quantities[0]');</script>"; // debug
         
-        // simulate cart in session
-        $cart = new Cart();
-        $cart->addItem("1", 3);
-        $cart->addItem("2", 5);
+        // get cart from session
+        $cart = Session::get("cart");
 
-        // update cart in session
+        // update cart
         for ($i = 0; $i < sizeof($cart->items); $i++) {
             $cart->items[$i]->quantity = $quantities[$i];
-            echo "<script>alert(".$cart->items[$i]->quantity.");</script>"; // debug
+            //echo "<script>alert(".$cart->items[$i]->quantity.");</script>"; // debug
         }
-            
-        // save session cart
-        // TODO
+        
+        // save cart to session
+        $_SESSION["cart"] = $cart;
     }
     ?>
 </html>

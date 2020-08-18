@@ -5,12 +5,23 @@ require_once("Util/rb.php");
 require_once("Util/Quick.php");
 require_once("Util/Email.php");
 require_once("Util/EmailFactory.php");
+require_once("Security/Authorize.php");
+
+Authorize::onlyAllow("admin");
 
 DB::connect();
 
 //Get data from form
 $email = Quick::getPostData("email");
 $name = Quick::getPostData("name");
+
+// Check for existing email
+if(count(R::find("user", "role != ? AND email = ?", ["customer", $email])) > 0){
+    // Show error message
+Quick::redirect("/Views/registerStaff.php?code=duplicateEmail");
+return;
+}
+
 
 // Generate random password
 $password = Quick::generateRandomString(10);
@@ -33,3 +44,4 @@ $mail->send($email, "Welcome to the workforce!", "Greetings, $name! You are the 
 
 
 // Show successful message
+Quick::redirect("/Views/registerStaff.php?code=success");
