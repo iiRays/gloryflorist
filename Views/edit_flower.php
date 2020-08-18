@@ -24,8 +24,6 @@ $flower->isAvailable = $isAvailable;
 
 R::storeAll([$flower]);
 
-echo 'Edit Successfully';
-
 $sql = "select * from arrangement where flower_id = " . $id;
 
 $arrangement = R::getAll($sql);
@@ -54,5 +52,38 @@ for ($x = 0; $x <= $key; $x += 7) {
 }
 ?>
 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="CSS/common.css">
+        <link rel="stylesheet" href="CSS/successfulDisplay.css">
+        <title>Glory Florist : Edited Successful</title>
+    </head>
+
+    <body>
+        <div id='container'>
+
+            <div id='hotbar'>
+                <a href='#' id='glory'>glory florist</a>
+                <a href='#' class='link'>shop</a>
+                <a href='#' class='link'>cart</a>
+                <a href='#' class='link'>account</a>
+                <a href='#' class='link' id='currentLink'>dashboard</a>
+            </div>
+
+            
+
+            <div id='content'>
+                <div id="msgBorder">
+                    <label>The flower had been updated successfully</label>
+                </div>
+                
+            </div>
+            <a href="viewFlower%28Staff%29.php" id="back_button">Back</a>
+        </div>
+    </body>
+</html>
 
 

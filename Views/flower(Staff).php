@@ -35,7 +35,7 @@ $isAvailable = $results[4];
         <meta charset="UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="CSS/common.css">
-        <link rel="stylesheet" href="CSS/flower.css">
+        <link rel="stylesheet" href="CSS/flower(Staff).css">
         <title>Glory Florist : Flower</title>
     </head>
 
