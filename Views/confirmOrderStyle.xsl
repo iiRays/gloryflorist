@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-    Document   : testXSL.xsl
-    Created on : August 9, 2020, 4:41 PM
-    Author     : mast3
-    Description:
-        Purpose of transformation follows.
--->
-
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:output method="html"/>
 
@@ -46,22 +38,13 @@
 
                     <a class='heading'>Receipt</a>
 
-                    <?php
-
-                      $quantities = explode(",", filter_input(INPUT_POST, "quantities"));
-
-                      // change to get from db
-
-                    ?>
-
                     <div id='receipt'>
-                        
                         
                         <xsl:for-each select="//items">
                             <div class='item'>
                                 <a class='amount'><xsl:value-of select="quantity"/></a>
-                                <a class='name' href='#'><xsl:value-of select="arrangement"/></a>
-                                <a class='price'>$30.00</a>
+                                <a class='name' href='#'><xsl:value-of select="name"/></a>
+                                <a class='price'>RM <xsl:value-of select="price"/></a>
                             </div>
                         </xsl:for-each>
                         
@@ -72,22 +55,12 @@
                         <a class='amount'>1</a>
                         <a class='name' href='#'>White rose</a>
                         <a class='price'>$10.00</a>
-                      </div>
-
-                      <div class='item'>
-                        <a class='amount'>3</a>
-                        <a class='name' href='#'>White flower</a>
-                        <a class='price'>$30.00</a>
-                      </div>
-
-                      <div class='item'>
-                        <a class='amount'>2</a>
-                        <a class='name' href='#'>White thing</a>
-                        <a class='price'>$20.00</a>
                       </div>-->
                     </div>
-
-                    <a id='total'>Total: <span>$150.00</span></a>
+                    
+                    <xsl:for-each select="//totalPriceArr">
+                        <a id='total'>Total: <span>RM <xsl:value-of select="price"/></span></a>
+                    </xsl:for-each>
 
                   </div>
 
