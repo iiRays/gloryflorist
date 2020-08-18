@@ -1,7 +1,8 @@
-<?php 
-include('AccountDetails.php'); 
+<?php
+include('AccountDetails.php');
 require_once("../Controllers/Security/Authorize.php");
-Authorize::onlyAllow("customer");
+require_once("../Controllers/Util/RoleStrategy/RoleStrategy.php");
+Authorize::onlyAllow("customer","admin","staff");
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,15 +22,16 @@ Authorize::onlyAllow("customer");
                     <?php if (Session::isLoggedIn()) { ?>
                         <a href="logout.php" class='link'>logout</a>
                     <?php } else { ?> <?php } ?>
+
                 </div>
 
                 <div class="box">
                     <?php include('errors.php'); ?>
                     <img src="../profile.png" alt=""/>
-                    <input type="text" name="name" value="<?php echo $name;?>" placeholder="Name">
-                    <input type="text" name="email" value="<?php echo $email;?>" readonly>
-                    <input type="text" name="phone" value="<?php echo $phone;?>" placeholder="Phone No.">
-                    <input type="text" name="address" value="<?php echo $address;?>" placeholder="Address">
+                    <input type="text" name="name" value="<?php echo $name; ?>" placeholder="Name">
+                    <input type="text" name="email" value="<?php echo $email; ?>" readonly>
+                    <input type="text" name="phone" value="<?php echo $phone; ?>" placeholder="Phone No.">
+                    <input type="text" name="address" value="<?php echo $address; ?>" placeholder="Address">
                     <button type="submit" name="btnCancel" style="float: left;margin:10px 0 0 18.2%;">CANCEL</button>
                     <button type="submit" name="btnDone" style="float: right;margin:10px 18.2% 0 0;">DONE</button>
                 </div>
