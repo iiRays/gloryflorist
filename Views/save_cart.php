@@ -26,4 +26,4 @@ for ($i = 0; $i < sizeof($cart->items); $i++) {
 $_SESSION["cart"] = $cart;
 
 // redirect back to cart page
-// TODO
+header('location: cart.php');
