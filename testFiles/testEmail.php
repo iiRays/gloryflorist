@@ -1,6 +1,9 @@
 <?php
 
 require_once("../Controllers/Util/Email.php");
+require_once("../Controllers/Util/EmailFactory.php");
 require_once("../Controllers/Util/Quick.php");
 
-echo Quick::generateRandomString(10);
+$factory = new EmailFactory();
+$email = $factory->build();
+$email->send("iiraysmc@outlook.com", "I love you", "JK LOL");
