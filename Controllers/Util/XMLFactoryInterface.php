@@ -1,11 +1,10 @@
 <?php
 
-require_once("IFactory.php");
 
 /**
  *
  * @author Johann Lee Jia Xuan
  */
-interface XMLFactoryInterface extends IFactory {
+interface XMLFactoryInterface {
     public function build($rootName);
 }
