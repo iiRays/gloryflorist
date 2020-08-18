@@ -12,8 +12,8 @@ include "../Controllers/Util/DB.php";
 
 DB::connect();
 
-//$id = $_GET['id'];
-$id = 3;
+$id = $_GET['id'];
+//$id = 3;
 $sql = "select * from arrangement where id = " . $id;
 
 $arrangement = R::getRow($sql);
@@ -53,7 +53,7 @@ $flower = $results[6];
             <div id='top'>
                 <div id='text'>
                     <a href='staffDashboard.php' id='back'>back to dashboard</a>
-                    <a id='title'>Edit Floral</a>
+                    <a id='title'>Edit Floral Arrangement</a>
                 </div>
             </div>
 

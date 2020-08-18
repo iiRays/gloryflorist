@@ -43,6 +43,8 @@
 
                     <div id='bottom'>
                         <div id='content'>
+                            
+                            <p class="errors"></p>
     
                             <div id='buttons'>
                                 <a href='registerStaff.php' class='button'>Add staff member</a>
@@ -112,7 +114,7 @@
                                             <div class='slider'></div>
                                         </label>
                                         
-                                         <!-- Admin Checkbox-->
+                                        <!-- Admin Checkbox-->
                                         
                                         <input type='checkbox' class='checkbox' >
                                             <!-- Is Admin ?-->
@@ -149,7 +151,7 @@
                     </div>
 
                 </form>
-
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                 <script>
                     function see() {
                     var checkbox = document.getElementById("seeChanges");
@@ -164,7 +166,8 @@
                     }
                     }
                 </script>
-
+                
+               
             </body>
 
         </html>
