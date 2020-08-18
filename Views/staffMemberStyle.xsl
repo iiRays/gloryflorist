@@ -48,14 +48,18 @@
                                 <a href='registerStaff.php' class='button'>Add staff member</a>
                                 <input type='checkbox' name='seeChanges' id='seeChanges' onclick='see()'/>
                                 <label id='seeChangesText' for='seeChanges'>Recent changes</label>
-                                    <input class='button' value="Save changes" type="submit"></input>
+                                <input class='button' value="Save changes" type="submit"></input>
                             </div>
       
                             <div id='changes'>
                                 <xsl:for-each select="//changelog">
                                     <a id='text'>
-                                    - Changed <span><xsl:value-of select="account"/></span> to <span><xsl:value-of select="new_status"/></span>.
-                                </a>
+                                        - Changed <span>
+                                            <xsl:value-of select="account"/>
+                                        </span> to <span>
+                                            <xsl:value-of select="new_data"/>
+                                        </span>.
+                                    </a>
                                 </xsl:for-each>
                                 
                             </div>
@@ -66,9 +70,11 @@
                                     <a id='id'>ID</a>
                                     <a id='name'>NAME</a>
                                     <a id='isActive'>IS ACTIVE?</a>
+                                    <a id='isAdmin'>ADMIN</a>
                                 </div>
                                 
-                                <xsl:for-each select="//staff">
+                                <!-- Only show data for admin and staff -->
+                                <xsl:for-each select="//user[role='admin' or role='staff']"> 
                                     <div class='member'>
                                         
                                         <input type="hidden">
@@ -86,6 +92,8 @@
                                             <xsl:value-of select="name"/>
                                         </a>
                                         
+                                        <!-- Is Active Checkbox-->
+                                        
                                         <input type='checkbox' class='checkbox'>
                                             <!-- Is Active ?-->
                                             <xsl:if test="status='active'">
@@ -93,7 +101,6 @@
                                                     checked
                                                 </xsl:attribute>
                                             </xsl:if>
-                                            
                                             
                                             <!-- Dynamic ID and name -->
                                             <xsl:attribute name="name">isActive_<xsl:value-of select="position()"/></xsl:attribute>
@@ -104,13 +111,33 @@
                                             <xsl:attribute name="for">isActive_<xsl:value-of select="position()"/></xsl:attribute>
                                             <div class='slider'></div>
                                         </label>
+                                        
+                                         <!-- Admin Checkbox-->
+                                        
+                                        <input type='checkbox' class='checkbox' >
+                                            <!-- Is Admin ?-->
+                                            <xsl:if test="role='admin'">
+                                                <xsl:attribute name="checked">
+                                                    checked
+                                                </xsl:attribute>
+                                            </xsl:if>
+                                            
+                                            <!-- Dynamic ID and name -->
+                                            <xsl:attribute name="name">isAdmin_<xsl:value-of select="position()"/></xsl:attribute>
+                                            <xsl:attribute name="id">isAdmin_<xsl:value-of select="position()"/></xsl:attribute>
+                                        </input>                                                    
+                                           
+                                        <label class='checkboxLabel adminCheckbox'>
+                                            <xsl:attribute name="for">isAdmin_<xsl:value-of select="position()"/></xsl:attribute>
+                                            <div class='slider'></div>
+                                        </label>
                                     </div>
                                 </xsl:for-each>
       
                                 
                                 <input type="hidden" name="staffCount">
                                     <xsl:attribute name="value">
-                                        <xsl:value-of select="count(//staff)"/>
+                                        <xsl:value-of select="count(//user[role='admin' or role='staff'])"/>
                                     </xsl:attribute>
                                     
                                 </input>
