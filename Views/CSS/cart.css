@@ -208,6 +208,9 @@ a {
   background-color: rgba(243, 181, 177, 0.25);
   transition: background-color 0.5s;
 }
+#container #content #right #proceed_button:focus {
+  outline: none;
+}
 #container #content #right #proceed_button:hover {
   background-color: rgba(243, 181, 177, 0.5);
 }

@@ -1,5 +1,7 @@
 <?php
 
+require_once("../Controllers/Util/Cart.php");
+
 class Session{
     
     // Starts a session if none exists
@@ -78,8 +80,15 @@ class Session{
         echo "New session: " . session_id();
         
         // Update session ID in user in the database
-        R::store($user);  
+        R::store($user);
         
+        $cart = new Cart();
+        
+        // DEBUG: simulate items already added to cart
+        $cart->addItem("1", 3);
+        $cart->addItem("2", 5);
+        
+        self::set("cart", $cart);
     }
     
     public static function logoutUser($user){
