@@ -1,3 +1,10 @@
+<?php
+/*
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("staff");
+ * 
+ */
+?>
 <!DOCTYPE html>
 <?php
 include "../Controllers/Util/rb.php";
@@ -6,7 +13,7 @@ include "../Controllers/Util/DB.php";
 DB::connect();
 
 //$id = $_GET['id'];
-$id = 2;
+$id = 1;
 $sql = "select * from arrangement where id = " . $id;
 
 $arrangement = R::getRow($sql);
@@ -67,7 +74,7 @@ $flowerName = $results[7];
                     <label>Name</label><br/>
                     <label class="details"><?php echo $name; ?></label><br/>
                     <div id="left">
-                        <label>Flowers</label>
+                        <label>Flower</label>
                         <label class="details"><?php echo $flowerName; ?></label>
                     </div>
                     <div id="right">
@@ -80,15 +87,13 @@ $flowerName = $results[7];
                         <label>
                             <?php
                             if ($isAvailable == "true") {
-                                echo "Available for Floral Arrangement";
+                                echo "Available for Sell";
                             } else {
-                                echo "Not available for Floral Arrangement";
+                                echo "Not available for Sell";
                             }
                             ?>
                         </label><br/>
                     </div>
-
-
                 </div>
             </div>
             <div id="bottom">

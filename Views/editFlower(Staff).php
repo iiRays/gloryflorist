@@ -1,9 +1,34 @@
 <?php
+/*
 require_once("../Controllers/Security/Authorize.php");
 Authorize::onlyAllow("staff");
+ * 
+ */
 ?>
 <!DOCTYPE html>
+<?php
+include "../Controllers/Util/rb.php";
+include "../Controllers/Util/DB.php";
 
+DB::connect();
+
+//$id = $_GET['id'];
+$id = 2;
+$sql = "select * from flower where id = " . $id;
+
+$flower = R::getRow($sql);
+
+$results = array();
+
+foreach ($flower as $item) {
+    $results[] = $item;
+}
+
+$name = $results[1];
+$remark = $results[2];
+$imgSrc = $results[3];
+$isAvailable = $results[4];
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -33,27 +58,27 @@ Authorize::onlyAllow("staff");
 
             <div id='content'>
 
-                <form method="POST" action="" id="editflower">
-
+                <form method="POST" action="edit_flower.php" id="editflower">
+                    <input type="hidden" id="id" name="id" value="<?php echo $id; ?>"/>
                     <div id="form">
                         <label>Name:</label>
-                        <input type="text" id="name" value="" size="20" /><br />
+                        <input type="text" id="name" name="name" value="<?php echo $name; ?>" size="20" /><br />
                         <label>Image:</label><br />
                         <div id="left"> 
-                            <img id="flowerImg" src="http://placehold.it/180" alt="flower" /><br />
-                            <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value=""/>
+                            <img id="flowerImg" name="flowerImg" src="<?php echo $imgSrc; ?>" alt="flower" /><br />
+                            <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value="<?php echo $imgSrc; ?>"/>
                         </div>
                         <div id="right"> 
                             <input type="file" id="img" name="image" accept="image/*"><br />
                         </div>
                         <div id="bottom">
-                            <label>Description:</label>
-                            <textarea rows="4" cols="50" id="desc" name="desc" form="editflower"></textarea>
-                            <label>Price:</label>
-                            <input type="number" step=0.01 id="price" name="price" value="" size="20" /><br />
+                            <label>Remarks:</label>
+                            <textarea rows="4" cols="50" id="remark" name="remark" form="editflower"><?php echo $remark; ?></textarea>
                         </div>
                     </div>
-                    <input type="checkbox" id="isAvailable" value="ON" /> Available to sell<br />
+                    
+                    <input type="checkbox" id="isAvailable" name="isAvailable" value="ON" <?php if ($isAvailable == "true"){$value = 'checked'; echo $value;}?> onchange="chgStatus()"/> 
+                    Available for floral arrangement<br />
 
                     <input type="submit" value="Save" name="save" />
                 </form>
@@ -103,7 +128,6 @@ Authorize::onlyAllow("staff");
                             console.log(res.data.link);
                             document.getElementById("flowerImg").src = res.data.link;
                             document.getElementById("flowerImgSrc").value = res.data.link;
-                            document.getElementById("test").innerHTML = document.getElementById("flowerImgSrc").value;
                         },
                         error: function () {
                             alert("Failed");

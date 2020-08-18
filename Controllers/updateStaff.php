@@ -2,6 +2,10 @@
 
 require_once("Util/Quick.php");
 require_once("Util/rb.php");
+require_once("Security/Session.php");
+require_once("Security/Authorize.php");
+
+Authorize::onlyAllow("admin");
 
 R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql or mariaDB
 
@@ -24,7 +28,7 @@ for ($i = 1; $i <= $staffCount; $i++) {
     $statusChanged = false;
 
     // Did the status change?
-    if ($staff->status != $newStatus) {
+    if ($staff->status != $newStatus && $staff->id != Session::get("user")->id) {
         $statusChanged = true;
         
         // Store a changelog object (not entity class)
@@ -38,7 +42,7 @@ for ($i = 1; $i <= $staffCount; $i++) {
     }
     
     // Did the role change?
-    if($staff->role != $newRole){
+    if($staff->role != $newRole && $staff->id != Session::get("user")->id){
         $roleChanged = true;
         
         // Store a changelog object (not entity class)
@@ -62,3 +66,6 @@ for ($i = 1; $i <= $staffCount; $i++) {
 //Redirect
 header("Location: ../Views/viewStaff.php");
 return;
+
+
+
