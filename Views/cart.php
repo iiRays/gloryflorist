@@ -38,33 +38,28 @@ require_once("../Controllers/Security/Session.php");
 
                         <a class='heading'>Items in your cart</a>
 
-                        <input type='hidden' name='quantities' id='quantities' value=''>
+                        <input type='hidden' name='quantities' id='quantities' value=''> <!-- STORES ALL QUANTITIES -->
 
                         <?php
+                        
                         include "../Controllers/Util/rb.php";
-
+                        include "../Controllers/Util/Cart.php";
+                        include "../Controllers/Util/Item.php";
+                        
                         R::setup('mysql:host=localhost;dbname=flowerdb', 'root', '');
-                        $orderItems = R::findAll("orderItems");
-
-                        $noOfItems = 3; // all this stuff should gotten from db, in reality
-
-                        echo "<div class='item'>
-                  <img src='https://i.dlpng.com/static/png/6858266_preview.png'>
-                  <input type='textbox' name='quantity' class='quantity' value='1'>
-                  <a href='#' class='name'>White rose</a>
-                </div>
-
-                <div class='item'>
-                  <img src='https://i.dlpng.com/static/png/6858266_preview.png'>
-                  <input type='textbox' name='quantity' class='quantity' value='3'>
-                  <a href='#' class='name'>White flower</a>
-                </div>
-
-                <div class='item'>
-                  <img src='https://i.dlpng.com/static/png/6858266_preview.png'>
-                  <input type='textbox' name='quantity' class='quantity' value='2'>
-                  <a href='#' class='name'>White thing</a>
-                </div>";
+                        
+                        // simulate cart in session
+                        $cart = new Cart();
+                        $cart->addItem("1", 3);
+                        $cart->addItem("2", 5);
+                        
+                        foreach ($cart->items as $item) {
+                            echo "<div class='item'>
+                                    <img src='https://i.dlpng.com/static/png/6858266_preview.png'>
+                                    <input type='textbox' name='quantity' class='quantity' value='".$item->quantity."'>
+                                    <a href='#' class='name'>".$item->arrangement->name."</a>
+                                  </div>";
+                        }
                         ?>
 
                     </div>
@@ -98,9 +93,22 @@ require_once("../Controllers/Security/Session.php");
     if (filter_input(INPUT_SERVER, "REQUEST_METHOD") == "POST") {
         // declare variables
         $quantities = explode(",", filter_input(INPUT_POST, "quantities"));
-
+        
         //echo "<script type='text/javascript'>alert('$quantities[0]');</script>"; // debug
-        // TODO: when saving, actually update records in db
+        
+        // simulate cart in session
+        $cart = new Cart();
+        $cart->addItem("1", 3);
+        $cart->addItem("2", 5);
+
+        // update cart in session
+        for ($i = 0; $i < sizeof($cart->items); $i++) {
+            $cart->items[$i]->quantity = $quantities[$i];
+            echo "<script>alert(".$cart->items[$i]->quantity.");</script>"; // debug
+        }
+            
+        // save session cart
+        // TODO
     }
     ?>
 </html>

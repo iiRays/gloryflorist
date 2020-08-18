@@ -94,6 +94,8 @@
                   <div id='right'>
 
                     <a class='heading'>Payment details</a>
+                    
+                    <a href='create_order.php' id='order_button'>COMPLETE ORDER</a>
 
                   </div>
 
