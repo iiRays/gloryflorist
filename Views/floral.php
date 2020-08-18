@@ -6,7 +6,7 @@ include "../Controllers/Util/DB.php";
 DB::connect();
 
 //$id = $_GET['id'];
-$id = 1;
+$id = 2;
 $sql = "select * from arrangement where id = " . $id;
 
 $arrangement = R::getRow($sql);
@@ -16,14 +16,22 @@ $results = array();
 foreach ($arrangement as $item) {
     $results[] = $item;
 }
-print_r($results);
 
 $name = $results[1];
-$stalk = $results[4];
 $price = $results[2];
-$imgSrc = $results[3];
-$isAvailable = $results[5];
-$flowers = $results[6];
+$isAvailable = $results[3];
+$imgSrc = $results[4];
+$stalk = $results[5];
+$flower = $results[6];
+
+$sql = "select flower.flower_name from arrangement, flower where arrangement.flower_id = flower.id and  arrangement.flower_id = " . $results[6];
+
+$flowers = R::getRow($sql);
+
+foreach ($flowers as $item) {
+    $results[] = $item;
+}
+$flowerName = $results[7];
 ?>
 <html>
     <head>
@@ -57,19 +65,19 @@ $flowers = $results[6];
                     <?php echo "<img id='flowerImg' src='" . $imgSrc . "'alt='flower'/>"; ?>
                     <br/>
                     <label>Name</label><br/>
-                    <label class="details">a</label><br/>
+                    <label class="details"><?php echo $name; ?></label><br/>
                     <div id="left">
                         <label>Flowers</label>
-                        <label class="details">a</label>
+                        <label class="details"><?php echo $flowerName; ?></label>
                     </div>
                     <div id="right">
                         <label>Stalks</label>
-                        <label class="details">a</label>
+                        <label class="details"><?php echo $stalk; ?></label>
                     </div>
                     <div id="bottomContent">
                         <label>Price</label><br/>
-                        <label class="details">a</label><br/>
-                        <label>Available
+                        <label class="details"><?php echo $price; ?></label><br/>
+                        <label>
                             <?php
                             if ($isAvailable == "true") {
                                 echo "Available for Floral Arrangement";

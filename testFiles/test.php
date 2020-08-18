@@ -34,14 +34,16 @@ $flower2->isAvailable = "false";
 $arrangement = R::dispense("arrangement");
 $arrangement->name = "Rose Bouquet";
 $arrangement->cost = "100";
-$arrangement->wrapColor = "red";
+$arrangement->isAvailable = "true";
+$arrangement->img = "https://i.imgur.com/yd4JiYF.png";
 $arrangement->flower = $flower;
 $arrangement->stalks = 12;
 
 $arrangement2 = R::dispense("arrangement");
 $arrangement2->name = "Gay Flowers";
 $arrangement2->cost = "130";
-$arrangement2->wrapColor = "blue";
+$arrangement2->isAvailable = "false";
+$arrangement2->img = "https://i.imgur.com/yd4JiYF.png";
 $arrangement2->flower = $flower2;
 $arrangement2->stalks = 9;
 //
