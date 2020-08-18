@@ -6,8 +6,7 @@ include "../Controllers/Util/DB.php";
 DB::connect();
 
 $name = $_POST['name'];
-$desc = $_POST['desc'];
-$price = doubleval($_POST['price']);
+$remark = $_POST['remark'];
 $imgLink = $_POST['flowerImgSrc'];
 
 if(!empty($_POST['isAvailable'])){
@@ -18,8 +17,7 @@ if(!empty($_POST['isAvailable'])){
 
 $flower = R::dispense("flower");
 $flower->flowerName = $name;
-$flower->price = $price;
-$flower->description = $desc;
+$flower->remark = $remark;
 $flower->img = $imgLink;
 $flower->isAvailable = $isAvailable;
 R::storeAll([$flower]);
