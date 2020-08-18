@@ -78,7 +78,7 @@ $isAvailable = $results[4];
                     </div>
                     
                     <input type="checkbox" id="isAvailable" name="isAvailable" value="ON" <?php if ($isAvailable == "true"){$value = 'checked'; echo $value;}?> onchange="chgStatus()"/> 
-                    Available to floral arrangement<br />
+                    Available for floral arrangement<br />
 
                     <input type="submit" value="Save" name="save" />
                 </form>

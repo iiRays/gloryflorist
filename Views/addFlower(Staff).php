@@ -54,7 +54,7 @@
                             <textarea rows="4" cols="50" id="remark" name="remark" form="addFlower"></textarea>
                         </div>
                     </div>
-                    <input type="checkbox" id="isAvailable" name="isAvailable" value="ON" /> Available to floral arrangement<br />
+                    <input type="checkbox" id="isAvailable" name="isAvailable" value="ON" /> Available for floral arrangement<br />
 
                     <input type="submit" value="Add" name="add" />
                 </form>

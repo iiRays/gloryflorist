@@ -13,7 +13,7 @@ include "../Controllers/Util/DB.php";
 DB::connect();
 
 //$id = $_GET['id'];
-$id = 2;
+$id = 1;
 $sql = "select * from arrangement where id = " . $id;
 
 $arrangement = R::getRow($sql);

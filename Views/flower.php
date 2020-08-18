@@ -26,7 +26,7 @@ foreach ($flower as $item) {
 }
 
 $name = $results[1];
-$desc = $results[2];
+$remark = $results[2];
 $imgSrc = $results[3];
 $isAvailable = $results[4];
 ?>
@@ -63,8 +63,8 @@ $isAvailable = $results[4];
                     <br/>
                     <label>Name</label><br/>
                     <label class="details"><?php echo $name; ?></label><br/>
-                    <label>Description</label><br/>
-                    <label class="details"><?php echo $desc; ?></label><br/>
+                    <label>Remarks</label><br/>
+                    <label class="details"><?php echo $remark; ?></label><br/>
                     <label>
                         <?php
                         if ($isAvailable == "true") {
