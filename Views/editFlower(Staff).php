@@ -12,8 +12,8 @@ include "../Controllers/Util/DB.php";
 
 DB::connect();
 
-//$id = $_GET['id'];
-$id = 2;
+$id = $_GET['id'];
+//$id = 2;
 $sql = "select * from flower where id = " . $id;
 
 $flower = R::getRow($sql);

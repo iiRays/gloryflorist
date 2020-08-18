@@ -1,10 +1,3 @@
-<?php
-/*
-  require_once("../Controllers/Security/Authorize.php");
-  Authorize::onlyAllow("staff");
- * 
- */
-?>
 <!DOCTYPE html>
 <?php
 include "../Controllers/Util/rb.php";
@@ -12,18 +5,17 @@ include "../Controllers/Util/DB.php";
 
 DB::connect();
 
-$sql = "select * from flower";
+$sql = "select * from arrangement";
 
-$flower = R::findAll('flower');
-
+$arrangement = R::findAll('arrangement');
 ?>
 <html>
 
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="CSS/common.css">
-        <link rel="stylesheet" href="CSS/viewFlower(Staff).css">
-        <title>Glory Florist : Flower Available</title>
+        <link rel="stylesheet" href="CSS/viewFloral(Cust).css">
+        <title>Glory Florist : Floral Arrangement Available</title>
     </head>
     <body>
         <div id='container'> 
@@ -39,28 +31,23 @@ $flower = R::findAll('flower');
             <div id='top'>
                 <div id='text'>
                     <a href='staffDashboard.php' id='back'>back to dashboard</a>
-                    <a id='title'>Flower Available</a>
+                    <a id='title'>Floral Arrangement Available</a>
                 </div>
             </div>
 
             <div id='content'>
                 <div id='list'>
+                    
                         <?php
-                        foreach ($flower as $item) {
+                        foreach ($arrangement as $item) {
                             echo '<div class="item">' .
                             '<img id="img" name="img" src = "' . $item->img . '">' .
-                            '<a href="flower%28Staff%29.php?id=' . $item->id . '" class="name">' . $item->flowerName . '</a>' .
-                            '<a href="editFlower%28Staff%29.php?id=' . $item->id . '" id="edit_button">Edit</a>' .
-                            '</div>';
+                            '<a href="floral%28Cust%29.php?id=' . $item->id . '" class="name">' . $item->name . '</a></div>';
                         }
                         ?>
                 </div>
 
             </div>  
-
-            <div id='bottom'>
-                <a href='addFlower(Staff).php' id='add_button'>Add more flowers</a>
-            </div>
         </div>
     </body>
 

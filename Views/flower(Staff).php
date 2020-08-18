@@ -13,8 +13,8 @@ include "../Controllers/Util/DB.php";
 
 DB::connect();
 
-//$id = $_GET['id'];
-$id = 1;
+$id = $_GET['id'];
+//$id = 1;
 $sql = "select * from flower where id = " . $id;
 
 $flower = R::getRow($sql);
@@ -35,7 +35,7 @@ $isAvailable = $results[4];
         <meta charset="UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="CSS/common.css">
-        <link rel="stylesheet" href="CSS/flower.css">
+        <link rel="stylesheet" href="CSS/flower(Staff).css">
         <title>Glory Florist : Flower</title>
     </head>
 
@@ -77,7 +77,7 @@ $isAvailable = $results[4];
                 </div>
             </div>
             <div id="bottom">
-                <a href='#' id='edit_button'>Edit</a>
+                <a href='editFlower%28Staff%29.php?id= <?php echo $id; ?>' id='edit_button'>Edit</a>
             </div>
         </div>
     </body>

@@ -2,18 +2,20 @@
 
 include "../Controllers/Util/rb.php";
 include "../Controllers/Util/DB.php";
+require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Util/Cart.php");
 require_once("../Controllers/Util/Item.php");
 
 DB::connect();
 
-// simulate cart in session
-$cart = new Cart();
-$cart->addItem("1", 3);
-$cart->addItem("2", 5);
+// get cart from session
+$cart = Session::get("cart");
 
 // create order
 $cart->makeOrder();
 
-// redirect to order completion page
+// reset cart in session
 // TODO
+
+// redirect to order completion page - TODO
+header('location: home.php');
