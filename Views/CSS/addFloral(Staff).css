@@ -39,7 +39,7 @@ label{
     margin: 5px;
 }
 
-#container #content #editflower #form input[type="text"], input[type="number"]{
+#container #content #addFloral #form input[type="text"], #price{
     height: 30px;
     width: 93%;
     padding: 5px 10px;
@@ -48,14 +48,14 @@ label{
     border: 1px solid gray;
 }
 
-#container #content #editflower #form #img{
+#container #content #addFloral #form #img{
     text-align: center;
     margin: auto;
     margin-bottom: 10px;
     font-size: 20px;
 }
 
-#container #content #editflower #form #remark {
+#container #content #addFloral #form #desc {
     border: 1px solid gray;
     font-size: 20px;
     padding: 5px 10px;
@@ -70,13 +70,8 @@ label{
     font-family: "Arial";
 }
 
-#container #content #editflower input[type="checkbox"]{
-    margin-top: 5px;
-    width: 15px;
-    height: 15px;
-}
-
-#container #content #editflower input[type="submit"]{
+#container #content #addFloral input[type="submit"]{
+    margin-top: 15px;
     text-decoration: none;
     font-size: 30px;
     padding-top: 0px;
@@ -103,23 +98,54 @@ img{
     display: block;
 }
 
-#container #content #editflower #form #left{
+#container #content #addFloral #form #left{
     float: left;
+    padding-bottom: 50px;
+    padding-top: 100px;
     margin-left: 150px;
     margin-right: 0px;
+}
+
+#container #content #addFloral #form #bottomLeft {
+    float: left;
+    width: 50%;
+    margin-left: 50px;
+    margin-top: 45px;
+}
+
+#container #content #addFloral #form #bottomRight {
+    float: right;
+    margin-right: 110px;
+    margin-top: 45px;
+}
+
+#container #content #addFloral #form #right{
+    float: right;
+    margin-right: 150px;
+    margin-left: 0px;
     width: 180px;
     height: 180px;
     border: 1px solid black;
 }
 
-#container #content #editflower #form #right{
-    float: right;
-    
-    padding-bottom: 50px;
-    padding-top: 100px;
-    margin-right: 150px;
+#container #content #addFloral #form #bottomRight input[type="number"]{
+    height: 30px;
+    width: 50%;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 
-#container #content #editflower #form #bottom{
-    margin-top: 250px;
+#container #content #addFloral #form #bottomLeft select{
+    height: 40px;
+    width: 50%;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+#container #content #addFloral #form #bottom{
+    margin-top: 400px;
 }

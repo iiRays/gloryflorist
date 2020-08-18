@@ -1,7 +1,7 @@
 <?php
 /*
-require_once("../Controllers/Security/Authorize.php");
-Authorize::onlyAllow("staff");
+  require_once("../Controllers/Security/Authorize.php");
+  Authorize::onlyAllow("staff");
  * 
  */
 ?>
@@ -12,30 +12,25 @@ include "../Controllers/Util/DB.php";
 
 DB::connect();
 
-//$id = $_GET['id'];
-$id = 2;
-$sql = "select * from flower where id = " . $id;
+$sql = "select flower_name from flower";
 
-$flower = R::getRow($sql);
+$flower = R::getAll($sql);
 
 $results = array();
 
-foreach ($flower as $item) {
-    $results[] = $item;
+foreach ($flower as $items) {
+    foreach ($items as $item) {
+        $results[] = $item;
+    }
 }
-
-$name = $results[1];
-$remark = $results[2];
-$imgSrc = $results[3];
-$isAvailable = $results[4];
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="CSS/common.css">
-        <link rel="stylesheet" href="CSS/editFlower(Staff).css">
-        <title>Glory Florist : Edit Flower</title>
+        <link rel="stylesheet" href="CSS/addFloral(Staff).css">
+        <title>Glory Florist : Add Floral</title>
     </head>
 
     <body>
@@ -52,35 +47,48 @@ $isAvailable = $results[4];
             <div id='top'>
                 <div id='text'>
                     <a href='staffDashboard.php' id='back'>back to dashboard</a>
-                    <a id='title'>Edit Flower</a>
+                    <a id='title'>Add Floral</a>
                 </div>
             </div>
 
             <div id='content'>
 
-                <form method="POST" action="edit_flower.php" id="editflower">
-                    <input type="hidden" id="id" name="id" value="<?php echo $id; ?>"/>
+                <form method="POST" action="add_floral.php" id="addFloral">
+
                     <div id="form">
                         <label>Name:</label>
-                        <input type="text" id="name" name="name" value="<?php echo $name; ?>" size="20" /><br />
+                        <input type="text" id="name" name="name" value="" size="20" /><br />
                         <label>Image:</label><br />
                         <div id="left"> 
-                            <img id="flowerImg" name="flowerImg" src="<?php echo $imgSrc; ?>" alt="flower" /><br />
-                            <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value="<?php echo $imgSrc; ?>"/>
+                            <input type="file" id="img" name="image" accept="image/*">
+
                         </div>
                         <div id="right"> 
-                            <input type="file" id="img" name="image" accept="image/*"><br />
+                            <img id="flowerImg" src="" alt="flower" /><br />
+                            <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value=""/>
+                        </div>
+                        <div id="bottomLeft">
+                            <label>Flowers</label><br/>
+                            <select name="flowers" id="flowers">
+                                <?php
+                                foreach ($results as $key => $value) {
+                                    $key += 1;
+                                    echo '<option value="' . $key . '">' . $value . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div id="bottomRight">
+                            <label>Stalks</label><br/>
+                            <input type="number" id="stalk" name="stalk" value="" size="20" /><br />
                         </div>
                         <div id="bottom">
-                            <label>Remarks:</label>
-                            <textarea rows="4" cols="50" id="remark" name="remark" form="editflower"><?php echo $remark; ?></textarea>
+                            <label>Price:</label>
+                            <input type="number" step=0.01 id="price" name="price" value="" size="20" /><br />
                         </div>
                     </div>
-                    
-                    <input type="checkbox" id="isAvailable" name="isAvailable" value="ON" <?php if ($isAvailable == "true"){$value = 'checked'; echo $value;}?> onchange="chgStatus()"/> 
-                    Available to floral arrangement<br />
 
-                    <input type="submit" value="Save" name="save" />
+                    <input type="submit" value="Add" name="add" />
                 </form>
             </div>
         </div>
@@ -128,6 +136,7 @@ $isAvailable = $results[4];
                             console.log(res.data.link);
                             document.getElementById("flowerImg").src = res.data.link;
                             document.getElementById("flowerImgSrc").value = res.data.link;
+                            document.getElementById("test").innerHTML = document.getElementById("flowerImgSrc").value;
                         },
                         error: function () {
                             alert("Failed");

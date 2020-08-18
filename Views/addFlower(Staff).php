@@ -1,6 +1,9 @@
 <?php
-require_once("../Controllers/Security/Authorize.php");
-Authorize::onlyAllow("staff");
+/*
+  require_once("../Controllers/Security/Authorize.php");
+  Authorize::onlyAllow("staff");
+ * 
+ */
 ?>
 <!DOCTYPE html>
 
@@ -43,17 +46,15 @@ Authorize::onlyAllow("staff");
                             <input type="file" id="img" name="image" accept="image/*">
                         </div>
                         <div id="right"> 
-                            <img id="flowerImg" src="http://placehold.it/180" alt="flower" /><br />
+                            <img id="flowerImg" src="" alt="flower" /><br />
                             <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value=""/>
                         </div>
                         <div id="bottom">
-                            <label>Description:</label>
-                            <textarea rows="4" cols="50" id="desc" name="desc" form="addFlower"></textarea>
-                            <label>Price:</label>
-                            <input type="number" step=0.01 id="price" name="price" value="" size="20" /><br />
+                            <label>Remarks:</label>
+                            <textarea rows="4" cols="50" id="remark" name="remark" form="addFlower"></textarea>
                         </div>
                     </div>
-                    <input type="checkbox" id="isAvailable" name="isAvailable" value="ON" /> Available to sell<br />
+                    <input type="checkbox" id="isAvailable" name="isAvailable" value="ON" /> Available to floral arrangement<br />
 
                     <input type="submit" value="Add" name="add" />
                 </form>
@@ -103,7 +104,6 @@ Authorize::onlyAllow("staff");
                             console.log(res.data.link);
                             document.getElementById("flowerImg").src = res.data.link;
                             document.getElementById("flowerImgSrc").value = res.data.link;
-                            document.getElementById("test").innerHTML = document.getElementById("flowerImgSrc").value;
                         },
                         error: function () {
                             alert("Failed");

@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <?php
+/*
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("staff");
+ * 
+ */
+?>
+<?php
+
 include "../Controllers/Util/rb.php";
 include "../Controllers/Util/DB.php";
 
@@ -18,10 +26,9 @@ foreach ($flower as $item) {
 }
 
 $name = $results[1];
-$price = $results[2];
-$desc = $results[3];
-$imgSrc = $results[4];
-$isAvailable = $results[5];
+$desc = $results[2];
+$imgSrc = $results[3];
+$isAvailable = $results[4];
 ?>
 <html>
     <head>
@@ -58,8 +65,6 @@ $isAvailable = $results[5];
                     <label class="details"><?php echo $name; ?></label><br/>
                     <label>Description</label><br/>
                     <label class="details"><?php echo $desc; ?></label><br/>
-                    <label>Price</label><br/>
-                    <label class="details"><?php echo $price; ?></label><br/>
                     <label>
                         <?php
                         if ($isAvailable == "true") {
@@ -69,7 +74,6 @@ $isAvailable = $results[5];
                         }
                         ?>
                     </label><br/>
-
                 </div>
             </div>
             <div id="bottom">
