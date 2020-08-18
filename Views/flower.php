@@ -18,8 +18,8 @@ foreach ($flower as $item) {
 }
 
 $name = $results[1];
-$desc = $results[3];
 $price = $results[2];
+$desc = $results[3];
 $imgSrc = $results[4];
 $isAvailable = $results[5];
 ?>
