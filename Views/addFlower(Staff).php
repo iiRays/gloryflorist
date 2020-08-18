@@ -39,7 +39,7 @@
                             <input type="file" id="img" name="image" accept="image/*">
                         </div>
                         <div id="right"> 
-                            <img id="flowerImg" src="http://placehold.it/180" alt="your image" /><br />
+                            <img id="flowerImg" src="http://placehold.it/180" alt="flower" /><br />
                             <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value=""/>
                         </div>
                         <div id="bottom">
@@ -112,7 +112,6 @@
             });
         });
     </script>
-
 
 </html>     
 

@@ -1,8 +1,9 @@
 <?php
 
 include "../Controllers/Util/rb.php";
+include "../Controllers/Util/DB.php";
 
-R::setup('mysql:host=localhost;dbname=flowerdb', 'root', '');
+DB::connect();
 
 $name = $_POST['name'];
 $desc = $_POST['desc'];
@@ -22,6 +23,8 @@ $flower->description = $desc;
 $flower->img = $imgLink;
 $flower->isAvailable = $isAvailable;
 R::storeAll([$flower]);
+
+echo 'Added Successfully';
 ?>
 
 

@@ -1,0 +1,79 @@
+body{
+    font-family: "Cute Font";
+    text-align: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 0px; 
+}
+
+#container #top #text #back{
+    margin-left: 240px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+#top{
+    position: relative;
+    margin-top: 100px;
+}
+
+#flower{
+    width: 50%;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 30px;
+}
+
+
+#container #content {
+    margin-left: -50px;
+    margin-bottom: 100px;
+    transition: margin-left 0.5s;
+}
+
+#container:hover > #content {
+    margin-left: 50px;
+}
+
+img{
+    max-width:180px;
+}
+
+.details{
+    opacity: 0.5;
+}
+
+#container #bottom #edit_button {
+    margin-left: 60px;
+    color: #fcf8ee;
+    text-decoration: none;
+    font-size: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgba(243, 181, 177, 0.25);
+    transition: background-color 0.5s;
+}
+
+#container #bottom #edit_button:hover {
+    background-color: rgba(243, 181, 177, 0.5);
+}
+
+#container #bottom {
+  margin-top: 50px;
+  transition: margin-top 0.5s;
+}
+
+#container:hover > #bottom {
+  margin-top: -50px;
+}
