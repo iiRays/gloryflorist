@@ -5,6 +5,9 @@ require_once("Util/rb.php");
 require_once("Util/Quick.php");
 require_once("Util/Email.php");
 require_once("Util/EmailFactory.php");
+require_once("Security/Authorize.php");
+
+Authorize::onlyAllow("admin");
 
 DB::connect();
 

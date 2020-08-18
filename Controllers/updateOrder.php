@@ -1,6 +1,9 @@
 <?php
 include "Util/Quick.php";
 include "Util/rb.php";
+require_once("Security/Authorize.php");
+
+Authorize::onlyAllow("staff");
 
 //Get query string
 $query = Quick::getQueryStr();
