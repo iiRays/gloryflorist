@@ -29,21 +29,61 @@ Authorize::onlyAllow("admin");
           <a id='title'>Register a Staff</a>
         </div>
       </div>
-      <div id="content">
+      <div id="content">    
           <form action="../Controllers/registerStaff.php" method="POST">
+              
+          <div class="message" style="font-size: 35;"></div>
 
           <div class="field">
             <h4 class="label">NAME</h4>
-            <input type="text" name="name">
+            <input type="text" name="name" required>
           </div>
           <div class="field">
             <h4 class="label">EMAIL</h4>
-            <input type="text" name="email">
+            <input type="text" name="email" required>
           </div>
           <input type="submit" value="REGISTER"/>
         </form>
       </div>
     </div>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    // Code possible thanks to https://stackoverflow.com/questions/19491336/how-to-get-url-parameter-using-jquery-or-plain-javascript
+    function getQueryString(query) {
+      var pageURL = window.location.search.substring(1);
+      var variables = pageURL.split('&');
+      var key;
+
+      for (var i = 0; i < variables.length; i++) {
+        key = variables[i].split('=');
+
+        if (key[0] === query) {
+          return key[1] === undefined ? true : decodeURIComponent(key[1]);
+        }
+      }
+    }
+
+    $(document).ready(function() {
+      var returnCode = getQueryString("code");
+      var message = "";
+      var color = "";
+
+      switch (returnCode) {
+        case "success":
+          message = "Registered successfully!";
+          color = "lightgreen";
+          break;
+        case "duplicateEmail":
+          message = "An account with this email already exists.";
+          color = "red";
+          break;
+      }
+
+      $(".message").html(message);
+      $(".message").css("color", color);
+    });
+
+  </script>
 
 </html>
