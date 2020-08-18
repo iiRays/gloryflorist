@@ -40,8 +40,8 @@ if (isset($_POST['register'])) {
         $user->email = $email;
         $user->password = "$password_1";
         $user->name = "$name";
-        $user->role = "Customer";
-        $user->status = "Active";
+        $user->role = "customer";
+        $user->status = "active";
         $user->phone = "";
         $user->address = "";
 
