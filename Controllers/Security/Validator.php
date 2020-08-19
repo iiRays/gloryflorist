@@ -23,6 +23,27 @@ class Validator {
         array_push($this->errMsg, $letterErr);
         //print_r($errMsg);
     }
+    
+    function validateName($input) {
+        $letterErr = array();
+        if (!empty($input)) {
+            if (!preg_match("/^[a-zA-Z ]*$/", $input)) {
+                array_push($letterErr, "Name can only have letters and space only");
+            } else {
+                // No error occured, don't push any errors
+                //array_push($letterErr, "No error");
+            }
+        } else {
+            array_push($letterErr, "Name is required");
+        }
+        
+        // Check if any error occured
+        if(count($letterErr)>0){
+            // An error occured, push error message
+            array_push($this->errMsg, $letterErr);
+        }
+        //print_r($errMsg);
+    }
 
     public function validateEmail($input) {
         $emailErr = array();
@@ -30,12 +51,15 @@ class Validator {
             if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
                 array_push($emailErr, "Invalid e-mail format(Eg. abc@mail.com)");
             } else {
-                array_push($emailErr, "No error");
+                //array_push($emailErr, "No error");
             }
         } else {
-            array_push($emailErr, "This field is required");
+            array_push($emailErr, "Email is required");
         }
-        array_push($this->errMsg, $emailErr);
+        if(count($emailErr)>0){
+            // An error occured
+            array_push($this->errMsg, $emailErr);
+        }
     }
 
     public function validateNumOnly($input) {

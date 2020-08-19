@@ -6,6 +6,7 @@ require_once("Util/Quick.php");
 require_once("Util/Email.php");
 require_once("Util/EmailFactory.php");
 require_once("Security/Authorize.php");
+require_once("Security/Validator.php");
 
 Authorize::onlyAllow("admin");
 
@@ -15,13 +16,40 @@ DB::connect();
 $email = Quick::getPostData("email");
 $name = Quick::getPostData("name");
 
+// Validate using Validator class
+$validator = new Validator();
+$validator->validateEmail($email);
+$validator->validateName($name);
+
 // Check for existing email
-if(count(R::find("user", "role != ? AND email = ?", ["customer", $email])) > 0){
+if (count(R::find("user", "role != ? AND email = ?", ["customer", $email])) > 0) {
     // Show error message
-Quick::redirect("/Views/registerStaff.php?code=duplicateEmail");
-return;
+    $validator->customValidate("Another account already uses this email");
+    
 }
 
+// Display errors
+if(count($validator->getError())>0){
+    $errorList = $validator->getError();
+    $numOfErrors = count($errorList);
+    $errorStr = "";
+    
+    while($numOfErrors > 0){
+        $numOfErrors--;
+        $error = array_pop($errorList);
+        $errorStr .= array_pop($error);
+        
+        if($numOfErrors>0){
+            // There's still more errors remaining
+            $errorStr .= "|";
+        }
+    }
+    
+    // Redirect with error message
+    Quick::redirect("/Views/registerStaff.php?errors=" . $errorStr);
+    echo var_dump($validator);
+    return;
+}
 
 // Generate random password
 $password = Quick::generateRandomString(10);

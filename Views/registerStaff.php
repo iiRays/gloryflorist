@@ -36,11 +36,11 @@ Authorize::onlyAllow("admin");
 
           <div class="field">
             <h4 class="label">NAME</h4>
-            <input type="text" name="name" required>
+            <input type="text" name="name">
           </div>
           <div class="field">
             <h4 class="label">EMAIL</h4>
-            <input type="text" name="email" required>
+            <input type="text" name="email" >
           </div>
           <input type="submit" value="REGISTER"/>
         </form>
@@ -49,6 +49,8 @@ Authorize::onlyAllow("admin");
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
+      var message = "";
+      
     // Code possible thanks to https://stackoverflow.com/questions/19491336/how-to-get-url-parameter-using-jquery-or-plain-javascript
     function getQueryString(query) {
       var pageURL = window.location.search.substring(1);
@@ -66,7 +68,7 @@ Authorize::onlyAllow("admin");
 
     $(document).ready(function() {
       var returnCode = getQueryString("code");
-      var message = "";
+      var errors = getQueryString("errors");
       var color = "";
 
       switch (returnCode) {
@@ -74,15 +76,24 @@ Authorize::onlyAllow("admin");
           message = "Registered successfully!";
           color = "lightgreen";
           break;
-        case "duplicateEmail":
-          message = "An account with this email already exists.";
+      }
+      
+      if(errors){
+          var errorList = errors.split("|");
+         errorList.forEach(addErrors);
+          
           color = "red";
-          break;
       }
 
       $(".message").html(message);
       $(".message").css("color", color);
     });
+    
+    function addErrors(error, index){
+        message += error + "<br/>";
+        
+        return message;
+    }
 
   </script>
 
