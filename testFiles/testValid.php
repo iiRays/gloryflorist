@@ -1,5 +1,5 @@
 <?php
-
+//rmb to put this on ur planned action .php thre
 require_once("../Controllers/Security/Validator.php");
 
 //get form input
