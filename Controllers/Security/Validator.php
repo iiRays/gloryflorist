@@ -15,7 +15,7 @@ class Validator {
             if (!preg_match("/^[a-zA-Z ]*$/", $input)) {
                 array_push($letterErr, "Letter and space only");
             } else {
-                array_push($letterErr, "No error");
+                //array_push($letterErr, "No error");
             }
         } else {
             array_push($letterErr, "This field is required");
@@ -72,7 +72,7 @@ class Validator {
             if (!preg_match('/^[0-9]*$/', $input)) {
                 array_push($numErr, "Number only");
             } else{
-                array_push($numErr, "No error");
+                //array_push($numErr, "No error");
             }
         } else {
             array_push($numErr, "This field is required");
@@ -89,7 +89,7 @@ class Validator {
             if (!preg_match('/^[0-9]+(\.[0-9]{1,2})?$/', $input)) {
                 array_push($decErr, "Number with or without 2 decimal only");
             } else{
-                array_push($decErr, "No error");
+                //array_push($decErr, "No error");
             }
         } else {
             array_push($decErr, "This field is required");
@@ -106,7 +106,7 @@ class Validator {
             if ($password != $cPassword) {
                 array_push($pasErr, "Password and confirm password not matched");
             } else {
-                array_push($pasErr, "No error");
+                //array_push($pasErr, "No error");
             }
         } else {
             if (empty($password)) {
@@ -127,7 +127,7 @@ class Validator {
             if (!preg_match('/^[0-9]{10,11}+$/', $input)) {
                 array_push($phoErr, "Phone must consist of 10 or 11 digits");
             } else {
-                array_push($phoErr, "No error");
+                //array_push($phoErr, "No error");
             }
         } else {
             array_push($phoErr, "This field is required");
