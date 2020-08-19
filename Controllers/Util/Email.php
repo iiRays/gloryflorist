@@ -15,8 +15,14 @@ use PHPMailer\PHPMailer\Exception;
  */
 class Email {
 
-    public static function send($target, $subject, $message) {
-        $mail = self::createEmail();
+    private $mail;
+
+    public function __construct($mail) {
+        $this->mail = $mail;
+    }
+
+    public function send($target, $subject, $message) {
+        $mail = $this->mail;
 
         $mail->addAddress($target);
         $mail->Subject = $subject;
@@ -58,6 +64,17 @@ class Email {
         $mail->isHTML(true);
 
         return $mail;
+    }
+
+    // Some setters and getters
+
+    function getMail() {
+        return $this->mail;
+    }
+
+    function setMail($mail) {
+        $this->mail = $mail;
+        return $this;
     }
 
 }

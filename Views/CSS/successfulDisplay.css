@@ -1,0 +1,33 @@
+#content #msgBorder{
+    width: 50%;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 30px;
+}
+
+label{
+    font-family: "Cute Font";
+    text-align: center;
+    margin-left: 330px;
+}
+
+#back_button{
+    margin-top: 100px;
+    color: #fcf8ee;
+    text-decoration: none;
+    margin-left: 50px;
+    font-size: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgba(243, 181, 177, 0.25);
+    transition: background-color 0.5s;
+}
+
+#container #back_button:hover {
+    background-color: rgba(243, 181, 177, 0.5);
+}

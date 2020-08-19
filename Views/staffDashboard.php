@@ -1,6 +1,12 @@
 <?php
 require_once("../Controllers/Security/Authorize.php");
+require_once("../Controllers/Util/rb.php");
+require_once("../Controllers/Util/DB.php");
 Authorize::onlyAllow("staff");
+DB::connect();
+
+// Get order count
+$orderCount = count(R::find("orders", "status != ? AND status != ?", ["done", "dropped"]));
 ?>
 
 <html>
@@ -31,12 +37,12 @@ Authorize::onlyAllow("staff");
                 <div id="left">
                     <div class="item" id="order">
                         View orders
-                        <div id="counter">7</div>
+                        <div id="counter"><?php echo $orderCount > 0 ? $orderCount : ""; // Show order count only if more than 0 ?></div>
                     </div>
                     <br/><br/><br/>
                     <?php
                     if (Authorize::isUserA("admin")) {
-                        
+
                         echo '<div class="item" id="staff">Manage staff</div>';
                     }
                     ?>

@@ -18,7 +18,7 @@ class Authorize {
                 Quick::redirect("Views/home.php");
         } else if ($role == "customer" && !$user) { // If only allow logged in users
             // Block guests
-            Quick::redirect("Views/home.php");
+            Quick::redirect("Views/login.php");
         } else if ($role == "staff" && $user->role != "staff" && $user->role != "admin") { // If only allow staff AND admin
             // Block customers AND guests
              Quick::redirect("Views/home.php");

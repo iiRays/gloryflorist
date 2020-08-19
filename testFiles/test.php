@@ -19,29 +19,29 @@ R::nuke();
 
 $flower = R::dispense("flower");
 $flower->flowerName = "Rose";
-$flower->price = 12.00;
-$flower->description = "Very beautiful";
+$flower->remark = "Very beautiful";
 $flower->img = "https://i.imgur.com/yd4JiYF.png";
 $flower->isAvailable = "true";
 
 $flower2 = R::dispense("flower");
 $flower2->flowerName = "Lily";
-$flower2->price = 12.00;
-$flower2->description = "Very beautiful";
+$flower2->remark = "Very beautiful";
 $flower2->img = "https://i.imgur.com/yd4JiYF.png";
 $flower2->isAvailable = "false";
 
 $arrangement = R::dispense("arrangement");
 $arrangement->name = "Rose Bouquet";
-$arrangement->cost = "100";
-$arrangement->wrapColor = "red";
+$arrangement->price = "100";
+$arrangement->isAvailable = "true";
+$arrangement->img = "https://i.imgur.com/yd4JiYF.png";
 $arrangement->flower = $flower;
 $arrangement->stalks = 12;
 
 $arrangement2 = R::dispense("arrangement");
 $arrangement2->name = "Gay Flowers";
-$arrangement2->cost = "130";
-$arrangement2->wrapColor = "blue";
+$arrangement2->price = "130";
+$arrangement2->isAvailable = "false";
+$arrangement2->img = "https://i.imgur.com/yd4JiYF.png";
 $arrangement2->flower = $flower2;
 $arrangement2->stalks = 9;
 //

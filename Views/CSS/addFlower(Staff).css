@@ -55,7 +55,7 @@ label{
     font-size: 20px;
 }
 
-#container #content #addFlower #form #desc {
+#container #content #addFlower #form #remark {
     border: 1px solid gray;
     font-size: 20px;
     padding: 5px 10px;
@@ -98,7 +98,9 @@ label{
 }
 
 img{
-    max-width:180px;
+    max-width: 180px;
+    max-height: 180px;
+    display: block;
 }
 
 #container #content #addFlower #form #left{
@@ -111,7 +113,12 @@ img{
 #container #content #addFlower #form #right{
     float: right;
     margin-right: 150px;
+    margin-left: 0px;
+    width: 180px;
+    height: 180px;
+    border: 1px solid black;
 }
+
 
 #container #content #addFlower #form #bottom{
     margin-top: 250px;

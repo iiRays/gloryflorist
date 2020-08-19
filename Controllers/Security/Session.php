@@ -1,5 +1,10 @@
 <?php
 
+// Author : Johann Lee Jia Xuan
+
+require_once("../Controllers/Util/Cart.php");
+require_once("../Controllers/Util/CartSaver.php");
+
 class Session{
     
     // Starts a session if none exists
@@ -13,10 +18,9 @@ class Session{
     public static function stop(){
         self::start();
         if(session_id() != ""){
-             session_regenerate_id(true);
+             //session_regenerate_id(true);
             session_unset();
             session_destroy();
-            session_write_close();
         }
     }
     
@@ -34,6 +38,11 @@ class Session{
     public static function set(String $key, $value){
         self::start();
          $_SESSION[$key] = $value;
+    }
+    
+    public static function delete(String $key) {
+        self::start();
+        unset($_SESSION[$key]);
     }
     
     public static function itemExists(String $key){
@@ -69,7 +78,6 @@ class Session{
            $user->sessionToken = null;
        }
         
-        // Add session ID (or replace if already have)
         self::start();
         
         // New session ID
@@ -79,8 +87,17 @@ class Session{
         echo "New session: " . session_id();
         
         // Update session ID in user in the database
-        R::store($user);  
+        R::store($user);
         
+        $cart = new Cart(); // Ryan's work
+        $cartSaver = new CartSaver(); // Ryan's work
+        
+        // DEBUG: simulate items already added to cart
+        $cart->addItem("1", 3);
+        $cart->addItem("2", 5);
+        
+        self::set("cart", $cart); // Ryan's work
+        self::set("cartSaver", $cartSaver); // Ryan's work
     }
     
     public static function logoutUser($user){

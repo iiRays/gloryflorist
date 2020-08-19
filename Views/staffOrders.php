@@ -25,31 +25,46 @@ Authorize::onlyAllow("staff");
                 <div id='text'>
                     <a href='staffDashboard.php' id='back'>back to dashboard</a>
                     <a id='title'>View Orders</a>
+                    <div class="message" style="font-size: 35; margin: auto; text-align: center;"></div>
                 </div>
             </div>
+
             <div id="content">
 
+                <br/>
                 <div class="masonryContainer">
-                    <?php
-                    include "../Controllers/Util/rb.php";
-                    include "../Controllers/Util/Quick.php";
-                    require_once("../Controllers/Security/Authorize.php");
-                    Authorize::onlyAllow("staff");
 
-                    R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql or mariaDB
+                    <?php
+                    include "../Controllers/Util/DB.php";
+
+                    DB::connect();
                     $orderList = R::findAll("orders");
                     $order = "";
 
                     foreach ($orderList as $individualOrder) {
 
                         $id = $individualOrder->id;
-                        $deadline =(new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->targetDate))))->diff(Quick::getCurrentTime())->format("%dd %hh %im");
-                        
-                        
+                        // $deadline =(new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->targetDate))))->diff(Quick::getCurrentTime())->format("%dd %hh %im");
+                        date_default_timezone_set('Asia/Singapore');
+                        $now = Quick::getCurrentTime();
+                        $deadlineDate = new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->targetDate)));
+                        $deadlineDateStr = date_format($deadlineDate, "d/m/y h:ia");
+                        $deadline = date_diff($now, $deadlineDate, false)->format(" %r%dd %hh %im left");
+
+                        if (strpos($deadline, "-") > 0 && $individualOrder->status != "done" && $individualOrder->status != "dropped") {
+                            // Overdue
+                            $deadline = "Overdue";
+                        }
+
+                        // If finished and over deadline now
+                        if ($individualOrder->status == "done" || $individualOrder->status == "dropped") {
+                            $deadline = "";
+                        }
+
                         //Get order item
                         $orderItemList = R::find("orderitem", "order_id = ?", [$id]);
                         $count = count($orderItemList);
-                        $order .= "<div class=\"item\" id=\"{$id}\" data-arrangementcount=\"{$count}\" data-status=\"{$individualOrder->status}\" data-deadline=\"{$deadline}\">
+                        $order .= "<div class=\"item\" id=\"{$id}\" data-arrangementcount=\"{$count}\" data-targetdate=\"Target: {$deadlineDateStr}\" data-status=\"{$individualOrder->status}\" data-deadline=\"{$deadline}\">
                         <div class=\"orderID\" >order {$id}</div>";
 
                         $counter = 0;
@@ -61,10 +76,10 @@ Authorize::onlyAllow("staff");
                         <div class=\"flowers\">{$arrangement->flower->flowerName}</div>";
                         }
 
-                        $order .= "<div class=\"deadline\">$deadline left</div></div></div>";
+                        $order .= "<div class=\"deadline\">$deadline</div></div></div>";
                     }
-                    
-                    
+
+
 //
 //                    //Generate an order
 //                    $id = "order2";
@@ -99,12 +114,15 @@ Authorize::onlyAllow("staff");
                 </div>
 
                 <div class="bottomBar">
+                    <div class="targetDeadline" id="overlayTargetDeadline">12/12/2020</div>
                     <div class="deadline" id="overlayDeadline">3 hours left</div>
                     <div class="orderStatus">
                         <a href="" class="pending" id="pending"><div>Pending</div></a>
                         <a href="" class="doing" id="doing"><div>Doing</div></a>
                         <a href="" class="delivering" id="delivering"> <div>Delivering</div></a>
+                        <a href="" class="done" id="done"> <div >Done</div></a>
                         <a href="" class="dropped" id="dropped"> <div >Dropped</div></a>
+
                     </div>
                 </div>
             </div>
@@ -120,9 +138,11 @@ Authorize::onlyAllow("staff");
             var arrangementCount = $("#" + id).data("arrangementcount");
             var status = $("#" + id).data("status");
             var deadline = $("#" + id).data("deadline");
+            var targetDeadline = $("#" + id).data("targetdate");
             var arrangementContainer = "";
-            
-            $("#overlayDeadline").html(deadline + " left");
+
+            $("#overlayDeadline").html(deadline);
+            $("#overlayTargetDeadline").html(targetDeadline);
 
             for (var i = 0; i < arrangementCount; i++) {
                 var quantity = $("#" + id + "arrangement" + (i + 1)).data("quantity");
@@ -142,6 +162,7 @@ Authorize::onlyAllow("staff");
             $("#doing").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=doing");
             $("#delivering").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=delivering");
             $("#dropped").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=dropped");
+            $("#done").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=done");
 
             //Highlight the current status
             switch (status) {
@@ -156,6 +177,10 @@ Authorize::onlyAllow("staff");
                 case "dropped":
                     $(".orderStatus a").removeClass("selected");
                     $("#dropped").addClass("selected");
+                    break;
+                case "done":
+                    $(".orderStatus a").removeClass("selected");
+                    $("#done").addClass("selected");
                     break;
                 default: //Default will be pending
                     $(".orderStatus a").removeClass("selected");
@@ -181,6 +206,56 @@ Authorize::onlyAllow("staff");
         $(document).ready(function () {
 
         });
+    </script>
+    <script>
+        // Code possible thanks to https://stackoverflow.com/questions/19491336/how-to-get-url-parameter-using-jquery-or-plain-javascript
+        function getQueryString(query) {
+            var pageURL = window.location.search.substring(1);
+            var variables = pageURL.split('&');
+            var key;
+
+            for (var i = 0; i < variables.length; i++) {
+                key = variables[i].split('=');
+
+                if (key[0] === query) {
+                    return key[1] === undefined ? true : decodeURIComponent(key[1]);
+                }
+            }
+        }
+
+        $(document).ready(function () {
+            var returnCode = getQueryString("success");
+            var id = getQueryString("id");
+            var message = "";
+            var color = "";
+
+            switch (returnCode) {
+                case "done":
+                    message = "Order " + id + " is now marked as done!";
+                    color = "lime";
+                    break;
+                case "doing":
+                    message = "Order " + id + " is now marked as in progress!";
+                    color = "cyan";
+                    break;
+                case "dropped":
+                    message = "Order " + id + " has been dropped!";
+                    color = "red";
+                    break;
+                case "pending":
+                    message = "Order " + id + " is now pending!";
+                    color = "orange";
+                    break;
+                case "delivering":
+                    message = "Order " + id + " is now marked as being delivered!";
+                    color = "lightpink";
+                    break;
+            }
+
+            $(".message").html(message);
+            $(".message").css("color", color);
+        });
+
     </script>
 </html>
 

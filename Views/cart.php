@@ -1,6 +1,8 @@
-
 <?php
 require_once("../Controllers/Security/Session.php");
+require_once("../Controllers/Security/Authorize.php");
+require_once("../Controllers/Security/ErrorHandler.php");
+Authorize::onlyAllow("customer");
 ?>
 <html>
     <head>
@@ -11,7 +13,7 @@ require_once("../Controllers/Security/Session.php");
     </head>
     <body>
 
-        <form id='container' method='POST' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"> <!-- <form id='container'> ??? -->
+        <form id='container' method='POST' action="save_cart.php"> <!-- <form id='container'> ??? -->
 
             <div id='hotbar'>
                 <a href='home.php' id='glory'>glory florist</a>
@@ -28,6 +30,7 @@ require_once("../Controllers/Security/Session.php");
                 <div id='text'>
                     <a href='home.php' id='back'>back to the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shop</a>
                     <a id='title'>Your Cart</a>
+                    <a id='error'><?php ErrorHandler::displayErrors(); ?></a>
                 </div>
             </div>
 
@@ -38,33 +41,22 @@ require_once("../Controllers/Security/Session.php");
 
                         <a class='heading'>Items in your cart</a>
 
-                        <input type='hidden' name='quantities' id='quantities' value=''>
+                        <input type='hidden' name='quantities' id='quantities' value=''> <!-- STORES ALL QUANTITIES -->
 
                         <?php
-                        include "../Controllers/Util/rb.php";
-
+                        
                         R::setup('mysql:host=localhost;dbname=flowerdb', 'root', '');
-                        $orderItems = R::findAll("orderItems");
-
-                        $noOfItems = 3; // all this stuff should gotten from db, in reality
-
-                        echo "<div class='item'>
-                  <img src='https://i.dlpng.com/static/png/6858266_preview.png'>
-                  <input type='textbox' name='quantity' class='quantity' value='1'>
-                  <a href='#' class='name'>White rose</a>
-                </div>
-
-                <div class='item'>
-                  <img src='https://i.dlpng.com/static/png/6858266_preview.png'>
-                  <input type='textbox' name='quantity' class='quantity' value='3'>
-                  <a href='#' class='name'>White flower</a>
-                </div>
-
-                <div class='item'>
-                  <img src='https://i.dlpng.com/static/png/6858266_preview.png'>
-                  <input type='textbox' name='quantity' class='quantity' value='2'>
-                  <a href='#' class='name'>White thing</a>
-                </div>";
+                        
+                        // get cart from session
+                        $cart = Session::get("cart");
+                        
+                        foreach ($cart->items as $item) {
+                            echo "<div class='item'>
+                                    <img src='https://i.dlpng.com/static/png/6858266_preview.png'>
+                                    <input type='textbox' name='quantity' class='quantity' value='".$item->quantity."'>
+                                    <a href='#' class='name'>".$item->arrangement->name."</a>
+                                  </div>";
+                        }
                         ?>
 
                     </div>
@@ -75,6 +67,8 @@ require_once("../Controllers/Security/Session.php");
                     <input type='submit' id='save_button' name='save' value='SAVE'>
                     <a class='heading'>Ready to make your order?</a>
                     <a href='confirmOrder.php' id='proceed_button'>PROCEED</a>
+                    <a class='heading' style='margin-top: 25px;'>Revert latest changes to your cart?</a>
+                    <a href='restore_cart.php' id='proceed_button'>RESTORE</a>
                 </div>
 
             </div>
@@ -92,15 +86,4 @@ require_once("../Controllers/Security/Session.php");
             $('#quantities').val(quantities);
         });
     </script>
-
-    <?php
-    // upon saving
-    if (filter_input(INPUT_SERVER, "REQUEST_METHOD") == "POST") {
-        // declare variables
-        $quantities = explode(",", filter_input(INPUT_POST, "quantities"));
-
-        //echo "<script type='text/javascript'>alert('$quantities[0]');</script>"; // debug
-        // TODO: when saving, actually update records in db
-    }
-    ?>
 </html>

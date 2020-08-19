@@ -55,7 +55,7 @@ label{
     font-size: 20px;
 }
 
-#container #content #editflower #form #desc {
+#container #content #editflower #form #remark {
     border: 1px solid gray;
     font-size: 20px;
     padding: 5px 10px;
@@ -98,12 +98,18 @@ label{
 }
 
 img{
-    max-width:180px;
+    max-width: 180px;
+    max-height: 180px;
+    display: block;
 }
 
 #container #content #editflower #form #left{
     float: left;
     margin-left: 150px;
+    margin-right: 0px;
+    width: 180px;
+    height: 180px;
+    border: 1px solid black;
 }
 
 #container #content #editflower #form #right{

@@ -209,6 +209,11 @@ input[type=submit] {
   font-size: 20px;
   width: 100px;
 }
+#container #bottom #content #list #heading #isAdmin {
+  color: rgba(252, 248, 238, 0.5);
+  font-size: 20px;
+  width: 100px;
+}
 #container #bottom #content #list .member {
   display: flex;
   flex-direction: row;
@@ -239,6 +244,8 @@ input[type=submit] {
 #container #bottom #content #list .member .checkbox {
   display: none;
 }
+
+
 #container #bottom #content #list .member .checkboxLabel {
   margin-top: 25px;
   margin-bottom: 25px;
@@ -262,15 +269,29 @@ input[type=submit] {
   background-color: #fcf8ee;
   transition: margin-left 0.3s;
 }
+
+#container #bottom #content #list .member .adminCheckbox {
+    margin-left: 40px;
+}
+
+
 #container #bottom #content #list .member .checkboxLabel:hover {
   opacity: 1;
 }
 #container #bottom #content #list .member .checkbox:checked + .checkboxLabel {
   background-color: #f3b5b1;
 }
+
+
 #container #bottom #content #list .member .checkbox:checked + .checkboxLabel > .slider {
   margin-left: 35px;
 }
+
+#container #bottom #content #list .member .checkbox:checked + .adminCheckbox {
+  background-color: #46e38f;
+}
+
+
 #container #bottom #content #list .member:hover {
   opacity: 1;
 }

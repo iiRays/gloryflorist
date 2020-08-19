@@ -1,6 +1,9 @@
 <?php
 include "Util/Quick.php";
 include "Util/rb.php";
+require_once("Security/Authorize.php");
+
+Authorize::onlyAllow("staff");
 
 //Get query string
 $query = Quick::getQueryStr();
@@ -45,5 +48,5 @@ switch($status){
 R::store($order);
 
 //Redirect
-header("Location: ../Views/staffOrders.php?success=".$status);
+header("Location: ../Views/staffOrders.php?success=".$status."&id=".$order->id);
 return;

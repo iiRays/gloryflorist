@@ -3,18 +3,21 @@ require_once("../Controllers/Security/Authorize.php");
 Authorize::onlyAllow("admin");
 
 require_once("../Controllers/Util/rb.php");
+require_once("../Controllers/Util/DB.php");
 require_once("../Controllers/Util/XML.php");
-require_once("../Controllers/Util/XMLFactory.php");
+require_once("../Controllers/Util/XMLDatabaseFactory.php");
 
-R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql or mariaDB
+DB::connect();
 
-$staffList = R::find("user","role = ?", ["staff"]);
+// Get all users
 $changelog = R::findAll("changelog", "order by id desc limit 3");
 $changelog = array_reverse($changelog);
 
-$factory = new XMLFactory();
-$xml = $factory->build("viewStaff");
-$xml->appendXML($staffList, "staff");
+$factory = new XMlDatabaseFactory();
+
+// Fetch all users; we will filter staff using XPATH later
+$xml = $factory->build("user"); 
+
 $xml->appendXML($changelog, "changelog");
 echo $xml->styleWith("staffMemberStyle.xsl");
 
