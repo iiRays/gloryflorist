@@ -1,6 +1,7 @@
 <?php
 
 include "../Controllers/Util/Item.php";
+require_once("../Controllers/Security/Session.php");
 
 class Cart {
     public $items = [];
@@ -28,5 +29,9 @@ class Cart {
             $orderItem->order_id = $order->id;
             R::store($orderItem);
         }
+    }
+    
+    public function save() {
+        Session::set("cart", $this);
     }
 }

@@ -67,6 +67,8 @@ Authorize::onlyAllow("customer");
                     <input type='submit' id='save_button' name='save' value='SAVE'>
                     <a class='heading'>Ready to make your order?</a>
                     <a href='confirmOrder.php' id='proceed_button'>PROCEED</a>
+                    <a class='heading' style='margin-top: 25px;'>Revert latest changes to your cart?</a>
+                    <a href='restore_cart.php' id='proceed_button'>RESTORE</a>
                 </div>
 
             </div>
