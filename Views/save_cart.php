@@ -4,7 +4,7 @@ include "../Controllers/Util/rb.php";
 include "../Controllers/Util/DB.php";
 require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Security/ErrorHandler.php");
-require_once("../Controllers/Security/Validation.php");
+require_once("../Controllers/Security/Validator.php");
 require_once("../Controllers/Util/Cart.php");
 require_once("../Controllers/Util/Item.php");
 
@@ -15,8 +15,9 @@ $quantities = explode(",", $_POST['quantities']);
 
 // validate quantities
 $errorHandler = new ErrorHandler();
+$validator = new Validator();
 for ($i = 0; $i < sizeof($quantities); $i++) {
-    if (!Validation::validateNumOnly($quantities[$i]) || $quantities < 0) {
+    if (!$validator->validateNumOnly($quantities[$i]) || $quantities < 0) {
         $errorHandler->addError("Quantity of item #" . ($i + 1) . " is invalid - it must be a positive numeric value.");
     }
 }
