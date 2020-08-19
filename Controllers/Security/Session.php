@@ -1,5 +1,7 @@
 <?php
 
+// Author : Johann Lee Jia Xuan
+
 require_once("../Controllers/Util/Cart.php");
 
 class Session{
@@ -70,7 +72,6 @@ class Session{
            $user->sessionToken = null;
        }
         
-        // Add session ID (or replace if already have)
         self::start();
         
         // New session ID
@@ -82,13 +83,13 @@ class Session{
         // Update session ID in user in the database
         R::store($user);
         
-        $cart = new Cart();
+        $cart = new Cart(); // Ryan's work
         
         // DEBUG: simulate items already added to cart
         $cart->addItem("1", 3);
         $cart->addItem("2", 5);
         
-        self::set("cart", $cart);
+        self::set("cart", $cart); // Ryan's work
     }
     
     public static function logoutUser($user){
