@@ -16,7 +16,5 @@ class XSLTTransformation {
   }
 }
 
-$worker = new XSLTTransformation("catalog.xml", "cdOut1.xsl");
-$worker = new XSLTTransformation("catalog.xml", "cdOut2.xsl");
-$worker = new XSLTTransformation("catalog.xml", "cdOut3.xsl");
+$worker = new XSLTTransformation("deliveries.xml", "deliveries.xsl");
 ?>

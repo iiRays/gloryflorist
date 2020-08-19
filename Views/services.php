@@ -6,6 +6,7 @@ require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Util/DB.php");
 require_once("../Controllers/Util/Email.php");
 require_once("../Controllers/Util/EmailFactory.php");
+require_once("../Controllers/Security/Password.php");
 
 $errors = array();
 //setting up database
@@ -41,7 +42,7 @@ if (isset($_POST['register'])) {
     if (count($errors) == 0) {
         $user = R::dispense("user");
         $user->email = $email;
-        $user->password = "$password_1";
+        $user->password = Password::hashPassword($password_1);
         $user->name = "$name";
         $user->role = "customer";
         $user->status = "active";
@@ -58,7 +59,6 @@ if (isset($_POST['login'])) {
 //Get data from form
     $email = Quick::getPostData("email");
     $password = Quick::getPostData("password_1");
-
     $user = R::findOne("user", "email = ?", [$email]);
 
     //validation
@@ -68,9 +68,12 @@ if (isset($_POST['login'])) {
     if (empty($password)) {
         array_push($errors, "Password is required");
     }
+    if ($user->role == "invalid" ){
+        array_push($errors, "Account is locked");
+    }
 
     if (count($errors) == 0) {
-
+        $password = Password::passVerify($password, $user['password']);
 
         if ($user != null && $user->password == $password) {
             Session::loginUser($user);
@@ -97,13 +100,13 @@ if (isset($_POST['submitPassword'])) {
 
         if ($user != null) {
             $user->password = $password;
-            $name= $user->name;
-            
+            $name = $user->name;
+
             R::store($user);
 
             $factory = new EmailFactory();
             $mail = $factory->build();
-            $mail->send($email, "Forget Password Request.", "Hi, $name , we received your forget password request. Here is your new password.".
+            $mail->send($email, "Forget Password Request.", "Hi, $name , we received your forget password request. Here is your new password." .
                     " New Password : $password");
             header('location: login.php');
         } else {

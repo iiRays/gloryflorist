@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="deliveries.xsl"?>
 <deliveries>
     <Delivery Id="2">
         <Address>xxx</Address>
@@ -8,5 +9,12 @@
         <Name>Jaren Yeap Wei Loon</Name>
         <Contact>012-4307437</Contact>
         <Datetime>2020-08-17 14:50:42</Datetime>
+    </Delivery>
+    <Delivery Id="3">
+        <CardMessage>Beautiful flowers for a even more beautiful you.</CardMessage>
+        <Remark/>
+        <Name>Cheah Kah Heng</Name>
+        <Contact>016-3866617</Contact>
+        <Datetime>2020-08-17 19:18:50</Datetime>
     </Delivery>
 </deliveries>
