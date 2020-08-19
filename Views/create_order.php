@@ -15,7 +15,7 @@ $cart = Session::get("cart");
 $cart->makeOrder();
 
 // reset cart in session
-// TODO
+$_SESSION["cart"] = new Cart();
 
-// redirect to order completion page - TODO
-header('location: home.php');
+// redirect to order completion page
+header('location: orderSuccess.php');

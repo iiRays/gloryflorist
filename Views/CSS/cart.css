@@ -97,6 +97,10 @@ a {
   font-size: 125px;
   color: #f3b5b1;
 }
+#container #top #text #error {
+  font-size: 30px;
+  color: #fcf8ee;
+}
 #container #content {
   display: flex;
   flex-direction: row;

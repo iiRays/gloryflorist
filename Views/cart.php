@@ -1,6 +1,7 @@
 <?php
 require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Security/Authorize.php");
+require_once("../Controllers/Security/ErrorHandler.php");
 Authorize::onlyAllow("customer");
 ?>
 <html>
@@ -29,6 +30,7 @@ Authorize::onlyAllow("customer");
                 <div id='text'>
                     <a href='home.php' id='back'>back to the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shop</a>
                     <a id='title'>Your Cart</a>
+                    <a id='error'><?php ErrorHandler::displayErrors(); ?></a>
                 </div>
             </div>
 
@@ -82,26 +84,4 @@ Authorize::onlyAllow("customer");
             $('#quantities').val(quantities);
         });
     </script>
-
-    <?php
-    // upon saving
-    if (filter_input(INPUT_SERVER, "REQUEST_METHOD") == "POST") {
-        // declare variables
-        $quantities = explode(",", filter_input(INPUT_POST, "quantities"));
-        
-        //echo "<script type='text/javascript'>alert('$quantities[0]');</script>"; // debug
-        
-        // get cart from session
-        $cart = Session::get("cart");
-
-        // update cart
-        for ($i = 0; $i < sizeof($cart->items); $i++) {
-            $cart->items[$i]->quantity = $quantities[$i];
-            //echo "<script>alert(".$cart->items[$i]->quantity.");</script>"; // debug
-        }
-        
-        // save cart to session
-        $_SESSION["cart"] = $cart;
-    }
-    ?>
 </html>
