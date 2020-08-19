@@ -1,9 +1,10 @@
 <?php
 
-include "../Controllers/Util/rb.php";
-include "../Controllers/Util/DB.php";
+//include "../Controllers/Util/rb.php";
+//include "../Controllers/Util/DB.php";
+include '../Controllers/Util/FloralArrangementAdapter.php';
 
-DB::connect();
+//DB::connect();
 
 $id = $_POST['id'];
 $name = $_POST['name'];
@@ -12,18 +13,26 @@ $flowerId = $_POST['flowers'];
 $price = doubleval($_POST['price']);
 $imgLink = $_POST['flowerImgSrc'];
 
-$flower = R::load("flower", $flowerId);
-$isAvailable = $flower->isAvailable;
+$floral= new FloralArrangementAdapter();
 
-$arrangement = R::load("arrangement", $id);
-$arrangement->name = $name;
-$arrangement->price = $price;
-$arrangement->isAvailable = $isAvailable;
-$arrangement->img = $imgLink;
-$arrangement->flower_id = $flowerId;
-$arrangement->stalks = $stalk;
+$floral->editImgSrc($id, $imgLink);
+$floral->editName($id, $name);
+$floral->editPrice($id, $price);
+$floral->editFlower($id, $flowerId);
+$floral->editStalks($id, $stalk);
 
-R::storeAll([$arrangement]);
+//$flower = R::load("flower", $flowerId);
+//$isAvailable = $flower->isAvailable;
+//
+//$arrangement = R::load("arrangement", $id);
+//$arrangement->name = $name;
+//$arrangement->price = $price;
+//$arrangement->isAvailable = $isAvailable;
+//$arrangement->img = $imgLink;
+//$arrangement->flower_id = $flowerId;
+//$arrangement->stalks = $stalk;
+//
+//R::storeAll([$arrangement]);
 ?>
 
 <!DOCTYPE html>

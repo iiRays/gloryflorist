@@ -18,10 +18,10 @@ if (!empty($_POST['isAvailable'])) {
 }
 
 $flower = new FlowerAdapter();
-$name = $flower->editName($id, $name);
-$imgSrc = $flower->editImgSrc($id, $imgLink);
-$remark = $flower->editRemarks($id, $remark);
-$isAvailable = $flower->editAvailability($id, $isAvailable);
+$flower->editName($id, $name);
+$flower->editImgSrc($id, $imgLink);
+$flower->editRemarks($id, $remark);
+$flower->editAvailability($id, $isAvailable);
 /*
 $flower = R::load("flower", $id);
 $flower->flowerName = $name;

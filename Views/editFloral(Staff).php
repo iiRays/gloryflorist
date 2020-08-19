@@ -4,28 +4,40 @@
 ?>
 <!DOCTYPE html>
 <?php
-include "../Controllers/Util/rb.php";
-include "../Controllers/Util/DB.php";
+//include "../Controllers/Util/rb.php";
+//include "../Controllers/Util/DB.php";
+include '../Controllers/Util/FloralArrangementAdapter.php';
 
-DB::connect();
+//DB::connect();
 
 $id = $_GET['id'];
 //$id = 3;
-$sql = "select * from arrangement where id = " . $id;
 
-$arrangement = R::getRow($sql);
+$floral= new FloralArrangementAdapter();
 
-$results = array();
+$imgSrc = $floral->getImgSrc($id);
+$name = $floral->getName($id);
+$price = $floral->getPrice($id);
+$flowerName = $floral->getFlowerName($id);
+$flowerId = $floral->getFlowerId($id);
+$stalk = $floral->getStalks($id);
+$isAvailable = $floral->getAvailability($id);
 
-foreach ($arrangement as $item) {
-    $results[] = $item;
-}
-$name = $results[1];
-$price = $results[2];
-$isAvailable = $results[3];
-$imgSrc = $results[4];
-$stalk = $results[5];
-$flower = $results[6];
+//$sql = "select * from arrangement where id = " . $id;
+//
+//$arrangement = R::getRow($sql);
+//
+//$results = array();
+//
+//foreach ($arrangement as $item) {
+//    $results[] = $item;
+//}
+//$name = $results[1];
+//$price = $results[2];
+//$isAvailable = $results[3];
+//$imgSrc = $results[4];
+//$stalk = $results[5];
+//$flower = $results[6];
 ?>
 <html>
     <head>
@@ -64,7 +76,7 @@ $flower = $results[6];
                         <label>Image:</label><br />
                         <div id="left"> 
                             <img id="flowerImg" src="<?php echo $imgSrc; ?>" alt="flower" /><br />
-                            <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value=""/>
+                            <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value="<?php echo $imgSrc; ?>"/>
                         </div>
                         <div id="right"> 
                             <input type="file" id="img" name="image" accept="image/*">
@@ -87,7 +99,7 @@ $flower = $results[6];
 
                                 foreach ($results as $key => $value) {
                                     $key += 1;
-                                    if ($key == $flower) {
+                                    if ($key == $flowerId) {
                                         echo '<option value="' . $key . '" selected="selected">' . $value . '</option>';
                                     } else {
                                         echo '<option value="' . $key . '">' . $value . '</option>';
@@ -101,8 +113,8 @@ $flower = $results[6];
                             <input type="number" id="stalk" name="stalk" value="<?php echo $stalk; ?>" size="20" /><br />
                         </div>
                         <div id="bottom">
-                            <label>Price:</label>
-                            <input type="number" step=0.01 id="price" name="price" value="<?php echo $price; ?>" size="20" /><br />
+                            <label>Price: RM</label>
+                            <input type="number" step=0.01 id="price" name="price" value="<?php echo number_format($price, 2); ?>" size="20" /><br />
                         </div>
                     </div>
 

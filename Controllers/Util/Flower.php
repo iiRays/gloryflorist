@@ -5,15 +5,10 @@ include "DB.php";
 
 class Flower {
 
-    public $id;
-    public $name;
-    public $remarks;
-    public $imgSrc;
-    public $isAvailable;
     public $results = array();
 
     public function __construct() {
-//ntg yet
+        //ntg yet
     }
 
     public function get($id) {
@@ -168,6 +163,3 @@ class Flower {
     }
 
 }
-
-$test = new Flower();
-$test->getFlowerName(1);

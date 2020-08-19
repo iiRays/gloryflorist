@@ -1,42 +1,52 @@
 <?php
 require_once("../Controllers/Security/Authorize.php");
 Authorize::onlyAllow("staff");
-
 ?>
 <!DOCTYPE html>
 <?php
-include "../Controllers/Util/rb.php";
-include "../Controllers/Util/DB.php";
+//include "../Controllers/Util/rb.php";
+//include "../Controllers/Util/DB.php";
+include '../Controllers/Util/FloralArrangementAdapter.php';
 
-DB::connect();
+//DB::connect();
 
 $id = $_GET['id'];
 //$id = 1;
-$sql = "select * from arrangement where id = " . $id;
 
-$arrangement = R::getRow($sql);
+$floral= new FloralArrangementAdapter();
 
-$results = array();
+$imgSrc = $floral->getImgSrc($id);
+$name = $floral->getName($id);
+$price = $floral->getPrice($id);
+$flowerName = $floral->getFlowerName($id);
+$stalk = $floral->getStalks($id);
+$isAvailable = $floral->getAvailability($id);
 
-foreach ($arrangement as $item) {
-    $results[] = $item;
-}
-
-$name = $results[1];
-$price = $results[2];
-$isAvailable = $results[3];
-$imgSrc = $results[4];
-$stalk = $results[5];
-$flower = $results[6];
-
-$sql = "select flower.flower_name from arrangement, flower where arrangement.flower_id = flower.id and  arrangement.flower_id = " . $results[6];
-
-$flowers = R::getRow($sql);
-
-foreach ($flowers as $item) {
-    $results[] = $item;
-}
-$flowerName = $results[7];
+//$sql = "select * from arrangement where id = " . $id;
+//
+//$arrangement = R::getRow($sql);
+//
+//$results = array();
+//
+//foreach ($arrangement as $item) {
+//    $results[] = $item;
+//}
+//
+//$name = $results[1];
+//$price = $results[2];
+//$isAvailable = $results[3];
+//$imgSrc = $results[4];
+//$stalk = $results[5];
+//$flower = $results[6];
+//
+//$sql = "select flower.flower_name from arrangement, flower where arrangement.flower_id = flower.id and  arrangement.flower_id = " . $results[6];
+//
+//$flowers = R::getRow($sql);
+//
+//foreach ($flowers as $item) {
+//    $results[] = $item;
+//}
+//$flowerName = $results[7];
 ?>
 <html>
     <head>
@@ -81,7 +91,7 @@ $flowerName = $results[7];
                     </div>
                     <div id="bottomContent">
                         <label>Price</label><br/>
-                        <label class="details"><?php echo $price; ?></label><br/>
+                        <label class="details"><?php echo 'RM ' . number_format($price, 2); ?></label><br/>
                         <label>
                             <?php
                             if ($isAvailable == "true") {
