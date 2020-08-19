@@ -1,9 +1,7 @@
 <?php
-/*
   require_once("../Controllers/Security/Authorize.php");
   Authorize::onlyAllow("staff");
- * 
- */
+
 ?>
 <!DOCTYPE html>
 <?php
@@ -42,8 +40,9 @@ $arrangement = R::findAll('arrangement');
 
             <div id='content'>
                 <div id='list'>
-                    
-                        <?php
+
+                    <?php
+                    if (!empty($arrangement)) {
                         foreach ($arrangement as $item) {
                             echo '<div class="item">' .
                             '<img id="img" name="img" src = "' . $item->img . '">' .
@@ -51,7 +50,12 @@ $arrangement = R::findAll('arrangement');
                             '<a href="editFloral%28Staff%29.php?id=' . $item->id . '" id="edit_button">Edit</a>' .
                             '</div>';
                         }
-                        ?>
+                    }else {
+                        echo '<div class="item">' .
+                        '<label class="name"> No floral arrangement in store yet<br/>Add some now!!</label>' .
+                        '</div>';
+                    }
+                    ?>
                 </div>
 
             </div>  

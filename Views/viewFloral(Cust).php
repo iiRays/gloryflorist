@@ -28,21 +28,26 @@ $arrangement = R::findAll('arrangement');
 
             <div id='top'>
                 <div id='text'>
-                    <a href='staffDashboard.php' id='back'>back to dashboard</a>
                     <a id='title'>Floral Arrangement Available</a>
                 </div>
             </div>
 
             <div id='content'>
                 <div id='list'>
-                    
-                        <?php
+
+                    <?php
+                    if (!empty($arrangement)) {
                         foreach ($arrangement as $item) {
                             echo '<div class="item">' .
                             '<img id="img" name="img" src = "' . $item->img . '">' .
                             '<a href="floral%28Cust%29.php?id=' . $item->id . '" class="name">' . $item->name . '</a></div>';
                         }
-                        ?>
+                    } else {
+                        echo '<div class="item">' .
+                        '<label class="name"> No floral arrangement in store yet<br/>Stay tune!</label>' .
+                        '</div>';
+                    }
+                    ?>
                 </div>
 
             </div>  

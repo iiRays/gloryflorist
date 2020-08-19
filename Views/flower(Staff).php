@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <?php
-/*
 require_once("../Controllers/Security/Authorize.php");
 Authorize::onlyAllow("staff");
- * 
- */
 ?>
 <?php
 

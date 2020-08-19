@@ -55,7 +55,6 @@ $flowerName = $results[7];
 
             <div id='top'>
                 <div id='text'>
-                    <a href='staffDashboard.php' id='back'>back to dashboard</a>
                     <a id='title'>Floral Arrangement</a>
                 </div>
             </div>

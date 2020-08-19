@@ -20,7 +20,11 @@ class Validator {
         } else {
             array_push($letterErr, "This field is required");
         }
-        array_push($this->errMsg, $letterErr);
+        // Check if any error occured
+        if(count($letterErr)>0){
+            // An error occured, push error message
+            array_push($this->errMsg, $letterErr);
+        }
         //print_r($errMsg);
     }
     
@@ -73,7 +77,10 @@ class Validator {
         } else {
             array_push($numErr, "This field is required");
         }
-        array_push($this->errMsg, $numErr);
+        if(count($numErr)>0){
+            // An error occured
+            array_push($this->errMsg, $numErr);
+        }
     }
 
     public function validateTwoDecimal($input) {
@@ -87,7 +94,10 @@ class Validator {
         } else {
             array_push($decErr, "This field is required");
         }
-        array_push($this->errMsg, $decErr);
+        if(count($decErr)>0){
+            // An error occured
+            array_push($this->errMsg, $decErr);
+        }
     }
 
     public function validatePassword($password, $cPassword) {
@@ -105,7 +115,10 @@ class Validator {
                 array_push($pasErr, "Confirm password not matched");
             }
         }
-        array_push($this->errMsg, $pasErr);
+        if(count($pasErr)>0){
+            // An error occured
+            array_push($this->errMsg, $pasErr);
+        }
     }
 
     public function validatePhone($input) {
@@ -119,7 +132,10 @@ class Validator {
         } else {
             array_push($phoErr, "This field is required");
         }
-        array_push($this->errMsg, $phoErr);
+        if(count($phoErr)>0){
+            // An error occured
+            array_push($this->errMsg, $phoErr);
+        }
     }
 
     public function customValidate($err) {
