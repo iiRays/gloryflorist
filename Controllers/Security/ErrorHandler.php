@@ -39,4 +39,8 @@ class ErrorHandler {
         }
     }
     
+    public function isNum($value) {
+        return !empty($value) && preg_match('/^[0-9]*$/', $value);
+    }
+    
 }

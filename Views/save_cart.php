@@ -15,9 +15,8 @@ $quantities = explode(",", $_POST['quantities']);
 
 // validate quantities
 $errorHandler = new ErrorHandler();
-$validator = new Validator();
 for ($i = 0; $i < sizeof($quantities); $i++) {
-    if (!$validator->validateNumOnly($quantities[$i]) || $quantities < 0) {
+    if (!$errorHandler->isNum($quantities[$i]) || $quantities < 0) {
         $errorHandler->addError("Quantity of item #" . ($i + 1) . " is invalid - it must be a positive numeric value.");
     }
 }
