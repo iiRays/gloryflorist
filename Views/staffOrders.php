@@ -25,7 +25,7 @@ Authorize::onlyAllow("staff");
                 <div id='text'>
                     <a href='staffDashboard.php' id='back'>back to dashboard</a>
                     <a id='title'>View Orders</a>
-                    <div class="message" style="font-size: 35; margin=auto; text-align: center;"></div>
+                    <div class="message" style="font-size: 35; margin: auto; text-align: center;"></div>
                 </div>
             </div>
 
