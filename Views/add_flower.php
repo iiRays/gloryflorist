@@ -1,8 +1,10 @@
 <?php
-include "../Controllers/Util/rb.php";
-include "../Controllers/Util/DB.php";
+//include "../Controllers/Util/rb.php";
+//include "../Controllers/Util/DB.php";
+include '../Controllers/Util/FlowerAdapter.php';
 
-DB::connect();
+//DB::connect();
+
 
 $name = $_POST['name'];
 $remark = $_POST['remark'];
@@ -14,13 +16,18 @@ if(!empty($_POST['isAvailable'])){
     $isAvailable = "false";
 }
 
+$flower = new FlowerAdapter();
+$flower->addData($name, $remark, $imgLink, $isAvailable);
+
+/*
 $flower = R::dispense("flower");
 $flower->flowerName = $name;
 $flower->remark = $remark;
 $flower->img = $imgLink;
 $flower->isAvailable = $isAvailable;
 R::storeAll([$flower]);
-
+ * 
+ */
 ?>
 <!DOCTYPE html>
 <html>

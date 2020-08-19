@@ -5,8 +5,6 @@ include "../Controllers/Util/DB.php";
 
 DB::connect();
 
-$sql = "select * from arrangement";
-
 $arrangement = R::findAll('arrangement');
 ?>
 <html>

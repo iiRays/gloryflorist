@@ -12,8 +12,6 @@ include "../Controllers/Util/DB.php";
 
 DB::connect();
 
-$sql = "select * from flower";
-
 $flower = R::findAll('flower');
 
 ?>

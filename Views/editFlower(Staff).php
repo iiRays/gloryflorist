@@ -7,13 +7,21 @@ Authorize::onlyAllow("staff");
 ?>
 <!DOCTYPE html>
 <?php
-include "../Controllers/Util/rb.php";
-include "../Controllers/Util/DB.php";
+//include "../Controllers/Util/rb.php";
+//include "../Controllers/Util/DB.php";
+include '../Controllers/Util/FlowerAdapter.php';
 
-DB::connect();
+//DB::connect();
 
 $id = $_GET['id'];
-//$id = 2;
+//$id = 1;
+$flower = new FlowerAdapter();
+
+$imgSrc = $flower->getImgSrc($id);
+$name = $flower->getName($id);
+$remark = $flower->getRemarks($id);
+$isAvailable = $flower->getAvailability($id);
+/*
 $sql = "select * from flower where id = " . $id;
 
 $flower = R::getRow($sql);
@@ -28,6 +36,8 @@ $name = $results[1];
 $remark = $results[2];
 $imgSrc = $results[3];
 $isAvailable = $results[4];
+ * 
+ */
 ?>
 <html>
     <head>
