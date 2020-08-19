@@ -17,5 +17,5 @@ $cart->makeOrder();
 // reset cart in session
 $_SESSION["cart"] = new Cart();
 
-// redirect to order completion page - TODO
-header('location: home.php');
+// redirect to order completion page
+header('location: orderSuccess.php');
