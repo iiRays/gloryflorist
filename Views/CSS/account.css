@@ -120,7 +120,7 @@ a {
 .box{
     box-sizing: border-box;
     width: 360px;
-    height: 550px;
+    height: auto;
     border: 2px solid #3498db;
     box-shadow: -3px -3px 7px #ffffff73,
                 3px 3px 5px rgba(94,104,121,0.288);
@@ -179,10 +179,6 @@ button{
 
 button:hover{
     transform: scale(1.1);
-}
-
-input[type="file"]{
-    display:none;
 }
 label{
     box-sizing: border-box;

@@ -48,5 +48,5 @@ switch($status){
 R::store($order);
 
 //Redirect
-header("Location: ../Views/staffOrders.php?success=".$status);
+header("Location: ../Views/staffOrders.php?success=".$status."&id=".$order->id);
 return;
