@@ -107,8 +107,17 @@ html {
 }
 
 .deadline{
+    margin: auto;
+    text-align: center;
     
     color: red;
+}
+
+.targetDeadline{
+    margin: auto;
+    text-align: center;
+    
+    color: white;
 }
 
 
@@ -217,7 +226,7 @@ a{
 }
 
 .delivering{
-    background-color: lime;
+    background-color: lightpink;
     opacity: 0.3;
     border-radius: 12px;
 }
@@ -230,6 +239,12 @@ a{
 
 .dropped{
     background-color: red;
+    opacity: 0.3;
+    border-radius: 12px;
+}
+
+.done{
+    background-color: lime;
     opacity: 0.3;
     border-radius: 12px;
 }
