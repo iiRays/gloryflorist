@@ -17,18 +17,32 @@ class Email {
 
     public static function send($target, $subject, $message) {
         $mail = self::createEmail();
-        
+
         $mail->addAddress($target);
         $mail->Subject = $subject;
         $mail->msgHTML($message);
-        
+
         if (!$mail->Send()) {
             return false;
         }
         return true;
     }
-    
-    public static function createEmail(){
+
+    public static function sendWithHeader($target, $subject, $message, $header) {
+        $mail = self::createEmail();
+
+        $mail->addAddress($target);
+        $mail->Subject = $subject;
+        $mail->msgHTML($message);
+        $mail->headerLine($header, "");
+
+        if (!$mail->Send()) {
+            return false;
+        }
+        return true;
+    }
+
+    public static function createEmail() {
         $mail = new PHPMailer();
         $mail->IsSMTP();
         $mail->SMTPDebug = 0;
@@ -42,7 +56,7 @@ class Email {
         $mail->SetFrom("gloryfloristflowers@gmail.com", "Glory Florist");
         $mail->WordWrap = 70;
         $mail->isHTML(true);
-        
+
         return $mail;
     }
 
