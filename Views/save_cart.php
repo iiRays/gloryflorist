@@ -24,15 +24,27 @@ for ($i = 0; $i < sizeof($quantities); $i++) {
 if (!$errorHandler->errorsExist()) {
     // get cart from session
     $cart = Session::get("cart");
-
-    // update cart
-    for ($i = 0; $i < sizeof($cart->items); $i++) {
-        $cart->items[$i]->quantity = $quantities[$i];
-        //echo "<script>alert(".$cart->items[$i]->quantity.");</script>"; // debug
+    
+    // backup cart
+    $cartSaver = Session::get("cartSaver");
+    $cartSaver->backup($cart);
+    Session::set("cartSaver", $cartSaver);
+    
+    echo "old cart: " . $cartSaver->cartMemento->items[0]->quantity;
+    
+    // create updated cart
+    $newCart = new Cart();
+    $i = 0;
+    foreach ($cart->items as $item) {
+        $newCart->addItem($item->arrangement->id, $quantities[$i]);
+        $i++;
     }
+    
+    //echo "<br>old cart: " . $cartSaver->cartMemento->items[0]->quantity; // DEBUG
+    //echo "<br>new cart: " . $newCart->items[0]->quantity; // DEBUG
 
     // save cart to session
-    Session::set("cart", $cart);
+    $newCart->save();
 } else {
     // update error in session
     Session::set("error", $errorHandler->getErrors());

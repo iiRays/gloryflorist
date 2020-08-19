@@ -3,6 +3,7 @@
 // Author : Johann Lee Jia Xuan
 
 require_once("../Controllers/Util/Cart.php");
+require_once("../Controllers/Util/CartSaver.php");
 
 class Session{
     
@@ -89,12 +90,14 @@ class Session{
         R::store($user);
         
         $cart = new Cart(); // Ryan's work
+        $cartSaver = new CartSaver(); // Ryan's work
         
         // DEBUG: simulate items already added to cart
         $cart->addItem("1", 3);
         $cart->addItem("2", 5);
         
         self::set("cart", $cart); // Ryan's work
+        self::set("cartSaver", $cartSaver); // Ryan's work
     }
     
     public static function logoutUser($user){
