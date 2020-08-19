@@ -37,6 +37,11 @@ class Session{
          $_SESSION[$key] = $value;
     }
     
+    public static function delete(String $key) {
+        self::start();
+        unset($_SESSION[$key]);
+    }
+    
     public static function itemExists(String $key){
         if(isset($_SESSION[$key])){
             return true;
