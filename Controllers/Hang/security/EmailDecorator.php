@@ -26,7 +26,7 @@ class EmailDecorator extends SendError_LogDecorator {
 
         //Email the error to our developer/maintainer
         //May consider lopping for email list if more than one ppl to send
-        $e = Email::sendWithHeader('kelvintyh-am17@student.tarc.edu.my', error_constant_to_name($error_type), $email, $headers);
+        $e = Email::send('kelvintyh-am17@student.tarc.edu.my', error_constant_to_name($error_type), $email);
 
         //for client side error msg, for testing here, can remove later
         if (($error_type !== E_NOTICE) && ($error_type < 2048)) {

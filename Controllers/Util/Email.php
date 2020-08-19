@@ -34,38 +34,6 @@ class Email {
         return true;
     }
 
-    public static function sendWithHeader($target, $subject, $message, $header) {
-        $mail = self::createEmail();
-
-        $mail->addAddress($target);
-        $mail->Subject = $subject;
-        $mail->msgHTML($message);
-        $mail->headerLine($header, "");
-
-        if (!$mail->Send()) {
-            return false;
-        }
-        return true;
-    }
-
-    public static function createEmail() {
-        $mail = new PHPMailer();
-        $mail->IsSMTP();
-        $mail->SMTPDebug = 0;
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = "tls";
-        $mail->Port = 587;
-        $mail->Username = "gloryfloristflowers@gmail.com";
-        $mail->Password = "gf12345#";
-        $mail->Host = "smtp.gmail.com";
-        $mail->Mailer = "smtp";
-        $mail->SetFrom("gloryfloristflowers@gmail.com", "Glory Florist");
-        $mail->WordWrap = 70;
-        $mail->isHTML(true);
-
-        return $mail;
-    }
-
     // Some setters and getters
 
     function getMail() {
