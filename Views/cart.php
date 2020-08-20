@@ -23,7 +23,6 @@ Authorize::onlyAllow("customer");
                 <?php if (Session::isLoggedIn()) { ?>
                     <a href="logout.php" class='link'>logout</a>
                 <?php } else { ?> <?php } ?>
-                    
             </div>
 
             <div id='top'>
