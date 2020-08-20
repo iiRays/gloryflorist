@@ -5,8 +5,8 @@
  * 
  */
 
-include "../rb.php";
-include "../DB.php";
+include "../Util/rb.php";
+include "../Util/DB.php";
 
 Class xmlClass {
 
