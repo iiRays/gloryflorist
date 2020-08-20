@@ -5,8 +5,8 @@ ID: 19WMR09574
 
 <?php
 
-include "rb.php";
-include "DB.php";
+include "../rb.php";
+include "../DB.php";
 
 class Flower {
 
