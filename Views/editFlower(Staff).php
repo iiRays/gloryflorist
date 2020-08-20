@@ -73,14 +73,14 @@ $isAvailable = $results[4];
                     <input type="hidden" id="id" name="id" value="<?php echo $id; ?>"/>
                     <div id="form">
                         <label>Name:</label>
-                        <input type="text" id="name" name="name" value="<?php echo $name; ?>" size="20" /><br />
+                        <input type="text" id="name" name="name" value="<?php echo $name; ?>" size="20" required/><br />
                         <label>Image:</label><br />
                         <div id="left"> 
                             <img id="flowerImg" name="flowerImg" src="<?php echo $imgSrc; ?>" alt="flower" /><br />
-                            <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value="<?php echo $imgSrc; ?>"/>
+                            <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value="<?php echo $imgSrc; ?>" />
                         </div>
                         <div id="right"> 
-                            <input type="file" id="img" name="image" accept="image/*"><br />
+                            <input type="file" id="img" name="image" accept="image/*" required><br />
                         </div>
                         <div id="bottom">
                             <label>Remarks:</label>
