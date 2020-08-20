@@ -7,7 +7,7 @@ Authorize::onlyAllow("customer");
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Glory Florist : Cart</title>
+        <title>Glory Florist : Your Orders</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="CSS/customerOrders.css">
     </head>
@@ -48,17 +48,12 @@ Authorize::onlyAllow("customer");
             
             foreach ($orders as $order) {
                 echo "<div class='item'>
-                    <a class='id' href='#'>#".$order->id."</a>
-                    <a class='date' href='#'>".$order->target_date."</a>
+                    <a class='id' href='customerOrder.php?orderId=".$order->id."'>#".$order->id."</a>
+                    <a class='date' href='customerOrder.php?orderId=".$order->id."'>".$order->target_date."</a>
                   </div>";
             }
             
             ?>
-
-            <!--<div class='item'>
-              <a class='id' href='#'>#1</a>
-              <a class='date' href='#'>08/01/2020</a>
-            </div>-->
 
           </div>
 
