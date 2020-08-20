@@ -1,4 +1,4 @@
-<?php include('services.php'); 
+<?php require_once('services.php'); 
 require_once("../Controllers/Security/Authorize.php");
 Authorize::onlyAllow("guest");
 ?>
@@ -28,6 +28,9 @@ Authorize::onlyAllow("guest");
             </div>
             <p>
                 Not a member yet? <a href="registerCustomer.php">Sign Up</a>
+            </p>
+            <p>
+                Forget your password? <a href="ForgetPassword.php">Forget Password</a>
             </p>
         </form>
     </body>
