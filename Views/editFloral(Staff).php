@@ -1,3 +1,7 @@
+<!--
+Author: Chong Wei Jie
+ID: 19WMR09574
+-->
 <?php
   require_once("../Controllers/Security/Authorize.php");
   Authorize::onlyAllow("staff");
@@ -6,7 +10,7 @@
 <?php
 //include "../Controllers/Util/rb.php";
 //include "../Controllers/Util/DB.php";
-include '../Controllers/Util/FloralArrangementAdapter.php';
+include '../Controllers/Util/Floral/FloralArrangementAdapter.php';
 
 //DB::connect();
 
@@ -72,14 +76,14 @@ $isAvailable = $floral->getAvailability($id);
                     <input type="hidden" id="id" name="id" value="<?php echo $id; ?>"/>
                     <div id="form">
                         <label>Name:</label>
-                        <input type="text" id="name" name="name" value="<?php echo $name; ?>" size="20" /><br />
+                        <input type="text" id="name" name="name" value="<?php echo $name; ?>" size="20" required/><br />
                         <label>Image:</label><br />
                         <div id="left"> 
                             <img id="flowerImg" src="<?php echo $imgSrc; ?>" alt="flower" /><br />
-                            <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value="<?php echo $imgSrc; ?>"/>
+                            <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value="<?php echo $imgSrc; ?>" />
                         </div>
                         <div id="right"> 
-                            <input type="file" id="img" name="image" accept="image/*">
+                            <input type="file" id="img" name="image" accept="image/*" required>
                         </div>
                         <div id="bottomLeft">
                             <label>Flowers</label><br/>
@@ -110,11 +114,11 @@ $isAvailable = $floral->getAvailability($id);
                         </div>
                         <div id="bottomRight">
                             <label>Stalks</label><br/>
-                            <input type="number" id="stalk" name="stalk" value="<?php echo $stalk; ?>" size="20" /><br />
+                            <input type="number" id="stalk" name="stalk" value="<?php echo $stalk; ?>" size="20" required/><br />
                         </div>
                         <div id="bottom">
                             <label>Price: RM</label>
-                            <input type="number" step=0.01 id="price" name="price" value="<?php echo number_format($price, 2); ?>" size="20" /><br />
+                            <input type="number" step=0.01 id="price" name="price" value="<?php echo number_format($price, 2); ?>" size="20" required/><br />
                         </div>
                     </div>
 

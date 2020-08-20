@@ -1,3 +1,7 @@
+<!--
+Author: Chong Wei Jie
+ID: 19WMR09574
+-->
 <?php
   require_once("../Controllers/Security/Authorize.php");
   Authorize::onlyAllow("staff");
@@ -37,10 +41,10 @@
 
                     <div id="form">
                         <label>Name:</label>
-                        <input type="text" id="name" name="name" value="" size="20" /><br />
+                        <input type="text" id="name" name="name" value="" size="20" required/><br />
                         <label>Image:</label><br />
                         <div id="left"> 
-                            <input type="file" id="img" name="image" accept="image/*">
+                            <input type="file" id="img" name="image" accept="image/*" required>
                         </div>
                         <div id="right"> 
                             <img id="flowerImg" src="" alt="flower" /><br />

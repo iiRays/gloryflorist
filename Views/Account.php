@@ -22,7 +22,6 @@ Authorize::onlyAllow("customer", "admin", "staff");
                     <?php if (Session::isLoggedIn()) { ?>
                         <a href="logout.php" class='link'>logout</a>
                     <?php } else { ?> <?php } ?>
-
                 </div>
 
                 <div class="box">
@@ -37,6 +36,8 @@ Authorize::onlyAllow("customer", "admin", "staff");
                     <button type="submit" name="btnCancel" style="float: left;margin:10px 0 0 18.2%;">CANCEL</button>
                     <button type="submit" name="btnDone" style="float: right;margin:10px 18.2% 0 0;">DONE</button>
                 </div>
+                
+                <a href='customerOrders.php' id='viewOrders_button'>VIEW ORDERS</a>
             </center>
 
         </form>

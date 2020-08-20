@@ -1,3 +1,7 @@
+<!--
+Author: Chong Wei Jie
+ID: 19WMR09574
+-->
 <?php
   require_once("../Controllers/Security/Authorize.php");
   Authorize::onlyAllow("staff");
@@ -54,10 +58,10 @@ foreach ($flower as $items) {
 
                     <div id="form">
                         <label>Name:</label>
-                        <input type="text" id="name" name="name" value="" size="20" /><br />
+                        <input type="text" id="name" name="name" value="" size="20" required/><br />
                         <label>Image:</label><br />
                         <div id="left"> 
-                            <input type="file" id="img" name="image" accept="image/*">
+                            <input type="file" id="img" name="image" accept="image/*" required>
 
                         </div>
                         <div id="right"> 
@@ -77,11 +81,11 @@ foreach ($flower as $items) {
                         </div>
                         <div id="bottomRight">
                             <label>Stalks</label><br/>
-                            <input type="number" id="stalk" name="stalk" value="" size="20" /><br />
+                            <input type="number" id="stalk" name="stalk" value="" size="20" required/><br />
                         </div>
                         <div id="bottom">
                             <label>Price:</label>
-                            <input type="number" step=0.01 id="price" name="price" value="" size="20" /><br />
+                            <input type="number" step=0.01 id="price" name="price" value="" size="20" required/><br />
                         </div>
                     </div>
 

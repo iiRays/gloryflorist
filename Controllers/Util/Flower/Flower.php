@@ -1,7 +1,12 @@
+<!--
+Author: Chong Wei Jie
+ID: 19WMR09574
+-->
+
 <?php
 
-include "rb.php";
-include "DB.php";
+include "../Controllers/Util/rb.php";
+include "../Controllers/Util/DB.php";
 
 class Flower {
 

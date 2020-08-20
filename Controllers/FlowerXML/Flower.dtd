@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE flowers SYSTEM 'Flower.xsl'><flowers><flower id="1"><id>1</id><flower_name>Rose</flower_name><remark>Very beautiful</remark><img>https://i.imgur.com/yd4JiYF.png</img><is_available>true</is_available></flower><flower id="2"><id>2</id><flower_name>Lily</flower_name><remark>Very beautiful</remark><img>https://i.imgur.com/yd4JiYF.png</img><is_available>false</is_available></flower></flowers>
