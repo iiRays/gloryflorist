@@ -200,3 +200,21 @@ label{
     border-radius: 5px;
     text-align: left;
 }
+
+#viewOrders_button {
+  color: #fcf8ee;
+  text-decoration: none;
+  font-size: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: rgba(243, 181, 177, 0.25);
+  transition: background-color 0.5s;
+}
+#viewOrders_button:focus {
+  outline: none;
+}
+#viewOrders_button:hover {
+  background-color: rgba(243, 181, 177, 0.5);
+}

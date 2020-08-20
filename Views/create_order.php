@@ -10,12 +10,17 @@ require_once("../Controllers/Util/Item.php");
 DB::connect();
 
 // get input details
-$grandTotal = $_POST['grandTotal'];
 $deliveryAddress = $_POST['deliveryAddress'];
 $targetDate = $_POST['targetDate'];
 
 // get cart from session
 $cart = Session::get("cart");
+
+// calculate grand total
+$grandTotal = 0;
+foreach ($cart->items as $item) {
+    $grandTotal += $item->arrangement->cost * $item->quantity;
+}
 
 // create order
 $cart->makeOrder($grandTotal, $deliveryAddress, "Pending", $targetDate);

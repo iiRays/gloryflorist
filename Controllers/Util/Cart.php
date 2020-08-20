@@ -14,7 +14,10 @@ class Cart {
     
     public function makeOrder($grandTotal, $deliveryAddress, $status, $targetDate) {
         // add order
+        $user = Session::get("user");
+        
         $order = R::dispense("orders");
+        $order->customer_id = $user->id;
         $order->grand_total = $grandTotal;
         $order->delivery_address = $deliveryAddress;
         $order->status = $status;

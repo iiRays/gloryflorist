@@ -60,7 +60,6 @@
                     
                     <xsl:for-each select="//totalPriceArr">
                         <a id='total'>Total: <span>RM <xsl:value-of select="price"/></span></a>
-                        <input type='hidden' name='grandTotal' value='69420'/> <!-- STORES TOTAL PRICE -->
                     </xsl:for-each>
 
                   </div>
