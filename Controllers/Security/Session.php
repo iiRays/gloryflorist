@@ -93,7 +93,7 @@ class Session{
         $cartSaver = new CartSaver(); // Ryan's work
         
         // DEBUG: simulate items already added to cart
-        $cart->addItem("1", 3);
+        //$cart->addItem("1", 3);
         $cart->addItem("2", 5);
         
         self::set("cart", $cart); // Ryan's work

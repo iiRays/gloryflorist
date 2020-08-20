@@ -22,7 +22,6 @@ Authorize::onlyAllow("customer", "admin", "staff");
                     <?php if (Session::isLoggedIn()) { ?>
                         <a href="logout.php" class='link'>logout</a>
                     <?php } else { ?> <?php } ?>
-
                 </div>
 
                 <div class="box">

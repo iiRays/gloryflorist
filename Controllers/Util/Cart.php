@@ -28,7 +28,7 @@ class Cart {
         foreach ($this->items as $item) {
             $orderItem = R::dispense("orderitem");
             $orderItem->quantity = $item->quantity;
-            $orderItem->arragement_id = $item->arrangement->id;
+            $orderItem->arrangement_id = $item->arrangement->id;
             $orderItem->order_id = $order->id;
             R::store($orderItem);
         }

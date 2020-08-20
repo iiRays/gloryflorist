@@ -106,9 +106,9 @@ $isAvailable = $floral->getAvailability($id);
             <div id="bottom">
                 <?php 
                 if ($isAvailable == "false"){
-                    echo '<a href="#" id="addtocart_button" style="opacity: 0.5;filter: alpha(opacity=40);pointer-events: none;cursor: default;" >Add to cart</a>';
+                    echo '<a href="add_to_cart.php?id='.$id.'" id="addtocart_button" style="opacity: 0.5;filter: alpha(opacity=40);pointer-events: none;cursor: default;" >Add to cart</a>';
                 }else{
-                    echo '<a href="#" id="addtocart_button">Add to cart</a>';
+                    echo '<a href="add_to_cart.php?id='.$id.'" id="addtocart_button">Add to cart</a>';
                 }
                 ?>
             </div>

@@ -30,8 +30,6 @@ if (!$errorHandler->errorsExist()) {
     $cartSaver->backup($cart);
     Session::set("cartSaver", $cartSaver);
     
-    echo "old cart: " . $cartSaver->cartMemento->items[0]->quantity;
-    
     // create updated cart
     $newCart = new Cart();
     $i = 0;
