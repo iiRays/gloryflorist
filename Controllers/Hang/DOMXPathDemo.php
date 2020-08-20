@@ -12,7 +12,7 @@ class DOMXPathDemo {
   public function display($expr) {
     $prices = $this->xpath->query($expr);
     foreach ($prices as $price) {
-      echo $price->nodeValue . "<br />";
+      echo $price->nodeValue . date("Y-m-d")  ."<br />";
     }
   }
   
@@ -57,4 +57,16 @@ $worker->evaluate("count(//artist)");
 echo "</p><p><h3>Using XPath expression 'sum(//cd[price < 10]/price)': </h3>";
 $worker->evaluate("sum(//cd[price < 10]/price)");
 
+/////////////////check time range for report
+$paymentDate = date('Y-m-d');
+$paymentDate=date('Y-m-d', strtotime($paymentDate));
+//echo $paymentDate; // echos today! 
+$contractDateBegin = date('Y-m-d', strtotime("01/01/2001"));
+$contractDateEnd = date('Y-m-d', strtotime("01/01/2020"));
+    
+if (($paymentDate >= $contractDateBegin) && ($paymentDate <= $contractDateEnd)){
+    echo "is between";
+}else{
+    echo "NO GO!";  
+}
 ?>

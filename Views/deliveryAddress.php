@@ -1,75 +1,140 @@
 <!DOCTYPE html>
-<?php include('services.php'); ?>
+<?php
+require_once("../Controllers/Util/Quick.php");
+require_once("../Controllers/Util/rb.php");
+require_once("../Controllers/Security/Session.php");
+require_once("../Controllers/Util/DB.php");
+
+session_start();
+
+$deliverytype = Quick::getPostData("deliveryType");
+$date = Quick::getPostData("date");
+$time = Quick::getPostData("time");
+$cardmsg = Quick::getPostData("cardmsg");
+$sender = Quick::getPostData("sender");
+
+
+setcookie("deliverytype", $deliverytype, time() + (86400 * 30), "/",0);
+setcookie("date", $date, time() + (86400 * 30), "/",0);
+setcookie("time", $time, time() + (86400 * 30), "/",0);
+setcookie("cardmsg", $cardmsg, time() + (86400 * 30), "/",0);
+setcookie("sender", $sender, time() + (86400 * 30), "/",0);
+
+
+
+?>
 <html>
     <head>
         <title>Glory Florist :</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="CSS/deliveryAddress.css">
+        <link  rel="stylesheet" href="CSS/">
     </head>
     <body>
         <!-- 
         This is to get the delivery address details
         -->
-        <form method="post" action=".php">
-            <?php include('errors.php'); ?>
-            <h2>Contact Information</h2>
-            <div class="input">           
-                <input type="text" name="email" required="true" autocomplete="false"> 
-                <label for="email" class="label-name">
-                    <span class="content-name">Your Email(For Order Confirmation)</span>
-                </label>
-            </div>
+        <div class="center">
+            <p><b>Note: </b>margin:auto will not work in IE8, unless a !DOCTYPE is declared.</p>
+        </div>
+        <form method="post" action="deliveryAddress.php">
+            <!--
+                <div class="input"><h2>Contact Information</h2></div>
 
-            <h2>Delivery Address</h2>
+                <div class="input">           
+                    <input type="text" name="email" required="true" autocomplete="off"> 
+                    <label for="email" class="label-name">
+                        <span class="content-name">Your Email(For Order Confirmation)</span>
+                    </label>
+                </div>
+            -->
+            <div class="input"><h2>Delivery Address</h2></div>
             <div class="input">           
-                <input type="text" name="recipientName" required="true" autocomplete="false"> 
+                <input type="text" name="recipientName" required="true" autocomplete="off"> 
                 <label for="recipientName" class="label-name">
                     <span class="content-name">Recipient's Name</span>
                 </label>
             </div>
             <div class="input">           
-                <input type="text" name="company" required="false" autocomplete="false"> 
+                <input type="text" name="company" required="false" autocomplete="off"> 
                 <label for="company" class="label-name">
                     <span class="content-name">Company(optional)</span>
                 </label>
             </div>
             <div class="input">           
-                <input type="text" name="address" required="true" autocomplete="false"> 
+                <input type="text" name="address" required="true" autocomplete="off"> 
                 <label for="address" class="label-name">
                     <span class="content-name">Address</span>
                 </label>
             </div>
             <div class="input">           
-                <input type="text" name="Apartment-suite-unit-etc" required="false" autocomplete="false"> 
-                <label for="Apartment-suite-unit-etc" class="label-name">
+                <input type="text" name="apartment-suite-unit-etc" required="off" autocomplete="false"> 
+                <label for="apartment-suite-unit-etc" class="label-name">
                     <span class="content-name">Apartment, suite, unit etc. (optional)</span>
                 </label>
             </div>
             <div class="input">           
-                <input type="text" name="City-Town" required="true" autocomplete="false"> 
-                <label for="City-Town" class="label-name">
+                <input type="text" name="city-town" required="true" autocomplete="off"> 
+                <label for="city-town" class="label-name">
                     <span class="content-name">City/Town</span>
                 </label>
             </div>
             <div class="input">           
-                <input type="text" name="postcode" required="true" autocomplete="false"> 
+                <input type="text" name="postcode" required="true" autocomplete="off"> 
                 <label for="postcode" class="label-name">
                     <span class="content-name">Postcode</span>
                 </label>
             </div>
             <div class="input">           
-                <input type="text" name="phone" required="true" autocomplete="false"> 
-                <label for="phone" class="label-name">
+                <input type="text" name="contact" required="true" autocomplete="off"> 
+                <label for="contact" class="label-name">
                     <span class="content-name">Please provide phone number of receiver or sender</span>
                 </label>
             </div>
-            <div>
-                <button>CONTINUE</button>
-                
+            <div class="input">
+                <button >CONTINUE</button>
+
             </div>
-            <div>
-                <a href="">Return to cart</a>
+            <div class="input">
+                <a href="" >Return to cart</a>
             </div>
         </form>
     </body>
 </html>
+
+<?php
+$recipient = Quick::getPostData("recipientName");
+$company = Quick::getPostData("company");
+$address = Quick::getPostData("address");
+$asset_type = Quick::getPostData("apartment-suite-unit-etc");
+$city_town = Quick::getPostData("city-town");
+$postcode = Quick::getPostData("postcode");
+$contact = Quick::getPostData("contact");
+
+
+//store in database
+DB::connect();
+if (isset($contact)) {
+    $delivery = R::dispense('delivery');
+    $delivery->cardmessage = $_COOKIE["cardmsg"];
+    $delivery->sender = $_COOKIE["sender"];
+    $delivery->contact = $contact;
+    $delivery->date = $_COOKIE["date"];
+    $delivery->timeslot = $_COOKIE["time"];
+    $delivery->method = $_COOKIE["deliverytype"];
+    $delivery->address = $address;
+    $delivery->deliveryfee = 5.9;
+    $delivery->company = $company;
+    $delivery->asset_type = $asset_type;
+    $delivery->city_town = $city_town;
+    $delivery->postcode = $postcode;
+    $delivery->recipient = $recipient;
+    $id = R::store($delivery);
+}
+
+//clear the cookies
+$_COOKIE["deliverytype"] = null;
+$_COOKIE["date"] = null;
+$_COOKIE["time"] = null;
+$_COOKIE["cardmsg"] = null;
+$_COOKIE["sender"] = null;
+?>

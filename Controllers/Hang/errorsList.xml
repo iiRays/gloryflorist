@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<errors>
+    <error Id="25">
+        <type>2</type>
+        <time>2020-08-18 11:40:26</time>
+        <string>substr() expects at least 2 parameters, 1 given</string>
+        <file>C:\xampp\htdocs\gloryflorist\Controllers\Hang\security\bad_page.php</file>
+    </error>
+    <error Id="26">
+        <type>2</type>
+        <time>2020-08-19 07:29:59</time>
+        <string>substr() expects at least 2 parameters, 1 given</string>
+        <file>C:\xampp\htdocs\gloryflorist\Controllers\Hang\security\bad_page.php</file>
+    </error>
+    <error Id="27">
+        <type>2</type>
+        <time>2020-08-19 07:31:53</time>
+        <string>substr() expects at least 2 parameters, 1 given</string>
+        <file>C:\xampp\htdocs\gloryflorist\Controllers\Hang\security\bad_page.php</file>
+    </error>
+</errors>

@@ -26,7 +26,7 @@ class Email {
         $mail->addAddress($target);
         $mail->Subject = $subject;
         $mail->msgHTML($message);
-        
+
         if (!$mail->Send()) {
             return false;
         }

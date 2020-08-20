@@ -43,12 +43,12 @@ function createXMLfile($deliveriesArray) {
             $address = $dom->createElement('Address', $Address);
             $delivery->appendChild($address);
 
-            $address = $dom->createElement('DeliveryFee', $Fee);
-            $delivery->appendChild($address);
+            $fee = $dom->createElement('DeliveryFee', $Fee);
+            $delivery->appendChild($fee);
         }
         //show selfpickup
         else{
-            $delivery = $dom->createElement('Delivery');
+            $delivery = $dom->createElement('SelfPickUp');
         }
         //delivery info
         $delivery->setAttribute('Id', $Id);
