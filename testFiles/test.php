@@ -68,4 +68,14 @@ $orderItem2->arrangement = $arrangement2;
 $orderItem2->order = $order;
 $orderItem2->quantity = 4;
 
+//Admin
+$user = R::dispense("user");
+$user->email="johannljx@gmail.com";
+$user->password="Gg123456";
+$user->name="Johann";
+$user->role="admin";
+$user->status="active";
+
+R::store($user);
+
 R::storeAll([$flower, $flower2, $arrangement, $arrangement2, $order, $orderItem, $orderItem2]);
