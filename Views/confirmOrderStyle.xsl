@@ -16,7 +16,7 @@
     
             <body>
 
-            <form id='container'>
+            <form id='container' method='POST' action="create_order.php">
 
                 <div id='hotbar'>
                   <a href='home.php' id='glory'>glory florist</a>
@@ -66,9 +66,16 @@
 
                   <div id='right'>
 
-                    <a class='heading'>Payment details</a>
+                    <a class='heading'>Order details</a>
                     
-                    <a href='create_order.php' id='order_button'>COMPLETE ORDER</a>
+                    <div id='input'>
+                        <a class='label'>Delivery address</a>
+                        <input type='textbox' class='textbox' name='deliveryAddress' value='' placeholder='No. 69, 420 Avenue'/>
+                        <a class='label'>Delivery date</a>
+                        <input type='date' class='datepicker' name='targetDate'/>
+                    </div>
+                    
+                    <input type='submit' id='order_button' value='COMPLETE ORDER'/>
 
                   </div>
 

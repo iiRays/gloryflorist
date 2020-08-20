@@ -12,13 +12,16 @@ class Cart {
         $this->items[] = $item;
     }
     
-    public function makeOrder() {
+    public function makeOrder($grandTotal, $deliveryAddress, $status, $targetDate) {
         // add order
+        $user = Session::get("user");
+        
         $order = R::dispense("orders");
-        $order->grand_total = 69.00;
-        $order->delivery_address = "my house";
-        $order->status = "pending";
-        $order->targetDate = date_create("2020-07-28 20:00");
+        $order->customer_id = $user->id;
+        $order->grand_total = $grandTotal;
+        $order->delivery_address = $deliveryAddress;
+        $order->status = $status;
+        $order->targetDate = $targetDate;
         R::store($order);
         
         // add order items
