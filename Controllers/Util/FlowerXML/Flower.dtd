@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+ Author: Chong Wei Jie
+ ID: 19WMR09574
+-->
+<!ELEMENT flowers (flower*)>
+<!ELEMENT flower (id, flower_name, remark, img, is_available)>
+<!ATTLIST flower id ID #REQUIRED>
+
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT flower_name (#PCDATA)>
+<!ELEMENT remark (#PCDATA)>
+<!ELEMENT img (#PCDATA)>
+<!ELEMENT is_available (#PCDATA)>
+
