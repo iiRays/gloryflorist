@@ -1,0 +1,24 @@
+[2020-08-21T15:54:17.578687+02:00] name.WARNING: Foo [] []
+[2020-08-21T15:54:17.581474+02:00] name.ERROR: Bar [] []
+[2020-08-21T15:54:20.710358+02:00] name.WARNING: Foo [] []
+[2020-08-21T15:54:20.712617+02:00] name.ERROR: Bar [] []
+[2020-08-21T15:55:23.556294+02:00] name.WARNING: Foo [] []
+[2020-08-21T15:55:23.558368+02:00] name.ERROR: Bar [] []
+[2020-08-21T15:57:08.355513+02:00] name.WARNING: Foo [] []
+[2020-08-21T15:57:08.357661+02:00] name.ERROR: Bar [] []
+[2020-08-21T21:58:42.175856+08:00] name.WARNING: Foo [] []
+[2020-08-21T21:58:42.178701+08:00] name.ERROR: Bar [] []
+[2020-08-21T22:13:23.070639+08:00] Code-works .WARNING: Foo [] []
+[2020-08-21T22:13:23.243184+08:00] Code-works .ERROR: Bar [] []
+[2020-08-21T22:13:51.869185+08:00] Code-works .WARNING: Foo [] []
+[2020-08-21T22:13:51.871529+08:00] Code-works .ERROR: Bar [] []
+{"message":"Foo","context":{},"level":300,"level_name":"WARNING","channel":"transactions","datetime":"2020-08-21T22:24:54.190802+08:00","extra":{}}
+{"message":"Username me is not long enough. (file: C:\\xampp\\htdocs\\gloryflorist\\testFiles\\badpage.php, line: 38)","context":{},"level":400,"level_name":"ERROR","channel":"transactions","datetime":"2020-08-21T23:09:46.076670+08:00","extra":{}}
+{"message":"Input validation Failure","context":{"exception":{"class":"Exception","message":"Username me is not long enough.","code":0,"file":"C:\\xampp\\htdocs\\gloryflorist\\testFiles\\badpage.php:38"}},"level":400,"level_name":"ERROR","channel":"transactions","datetime":"2020-08-21T23:12:12.449089+08:00","extra":{}}
+{"message":"Input validation Failure","context":{"exception":{"class":"Exception","message":"Username me is not long enough.","code":0,"file":"C:\\xampp\\htdocs\\gloryflorist\\testFiles\\badpage.php:39"}},"level":300,"level_name":"WARNING","channel":"Input Validation","datetime":"2020-08-21T23:18:04.278571+08:00","extra":{}}
+{"message":"Input validation Failure","context":{"exception":{"class":"Exception","message":"Username me is not long enough.","code":0,"file":"C:\\xampp\\htdocs\\gloryflorist\\testFiles\\badpage.php:27"}},"level":300,"level_name":"WARNING","channel":"Input Validation","datetime":"2020-08-21T23:38:22.039500+08:00","extra":{}}
+{"message":"Input validation Failure","context":{"exception":{"class":"Exception","message":"Username me is not long enough.","code":0,"file":"C:\\xampp\\htdocs\\gloryflorist\\testFiles\\badpage.php:27"}},"level":300,"level_name":"WARNING","channel":"Input Validation","datetime":"2020-08-21T23:48:21.635881+08:00","extra":{}}
+{"message":"foo","context":{},"level":400,"level_name":"ERROR","channel":"transactions","datetime":"2020-08-22T00:18:15.558960+08:00","extra":{}}
+{"message":"foo","context":{},"level":550,"level_name":"ALERT","channel":"transactions","datetime":"2020-08-22T00:18:49.433950+08:00","extra":{}}
+{"message":"foo","context":{},"level":200,"level_name":"INFO","channel":"transactions","datetime":"2020-08-22T00:21:05.115847+08:00","extra":{}}
+{"message":"Input validation Success","context":{},"level":200,"level_name":"INFO","channel":"Input Validation","datetime":"2020-08-22T00:24:24.478651+08:00","extra":{}}

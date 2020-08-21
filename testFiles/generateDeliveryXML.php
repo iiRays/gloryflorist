@@ -3,19 +3,29 @@
 /*
   Author: kelvin tham yit hang
  */
+require_once '../Controller/Util/Logger/DatabaseLogger.php';
 require_once("rb.php");
 require_once("DB.php");
 
+$edb = DatabaseLogger::sendError_Log();
 DB::connect();
 
-$deliveriesArray = R::getAll('select * from delivery');
+try{
+    $deliveriesArray = R::getAll('select * from delivery');
+} catch (Exception $ex) {
+    
+}
 
-createXMLfile($deliveriesArray);
+
+
+
+createDeliveryXMLfile($deliveriesArray);
 foreach ($deliveriesArray as $result) {
     echo $result['sender'], '<br>';
 }
 
-function createXMLfile($deliveriesArray) {
+
+function createDeliveryXMLfile($deliveriesArray) {
 
     $filePath = 'deliveries.xml';
     $dom = new DOMDocument('1.0', 'utf-8');
@@ -100,3 +110,4 @@ function createXMLfile($deliveriesArray) {
     $dom->appendChild($root);
     $dom->save($filePath);
 }
+
