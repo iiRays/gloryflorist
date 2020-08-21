@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deliveries>
+    <Delivery Id="2">
+        <Date>2020-08-20</Date>
+        <Address>17, Jalan Satu, Taman Batang Padang, 35500 Bidor, Negeri Perak</Address>
+        <DeliveryFee>6.00</DeliveryFee>
+        <Company/>
+        <Asset_type/>
+        <City_town/>
+        <Postcode>35500</Postcode>
+        <Recipient>Joseph Yeak Jian King</Recipient>
+        <Timeslot>1PM - 6PM</Timeslot>
+        <CardMessage>Every year with you is sweeter than the last.</CardMessage>
+        <Sender>Jaren Yeap Wei Loon</Sender>
+        <Contact>012-4307437</Contact>
+        <Method>Delivery</Method>
+    </Delivery>
+    <SelfPickUp Id="3">
+        <CardMessage>Beautiful flowers for a even more beautiful you.</CardMessage>
+        <Sender>Cheah Kah Heng</Sender>
+        <Contact>016-3866617</Contact>
+        <Method>SelfPickup</Method>
+        <Date>2020-08-20</Date>
+        <Timeslot>9AM - 1PM</Timeslot>
+    </SelfPickUp>
+    <Delivery Id="17">
+        <Date>2020-08-21</Date>
+        <Address>38-40, Jalan Besar, 35500 Bidor, Negeri Perak</Address>
+        <DeliveryFee>5.90</DeliveryFee>
+        <Company/>
+        <Asset_type/>
+        <City_town>Bidor</City_town>
+        <Postcode>35500</Postcode>
+        <Recipient>Cheah Kah Heng</Recipient>
+        <Timeslot>9AM - 1PM</Timeslot>
+        <CardMessage>I love you</CardMessage>
+        <Sender>Chia Yang Jie</Sender>
+        <Contact>010-5078996</Contact>
+        <Method>delivery</Method>
+    </Delivery>
+        <Delivery Id="2">
+        <Date>2020-08-20</Date>
+        <Address>17, Jalan Satu, Taman Batang Padang, 35500 Bidor, Negeri Perak</Address>
+        <DeliveryFee>6.00</DeliveryFee>
+        <Company/>
+        <Asset_type/>
+        <City_town/>
+        <Postcode>35500</Postcode>
+        <Recipient>Joseph Yeak Jian King</Recipient>
+        <Timeslot>9AM - 1PM</Timeslot>
+        <CardMessage>Every year with you is sweeter than the last.</CardMessage>
+        <Sender>Jaren Yeap Wei Loon</Sender>
+        <Contact>012-4307437</Contact>
+        <Method>Delivery</Method>
+    </Delivery>
+    <SelfPickUp Id="3">
+        <CardMessage>Beautiful flowers for a even more beautiful you.</CardMessage>
+        <Sender>Cheah Kah Heng</Sender>
+        <Contact>016-3866617</Contact>
+        <Method>SelfPickup</Method>
+        <Date>2020-08-20</Date>
+        <Timeslot>1PM - 6PM</Timeslot>
+    </SelfPickUp>
+    <Delivery Id="17">
+        <Date>2020-08-23</Date>
+        <Address>38-40, Jalan Besar, 35500 Bidor, Negeri Perak</Address>
+        <DeliveryFee>5.90</DeliveryFee>
+        <Company/>
+        <Asset_type/>
+        <City_town>Bidor</City_town>
+        <Postcode>35500</Postcode>
+        <Recipient>Cheah Kah Heng</Recipient>
+        <Timeslot>1PM - 6PM</Timeslot>
+        <CardMessage>I love you</CardMessage>
+        <Sender>Chia Yang Jie</Sender>
+        <Contact>010-5078996</Contact>
+        <Method>delivery</Method>
+    </Delivery>
+</deliveries>

@@ -21,8 +21,7 @@ class Email {
     }
 
     public function send($target, $subject, $message) {
-        $mail = $this->mail;
-        
+        $mail = $this->mail;        
         $mail->addAddress($target);
         $mail->Subject = $subject;
         $mail->msgHTML($message);

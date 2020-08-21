@@ -5,15 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$arr = array(1, 2, 3, 4);
 
+include '../Controllers/Util/logging_error.php';
 
-foreach ($arr as $value) {
-    $a = $value = $value * 2;
-    array_push($arr, $a);
-    echo 'haha=' .$arr .'</br>';
-}
-//after
-echo $arr;
-
+echo $error;
 
