@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-include "../Controllers/Util/rb.php";
-include "../Controllers/Util/DB.php";
+require_once("../Controllers/Util/rb.php");
+require_once("../Controllers/Util/DB.php");
 
 DB::connect();
 
