@@ -10,7 +10,7 @@ Authorize::onlyAllow("staff");
 <?php
 //include "../Controllers/Util/rb.php";
 //include "../Controllers/Util/DB.php";
-include '../Controllers/Util/Flower/FlowerAdapter.php';
+require_once ('../Controllers/Util/Flower/FlowerAdapter.php');
 
 //DB::connect();
 

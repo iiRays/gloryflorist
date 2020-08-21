@@ -6,7 +6,8 @@
  * 
  */
 
-require_once 'Flower.php';
+require_once ('Flower.php');
+require_once ('xmlClass.php');
 
 class DOMParser {
 
@@ -54,4 +55,8 @@ class DOMParser {
 
 }
 
+$xml = new xmlClass();
+$xml->generateXml("flower", "Flower.xsl", "Flower.dtd", "Flower.xml");
+
 $flower = new DOMParser("Flower.xml", "Flower.xsl");
+

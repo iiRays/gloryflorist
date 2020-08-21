@@ -5,8 +5,8 @@
  * 
  */
 
-include "../Util/rb.php";
-include "../Util/DB.php";
+require_once ("../Util/rb.php");
+require_once ("../Util/DB.php");
 
 Class xmlClass {
 
@@ -103,6 +103,3 @@ Class xmlClass {
     }
 
 }
-
-$xml = new xmlClass();
-$xml->generateXml("flower", "Flower.xsl", "Flower.dtd", "Flower.xml");

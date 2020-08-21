@@ -5,8 +5,8 @@ ID: 19WMR09574
 
 <?php
 
-include "FloralArrangementInterface.php";
-include "FloralArrangement.php";
+require_once ("FloralArrangementInterface.php");
+require_once ("FloralArrangement.php");
 
 class FloralArrangementAdapter implements FloralArrangementInterface {
 
