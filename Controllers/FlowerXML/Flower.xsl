@@ -30,14 +30,18 @@
                                 <xsl:value-of select="id"/>
                             </td>
                             <td>
-                                <img>
-                                    <xsl:attribute name="src">
-                                        <xsl:value-of select="image_url" />
-                                    </xsl:attribute>
-                                    <xsl:attribute name="style">
-                                        max-width:180px;max-height: 180px;display: block;
-                                    </xsl:attribute>
-                                </img>
+                                <div style="display: flex; align-items: center; width: 180px; height: 180px;">
+                                    <img>
+                                        <xsl:attribute name="src">
+                                            <xsl:value-of select="image_url" />
+                                        </xsl:attribute>
+                                    
+                                        <xsl:attribute name="style">
+                                            max-width:180px;max-height: 180px;display: block;
+                                        </xsl:attribute>
+                                   
+                                    </img>
+                                </div>
                             </td>
                             <td>
                                 <xsl:value-of select="flower_name"/>
