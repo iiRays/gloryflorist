@@ -3,11 +3,22 @@
 /*
   Author: kelvin tham yit hang
  */
-require_once '../Controller/Util/Logger/DatabaseLogger.php';
-require_once("rb.php");
-require_once("DB.php");
 
-$edb = DatabaseLogger::sendError_Log();
+//apply these 3 lines of code to log all the error into database 
+require_once '../Controllers/Util/Logger/DatabaseLogger.php';
+require_once '../Controllers/Util/Logger/EmailLogger.php';
+$edb = new DatabaseLogger();
+//$edb->sendError_Log();
+$edb = new EmailLogger();
+$edb->sendError_Log();
+
+//require_once '../Controllers/Util/rb.php';
+require_once 'DB.php';
+
+//require_once '../Controllers/Util/rb.php';
+//require_once '../Controllers/Util/DB.php';
+
+
 DB::connect();
 
 try{
