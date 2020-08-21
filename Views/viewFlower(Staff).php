@@ -6,6 +6,7 @@
 <?php
 require_once("../Controllers/Util/rb.php");
 require_once("../Controllers/Util/DB.php");
+require_once("../Controllers/Util/Quick.php");
 
 DB::connect();
 
@@ -22,13 +23,7 @@ $flower = R::findAll('flower');
     <body>
         <div id='container'> 
 
-            <div id='hotbar'>
-                <a href='#' id='glory'>glory florist</a>
-                <a href='#' class='link'>shop</a>
-                <a href='#' class='link'>cart</a>
-                <a href='#' class='link' >account</a>
-                <a href='#' class='link' id='currentLink'>dashboard</a>
-            </div>
+            <?php Quick::printHeader("staffDashboard") ?>
 
             <div id='top'>
                 <div id='text'>
@@ -42,8 +37,8 @@ $flower = R::findAll('flower');
                     <?php
                     if (!empty($flower)) {
                         foreach ($flower as $item) {
-                            echo '<div class="item">' .
-                            '<img id="img" name="img" src = "' . $item->imageURL . '">' .
+                            echo '<div class="item"><div id="imgBorder">' .
+                            '<img id="img" name="img" src = "' . $item->imageURL . '"></div>' .
                             '<a href="flower%28Staff%29.php?id=' . $item->id . '" class="name">' . $item->flowerName . '</a>' .
                             '<a href="editFlower%28Staff%29.php?id=' . $item->id . '" id="edit_button">Edit</a>' .
                             '</div>';

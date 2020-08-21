@@ -12,6 +12,7 @@ Authorize::onlyAllow("staff");
 //include "../Controllers/Util/rb.php";
 //include "../Controllers/Util/DB.php";
 include '../Controllers/Util/Flower/FlowerAdapter.php';
+require_once("../Controllers/Util/Quick.php");
 
 //DB::connect();
 
@@ -53,13 +54,7 @@ $isAvailable = $results[4];
     <body>
         <div id='container'>
 
-            <div id='hotbar'>
-                <a href='#' id='glory'>glory florist</a>
-                <a href='#' class='link'>shop</a>
-                <a href='#' class='link'>cart</a>
-                <a href='#' class='link'>account</a>
-                <a href='#' class='link' id='currentLink'>dashboard</a>
-            </div>
+            <?php Quick::printHeader("staffDashboard") ?>
 
             <div id='top'>
                 <div id='text'>

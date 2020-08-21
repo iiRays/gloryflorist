@@ -119,3 +119,13 @@ html {
 #container #content #edit_button:hover {
     background-color: rgba(243, 181, 177, 0.5);
 }
+
+#container #content #list .item #imgBorder{
+    display: flex; 
+    align-items: center;
+    float: left;
+    margin-right: 0px;
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+}

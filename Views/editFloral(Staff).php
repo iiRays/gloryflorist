@@ -11,6 +11,7 @@ ID: 19WMR09574
 //include "../Controllers/Util/rb.php";
 //include "../Controllers/Util/DB.php";
 require_once ('../Controllers/Util/Floral/FloralArrangementAdapter.php');
+require_once("../Controllers/Util/Quick.php");
 
 //DB::connect();
 
@@ -55,13 +56,7 @@ $isAvailable = $floral->getAvailability($id);
     <body>
         <div id='container'>
 
-            <div id='hotbar'>
-                <a href='#' id='glory'>glory florist</a>
-                <a href='#' class='link'>shop</a>
-                <a href='#' class='link'>cart</a>
-                <a href='#' class='link'>account</a>
-                <a href='#' class='link' id='currentLink'>dashboard</a>
-            </div>
+            <?php Quick::printHeader("staffDashboard") ?>
 
             <div id='top'>
                 <div id='text'>

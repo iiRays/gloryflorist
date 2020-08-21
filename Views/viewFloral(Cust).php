@@ -2,6 +2,7 @@
 <?php
 require_once("../Controllers/Util/rb.php");
 require_once("../Controllers/Util/DB.php");
+require_once("../Controllers/Util/Quick.php");
 
 DB::connect();
 
@@ -18,13 +19,7 @@ $arrangement = R::findAll('arrangement');
     <body>
         <div id='container'> 
 
-            <div id='hotbar'>
-                <a href='#' id='glory'>glory florist</a>
-                <a href='#' class='link'>shop</a>
-                <a href='#' class='link'>cart</a>
-                <a href='#' class='link' >account</a>
-                <a href='#' class='link' id='currentLink'>dashboard</a>
-            </div>
+            <?php Quick::printHeader("shop") ?>
 
             <div id='top'>
                 <div id='text'>
@@ -38,9 +33,9 @@ $arrangement = R::findAll('arrangement');
                     <?php
                     if (!empty($arrangement)) {
                         foreach ($arrangement as $item) {
-                            echo '<div class="item">' .
+                            echo '<a href="floral%28Cust%29.php?id=' . $item->id . '" ><div class="item">' .
                             '<img id="img" name="img" src = "' . $item->imageURL . '">' .
-                            '<a href="floral%28Cust%29.php?id=' . $item->id . '" class="name">' . $item->name . '</a></div>';
+                            '<label class="name">' . $item->name . '</label></div></a>';
                         }
                     } else {
                         echo '<div class="item">' .
