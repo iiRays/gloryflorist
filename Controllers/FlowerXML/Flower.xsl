@@ -32,7 +32,7 @@
                             <td>
                                 <img>
                                     <xsl:attribute name="src">
-                                        <xsl:value-of select="img" />
+                                        <xsl:value-of select="image_url" />
                                     </xsl:attribute>
                                     <xsl:attribute name="style">
                                         max-width:180px;max-height: 180px;display: block;

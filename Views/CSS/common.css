@@ -16,6 +16,7 @@ html, body {
 }
 a {
   font-family: 'Cute Font';
+  text-decoration: none;
 }
 #container {
   display: flex;

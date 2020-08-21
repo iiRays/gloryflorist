@@ -1,17 +1,15 @@
 body{
-    height: 60vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    font-family: sans-serif;
-
+    font-family: "Cute Font";
+}
+#container #top #text #back{
+    margin-left: 220px;
 }
 
 form{
     width: 80%;
     position: relative;
     border: 3px solid #73AD21;
+    background-color: white;
 }
 
 .input{
@@ -55,3 +53,5 @@ form{
 
 table.fixed { table-layout:fixed; }
 table.fixed td { overflow: hidden; }
+
+

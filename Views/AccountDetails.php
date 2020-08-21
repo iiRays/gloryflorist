@@ -23,6 +23,7 @@ if (isset($_POST['btnDone'])) {
     $address = Quick::getPostData("address");
     $password_1 = Quick::getPostData("password_1");
     $password_2 = Quick::getPostData("password_2");
+    $user = R::findOne("user", "email = ?", [$email]);
 
     //validation
     if (empty($name)) {
@@ -31,10 +32,24 @@ if (isset($_POST['btnDone'])) {
     if (empty($email)) {
         array_push($errors, "Email is required");
     }
+    $output1 = "";
+    $cp1 = Password::checkPassword($password_1, $password_2, $output1);
+    if ($password_1 || $password_2 != "") {
+        if ($cp1 != "") {
+            array_push($errors, $cp1);
+        }
+    }
+
     if ($password_1 != $password_2) {
         array_push($errors, "Password does not match");
     }
-
+    $output2 = "";
+    $cp2 = Password::oldPassword($password_1, $user, $output2);
+    if ($password_1 != "") {
+        if ($cp2 != "") {
+            array_push($errors, $cp2);
+        }
+    }
 
     if (count($errors) == 0) {
 
@@ -61,4 +76,8 @@ if (isset($_POST['btnDone'])) {
             }
         }
     }
+}
+if (isset($_POST['btnCancel'])) {
+
+    header('location: Account.php');
 }

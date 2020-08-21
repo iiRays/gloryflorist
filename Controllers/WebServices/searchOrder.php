@@ -10,7 +10,6 @@ header("Content-Type:application/json");
 
 $orderId = Quick::getGetData("orderId");
 $order = R::load("orders", $orderId);
-$orderItems = R::findAll('orderitem', 'order_id = ?', [$orderId]);
 
 if (!$order->id) {
     response(200, "false", null);
@@ -23,7 +22,6 @@ function response($status, $hasData, $data) {
     $response['status'] = $status;
     $response['hasData'] = $hasData;
     $response['data'] = $data;
-
 
     $json = json_encode($response);
     echo $json;

@@ -1,5 +1,7 @@
 <?php
 
+require_once("../Controllers/Security/Authorize.php");
+
 class Quick {
 
     static function getQueryStr() {
@@ -31,6 +33,33 @@ class Quick {
     
     static function redirect(String $location){
         header("location: /GloryFlorist/$location");
+    }
+    
+    static function printHeader($currentPage){
+        
+        // To see which one is current page
+        $shop = $currentPage == "shop" ? "id='currentLink'" : ""; // if shop is selected, show it as current page. 
+        $cart = $currentPage == "cart" ? "id='currentLink'" : "";
+        $account = $currentPage == "account" ? "id='currentLink'" : "";
+        $staffDashboard = $currentPage == "staffDashboard" ? "id='currentLink'" : "";
+        
+        // The buttons
+        $shopButton = "<a href='viewFloral%28Cust%29.php' class='link' $shop>shop</a>";
+        $accountButton = Authorize::isUserA("customer") ? "<a href='Account.php' class='link' $account>account</a>" : "";
+        $staffDashboardButton = Authorize::isUserA("staff") ? "<a href='staffDashboard.php' class='link' $staffDashboard>dashboard</a>" : "";
+        $logoutButton = Authorize::isUserA("customer") ? "<a href='logout.php' class='link'>logout</a>" : "";
+        
+        // Putting all buttons in the header
+        $header = "<div id='hotbar'>
+                <a href='home.php' id='glory'>glory florist</a>
+                $shopButton
+                <a href='#' class='link' $cart>cart</a>
+                $accountButton
+                $staffDashboardButton
+                $logoutButton
+            </div>";
+        
+        echo $header;
     }
 
 }
