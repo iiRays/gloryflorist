@@ -9,6 +9,7 @@ include 'EmailDecorator.php';
 
 //
 $errorhandler = new SendError_Log();
-$errorhandler_via_database = new DatabaseDecorator($errorhandler);
 $errorhandler_via_email = new EmailDecorator($errorhandler);
+//$errorhandler_via_database = new DatabaseDecorator($errorhandler);
+
 

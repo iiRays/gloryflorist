@@ -5,7 +5,6 @@ require_once("../Controllers/Util/rb.php");
 require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Util/DB.php");
 
-session_start();
 
 $deliverytype = Quick::getPostData("deliveryType");
 $date = Quick::getPostData("date");
@@ -14,20 +13,17 @@ $cardmsg = Quick::getPostData("cardmsg");
 $sender = Quick::getPostData("sender");
 
 
-setcookie("deliverytype", $deliverytype, time() + (86400 * 30), "/",0);
-setcookie("date", $date, time() + (86400 * 30), "/",0);
-setcookie("time", $time, time() + (86400 * 30), "/",0);
-setcookie("cardmsg", $cardmsg, time() + (86400 * 30), "/",0);
-setcookie("sender", $sender, time() + (86400 * 30), "/",0);
-
-
-
+setcookie("deliverytype", $deliverytype, time() + (86400 * 30), "/", 0);
+setcookie("date", $date, time() + (86400 * 30), "/", 0);
+setcookie("time", $time, time() + (86400 * 30), "/", 0);
+setcookie("cardmsg", $cardmsg, time() + (86400 * 30), "/", 0);
+setcookie("sender", $sender, time() + (86400 * 30), "/", 0);
 ?>
 <html>
     <head>
         <title>Glory Florist :</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link  rel="stylesheet" href="CSS/">
+        <link  rel="stylesheet" href="CSS/blabla.css">
     </head>
     <body>
         <!-- 
@@ -37,16 +33,6 @@ setcookie("sender", $sender, time() + (86400 * 30), "/",0);
             <p><b>Note: </b>margin:auto will not work in IE8, unless a !DOCTYPE is declared.</p>
         </div>
         <form method="post" action="deliveryAddress.php">
-            <!--
-                <div class="input"><h2>Contact Information</h2></div>
-
-                <div class="input">           
-                    <input type="text" name="email" required="true" autocomplete="off"> 
-                    <label for="email" class="label-name">
-                        <span class="content-name">Your Email(For Order Confirmation)</span>
-                    </label>
-                </div>
-            -->
             <div class="input"><h2>Delivery Address</h2></div>
             <div class="input">           
                 <input type="text" name="recipientName" required="true" autocomplete="off"> 
