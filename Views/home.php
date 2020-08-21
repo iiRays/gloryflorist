@@ -1,5 +1,5 @@
 <?php
-
+ require_once("../Controllers/Util/Quick.php");
 
 ?>
 <html>

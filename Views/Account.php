@@ -2,7 +2,8 @@
 include('AccountDetails.php');
 require_once("../Controllers/Security/Authorize.php");
 require_once("../Controllers/Util/RoleStrategy/RoleStrategy.php");
-Authorize::onlyAllow("customer", "admin", "staff");
+require_once("../Controllers/Util/Quick.php");
+Authorize::onlyAllow("customer");
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,15 +15,7 @@ Authorize::onlyAllow("customer", "admin", "staff");
     <body>
         <form id='container' method='POST' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"> <!-- <form id='container'> ??? -->
             <center> 
-                <div id='hotbar'>
-                    <a href='home.php' id='glory'>glory florist</a>
-                    <a href='#' class='link'>shop</a>
-                    <a href='cart.php' class='link'>cart</a>
-                    <a href='' class='link' id='currentLink'>account</a>
-                    <?php if (Session::isLoggedIn()) { ?>
-                        <a href="logout.php" class='link'>logout</a>
-                    <?php } else { ?> <?php } ?>
-                </div>
+               <?php Quick::printHeader("account")?>;
 
                 <div class="box">
                     <?php include('errors.php'); ?>
