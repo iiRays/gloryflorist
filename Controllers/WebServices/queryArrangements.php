@@ -21,7 +21,7 @@ if ($min && $max) { // If both min and max is given
 } else if ($max) { // If only max is given
     $arrangementList = R::find("arrangement", "price <= ? and is_available = ?", [$max, "true"]);
 } else { // No parameter given, find all
-    $arrangementList = R::findAll("arrangement");
+    $arrangementList = R::find("arrangement", "is_available = ?", ["true"]);
 }
 
 
