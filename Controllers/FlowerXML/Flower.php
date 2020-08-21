@@ -10,14 +10,14 @@ class Flower {
     private $id;
     private $flowerName;
     private $remark;
-    private $img;
+    private $imageURL;
     private $isAvailable;
 
     function __construct($id, $name, $remark, $img, $isAvailable) {
         $this->id = $id;
         $this->flowerName = $name;
         $this->remark = $remark;
-        $this->img = $img;
+        $this->imageURL = $img;
         $this->isAvailable = $isAvailable;
     }
 
@@ -34,7 +34,7 @@ class Flower {
     }
 
     public function getImg() {
-        return $this->img;
+        return $this->imageURL;
     }
 
     public function getIsAvailable() {
@@ -58,7 +58,7 @@ class Flower {
     }
 
     public function setImg($img) {
-        $this->img = $img;
+        $this->imageURL = $img;
     }
 
     public function setIsAvailable($isAvailable) {
@@ -71,7 +71,7 @@ class Flower {
 
     public function __toString() {
         return   '<tr><td>' . $this->id . '</td>'
-                . '<td><img src="' . $this->img . '" style="max-width: 180px;max-height: 180px;display: block;"/></td>'
+                . '<td><img src="' . $this->imageURL . '" style="max-width: 180px;max-height: 180px;display: block;"/></td>'
                 . '<td>' . $this->flowerName . '</td>'
                 . '<td>' . $this->remark . '</td>'
                 . '<td>' . $this->isAvailable . '</td></tr>';

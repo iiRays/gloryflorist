@@ -9,8 +9,7 @@ class XML {
     private $xml;
     private $xmlRoot;
     
-    public function __construct(){
-         $this->xml = new DOMDocument();
+    public function __construct(){  
     }
     
     public function appendXML($result, $nodeName){
@@ -78,9 +77,18 @@ class XML {
         echo $this->xml->saveHTML();
     }
     
+    // Getter and setter
+    
     function getXml() {
         return $this->xml;
     }
+    
+    function setXml($xml) {
+        $this->xml = $xml;
+        return $this;
+    }
+
+
 
     
   

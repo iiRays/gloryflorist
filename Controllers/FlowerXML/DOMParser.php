@@ -27,7 +27,7 @@ class DOMParser {
 
         foreach ($flowersList as $flower) {
             $attr = $flower->attributes();
-            $flowerTemp = new Flower($flower->id, $flower->flower_name, $flower->remark, $flower->img, $flower->is_available);
+            $flowerTemp = new Flower($flower->id, $flower->flower_name, $flower->remark, $flower->image_url, $flower->is_available);
             if ($flower->is_available == "true") {
                 $flower->is_available = "Yes";
             } else {
