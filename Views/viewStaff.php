@@ -13,10 +13,10 @@ DB::connect();
 $changelog = R::findAll("changelog", "order by id desc limit 3");
 $changelog = array_reverse($changelog);
 
-$factory = new XMlDatabaseFactory();
+$factory = new XMLDatabaseFactory("user");
 
 // Fetch all users; we will filter staff using XPATH later
-$xml = $factory->build("user"); 
+$xml = $factory->build(); 
 
 $xml->appendXML($changelog, "changelog");
 echo $xml->styleWith("staffMemberStyle.xsl");

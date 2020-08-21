@@ -69,10 +69,10 @@ $orderCount = count(R::find("orders", "status != ? AND status != ?", ["done", "d
             window.location.href = "viewStaff.php";
         });
         $("#arrangement").click(function () {
-            window.location.href = "staffOrders.php";
+            window.location.href = "viewFloral%28Staff%29.php";
         });
         $("#flower").click(function () {
-            window.location.href = "staffOrders.php";
+            window.location.href = "viewFlower%28Staff%29.php";
         });
     </script>
 </html>

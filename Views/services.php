@@ -6,6 +6,7 @@ require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Util/DB.php");
 require_once("../Controllers/Util/Email.php");
 require_once("../Controllers/Util/EmailFactory.php");
+require_once("../Controllers/Security/Password.php");
 
 $errors = array();
 //setting up database
@@ -41,12 +42,13 @@ if (isset($_POST['register'])) {
     if (count($errors) == 0) {
         $user = R::dispense("user");
         $user->email = $email;
-        $user->password = "$password_1";
+        $user->password = Password::hashPassword($password_1);
         $user->name = "$name";
         $user->role = "customer";
         $user->status = "active";
         $user->phone = "";
         $user->address = "";
+        $user->attempt = 0;
 
         R::store($user);
         header('location: login.php');
@@ -58,22 +60,31 @@ if (isset($_POST['login'])) {
 //Get data from form
     $email = Quick::getPostData("email");
     $password = Quick::getPostData("password_1");
-
     $user = R::findOne("user", "email = ?", [$email]);
+
 
     //validation
     if (empty($email)) {
         array_push($errors, "Email is required");
+    } else if ($user == null) {
+        array_push($errors, "Email is incorrect");
+    } else if ($user->status == "invalid") {
+        array_push($errors, "Your account is locked due to exceeded login attempts.");
     }
+
     if (empty($password)) {
         array_push($errors, "Password is required");
+        Password::addAttempt($email, $user);
+        Password::disableAcc($email, $user);
     }
 
-    if (count($errors) == 0) {
 
+    if (count($errors) == 0) {
+        $password = Password::passVerify($password, $user['password']);
 
         if ($user != null && $user->password == $password) {
             Session::loginUser($user);
+            Password::clearAttempt($email, $user);
             header('location: home.php');
         } else {
             array_push($errors, "Wrong Email/Password");
@@ -86,25 +97,17 @@ if (isset($_POST['submitPassword'])) {
     $email = Quick::getPostData("email");
     $user = R::findOne("user", "email = ?", [$email]);
 
-    // Generate random password
-    $password = Quick::generateRandomString(10);
-
     //validation
     if (empty($email)) {
         array_push($errors, "Email is required");
+    } else if ($user == null) {
+        array_push($errors, "Email is incorrect");
     }
+
     if (count($errors) == 0) {
 
         if ($user != null) {
-            $user->password = $password;
-            $name= $user->name;
-            
-            R::store($user);
-
-            $factory = new EmailFactory();
-            $mail = $factory->build();
-            $mail->send($email, "Forget Password Request.", "Hi, $name , we received your forget password request. Here is your new password.".
-                    " New Password : $password");
+            Password::forgetPass($email, $user);
             header('location: login.php');
         } else {
             array_push($errors, "Unrecognize Email");

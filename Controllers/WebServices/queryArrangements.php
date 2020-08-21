@@ -13,34 +13,59 @@ $max = Quick::getGetData("maxPrice");
 
 // Sort through all the optional parameters
 
-if($min && $max){ // If both min and max is given
-    $arrangementList = R::find("arrangement", "cost >= ? and cost <= ?", [$min, $max]);
+if ($min && $max) { // If both min and max is given
+    $arrangementList = R::find("arrangement", "price >= ? and price <= ? and is_available = ?", [$min, $max, "true"]);
     
-} else if($min){ // If only min is given
-    $arrangementList = R::find("arrangement", "cost >= ?", [$min]);
-    
-} else if($max){ // If only max is given
-    $arrangementList = R::find("arrangement", "cost <= ?", [$max]);
-    
-} else{ // No parameter given, find all
-    $arrangementList = R::findAll("arrangementList");
+} else if ($min) { // If only min is given
+    $arrangementList = R::find("arrangement", "price >= ? and is_available = ?", [$min, "true"]);
+} else if ($max) { // If only max is given
+    $arrangementList = R::find("arrangement", "price <= ? and is_available = ?", [$max, "true"]);
+} else { // No parameter given, find all
+    $arrangementList = R::find("arrangement", "is_available = ?", ["true"]);
 }
 
+
+
 // Check for null
-if(count($arrangementList) == 0){
-    response(200, "No results", null);
-}else{
-    response(200, "Data found", $arrangementList);
+if (count($arrangementList) == 0) {
+    response(200, "false", null);
+} else {
+   
+    // Result
+    $result = array();
+    // Load the flowers related to each arrangement
+    foreach ($arrangementList as $arrangement) {
+        $resultItem = array();
+        
+      
+        $resultItem["id"] = $arrangement->id;
+        $resultItem["name"] = $arrangement->name;
+        $resultItem["price"] = $arrangement->price;
+        $resultItem["img"] = $arrangement->img;
+        $resultItem["stalks"] = $arrangement->stalks;
+        
+        // Get the flower item
+        $flower = $arrangement->flower;
+        $flowerResult = array();
+        $flowerResult["flowerName"] = $flower->flowerName;
+        $flowerResult["img"] = $flower->img;
+        
+        $resultItem["flower"] = $flowerResult;
+        
+        array_push($result, $resultItem);
+    }
+
+    response(200, "true", $result);
 }
 
 // Show the JSON response
-function response($status, $message, $data){
+function response($status, $hasData, $data) {
     header("HTTP/1.1 " . $status);
     $response['status'] = $status;
-    $response['message'] = $message;
+    $response['hasData'] = $hasData;
     $response['data'] = $data;
-    
-    
+
+
     $json = json_encode($response);
     echo $json;
 }

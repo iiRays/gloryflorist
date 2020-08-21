@@ -1,5 +1,5 @@
 <?php
-include('services.php');
+
 
 ?>
 <html>
@@ -19,11 +19,5 @@ include('services.php');
             </div>
         </div>
 
-        <div class="content">
-            <?php if (isset($_SESSION["name"])): ?>
-                <p>Welcome <strong><?php echo $_SESSION['name']; ?></strong></p>
-                <p><a href="home.php?logout='1'" style="color: red">Logout</a></p>
-            <?php endif ?>
-        </div>
     </body>
 </html>

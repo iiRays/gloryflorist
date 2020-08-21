@@ -1,3 +1,8 @@
+/*
+Author: Chong Wei Jie
+ID: 19WMR09574
+*/
+
 body{
     font-family: "Cute Font";
     text-align: center;
@@ -104,6 +109,8 @@ img{
 }
 
 #container #content #editflower #form #left{
+    display: flex; 
+    align-items: center;
     float: left;
     margin-left: 150px;
     margin-right: 0px;

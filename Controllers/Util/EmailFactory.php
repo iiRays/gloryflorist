@@ -1,6 +1,7 @@
 <?php
 
 require_once("Email.php");
+require_once("IFactory.php");
 require_once('PHPMailer/PHPMailer.php');
 require_once('PHPMailer/SMTP.php');
 require_once('PHPMailer/Exception.php');
@@ -13,7 +14,7 @@ use PHPMailer\PHPMailer\Exception;
  *
  * @author Johann Lee Jia Xuan
  */
-class EmailFactory{
+class EmailFactory implements IFactory{
     
     public function build() {
         return new Email($this->createEmail());

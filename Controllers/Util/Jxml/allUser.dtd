@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT Users (user*)>
+<!ELEMENT delivery (name, email, phone, address, role, status)>
+<!ATTLIST user userID ID #REQUIRED>
+<!ELEMENT name(first, middle?, last)>
+<!ELEMENT first (#PCDATA)>
+<!ELEMENT middle (#PCDATA)>
+<!ELEMENT last (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ATTLIST phone kind (Home | Work | Cell | Fax) "Cell">
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT role (#PCDATA)>
+<!ELEMENT status (#PCDATA)>

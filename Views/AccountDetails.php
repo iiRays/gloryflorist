@@ -4,6 +4,7 @@ require_once("../Controllers/Util/Quick.php");
 require_once("../Controllers/Util/rb.php");
 require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Util/DB.php");
+require_once("../Controllers/Security/Password.php");
 
 $errors = array();
 DB::connect();
@@ -43,7 +44,7 @@ if (isset($_POST['btnDone'])) {
             $user->name = $name;
             $user->phone = $phone;
             $user->address = $address;
-            $user->password = $password_1;
+            $user->password = Password::hashPassword($password_1);
 
             R::store($user);
             header('location: Account.php');

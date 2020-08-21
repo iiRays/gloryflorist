@@ -1,7 +1,12 @@
+<!--
+Author: Chong Wei Jie
+ID: 19WMR09574
+-->
+
 <?php
 
-include "rb.php";
-include "DB.php";
+require_once ("../Controllers/Util/rb.php");
+require_once ("../Controllers/Util/DB.php");
 
 class Flower {
 
@@ -30,7 +35,7 @@ class Flower {
             echo 'Flower ID: ' . $flower->id . '<br/>';
             echo 'Flower Name: ' . $flower->flowerName . '<br/>';
             echo 'Remarks: ' . $flower->remark . '<br/>';
-            echo 'Flower Image Src: ' . $flower->img . '<br/>';
+            echo 'Flower Image Src: ' . $flower->imageURL . '<br/>';
             echo 'Availability: ' . $flower->isAvailable . '<br/>';
         }
     }
@@ -55,7 +60,7 @@ class Flower {
         $flower = array();
         $flower = $this->get($id);
         if (!empty($flower)) {
-            return $flower->img;
+            return $flower->imageURL;
         }
     }
 
@@ -83,7 +88,7 @@ class Flower {
         if (!empty($flower)) {
             $flower->flowerName = $name;
             $flower->remark = $remark;
-            $flower->img = $imgLink;
+            $flower->imageURL = $imgLink;
             $flower->isAvailable = $isAvailable;
             R::storeAll([$flower]);
         }
@@ -111,7 +116,7 @@ class Flower {
         $flower = array();
         $flower = $this->edit($id);
         if (!empty($flower)) {
-            $flower->img = $imgLink;
+            $flower->imageURL = $imgLink;
             R::storeAll([$flower]);
         }
     }
@@ -157,7 +162,7 @@ class Flower {
         
         $flower->flowerName = $name;
         $flower->remark = $remark;
-        $flower->img = $imgLink;
+        $flower->imageURL = $imgLink;
         $flower->isAvailable = $isAvailable;
         R::storeAll([$flower]);
     }

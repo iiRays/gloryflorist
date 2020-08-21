@@ -1,3 +1,8 @@
+/*
+Author: Chong Wei Jie
+ID: 19WMR09574
+*/
+
 body{
     font-family: "Cute Font";
     text-align: center;
@@ -39,7 +44,7 @@ label{
     margin: 5px;
 }
 
-#container #content #addFloral #form input[type="text"], #price{
+#container #content #editFloral #form input[type="text"], #price{
     height: 30px;
     width: 93%;
     padding: 5px 10px;
@@ -48,14 +53,14 @@ label{
     border: 1px solid gray;
 }
 
-#container #content #addFloral #form #img{
+#container #content #editFloral #form #img{
     text-align: center;
     margin: auto;
     margin-bottom: 10px;
     font-size: 20px;
 }
 
-#container #content #addFloral #form #desc {
+#container #content #editFloral #form #desc {
     border: 1px solid gray;
     font-size: 20px;
     padding: 5px 10px;
@@ -70,7 +75,7 @@ label{
     font-family: "Arial";
 }
 
-#container #content #addFloral input[type="submit"]{
+#container #content #editFloral input[type="submit"]{
     margin-top: 15px;
     text-decoration: none;
     font-size: 30px;
@@ -98,7 +103,7 @@ img{
     display: block;
 }
 
-#container #content #addFloral #form #right{
+#container #content #editFloral #form #right{
     float: right;
     padding-bottom: 50px;
     padding-top: 100px;
@@ -106,20 +111,22 @@ img{
     margin-left: 0px;
 }
 
-#container #content #addFloral #form #bottomLeft {
+#container #content #editFloral #form #bottomLeft {
     float: left;
     width: 50%;
     margin-left: 50px;
     margin-top: 45px;
 }
 
-#container #content #addFloral #form #bottomRight {
+#container #content #editFloral #form #bottomRight {
     float: right;
     margin-right: 110px;
     margin-top: 45px;
 }
 
-#container #content #addFloral #form #left{
+#container #content #editFloral #form #left{
+    display: flex; 
+    align-items: center;
     float: left;
     margin-left: 200px;
     margin-right: 0px;
@@ -128,7 +135,7 @@ img{
     border: 1px solid black;
 }
 
-#container #content #addFloral #form #bottomRight input[type="number"]{
+#container #content #editFloral #form #bottomRight input[type="number"]{
     height: 30px;
     width: 50%;
     padding: 5px 10px;
@@ -137,7 +144,7 @@ img{
     border: 1px solid gray;
 }
 
-#container #content #addFloral #form #bottomLeft select{
+#container #content #editFloral #form #bottomLeft select{
     height: 40px;
     width: 50%;
     padding: 5px 10px;
@@ -146,6 +153,6 @@ img{
     border: 1px solid gray;
 }
 
-#container #content #addFloral #form #bottom{
+#container #content #editFloral #form #bottom{
     margin-top: 400px;
 }

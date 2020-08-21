@@ -1,7 +1,12 @@
+<!--
+Author: Chong Wei Jie
+ID: 19WMR09574
+-->
+
 <?php
 
-include "FlowerInterface.php";
-include "Flower.php";
+require_once ("FlowerInterface.php");
+require_once ("Flower.php");
 
 class FlowerAdapter implements FlowerInterface {
 

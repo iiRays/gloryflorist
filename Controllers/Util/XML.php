@@ -26,10 +26,10 @@ class XML {
             
             // Create a node
             $node = $xml->appendChild($xml->createElement($nodeName));
-
+            
             // Each data inside node
             foreach ($item as $key => $value) {
-
+               
                 // Create a String node
                 $dataNode = $xml->createElement($key);
                 $dataNode->appendChild($xml->createTextNode($value));

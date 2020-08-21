@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<allUser>
+    <User Id="3">
+        <ID>3</ID>
+        <Name>Yong Haw Quan</Name>
+        <Email>hawquan@gmail.com</Email>
+        <Phone/>
+        <Address/>
+        <Role>customer</Role>
+        <Status>active</Status>
+    </User>
+</allUser>
