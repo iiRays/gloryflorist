@@ -1,31 +1,32 @@
 <?php
 
-//
-header("Content-Type:application/json");
-require "Loan.php";
+require_once '../Util/Quick.php';
+require_once '../Util/rb.php';
+require_once '../Util/DB.php';
 
-if(!empty($_GET['amount']) && !empty($_GET['rate']) && !empty($_GET['duration'])){
-    $amount = $_GET['amount'];
-    $rate = $_GET['rate'];
-    $duration = $_GET['duration'];
-    $loan = new Loan($rate, $duration, $amount);
-    if(empty($loan)){
-        response(200, "ERROR", NULL);
-    }else{
-        $monthlyPayment = $loan->getMonthlyPayment();
-        $totalPayment = $loan->getTotalPayment();
-        response(200, $monthlyPayment, $totalPayment);
-    }
-} else{
+DB::connect();
+
+header("Content-Type:application/json");
+
+if (!empty($_GET['start']) && !empty($_GET['end'])) {
+
+    $startDate = Quick::getGetData("start");
+    $endDate = Quick::getGetData("end");
+    $deliveryList = R::find("delivery", "date >= ? and date <= ?", [$startDate, $endDate]);
+
+    
+    response(200, true, $deliveryList);
+} else {
     response(400, "Invalid Request", NULL);
 }
 
-function response($status, $monthlyPayment, $totalPayment){
+function response($status, $hasData, $deliveryList) {
     header("HTTP/1.1 " . $status);
     $response['status'] = $status;
-    $response['monthlyPayment'] = $monthlyPayment;
-    $response['totalPayment'] = $totalPayment;
+    $response['hasData'] = $hasData;
+    $response['deliveryList'] = $deliveryList;
     $json_response = json_encode($response);
     echo $json_response;
 }
+
 ?>

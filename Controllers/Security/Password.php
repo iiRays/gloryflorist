@@ -6,6 +6,7 @@ require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Util/Email.php");
 require_once("../Controllers/Util/EmailFactory.php");
 
+
 DB::connect();
 
 class Password {
@@ -20,21 +21,44 @@ class Password {
         return $password;
     }
 
-    static function addAttempt($email, $user) {
+    static function checkPassword($pwd1, $pwd2, $output) {
+
+        if (strlen($pwd1) < 6 || strlen($pwd2) < 6) {
+            $output = "Password too short! At least 6.";
+        }else if (!preg_match("#[0-9]+#", $pwd1) || !preg_match("#[0-9]+#", $pwd2)) {
+            $output = "Password must include at least one number!";
+        }else if (!preg_match("#[a-zA-Z]+#", $pwd1) || !preg_match("#[a-zA-Z]+#", $pwd2)) {
+            $output = "Password must include at least one letter!";
+        }
+        
+        return $output;
+    }
+    
+    static function oldPassword($pwd1, $user, $output) {
+        $password = self::passVerify($pwd1, $user['password']);
+        if ($password) {
+            $output = "Password same with current account password";
+        }else{
+            
+        }
+        return $output;
+    }
+    
+    static function addAttempt($user) {
         if ($user != null) {
             $user->attempt += 1;
             R::store($user);
         }
     }
 
-    static function clearAttempt($email, $user) {
+    static function clearAttempt($user) {
         if (Session::isLoggedIn()) {
             $user->attempt = 0;
             R::store($user);
         }
     }
 
-    static function disableAcc($email, $user) {
+    static function disableAcc($user) {
         if ($user != null && $user->attempt > 5) {
             $user->status = "invalid";
             R::store($user);
