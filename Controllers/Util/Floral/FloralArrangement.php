@@ -35,7 +35,7 @@ class FloralArrangement {
             echo 'Floral ID: ' . $arrangement->id . '<br/>';
             echo 'Floral Name: ' . $arrangement->name . '<br/>';
             echo 'Price: ' . $arrangement->price . '<br/>';
-            echo 'Floral Image Src: ' . $arrangement->img . '<br/>';
+            echo 'Floral Image Src: ' . $arrangement->imageURL . '<br/>';
             echo 'Flower ID: ' . $arrangement->flower_id . '<br/>';
             echo 'Stalks: ' . $arrangement->stalks . '<br/>';
             echo 'Availability: ' . $arrangement->isAvailable . '<br/>';
@@ -62,7 +62,7 @@ class FloralArrangement {
         $arrangement = array();
         $arrangement = $this->get($id);
         if (!empty($arrangement)) {
-            return $arrangement->img;
+            return $arrangement->imageURL;
         }
     }
 
@@ -116,7 +116,7 @@ class FloralArrangement {
         if (!empty($arrangement)) {
             $arrangement->name = $name;
             $arrangement->price = $price;
-            $arrangement->img = $imgLink;
+            $arrangement->imageURL = $imgLink;
             $arrangement->flower_id = $flowerId;
             $flower = R::load("flower", $flowerId);
             $arrangement->isAvailable = $flower->isAvailable;
@@ -147,7 +147,7 @@ class FloralArrangement {
         $arrangement = array();
         $arrangement = $this->edit($id);
         if (!empty($arrangement)) {
-            $arrangement->img = $imgLink;
+            $arrangement->imageURL = $imgLink;
             R::storeAll([$arrangement]);
         }
     }
@@ -183,7 +183,7 @@ class FloralArrangement {
 
         $arrangement->name = $name;
         $arrangement->price = $price;
-        $arrangement->img = $imgLink;
+        $arrangement->imageURL = $imgLink;
         $arrangement->flower_id = $flowerId;
         $flower = R::load("flower", $flowerId);
         $arrangement->isAvailable = $flower->isAvailable;

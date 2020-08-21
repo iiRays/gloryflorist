@@ -125,6 +125,8 @@ img{
 }
 
 #container #content #addFloral #form #right{
+    display: flex; 
+    align-items: center;
     float: right;
     margin-right: 150px;
     margin-left: 0px;

@@ -45,7 +45,7 @@ $arrangement = R::findAll('arrangement');
                     if (!empty($arrangement)) {
                         foreach ($arrangement as $item) {
                             echo '<div class="item">' .
-                            '<img id="img" name="img" src = "' . $item->img . '">' .
+                            '<img id="img" name="img" src = "' . $item->imageURL . '">' .
                             '<a href="floral%28Staff%29.php?id=' . $item->id . '" class="name">' . $item->name . '</a>' .
                             '<a href="editFloral%28Staff%29.php?id=' . $item->id . '" id="edit_button">Edit</a>' .
                             '</div>';

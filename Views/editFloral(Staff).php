@@ -72,7 +72,7 @@ $isAvailable = $floral->getAvailability($id);
 
             <div id='content'>
 
-                <form method="POST" action="edit_floral.php" id="addFloral">
+                <form method="POST" action="edit_floral.php" id="editFloral">
                     <input type="hidden" id="id" name="id" value="<?php echo $id; ?>"/>
                     <div id="form">
                         <label>Name:</label>
