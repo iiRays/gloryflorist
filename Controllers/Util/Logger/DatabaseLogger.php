@@ -13,7 +13,6 @@ DB::connect();
 class DatabaseLogger{
 
     public function __construct() {
-        parent::__construct();
     }
 
     public function sendError_Log() {
@@ -28,8 +27,7 @@ class DatabaseLogger{
         $error->error_file = $error_file;
         $error->error_line = $error_line;
         $id = R::store($error);
-        echo $id . " database";
-        die("Some error eccured, try again later..");
+        die("Some error eccured and are logged, please try again later..");
     }
 
     public function fetch_errors() {
