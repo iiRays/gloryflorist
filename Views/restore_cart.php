@@ -17,7 +17,7 @@ $cartSaver = Session::get("cartSaver");
 //echo "old cart: " . $cartSaver->cartMemento->items[0]->quantity; // DEBUG
 //echo "<br>new cart: " . $cart->items[0]->quantity; // DEBUG
 
-$cartSaver->restoreCart();
+$cartSaver->restore();
 
 // redirect back to cart page
 header('location: cart.php');
