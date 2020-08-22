@@ -8,7 +8,7 @@ require_once("rb.php");
  * @author Johann Lee Jia Xuan
  */
 class XMLDatabase extends XML {
-    protected $dataObtained;
+    private $dataObtained;
 
     public function build($tableName) {
         $this->createRoot($tableName."List");
@@ -20,5 +20,17 @@ class XMLDatabase extends XML {
         $this->appendXML($result, $tableName);
         $this->dataObtained = $result;
     }
+    
+    // setters and getters
+    function getDataObtained() {
+        return $this->dataObtained;
+    }
+
+    function setDataObtained($dataObtained) {
+        $this->dataObtained = $dataObtained;
+        return $this;
+    }
+
+
 
 }
