@@ -2,8 +2,8 @@
 
 // Author : Johann Lee Jia Xuan
 
-require_once("../Controllers/Util/Cart.php");
-require_once("../Controllers/Util/CartSaver.php");
+require_once(__DIR__."/../Util/Cart.php");
+require_once(__DIR__."/../Util/CartSaver.php");
 
 class Session{
     

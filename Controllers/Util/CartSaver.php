@@ -1,6 +1,5 @@
 <?php
-
-require_once("../Controllers/Security/Session.php");
+require_once(__DIR__."/../Security/Session.php");
 
 // memento design pattern: https://refactoring.guru/design-patterns/memento/php/example
 

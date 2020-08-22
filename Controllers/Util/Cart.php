@@ -1,7 +1,7 @@
 <?php
 
-include "../Controllers/Util/Item.php";
-require_once("../Controllers/Security/Session.php");
+include __DIR__."/../Util/Item.php";
+require_once(__DIR__."/../Security/Session.php");
 
 class Cart {
     public $items = [];

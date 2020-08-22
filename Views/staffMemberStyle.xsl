@@ -24,7 +24,7 @@
     
             <body>
 
-                <form id='container' method='POST' action="../Controllers/updateStaff.php">
+                <form id='container' method='POST' action="../Controllers/Staff/updateStaff.php">
 
                     <div id='hotbar'>
                         <a href='#' id='glory'>glory florist</a>
