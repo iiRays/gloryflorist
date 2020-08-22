@@ -30,7 +30,6 @@ class Validator {
             // An error occured, push error message
             array_push($this->errMsg, $letterErr);
         }
-        //print_r($errMsg);
     }
     
     function validateName($input) {
