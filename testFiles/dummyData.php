@@ -106,6 +106,31 @@ $orderItem2->arrangement = $arrangement3;
 $orderItem2->order = $order;
 $orderItem2->quantity = 4;
 
+//Recent Orders
+$recentOrder1 = R::dispense("orderhistory");
+$recentOrder1->name = "101 Pink Rose Bouquet";
+$recentOrder1->price = "488";
+$recentOrder1->imageURL = "https://i.imgur.com/BxXy8aY.jpg";
+$recentOrder1->stalks = 101;
+
+$recentOrder2 = R::dispense("orderhistory");
+$recentOrder2->name = "50 Red Rose Bouquet";
+$recentOrder2->price = "269";
+$recentOrder2->imageURL = "https://i.imgur.com/sHekq2d.jpg";
+$recentOrder2->stalks = 50;
+
+$recentOrder3 = R::dispense("orderhistory");
+$recentOrder3->name = "Pink Lily Bouquet";
+$recentOrder3->price = "136";
+$recentOrder3->imageURL = "https://i.imgur.com/KUrj15Z.jpg";
+$recentOrder3->stalks = 8;
+
+$recentOrder4 = R::dispense("orderhistory");
+$recentOrder4->name = "Single Sunflower";
+$recentOrder4->price = "18";
+$recentOrder4->imageURL = "https://i.imgur.com/9bqY5ff.jpg";
+$recentOrder4->stalks = 1;
+
 //Admin
 $user = R::dispense("user");
 $user->email="johannljx@gmail.com";
@@ -119,4 +144,4 @@ $user->attempt = 0;
 
 R::store($user);
 
-R::storeAll([$flower, $flower2, $flower3, $flower4, $arrangement, $arrangement2, $arrangement3, $arrangement4, $arrangement5, $order, $orderItem, $orderItem2]);
+R::storeAll([$flower, $flower2, $flower3, $flower4, $arrangement, $arrangement2, $arrangement3, $arrangement4, $arrangement5, $order, $orderItem, $orderItem2, $recentOrder1, $recentOrder2, $recentOrder3, $recentOrder4]);
