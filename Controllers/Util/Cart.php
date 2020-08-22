@@ -12,6 +12,10 @@ class Cart {
         $this->items[] = $item;
     }
     
+    public function removeItem($index) {
+        unset($this->items[$index]);
+    }
+    
     public function makeOrder($grandTotal, $deliveryAddress, $status, $targetDate) {
         // add order
         $user = Session::get("user");

@@ -94,7 +94,7 @@ class Session{
         
         // DEBUG: simulate items already added to cart
         //$cart->addItem("1", 3);
-        $cart->addItem("2", 5);
+        //$cart->addItem("2", 5);
         
         self::set("cart", $cart); // Ryan's work
         self::set("cartSaver", $cartSaver); // Ryan's work

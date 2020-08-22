@@ -88,6 +88,7 @@ $arrangement5->stalks = 101;
 //$item->quantity = 12;
 
 $order = R::dispense("orders");
+$order->customerId = "1";
 $order->grandTotal = 100.00;
 $order->deliveryAddress = "Sabah";
 $order->status = "pending";

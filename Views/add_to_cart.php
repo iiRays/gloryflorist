@@ -13,6 +13,15 @@ DB::connect();
 // get cart from session
 $cart = Session::get("cart");
 
+// get item id
+$itemId = $_GET['id'];
+
+// validate item availability
+$errorHandler = new ErrorHandler();
+if (!$errorHandler->isAvailableArrangement($itemId)) {
+    $errorHandler->addError("Arrangement #" . $itemId . " is not available for purchase.");
+}
+
 // backup cart
 $cartSaver = Session::get("cartSaver");
 $cartSaver->backup($cart);
@@ -25,7 +34,6 @@ foreach ($cart->items as $item) {
 }
 
 // add new product to updated cart
-$itemId = $_GET['id'];
 $newCart->addItem($itemId, 1);
 
 // save cart to session

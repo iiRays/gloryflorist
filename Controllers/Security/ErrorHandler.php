@@ -1,5 +1,7 @@
 <?php
-require_once("../Controllers/Security/Session.php");
+//include "../Controllers/Util/rb.php";
+//include "../Controllers/Util/DB.php";
+//require_once("../Controllers/Security/Session.php");
 
 class ErrorHandler {
     
@@ -40,7 +42,13 @@ class ErrorHandler {
     }
     
     public function isNum($value) {
-        return !empty($value) && preg_match('/^[0-9]*$/', $value);
+        return !empty($value) && preg_match('/^[0-9]*$/', $value) || $value == 0;
+    }
+    
+    public function isAvailableArrangement($id) {
+        DB::connect();
+        $arrangement = R::load('arrangement', $id);
+        return $arrangement->is_available == "true";
     }
     
 }

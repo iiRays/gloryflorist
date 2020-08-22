@@ -24,8 +24,8 @@ foreach ($cart->items as $item) {
 $totalPriceArr = []; // lazy coder moment
 $totalPriceArr[] = new CartItem("Total price", 1, $totalPrice); // there's only ever gonna be 1 item in totalPriceArr
 
-$factory = new XMLFactory();
-$xml = $factory->build("confirmOrder");
+$factory = new XMLFactory("confirmOrder");
+$xml = $factory->build();
 $xml->appendXML($cartItems, "items");
 $xml->appendXML($totalPriceArr, "totalPriceArr");
 echo $xml->styleWith("confirmOrderStyle.xsl");
