@@ -16,6 +16,15 @@ class Cart {
         unset($this->items[$index]);
     }
     
+    public function itemExists($id) {
+        foreach ($this->items as $item) {
+            if ($item->arrangement->id == $id) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public function makeOrder($grandTotal, $status) {
         // add order
         $user = Session::get("user");
