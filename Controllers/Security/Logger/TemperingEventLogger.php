@@ -9,8 +9,9 @@
   table & field - can be auto localized from global query
   value - inserted value
  */
+require_once __DIR__ .'\..\logging\vendor\autoload.php';
 require_once 'ALogger.php';
-require_once '../Controllers/Util/logging/vendor/autoload.php';
+
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -19,11 +20,11 @@ use Monolog\Formatter\JsonFormatter;
 
 class TemperingEventLogger extends ALogger {
 
-    public function validLogger($query) {
+    public function validLogger($extra,$fileinfo) {
         // create a log channel
         $log = new Logger('Tempering Event');
 
-        $logstream = new StreamHandler('../Controllers/Util/logging/log.txt', Logger::DEBUG);
+        $logstream = new StreamHandler(__DIR__ .'\..\logging\log.txt', Logger::DEBUG);
 
         //Apply Monolog's built-in JsonFormatter
         $logstream->setFormatter(new JsonFormatter());
@@ -33,22 +34,22 @@ class TemperingEventLogger extends ALogger {
         $log->pushHandler(new FirePHPHandler());
 
         //populate log's context and extra arrays
-        $logger->pushProcessor(function ($record) {
-            $record['extra']['version'] = '1.1';
-            $record['context'] = array(
-                'user' => $_SESSION["user"]);
-            return $record;
-        });
+//        $log->pushProcessor(function ($record) {
+//            //$record['extra']['Detail info'] = $array;
+//            $record['context'] = array(
+//                'user' => $_SESSION["user"]);
+//            return $record;
+//        });
 
         // add records to the log
-        $log->info("Tempering Event Success", array("Query executed: "=>$query));
+        $log->info("Tempering Event Success",array('info detail' => $array, 'user' =>  $_SESSION["user"]));
     }
 
-    public function invalidLogger($e) {
+    public function invalidLogger($e, $fileinfo) {
         // create a log channel
         $log = new Logger('Tempering Event');
 
-        $logstream = new StreamHandler('../Controllers/Util/logging/log.txt', Logger::DEBUG);
+        $logstream = new StreamHandler(__DIR__ .'\..\logging\log.txt', Logger::DEBUG);
 
         //Apply Monolog's built-in JsonFormatter
         $logstream->setFormatter(new JsonFormatter());
@@ -61,5 +62,6 @@ class TemperingEventLogger extends ALogger {
         // add records to the log
         $log->warning("Tempering Event Failure", array('exception' => $e));
     }
+    
 
 }

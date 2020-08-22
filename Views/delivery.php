@@ -3,83 +3,74 @@
 /*
   Author: kelvin tham yit hang
  */
+
+//authorization check
+require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
+//Authorize::onlyAllow("customer"); //temperory disable for better coding envir
+
+$default_text = 'Type your free card message in the box or select one below.The card will put together with your flower at no additional cost.';
 ?>
 <html>
     <head>
-        <title>Glory Florist :</title>
+        <title>Glory Florist :Delivery Details</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="CSS/common.css">
-        <link rel="stylesheet" type="text/css" href="CSS/blablabla.css">
+        <link rel="stylesheet" type="text/css" href="CSS/delivery.css">
     </head>
     <body>
-<div id='container'> <!-- <form id='container'> ??? -->
-        <div id='hotbar'>
-            <a href='#' id='glory'>glory florist</a>
-            <a href='#' class='link'>shop</a>
-            <a href='#' class='link'>cart</a>
-            <a href='#' class='link' >account</a>
-        </div>
+        <div id='container'> <!-- <form id='container'> ??? -->
+            <?php Quick::printHeader("shop") ?>
+            <div id='top'>
+                <div id='text'>
+                    <a id='title'>Delivery Details</a>
+                </div>
+            </div>
+            <div id="content">
 
-        <div id='top'>
-            <div id='text'>
-                <a id='title'>Delivery Details</a>
+                <div class="column">
+                    <form method="post" action="delivery.php" id='frm'>
+                        <?php require_once __DIR__ . '\..\Views\deliveryHandler.php';?>
+                        <div class="input">
+                            <label for="deliveryType">PLEASE SELECT A DELIVERY TYPE</label>
+                            <select name="deliveryType">
+                                <option <?php if (isset($_POST['deliveryType']) && $_POST['deliveryType']=="delivery") echo "selected";?> value="delivery">Delivery</option>
+                                <option <?php if (isset($_POST['deliveryType']) && $_POST['deliveryType']=="pickup") echo "selected";?> value="pickup">Self Pickup</option>
+                            </select>
+                        </div>
+                        <div class="input">
+                            <label for="date">PLEASE SELECT A DELIVERY/PICKUP DATE:</label>
+                            <input type="date" name="date" min="<?php echo date('Y-m-d'); ?>" value="<?php echo isset($_POST['date']) ? htmlspecialchars($_POST['date'], ENT_QUOTES) : ''; ?>" required="true">
+                        </div>
+                        <div>
+                            <label for="time" >PLEASE SELECT A DELIVERY/PICKUP TIME SLOT:</label>
+                            <select name="time" >
+                                <option <?php if (isset($_POST['time']) && $_POST['time']=="9AM - 1PM") echo "selected";?> value = "9AM - 1PM">9AM - 1PM</option>
+                                <option <?php if (isset($_POST['time']) && $_POST['time']=="1PM - 6PM") echo "selected";?> value = "1PM - 6PM">1PM - 6PM</option>
+                            </select>
+                        </div>
+                        <div class="input">
+                            <label for="cardmsg">CHOOSE YOUR PERSONAL CARD MESSAGE:</label>
+                            <textarea onfocus="clearDefaultMsg()" rows='5' cols='60' name='cardmsg'><?php echo $cardmsg = isset($_POST['cardmsg']) ? htmlspecialchars($_POST['cardmsg'], ENT_QUOTES) : $default_text; ?></textarea>
+                        </div>
+
+                        <div class="input">
+                            <label for='sender'>TYPE SENDER'S NAME: </label>
+                            <input type="text" name="sender" required="true" autocomplete="off" value="<?php echo isset($_POST['sender']) ? htmlspecialchars($_POST['sender'], ENT_QUOTES) : ''; ?>">
+                        </div>
+                        <div class="input">                                      
+                            <label for="sendercontact" class="label-name">PLEASE PROVIDE YOUR PHONE NUMBER: </label>
+                            <input type="text" name="sendercontact" required="true" autocomplete="off" value="<?php echo isset($_POST['sendercontact']) ? htmlspecialchars($_POST['sendercontact'], ENT_QUOTES) : ''; ?>"> 
+                        </div>
+                        <div class="input">
+                            <button type="submit" name="" class="btn">PROCEED</button>
+                        </div>
+
+                    </form>
+                </div>
             </div>
         </div>
-        <div id="content">
-
-            <div class="column">
-                <form method="post" action="" onsubmit="return check()" id='frm'>
-                    <div class="input">
-                        <label for="deliveryType">PLEASE SELECT A DELIVERY TYPE</label>
-                        <select name="deliveryType" id='deliveryType' onchange='valueChanged()'>
-                            <option value="delivery">Delivery</option>
-                            <option value="pickup">Self Pickup</option>
-                        </select>
-                    </div>
-                    <div class="input" id='deliveryinfo'>
-                        <label for="date">PLEASE SELECT A DELIVERY DATE/TIME:</label>
-                        <input type="date" name="date" value="">
-                        <div class="btn-group"> 
-                            <button type="button" onclick='document.getElementById("time").value = "9AM - 1PM";'>9AM - 1PM</button>
-                            <button type="button" onclick='document.getElementById("time").value = "1PM - 6PM";'>1PM - 6PM</button>
-                            <input type="hidden" name="time" id= 'time' value="time here">
-                        </div>
-                    </div>
-                    <div class="input">
-                        <label for="cardmsg">CHOOSE YOUR PERSONAL CARD MESSAGE:</label>
-                        <textarea onfocus="clearDefaultMsg()" rows='5' cols='60' name='cardmsg' id='cardmsg'>Type your free card message in the box or select one below.The card will put together with your flower at no additional cost.</textarea>
-                        <!-- consideration, text option suggested -->
-                        <div class="btn-group-msg">
-                            <button value="">Happy Birthday</button>
-                            <button value="">Get well soon</button>
-                            <button value="">Congratulation</button>
-                            <button value="">Happy Anniversary</button>
-                        </div>
-                    </div>
-
-                    <div class="input">
-                        <label for='sender'>TYPE SENDER'S NAME</label>
-                        <input type="text" name="sender">
-                    </div>
-                    <div class="input">
-                        <button type="submit" name="" class="btn">PROCEED TO DELIVERY ADDRESS</button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-</div>
     </body>
     <script type="text/javascript">
-        function  valueChanged() {
-            var value = document.getElementById('deliveryType').options[document.getElementById("deliveryType").selectedIndex].value;
-            if (value.localeCompare("delivery") === 0) {
-
-                document.getElementById("deliveryinfo").style.display = 'block';
-            } else {
-                document.getElementById("deliveryinfo").style.display = 'none';
-            }
-        }
 
         function clearDefaultMsg() {
 
@@ -99,14 +90,14 @@
                 f.setAttribute('action', "deliveryAddress.php");
             } else
             {
-                //url = 'add_sal_success_wo.php';
-                //document.addsalsuccess.action = url;
-                window.alert("redirect to ...")
+                f.setAttribute('action', "delivery.php");
             }
             return true;
         }
 
+
     </script>
 </html>
+
 
 

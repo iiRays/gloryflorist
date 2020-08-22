@@ -1,26 +1,57 @@
+body{
+    font-family: "Cute Font";
+}
+#container #top #text #back{
+    margin-left: 220px;
+}
+
+form{
+    width: 80%;
+    position: relative;
+    border: 3px solid #73AD21;
+    background-color: white;
+}
+
+.input{
+    width: 100%;
+    position: relative;
+    overflow:hidden;
+    margin: auto;
+}
+.input input{
+     /*fill the width of form*/
+    padding-top: 20px; /*put the input at bottom*/
+    border: none;
+    outline: none;
+}
+
 
 .btn-group button {
-  background-color: #4CAF50; /* Green background */
-  border: 1px solid green; /* Green border */
-  color: white; /* White text */
-  padding: 10px 24px; /* Some padding */
-  cursor: pointer; /* Pointer/hand icon */
-  float: left; /* Float the buttons side by side */
+    background-color: #4CAF50; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
 }
 
 /* Clear floats (clearfix hack) */
 .btn-group:after {
-  content: "";
-  clear: both;
-  display: table;
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .btn-group button:not(:last-child) {
-  border-right: none; /* Prevent double borders */
+    border-right: none; /* Prevent double borders */
 }
 
 /* Add a background color on hover */
 .btn-group button:hover {
-  background-color: #3e8e41;
+    background-color: #3e8e41;
 }
+
+table.fixed { table-layout:fixed; }
+table.fixed td { overflow: hidden; }
+
 

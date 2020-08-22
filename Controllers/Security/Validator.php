@@ -4,6 +4,9 @@ ID: 19WMR09574
 -->
 
 <?php
+//try to logging all the validation success and failure
+require_once __DIR__ . '\..\Security\logger\LoggerFactory.php';
+require_once __DIR__ . '\..\Security\logger\Tools.php';
 
 //array_push($errMsg, "");
 class Validator {
@@ -26,13 +29,13 @@ class Validator {
             array_push($letterErr, "This field is required");
         }
         // Check if any error occured
-        if(count($letterErr)>0){
+        if (count($letterErr) > 0) {
             // An error occured, push error message
             array_push($this->errMsg, $letterErr);
         }
         //print_r($errMsg);
     }
-    
+
     function validateName($input) {
         $letterErr = array();
         if (!empty($input)) {
@@ -45,9 +48,9 @@ class Validator {
         } else {
             array_push($letterErr, "Name is required");
         }
-        
+
         // Check if any error occured
-        if(count($letterErr)>0){
+        if (count($letterErr) > 0) {
             // An error occured, push error message
             array_push($this->errMsg, $letterErr);
         }
@@ -65,7 +68,7 @@ class Validator {
         } else {
             array_push($emailErr, "Email is required");
         }
-        if(count($emailErr)>0){
+        if (count($emailErr) > 0) {
             // An error occured
             array_push($this->errMsg, $emailErr);
         }
@@ -76,13 +79,13 @@ class Validator {
         if (!empty($input)) {
             if (!preg_match('/^[0-9]*$/', $input)) {
                 array_push($numErr, "Number only");
-            } else{
+            } else {
                 //array_push($numErr, "No error");
             }
         } else {
             array_push($numErr, "This field is required");
         }
-        if(count($numErr)>0){
+        if (count($numErr) > 0) {
             // An error occured
             array_push($this->errMsg, $numErr);
         }
@@ -93,13 +96,13 @@ class Validator {
         if (!empty($input)) {
             if (!preg_match('/^[0-9]+(\.[0-9]{1,2})?$/', $input)) {
                 array_push($decErr, "Number with or without 2 decimal only");
-            } else{
+            } else {
                 //array_push($decErr, "No error");
             }
         } else {
             array_push($decErr, "This field is required");
         }
-        if(count($decErr)>0){
+        if (count($decErr) > 0) {
             // An error occured
             array_push($this->errMsg, $decErr);
         }
@@ -120,7 +123,7 @@ class Validator {
                 array_push($pasErr, "Confirm password not matched");
             }
         }
-        if(count($pasErr)>0){
+        if (count($pasErr) > 0) {
             // An error occured
             array_push($this->errMsg, $pasErr);
         }
@@ -137,7 +140,7 @@ class Validator {
         } else {
             array_push($phoErr, "This field is required");
         }
-        if(count($phoErr)>0){
+        if (count($phoErr) > 0) {
             // An error occured
             array_push($this->errMsg, $phoErr);
         }
@@ -150,6 +153,26 @@ class Validator {
     }
 
     function getError() {
+
+        //logging all the input validation msg here...
+        //get file and line info that call this function
+        $fileinfo = 'no_file_info';
+        $backtrace = debug_backtrace();
+        if (!empty($backtrace[0]) && is_array($backtrace[0])) {
+            $fileinfo = $backtrace[0]['file'] . ":" . $backtrace[0]['line'];
+        }
+        
+        //instantiate the loggerFactory
+        $e = new LoggerFactory("INPUTVALIDATION");
+        //if the errMsg > 0, means got error = invalid validation then
+        if (count($this->errMsg) > 0) {
+            $e->createLogger()->invalidLogger($this->errMsg, $fileinfo);
+        } else {
+            //else errMsg < 0, means no error = valid validation then
+            //pass null to first parameter because we not catch exception here...
+            $e->createLogger()->validLogger(null, $fileinfo);
+        }
+
         return $this->errMsg;
     }
 

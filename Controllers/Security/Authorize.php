@@ -1,7 +1,7 @@
 <?php
-require_once("../Controllers/Util/Quick.php");
+require_once(__DIR__ .'\..\Util\Quick.php');
 require_once("Session.php");
-require_once("../Controllers/Util/rb.php");
+require_once(__DIR__ .'\..\Util\rb.php');
 
 
 /**

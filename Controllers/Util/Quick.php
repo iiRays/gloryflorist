@@ -1,6 +1,6 @@
 <?php
 
-require_once("../Controllers/Security/Authorize.php");
+require_once (__DIR__ .'\..\Security\Authorize.php');
 
 class Quick {
 

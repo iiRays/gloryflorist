@@ -5,8 +5,10 @@
  */
 
 //apply these 3 lines of code to log all the error into database 
-require_once '../Controllers/Util/Logger/DatabaseLogger.php';
-require_once '../Controllers/Util/Logger/EmailLogger.php';
+//echo "ahahhahaa" .__FILE__ ."\..\Views\Account.php";
+//require_once (dirname(__FILE__) ."\..\Views\Account.php");
+//require_once (__DIR__ ."\..\Views\Account.php");
+require_once '/../Security/Logger/DatabaseLogger.php';
 $edb = new DatabaseLogger();
 //$edb->sendError_Log();
 $edb = new EmailLogger();

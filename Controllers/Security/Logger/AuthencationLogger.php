@@ -2,7 +2,7 @@
 /*
   Author: kelvin tham yit hang
   */
-require_once '../Controllers/Util/logging/vendor/autoload.php';
+require_once __DIR__ .'\..\logging\vendor\autoload.php';
 require_once 'ALogger.php';
 
 use Monolog\Logger;
@@ -16,11 +16,11 @@ class AuthencationaLogger extends ALogger {
     /* consider validLogger and invalidLogger for both fail and success cases
      */
 
-    public function validLogger() {
+    public function validLogger($extra, $fileinfo) {
         // create a log channel
         $log = new Logger('Authencation');
 
-        $logstream = new StreamHandler('../Controllers/Util/logging/log.txt', Logger::DEBUG);
+        $logstream = new StreamHandler(__DIR__ .'\..\logging\log.txt', Logger::DEBUG);
 
         //Apply Monolog's built-in JsonFormatter
         $logstream->setFormatter(new JsonFormatter());
@@ -41,11 +41,11 @@ class AuthencationaLogger extends ALogger {
         $log->info("Authencation Success");
     }
 
-    public function invalidLogger($e) {
+    public function invalidLogger($e,$fileinfo) {
         // create a log channel
         $log = new Logger('Authencation');
 
-        $logstream = new StreamHandler('../Controllers/Util/logging/log.txt', Logger::DEBUG);
+        $logstream = new StreamHandler(__DIR__ .'\..\logging\log.txt', Logger::DEBUG);
 
         //Apply Monolog's built-in JsonFormatter
         $logstream->setFormatter(new JsonFormatter());

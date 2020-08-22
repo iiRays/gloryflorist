@@ -4,11 +4,12 @@
   Author: kelvin tham yit hang
  */
 
-require_once 'error_constant_to_name.php'; //convert the error_type (int) to string and send as subject
-require_once '../Controllers/Util/EmailFactory.php';
+
+require_once 'Tools.php'; //convert the error_type (int) to string and send as subject
+require_once __DIR__ .'\..\..\Util\EmailFactory.php';
 require_once 'DatabaseLogger.php';
-require_once '../Controllers/Util/rb.php';
-require_once '../Controllers/Util/DB.php';
+require_once __DIR__ .'\..\..\Util\DB.php';
+require_once __DIR__ .'\..\..\Util\rb.php';
 
 class EmailLogger {
 
