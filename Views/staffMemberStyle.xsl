@@ -27,11 +27,12 @@
                 <form id='container' method='POST' action="../Controllers/Staff/updateStaff.php">
 
                     <div id='hotbar'>
-                        <a href='#' id='glory'>glory florist</a>
-                        <a href='#' class='link'>shop</a>
+                        <a href='home.php' id='glory'>glory florist</a>
+                        <a href='viewFloral%28Cust%29.php' class='link'>shop</a>
                         <a href='#' class='link'>cart</a>
-                        <a href='#' class='link'>account</a>
-                        <a href='#' class='link' id='currentLink'>dashboard</a>
+                        <a href='Account.php' class='link'>account</a>
+                        <a href='staffDashboard.php' class='link' id='currentLink'>dashboard</a>
+                        <a href='logout.php' class='link'>logout</a>
                     </div>
 
                     <div id='top'>
