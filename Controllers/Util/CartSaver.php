@@ -1,10 +1,10 @@
 <?php
-
-require_once("../Controllers/Security/Session.php");
+require_once(__DIR__."/../Security/Session.php");
+require_once(__DIR__."/../Util/MementoSaver.php");
 
 // memento design pattern: https://refactoring.guru/design-patterns/memento/php/example
 
-class CartSaver {
+class CartSaver implements MementoSaver {
     
     public $cartMemento;
     
@@ -20,7 +20,7 @@ class CartSaver {
         Session::set("cartSaver", $this);
     }
     
-    public function restoreCart() {
+    public function restore() {
         Session::set("cart", $this->cartMemento);
         
         $this->cartMemento = new Cart();

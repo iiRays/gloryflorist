@@ -83,7 +83,8 @@ require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
                     </div>
                 </form>
             </div>
-        </div>
+        </form>
+
     </body>
 </html>
 

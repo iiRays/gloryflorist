@@ -16,7 +16,7 @@ $quantities = explode(",", $_POST['quantities']);
 // validate quantities
 $errorHandler = new ErrorHandler();
 for ($i = 0; $i < sizeof($quantities); $i++) {
-    if (!$errorHandler->isNum($quantities[$i]) || $quantities < 0) {
+    if (!$errorHandler->isNum($quantities[$i]) || $quantities[$i] < 0) {
         $errorHandler->addError("Quantity of item #" . ($i + 1) . " is invalid - it must be a positive numeric value.");
     }
 }
@@ -34,7 +34,9 @@ if (!$errorHandler->errorsExist()) {
     $newCart = new Cart();
     $i = 0;
     foreach ($cart->items as $item) {
-        $newCart->addItem($item->arrangement->id, $quantities[$i]);
+        if (!$quantities[$i] == 0) {
+            $newCart->addItem($item->arrangement->id, $quantities[$i]);
+        }
         $i++;
     }
     

@@ -2,6 +2,7 @@
 require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Security/Authorize.php");
 require_once("../Controllers/Security/ErrorHandler.php");
+require_once("../Controllers/Util/Quick.php");
 Authorize::onlyAllow("customer");
 ?>
 <html>
@@ -15,19 +16,11 @@ Authorize::onlyAllow("customer");
 
         <form id='container' method='POST' action="save_cart.php"> <!-- <form id='container'> ??? -->
 
-            <div id='hotbar'>
-                <a href='home.php' id='glory'>glory florist</a>
-                <a href='#' class='link'>shop</a>
-                <a href='cart.php' class='link' id='currentLink'>cart</a>
-                <a href='Account.php' class='link'>account</a>
-                <?php if (Session::isLoggedIn()) { ?>
-                    <a href="logout.php" class='link'>logout</a>
-                <?php } else { ?> <?php } ?>
-            </div>
+            <?php Quick::printHeader("cart")?>;
 
             <div id='top'>
                 <div id='text'>
-                    <a href='home.php' id='back'>back to the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shop</a>
+                    <a href='viewFloral%28Cust%29.php' id='back'>back to the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shop</a>
                     <a id='title'>Your Cart</a>
                     <a id='error'><?php ErrorHandler::displayErrors(); ?></a>
                 </div>
@@ -51,7 +44,7 @@ Authorize::onlyAllow("customer");
                         
                         foreach ($cart->items as $item) {
                             echo "<div class='item'>
-                                    <img src='https://i.dlpng.com/static/png/6858266_preview.png'>
+                                    <img src='".$item->arrangement->image_url."'>
                                     <input type='textbox' name='quantity' class='quantity' value='".$item->quantity."'>
                                     <a href='#' class='name'>".$item->arrangement->name."</a>
                                   </div>";
@@ -65,7 +58,7 @@ Authorize::onlyAllow("customer");
                     <a class='heading'>Save changes to your cart</a>
                     <input type='submit' id='save_button' name='save' value='SAVE'>
                     <a class='heading'>Ready to make your order?</a>
-                    <a href='confirmOrder.php' id='proceed_button'>PROCEED</a>
+                    <a href='confirm_cart.php' id='proceed_button'>PROCEED</a>
                     <a class='heading' style='margin-top: 25px;'>Revert latest changes to your cart?</a>
                     <a href='restore_cart.php' id='proceed_button'>RESTORE</a>
                 </div>

@@ -1,8 +1,9 @@
 <?php
 
 require_once("../Util/Quick.php");
-include "../Util/rb.php";
-include "../Util/DB.php";
+require_once("../Util/rb.php");
+require_once("../Util/DB.php");
+
 
 DB::connect();
 

@@ -30,7 +30,7 @@ Authorize::onlyAllow("admin");
         </div>
       </div>
       <div id="content">    
-          <form action="../Controllers/registerStaff.php" method="POST">
+          <form action="../Controllers/Staff/registerStaff.php" method="POST">
               
           <div class="message" style="font-size: 35;"></div>
 

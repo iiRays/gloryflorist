@@ -1,12 +1,13 @@
 <?php
 
+// Author: JOHANN LEE JIA XUAN
 require_once("../Util/Quick.php");
 require_once("../Util/rb.php");
 require_once("../Util/DB.php");
 
-DB::connect();
 
-header("Content-Type:application/json");
+
+DB::connect();
 
 $min = Quick::getGetData("minPrice");
 $max = Quick::getGetData("maxPrice");
@@ -21,10 +22,11 @@ if ($min && $max) { // If both min and max is given
 } else if ($max) { // If only max is given
     $arrangementList = R::find("arrangement", "price <= ? and is_available = ?", [$max, "true"]);
 } else { // No parameter given, find all
+    
     $arrangementList = R::find("arrangement", "is_available = ?", ["true"]);
 }
 
-
+header("Content-Type:application/json");
 
 // Check for null
 if (count($arrangementList) == 0) {
@@ -41,14 +43,14 @@ if (count($arrangementList) == 0) {
         $resultItem["id"] = $arrangement->id;
         $resultItem["name"] = $arrangement->name;
         $resultItem["price"] = $arrangement->price;
-        $resultItem["img"] = $arrangement->img;
+        $resultItem["img"] = $arrangement->image_url;
         $resultItem["stalks"] = $arrangement->stalks;
         
         // Get the flower item
         $flower = $arrangement->flower;
         $flowerResult = array();
         $flowerResult["flowerName"] = $flower->flowerName;
-        $flowerResult["img"] = $flower->img;
+        $flowerResult["img"] = $flower->image_url;
         
         $resultItem["flower"] = $flowerResult;
         

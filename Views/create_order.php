@@ -10,8 +10,8 @@ require_once("../Controllers/Util/Item.php");
 DB::connect();
 
 // get input details
-$deliveryAddress = $_POST['deliveryAddress'];
-$targetDate = $_POST['targetDate'];
+//$deliveryAddress = $_POST['deliveryAddress'];
+//$targetDate = $_POST['targetDate'];
 
 // get cart from session
 $cart = Session::get("cart");
@@ -19,11 +19,11 @@ $cart = Session::get("cart");
 // calculate grand total
 $grandTotal = 0;
 foreach ($cart->items as $item) {
-    $grandTotal += $item->arrangement->cost * $item->quantity;
+    $grandTotal += $item->arrangement->price * $item->quantity;
 }
 
 // create order
-$cart->makeOrder($grandTotal, $deliveryAddress, "Pending", $targetDate);
+$cart->makeOrder($grandTotal, "Pending");
 
 // reset cart and cartsaver in session
 $_SESSION["cart"] = new Cart();

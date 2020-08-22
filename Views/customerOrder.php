@@ -16,12 +16,7 @@ Authorize::onlyAllow("customer");
 
     <div id='container'>
 
-      <div id='hotbar'>
-        <a href='#' id='glory'>glory florist</a>
-        <a href='#' class='link' id='currentLink'>shop</a>
-        <a href='#' class='link'>cart</a>
-        <a href='#' class='link'>account</a>
-      </div>
+      <?php Quick::printHeader("account")?>;
 
       <div id='top'>
         <div id='content'>
@@ -74,18 +69,8 @@ Authorize::onlyAllow("customer");
                   </div>
 
                   <div class='detail'>
-                    <a class='label'>ADDRESS</a>
-                    <a class='value'>".$order->delivery_address."</a>
-                  </div>
-
-                  <div class='detail'>
                     <a class='label'>STATUS</a>
                     <a class='value'>".$order->status."</a>
-                  </div>
-
-                  <div class='detail'>
-                    <a class='label'>DELIVERY DATE</a>
-                    <a class='value'>".$order->target_date."</a>
                   </div>";
             
             ?>

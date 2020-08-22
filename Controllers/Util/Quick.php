@@ -1,6 +1,6 @@
 <?php
+require_once(__DIR__."/../Security/Authorize.php");
 
-require_once (__DIR__ .'\..\Security\Authorize.php');
 
 class Quick {
 
@@ -53,7 +53,7 @@ class Quick {
         $header = "<div id='hotbar'>
                 <a href='home.php' id='glory'>glory florist</a>
                 $shopButton
-                <a href='#' class='link' $cart>cart</a>
+                <a href='cart.php' class='link' $cart>cart</a>
                 $accountButton
                 $staffDashboardButton
                 $logoutButton

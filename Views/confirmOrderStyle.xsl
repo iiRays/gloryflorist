@@ -16,13 +16,12 @@
     
             <body>
 
-            <form id='container' method='POST' action="create_order.php">
+            <!--<form id='container' method='POST' action="create_order.php">-->
+            <div id='container'>
 
                 <div id='hotbar'>
                   <a href='home.php' id='glory'>glory florist</a>
-                  <a href='#' class='link'>shop</a>
-                  <a href='cart.php' class='link' id='currentLink'>cart</a>
-                  <a href='#' class='link'>account</a>
+                  <a href='cart.php' class='link'>back to cart</a>
                 </div>
 
                 <div id='top'>
@@ -40,7 +39,7 @@
 
                     <div id='receipt'>
                         
-                        <xsl:for-each select="//items">
+                        <xsl:for-each select="//item">
                             <div class='item'>
                                 <a class='amount'><xsl:value-of select="quantity"/></a>
                                 <a class='name' href='#'><xsl:value-of select="name"/></a>
@@ -58,30 +57,32 @@
                       </div>-->
                     </div>
                     
-                    <xsl:for-each select="//totalPriceArr">
-                        <a id='total'>Total: <span>RM <xsl:value-of select="price"/></span></a>
-                    </xsl:for-each>
+                        <a id='total'>Total: <span>RM <xsl:value-of select="//totalPrice"/></span></a>
+       
 
                   </div>
 
                   <div id='right'>
 
-                    <a class='heading'>Order details</a>
+                    <a class='heading'>Order's all good? Let's proceed!</a>
                     
-                    <div id='input'>
+                    <!--<div id='input'>
                         <a class='label'>Delivery address</a>
                         <input type='textbox' class='textbox' name='deliveryAddress' value='' placeholder='No. 69, 420 Avenue'/>
                         <a class='label'>Delivery date</a>
                         <input type='date' class='datepicker' name='targetDate'/>
                     </div>
                     
-                    <input type='submit' id='order_button' value='COMPLETE ORDER'/>
+                    <input type='submit' id='order_button' value='COMPLETE ORDER'/>-->
+                    
+                    <a id='order_button' href='delivery.php'>PROCEED TO DELIVERY</a>
 
                   </div>
 
                 </div>
 
-              </form>
+              <!--</form>-->
+            </div>
 
             </body>
 

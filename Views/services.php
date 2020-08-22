@@ -5,7 +5,6 @@ require_once("../Controllers/Util/rb.php");
 require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Util/DB.php");
 require_once("../Controllers/Util/Email.php");
-require_once("../Controllers/Util/EmailFactory.php");
 require_once("../Controllers/Security/Password.php");
 
 $errors = array();
@@ -62,10 +61,8 @@ if (isset($_POST['register'])) {
         //store user information
         R::store($user);
         //send email to registered user through email
-        $factory = new EmailFactory();
-        $mail = $factory->build();
-        $mail->send($email, "Welcome to Glory Florist !", "Hi $name ! Thanks for signing up to Glory Florist. Hope you have a fragrant day!"
-            . "Click <a href='https://localhost/GloryFlorist/Views/home.php'> to navigate to our website! </a>");
+        Email::send($email, "Welcome to Glory Florist !", "Hi $name ! Thanks for signing up to Glory Florist. Hope you have a fragrant day!"
+            . "Click <a href='https://localhost/GloryFlorist/Views/home.php'>HERE</a> to navigate to our website! ");
         header('location: login.php');
     }
 }

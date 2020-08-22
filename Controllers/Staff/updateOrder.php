@@ -1,7 +1,7 @@
 <?php
-include "Util/Quick.php";
-include "Util/rb.php";
-require_once("Security/Authorize.php");
+include "../Util/Quick.php";
+include "../Util/rb.php";
+require_once("../Security/Authorize.php");
 
 Authorize::onlyAllow("staff");
 
@@ -48,5 +48,5 @@ switch($status){
 R::store($order);
 
 //Redirect
-header("Location: ../Views/staffOrders.php?success=".$status."&id=".$order->id);
+header("Location: ../../Views/staffOrders.php?success=".$status."&id=".$order->id);
 return;

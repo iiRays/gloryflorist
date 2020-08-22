@@ -1,9 +1,9 @@
 <?php
 
-require_once("Util/Quick.php");
-require_once("Util/rb.php");
-require_once("Security/Session.php");
-require_once("Security/Authorize.php");
+require_once("../Util/Quick.php");
+require_once("../Util/rb.php");
+require_once("../Security/Session.php");
+require_once("../Security/Authorize.php");
 
 Authorize::onlyAllow("admin");
 
@@ -33,7 +33,7 @@ for ($i = 1; $i <= $staffCount; $i++) {
         
         // Store a changelog object (not entity class)
         $changelog = R::dispense("changelog");
-        $changelog->account = "[$staff->id] $staff->name";
+        $changelog->staffName = "[$staff->id] $staff->name";
         $changelog->newData = $newStatus;
         R::store($changelog);
         
@@ -47,7 +47,7 @@ for ($i = 1; $i <= $staffCount; $i++) {
         
         // Store a changelog object (not entity class)
         $changelog = R::dispense("changelog");
-        $changelog->account = "[$staff->id] $staff->name";
+        $changelog->staffName = "[$staff->id] $staff->name";
         $changelog->newData = $newRole;
         R::store($changelog);
         
@@ -64,7 +64,7 @@ for ($i = 1; $i <= $staffCount; $i++) {
 }
 
 //Redirect
-header("Location: ../Views/viewStaff.php");
+header("Location: ../../Views/viewStaff.php");
 return;
 
 

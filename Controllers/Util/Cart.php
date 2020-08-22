@@ -1,7 +1,7 @@
 <?php
 
-include "../Controllers/Util/Item.php";
-require_once("../Controllers/Security/Session.php");
+include __DIR__."/../Util/Item.php";
+require_once(__DIR__."/../Security/Session.php");
 
 class Cart {
     public $items = [];
@@ -12,16 +12,29 @@ class Cart {
         $this->items[] = $item;
     }
     
-    public function makeOrder($grandTotal, $deliveryAddress, $status, $targetDate) {
+    public function removeItem($index) {
+        unset($this->items[$index]);
+    }
+    
+    public function itemExists($id) {
+        foreach ($this->items as $item) {
+            if ($item->arrangement->id == $id) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public function makeOrder($grandTotal, $status) {
         // add order
         $user = Session::get("user");
         
         $order = R::dispense("orders");
         $order->customer_id = $user->id;
         $order->grand_total = $grandTotal;
-        $order->delivery_address = $deliveryAddress;
+        //$order->delivery_address = $deliveryAddress;
         $order->status = $status;
-        $order->targetDate = $targetDate;
+        //$order->targetDate = $targetDate;
         R::store($order);
         
         // add order items

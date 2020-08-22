@@ -1,3 +1,7 @@
+<!--
+Author: Chong Wei Jie
+ID: 19WMR09574
+-->
 <?php
   require_once("../Controllers/Security/Authorize.php");
   Authorize::onlyAllow("staff");

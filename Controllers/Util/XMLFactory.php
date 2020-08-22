@@ -5,33 +5,27 @@
 
 require_once("rb.php");
 require_once("XML.php");
+require_once("XMLDatabase.php");
 require_once("DB.php");
-require_once("IFactory.php");
 
-class XMLFactory implements IFactory{
+class XMLFactory{
     
-    private $rootName;
     
-    public function __construct($rootName){
-      $this->rootName = $rootName;  
+    public function __construct(){
     }
 
-    public function build() {
-        // Create the XML
-        $xml = new XML();
-        $xml->createRoot($this->rootName);
-        return $xml;
-    }
-
-    // Setters and getters
-    
-    function getRootName() {
-        return $this->rootName;
-    }
-
-    function setRootName($rootName) {
-        $this->rootName = $rootName;
-        return $this;
+    public function construct($type, $itemName) {
+        if($type == "database"){
+            $xml = new XMLDatabase();
+            $xml->build($itemName);
+            return $xml;
+        }
+        
+        if($type == "regular"){
+            $xml = new XMLRegular();
+            $xml->build($itemName);
+            return $xml;
+        }
     }
 
 

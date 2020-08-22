@@ -136,9 +136,8 @@ class Password {
         // Generate random password
         $password = Quick::generateRandomString(10);
         $name = $user->name;
-        $factory = new EmailFactory();
-        $mail = $factory->build();
-        $mail->send($email, "Forget Password Request.", "Hi, $name , we received your forget password request. Here is your new password." .
+        
+        Email::send($email, "Forget Password Request.", "Hi, $name , we received your forget password request. Here is your new password." .
                 " New Password : $password");
 
         $user->password = Password::hashPassword($password);
