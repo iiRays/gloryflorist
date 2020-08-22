@@ -44,7 +44,7 @@ Authorize::onlyAllow("customer");
                         
                         foreach ($cart->items as $item) {
                             echo "<div class='item'>
-                                    <img src='https://i.dlpng.com/static/png/6858266_preview.png'>
+                                    <img src='".$item->arrangement->image_url."'>
                                     <input type='textbox' name='quantity' class='quantity' value='".$item->quantity."'>
                                     <a href='#' class='name'>".$item->arrangement->name."</a>
                                   </div>";
