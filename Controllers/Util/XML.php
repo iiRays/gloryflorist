@@ -1,16 +1,13 @@
 <?php
 
 /**
- * 
  *
  * @author Johann Lee Jia Xuan
  */
-class XML {
-    private $xml;
-    private $xmlRoot;
+abstract class XML {
+    protected $xml;
     
-    public function __construct(){  
-    }
+     public abstract function build($item);
     
     public function appendXML($result, $nodeName){
          //Create the root element
@@ -53,7 +50,6 @@ class XML {
         $xmlRoot = $xml->documentElement;
         
         $xml->appendChild($xml->createElement($rootName));
-        $this->xmlRoot = $xmlRoot;
         $this->xml = $xml;
     }
     
@@ -87,9 +83,4 @@ class XML {
         $this->xml = $xml;
         return $this;
     }
-
-
-
-    
-  
 }
