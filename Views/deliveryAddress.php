@@ -83,6 +83,9 @@ require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
                     </div>
                 </form>
             </div>
+            <div class="input">
+                <a href="cart.php" >Return to cart</a>
+            </div>
         </form>
 
     </body>
