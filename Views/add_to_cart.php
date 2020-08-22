@@ -22,22 +22,32 @@ if (!$errorHandler->isAvailableArrangement($itemId)) {
     $errorHandler->addError("Arrangement #" . $itemId . " is not available for purchase.");
 }
 
-// backup cart
-$cartSaver = Session::get("cartSaver");
-$cartSaver->backup($cart);
-Session::set("cartSaver", $cartSaver);
-    
-// create updated cart
-$newCart = new Cart();
-foreach ($cart->items as $item) {
-    $newCart->addItem($item->arrangement->id, $item->quantity);
+// validate item not already in cart
+if ($cart->itemExists($itemId)) {
+    $errorHandler->addError("Arrangement #" . $itemId . " has already been added to your cart.");
 }
 
-// add new product to updated cart
-$newCart->addItem($itemId, 1);
+if (!$errorHandler->errorsExist()) {
+    // backup cart
+    $cartSaver = Session::get("cartSaver");
+    $cartSaver->backup($cart);
+    Session::set("cartSaver", $cartSaver);
 
-// save cart to session
-$newCart->save();
+    // create updated cart
+    $newCart = new Cart();
+    foreach ($cart->items as $item) {
+        $newCart->addItem($item->arrangement->id, $item->quantity);
+    }
+
+    // add new product to updated cart
+    $newCart->addItem($itemId, 1);
+
+    // save cart to session
+    $newCart->save();
+} else {
+    // update error in session
+    Session::set("error", $errorHandler->getErrors());
+}
 
 // redirect to cart page
 header('location: cart.php');
