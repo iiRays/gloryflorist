@@ -16,7 +16,7 @@ $cart = Session::get("cart");
 $totalPrice = 0;
 $cartItems = [];
 foreach ($cart->items as $item) {
-    $price = $item->arrangement->cost * $item->quantity;
+    $price = $item->arrangement->price * $item->quantity;
     $cartItems[] = new CartItem($item->arrangement->name, $item->quantity, $price);
     $totalPrice += $price;
 }

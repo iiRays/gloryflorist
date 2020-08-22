@@ -20,9 +20,7 @@
 
                 <div id='hotbar'>
                   <a href='home.php' id='glory'>glory florist</a>
-                  <a href='#' class='link'>shop</a>
-                  <a href='cart.php' class='link' id='currentLink'>cart</a>
-                  <a href='#' class='link'>account</a>
+                  <a href='cart.php' class='link'>back to cart</a>
                 </div>
 
                 <div id='top'>
