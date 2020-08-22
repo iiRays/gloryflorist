@@ -101,7 +101,7 @@ $orderItem->order = $order;
 $orderItem->quantity = 2;
 
 $orderItem2 = R::dispense("orderitem");
-$orderItem2->arrangement = $arrangement2;
+$orderItem2->arrangement = $arrangement3;
 $orderItem2->order = $order;
 $orderItem2->quantity = 4;
 
