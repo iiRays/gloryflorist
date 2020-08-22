@@ -47,7 +47,6 @@ abstract class XML {
     
     public function createRoot($rootName){
         $xml = new DOMDocument();
-        $xmlRoot = $xml->documentElement;
         
         $xml->appendChild($xml->createElement($rootName));
         $this->xml = $xml;
