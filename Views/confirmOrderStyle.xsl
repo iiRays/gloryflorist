@@ -39,7 +39,7 @@
 
                     <div id='receipt'>
                         
-                        <xsl:for-each select="//items">
+                        <xsl:for-each select="//item">
                             <div class='item'>
                                 <a class='amount'><xsl:value-of select="quantity"/></a>
                                 <a class='name' href='#'><xsl:value-of select="name"/></a>
@@ -57,9 +57,8 @@
                       </div>-->
                     </div>
                     
-                    <xsl:for-each select="//totalPriceArr">
-                        <a id='total'>Total: <span>RM <xsl:value-of select="price"/></span></a>
-                    </xsl:for-each>
+                        <a id='total'>Total: <span>RM <xsl:value-of select="//totalPrice"/></span></a>
+       
 
                   </div>
 
