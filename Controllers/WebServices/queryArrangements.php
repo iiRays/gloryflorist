@@ -9,8 +9,6 @@ require_once("../Util/DB.php");
 
 DB::connect();
 
-header("Content-Type:application/json");
-
 $min = Quick::getGetData("minPrice");
 $max = Quick::getGetData("maxPrice");
 
@@ -28,7 +26,7 @@ if ($min && $max) { // If both min and max is given
     $arrangementList = R::find("arrangement", "is_available = ?", ["true"]);
 }
 
-
+header("Content-Type:application/json");
 
 // Check for null
 if (count($arrangementList) == 0) {
