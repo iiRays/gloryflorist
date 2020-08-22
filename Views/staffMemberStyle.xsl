@@ -58,7 +58,7 @@
                                 <xsl:for-each select="//changelog">
                                     <a id='text'>
                                         - Changed <span>
-                                            <xsl:value-of select="account"/>
+                                            <xsl:value-of select="staff_name"/>
                                         </span> to <span>
                                             <xsl:value-of select="new_data"/>
                                         </span>.

@@ -33,7 +33,7 @@ for ($i = 1; $i <= $staffCount; $i++) {
         
         // Store a changelog object (not entity class)
         $changelog = R::dispense("changelog");
-        $changelog->account = "[$staff->id] $staff->name";
+        $changelog->staffName = "[$staff->id] $staff->name";
         $changelog->newData = $newStatus;
         R::store($changelog);
         
@@ -47,7 +47,7 @@ for ($i = 1; $i <= $staffCount; $i++) {
         
         // Store a changelog object (not entity class)
         $changelog = R::dispense("changelog");
-        $changelog->account = "[$staff->id] $staff->name";
+        $changelog->staffName = "[$staff->id] $staff->name";
         $changelog->newData = $newRole;
         R::store($changelog);
         
