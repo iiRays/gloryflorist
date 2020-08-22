@@ -16,12 +16,7 @@ Authorize::onlyAllow("customer");
 
     <div id='container'>
 
-      <div id='hotbar'>
-        <a href='#' id='glory'>glory florist</a>
-        <a href='#' class='link' id='currentLink'>shop</a>
-        <a href='#' class='link'>cart</a>
-        <a href='#' class='link'>account</a>
-      </div>
+      <?php Quick::printHeader("account")?>;
 
       <div id='top'>
         <div id='content'>

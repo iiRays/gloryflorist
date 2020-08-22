@@ -129,7 +129,7 @@ a {
 #container #bottom #content #list #heading #date {
   color: rgba(252, 248, 238, 0.5);
   font-size: 20px;
-  width: 150px;
+  width: 250px;
 }
 #container #bottom #content #list .item {
   display: flex;
@@ -148,7 +148,7 @@ a {
 #container #bottom #content #list .item .date {
   color: #fcf8ee;
   font-size: 30px;
-  width: 150px;
+  width: 250px;
   text-decoration: none;
 }
 #container #bottom #content #list .item:hover {

@@ -7,6 +7,9 @@ require_once("../Controllers/Util/Cart.php");
 require_once("../Controllers/Util/CartItem.php");
 require_once("../Controllers/Util/Item.php");
 require_once("../Controllers/Security/Session.php");
+require_once("../Controllers/Security/Authorize.php");
+
+Authorize::onlyAllow("customer");
 
 R::setup('mysql:host=localhost;dbname=flowerdb', 'root', '');
 
