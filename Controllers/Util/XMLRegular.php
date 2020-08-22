@@ -1,5 +1,5 @@
 <?php
-require_once("XMLInterface.php");
+require_once("XML.php");
 
 /**
  * 
@@ -9,7 +9,8 @@ require_once("XMLInterface.php");
 class XMLRegular extends XML {
 
     public function build($rootName) {
-        $this->xml->createRoot($this->rootName);
+        $this->xml = new DOMDocument();
+        $this->createRoot($rootName);
     }
 
 }

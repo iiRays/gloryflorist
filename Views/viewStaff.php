@@ -4,8 +4,8 @@ Authorize::onlyAllow("admin");
 
 require_once("../Controllers/Util/rb.php");
 require_once("../Controllers/Util/DB.php");
-require_once("../Controllers/Util/XML.php");
-require_once("../Controllers/Util/XMLDatabaseFactory.php");
+require_once("../Controllers/Util/XMLDatabase.php");
+require_once("../Controllers/Util/XMLFactory.php");
 
 DB::connect();
 
@@ -13,10 +13,10 @@ DB::connect();
 $changelog = R::findAll("changelog", "order by id desc limit 3");
 $changelog = array_reverse($changelog);
 
-$factory = new XMLDatabaseFactory("user");
+$factory = new XMLFactory();
 
 // Fetch all users; we will filter staff using XPATH later
-$xml = $factory->build(); 
+$xml = $factory->construct(true, "user");
 
 $xml->appendXML($changelog, "changelog");
 echo $xml->styleWith("staffMemberStyle.xsl");

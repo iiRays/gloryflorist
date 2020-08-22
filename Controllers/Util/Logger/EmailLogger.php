@@ -5,7 +5,6 @@
  */
 
 require_once 'error_constant_to_name.php'; //convert the error_type (int) to string and send as subject
-require_once '../Controllers/Util/EmailFactory.php';
 require_once 'DatabaseLogger.php';
 require_once '../Controllers/Util/rb.php';
 require_once '../Controllers/Util/DB.php';
@@ -42,8 +41,7 @@ class EmailLogger {
 
         //Email the error to our developer/maintainer
         //May consider lopping for email list if more than one ppl to send
-        $em = \EmailFactory;
-        $em->build()->send('kelvintyh-am17@student.tarc.edu.my', error_constant_to_name($error_type), $email);
+        Email::send('kelvintyh-am17@student.tarc.edu.my', error_constant_to_name($error_type), $email);
 
         echo "We already notify our maintainer, we'll be come back soon...";
     }

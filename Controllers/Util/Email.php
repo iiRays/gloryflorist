@@ -14,14 +14,7 @@ use PHPMailer\PHPMailer\Exception;
  * @author Johann Lee Jia Xuan
  */
 class Email {
-
-    private $mail;
-
-    public function __construct($mail) {
-        $this->mail = $mail;
-    }
-
-    public function send($target, $subject, $message) {
+    public static function send($target, $subject, $message) {
         $mail = new PHPMailer();
         $mail->IsSMTP();
         $mail->SMTPDebug = 0;
@@ -44,17 +37,6 @@ class Email {
             return false;
         }
         return true;
-    }
-
-    // Some setters and getters
-
-    function getMail() {
-        return $this->mail;
-    }
-
-    function setMail($mail) {
-        $this->mail = $mail;
-        return $this;
     }
 
 }
