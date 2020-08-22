@@ -62,7 +62,7 @@ if (isset($_POST['register'])) {
         R::store($user);
         //send email to registered user through email
         Email::send($email, "Welcome to Glory Florist !", "Hi $name ! Thanks for signing up to Glory Florist. Hope you have a fragrant day!"
-            . "Click <a href='https://localhost/GloryFlorist/Views/home.php'> to navigate to our website! </a>");
+            . "Click <a href='https://localhost/GloryFlorist/Views/home.php'>HERE</a> to navigate to our website! ");
         header('location: login.php');
     }
 }
