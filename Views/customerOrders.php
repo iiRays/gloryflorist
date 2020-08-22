@@ -31,7 +31,7 @@ Authorize::onlyAllow("customer");
 
             <div id='heading'>
               <a id='id'>ID</a>
-              <a id='date'>DATE</a>
+              <a id='price'>PRICE</a>
             </div>
               
             <?php
@@ -44,7 +44,7 @@ Authorize::onlyAllow("customer");
             foreach ($orders as $order) {
                 echo "<div class='item'>
                     <a class='id' href='customerOrder.php?orderId=".$order->id."'>#".$order->id."</a>
-                    <a class='date' href='customerOrder.php?orderId=".$order->id."'>".$order->target_date."</a>
+                    <a class='price' href='customerOrder.php?orderId=".$order->id."'>RM".$order->grand_total."</a>
                   </div>";
             }
             

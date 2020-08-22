@@ -101,7 +101,8 @@
             {
                 //url = 'add_sal_success_wo.php';
                 //document.addsalsuccess.action = url;
-                window.alert("redirect to ...")
+                //window.alert("redirect to ...")
+                f.setAttribute('action', "create_order.php");
             }
             return true;
         }

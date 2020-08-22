@@ -90,9 +90,9 @@ $arrangement5->stalks = 101;
 $order = R::dispense("orders");
 $order->customerId = "1";
 $order->grandTotal = 100.00;
-$order->deliveryAddress = "Sabah";
+//$order->deliveryAddress = "Sabah";
 $order->status = "pending";
-$order->targetDate = date_create("2020-07-28 20:00");
+//$order->targetDate = date_create("2020-07-28 20:00");
 
 
 // Each arrangement, 1 order item
