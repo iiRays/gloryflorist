@@ -18,7 +18,6 @@ class Session{
     public static function stop(){
         self::start();
         if(session_id() != ""){
-             //session_regenerate_id(true);
             session_unset();
             session_destroy();
         }
@@ -89,15 +88,12 @@ class Session{
         // Update session ID in user in the database
         R::store($user);
         
-        $cart = new Cart(); // Ryan's work
-        $cartSaver = new CartSaver(); // Ryan's work
-        
-        // DEBUG: simulate items already added to cart
-        //$cart->addItem("1", 3);
-        //$cart->addItem("2", 5);
-        
-        self::set("cart", $cart); // Ryan's work
-        self::set("cartSaver", $cartSaver); // Ryan's work
+        // RYAN'S WORK
+        $cart = new Cart();
+        $cartSaver = new CartSaver(); 
+               
+        self::set("cart", $cart);
+        self::set("cartSaver", $cartSaver); 
     }
     
     public static function logoutUser($user){
@@ -116,12 +112,9 @@ class Session{
     }
    
    public static function stopSpecificSession($id){
-        echo "Stopping session " . $id . "<br/>";
-        
        session_id($id);
        session_start();
        session_unset();
-       
        session_destroy();
    }
 }

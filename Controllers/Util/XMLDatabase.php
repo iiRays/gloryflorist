@@ -30,7 +30,4 @@ class XMLDatabase extends XML {
         $this->dataObtained = $dataObtained;
         return $this;
     }
-
-
-
 }
