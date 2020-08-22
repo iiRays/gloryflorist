@@ -16,8 +16,9 @@ $changelog = array_reverse($changelog);
 $factory = new XMLFactory();
 
 // Fetch all users; we will filter staff using XPATH later
-$xml = $factory->construct(true, "user");
+$xml = $factory->construct("database", "user");
 
 $xml->appendXML($changelog, "changelog");
 echo $xml->styleWith("staffMemberStyle.xsl");
+
 

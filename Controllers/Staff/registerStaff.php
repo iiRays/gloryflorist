@@ -1,11 +1,11 @@
 <?php
 
-require_once("Util/DB.php");
-require_once("Util/rb.php");
-require_once("Util/Quick.php");
-require_once("Util/Email.php");
-require_once("Security/Authorize.php");
-require_once("Security/Validator.php");
+require_once("../Util/DB.php");
+require_once("../Util/rb.php");
+require_once("../Util/Quick.php");
+require_once("../Util/Email.php");
+require_once("../Security/Authorize.php");
+require_once("../Security/Validator.php");
 
 Authorize::onlyAllow("admin");
 

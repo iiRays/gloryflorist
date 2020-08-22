@@ -14,16 +14,16 @@ class XMLFactory{
     public function __construct(){
     }
 
-    public function construct($isDatabase, $data) {
-        if($isDatabase){
+    public function construct($type, $itemName) {
+        if($type == "database"){
             $xml = new XMLDatabase();
-            $xml->build($data);
+            $xml->build($itemName);
             return $xml;
         }
         
-        if(!$isDatabase){
+        if($type == "regular"){
             $xml = new XMLRegular();
-            $xml->build($data);
+            $xml->build($itemName);
             return $xml;
         }
     }

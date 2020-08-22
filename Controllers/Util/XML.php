@@ -7,7 +7,7 @@
 abstract class XML {
     protected $xml;
     
-     public abstract function build($item);
+     public abstract function build($itemName);
     
     public function appendXML($result, $nodeName){
          //Create the root element

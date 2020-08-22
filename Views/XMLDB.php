@@ -9,6 +9,6 @@ DB::connect();
 
 $result = R::find("arrangement", "is_available = ?", ["true"]);
 $factory = new XMLFactory();
-$xml = $factory->construct(false, "arrangementList");
+$xml = $factory->construct("regular", "arrangementList");
 $xml->appendXML($result, "arrangements");
 $xml->display();
