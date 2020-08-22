@@ -32,7 +32,7 @@ setcookie("sender", $sender, time() + (86400 * 30), "/", 0);
         <div class="center">
             <p><b>Note: </b>margin:auto will not work in IE8, unless a !DOCTYPE is declared.</p>
         </div>
-        <form method="post" action="deliveryAddress.php">
+        <form method="post" action="create_order.php">
             <div class="input"><h2>Delivery Address</h2></div>
             <div class="input">           
                 <input type="text" name="recipientName" required="true" autocomplete="off"> 
@@ -81,7 +81,7 @@ setcookie("sender", $sender, time() + (86400 * 30), "/", 0);
 
             </div>
             <div class="input">
-                <a href="" >Return to cart</a>
+                <a href="cart.php" >Return to cart</a>
             </div>
         </form>
     </body>

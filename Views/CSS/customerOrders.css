@@ -126,10 +126,10 @@ a {
   font-size: 20px;
   width: 50px;
 }
-#container #bottom #content #list #heading #date {
+#container #bottom #content #list #heading #price {
   color: rgba(252, 248, 238, 0.5);
   font-size: 20px;
-  width: 250px;
+  width: 150px;
 }
 #container #bottom #content #list .item {
   display: flex;
@@ -145,10 +145,10 @@ a {
   width: 50px;
   text-decoration: none;
 }
-#container #bottom #content #list .item .date {
+#container #bottom #content #list .item .price {
   color: #fcf8ee;
   font-size: 30px;
-  width: 250px;
+  width: 150px;
   text-decoration: none;
 }
 #container #bottom #content #list .item:hover {

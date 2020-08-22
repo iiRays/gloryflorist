@@ -16,7 +16,8 @@
     
             <body>
 
-            <form id='container' method='POST' action="create_order.php">
+            <!--<form id='container' method='POST' action="create_order.php">-->
+            <div id='container'>
 
                 <div id='hotbar'>
                   <a href='home.php' id='glory'>glory florist</a>
@@ -64,22 +65,25 @@
 
                   <div id='right'>
 
-                    <a class='heading'>Order details</a>
+                    <a class='heading'>Order's all good? Let's proceed!</a>
                     
-                    <div id='input'>
+                    <!--<div id='input'>
                         <a class='label'>Delivery address</a>
                         <input type='textbox' class='textbox' name='deliveryAddress' value='' placeholder='No. 69, 420 Avenue'/>
                         <a class='label'>Delivery date</a>
                         <input type='date' class='datepicker' name='targetDate'/>
                     </div>
                     
-                    <input type='submit' id='order_button' value='COMPLETE ORDER'/>
+                    <input type='submit' id='order_button' value='COMPLETE ORDER'/>-->
+                    
+                    <a id='order_button' href='delivery.php'>PROCEED TO DELIVERY</a>
 
                   </div>
 
                 </div>
 
-              </form>
+              <!--</form>-->
+            </div>
 
             </body>
 
