@@ -35,7 +35,7 @@ Authorize::onlyAllow("staff");
                 
 
                     <?php
-                    include "../Controllers/Util/DB.php";
+                    require_once "../Controllers/Util/DB.php";
 
                     DB::connect();
                     // Get orders
