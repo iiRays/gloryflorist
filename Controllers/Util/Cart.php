@@ -59,4 +59,15 @@ class Cart {
     public function save() {
         Session::set("cart", $this);
     }
+    
+    public function restore() {
+        $cartSaver = Session::get("cartSaver");
+        $cartSaver->restore();
+    }
+    
+    public function backup() {
+        $cartSaver = Session::get("cartSaver");
+        $cartSaver->backup($this);
+        Session::set("cartSaver", $cartSaver);
+    }
 }

@@ -14,6 +14,7 @@ class CartSaver implements MementoSaver {
     
     public function backup($cart) {
         $this->cartMemento = $cart;
+        $this->save();
     }
     
     public function save() {

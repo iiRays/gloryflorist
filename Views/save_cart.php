@@ -26,9 +26,7 @@ if (!$errorHandler->errorsExist()) {
     $cart = Session::get("cart");
     
     // backup cart
-    $cartSaver = Session::get("cartSaver");
-    $cartSaver->backup($cart);
-    Session::set("cartSaver", $cartSaver);
+    $cart->backup();
     
     // create updated cart
     $newCart = new Cart();
