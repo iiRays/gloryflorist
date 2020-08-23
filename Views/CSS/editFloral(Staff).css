@@ -25,7 +25,7 @@ html {
 
 #top{
     position: relative;
-    margin-top: 100px;
+    margin-top: 200px;
 }
 
 form{
@@ -133,6 +133,7 @@ img{
     width: 180px;
     height: 180px;
     border: 1px solid black;
+    flex-direction: row;
 }
 
 #container #content #editFloral #form #bottomRight input[type="number"]{
@@ -154,5 +155,5 @@ img{
 }
 
 #container #content #editFloral #form #bottom{
-    margin-top: 400px;
+    margin-top: 340px;
 }

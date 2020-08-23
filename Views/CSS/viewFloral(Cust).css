@@ -78,4 +78,11 @@ html {
     margin-left: -50px;
 }
 
-
+#container #content #list .item #imgBorder{
+    display: flex; 
+    align-items: center;
+    float: left;
+    margin-right: 0px;
+    width: 80px;
+    height: 80px;
+}

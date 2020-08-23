@@ -37,8 +37,8 @@ $arrangement = R::findAll('arrangement');
                     <?php
                     if (!empty($arrangement)) {
                         foreach ($arrangement as $item) {
-                            echo '<a href="floral%28Cust%29.php?id=' . $item->id . '" ><div class="item">' .
-                            '<img id="img" name="img" src = "' . $item->imageURL . '">' .
+                            echo '<a href="floral%28Cust%29.php?id=' . $item->id . '" ><div class="item"><div id="imgBorder">' .
+                            '<img id="img" name="img" src = "' . $item->imageURL . '"></div>' .
                             '<label class="name">' . $item->name . '</label></div></a>';
                         }
                     } else {

@@ -1,2 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="Flower.xsl"?><!DOCTYPE flowers SYSTEM 'Flower.dtd'><flowers><flower id="1"><id>1</id><flower_name>Red Rose</flower_name><remark>Hot product</remark><image_url>https://i.imgur.com/NCrFi37.jpg</image_url><is_available>true</is_available></flower><flower id="2"><id>2</id><flower_name>Pink Lily</flower_name><remark>Hot product</remark><image_url>https://i.imgur.com/TznGR0m.jpg</image_url><is_available>true</is_available></flower><flower id="3"><id>3</id><flower_name>Pink Rose</flower_name><remark>Almost out of stocks</remark><image_url>https://i.imgur.com/XWRSfy9.jpg</image_url><is_available>true</is_available></flower><flower id="4"><id>4</id><flower_name>Sunflower</flower_name><remark>Out of stocks</remark><image_url>https://i.imgur.com/7L0BHFj.jpg</image_url><is_available>false</is_available></flower></flowers>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <?xml-stylesheet type="text/xsl" href="Flower.xsl"?>
+    <!DOCTYPE flowers SYSTEM 'Flower.dtd'><flowers>
+        <flower id="1">
+            <id>1</id>
+            <flower_name>Red Rose</flower_name>
+            <remark>Hot product</remark>
+            <image_url>https://i.imgur.com/NCrFi37.jpg</image_url>
+            <is_available>true</is_available>
+        </flower>
+        <flower id="2">
+            <id>2</id>
+            <flower_name>Pink Lily</flower_name>
+            <remark>Hot product</remark>
+            <image_url>https://i.imgur.com/TznGR0m.jpg</image_url>
+            <is_available>true</is_available>
+        </flower>
+        <flower id="3">
+            <id>3</id>
+            <flower_name>Pink Rose</flower_name>
+            <remark>Almost out of stocks</remark>
+            <image_url>https://i.imgur.com/XWRSfy9.jpg</image_url>
+            <is_available>true</is_available>
+        </flower>
+        <flower id="4">
+            <id>4</id>
+            <flower_name>Sunflower</flower_name>
+            <remark>Out of stocks</remark>
+            <image_url>https://i.imgur.com/7L0BHFj.jpg</image_url>
+            <is_available>false</is_available>
+        </flower>
+    </flowers>

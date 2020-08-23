@@ -15,22 +15,27 @@ $name = $_POST['name'];
 $remark = $_POST['remark'];
 $imgLink = $_POST['flowerImgSrc'];
 
-if(!empty($_POST['isAvailable'])){
+if (!empty($_POST['isAvailable'])) {
     $isAvailable = "true";
-}else{
+} else {
     $isAvailable = "false";
 }
 
-$flower = new FlowerAdapter();
-$flower->addData($name, $remark, $imgLink, $isAvailable);
+if ($imgLink == null) {
+    echo '<script type="text/javascript">alert("Please wait for image to finish upload");history.go(-1);</script>';
+    //header('Location: ' . $_SERVER['HTTP_REFERER']);    
+} else {
+    $flower = new FlowerAdapter();
+    $flower->addData($name, $remark, $imgLink, $isAvailable);
+}
 
 /*
-$flower = R::dispense("flower");
-$flower->flowerName = $name;
-$flower->remark = $remark;
-$flower->img = $imgLink;
-$flower->isAvailable = $isAvailable;
-R::storeAll([$flower]);
+  $flower = R::dispense("flower");
+  $flower->flowerName = $name;
+  $flower->remark = $remark;
+  $flower->img = $imgLink;
+  $flower->isAvailable = $isAvailable;
+  R::storeAll([$flower]);
  * 
  */
 ?>
@@ -53,7 +58,7 @@ R::storeAll([$flower]);
                 <div id="msgBorder">
                     <label>The new flower had been created successfully</label>
                 </div>
-                
+
             </div>
             <a href="viewFlower%28Staff%29.php" id="back_button">Back</a>
         </div>
