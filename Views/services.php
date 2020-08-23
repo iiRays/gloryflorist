@@ -59,6 +59,7 @@ if (isset($_POST['register'])) {
         $user->phone = "";
         $user->address = "";
         $user->attempt = 0;
+        $user->recovery = "";
         //store user information
         R::store($user);
         //send email to registered user through email
@@ -74,7 +75,7 @@ if (isset($_POST['login'])) {
     $email = Quick::getPostData("email");
     $password = Quick::getPostData("password_1");
     $user = R::findOne("user", "email = ?", [$email]);
-
+    
 
     //validation
     if (empty($email)) {
@@ -82,7 +83,10 @@ if (isset($_POST['login'])) {
     } else if ($user == null) {
         array_push($errors, "Email is incorrect");
     } else if ($user->status == "invalid") {
-        array_push($errors, "Your account is locked due to exceeded login attempts.");
+        array_push($errors, "Your account is locked (Too many attempt). Recovery email sending.");
+        Password::activateAccMail($user);
+    } else if ($user->status == "locked") {
+        array_push($errors, "Your account is locked (Too many attempt). Email was sent.");
     }
 
     if (empty($password)) {
@@ -90,7 +94,7 @@ if (isset($_POST['login'])) {
         Password::addAttempt($user);
         Password::disableAcc($user);
     }
-
+    
     //if no more errors occur
     if (count($errors) == 0) {
         $password = Password::passVerify($password, $user['password']);
@@ -102,6 +106,7 @@ if (isset($_POST['login'])) {
         } else {
             array_push($errors, "Wrong Email/Password");
             Password::addAttempt($user);
+            Password::disableAcc($user);
         }
     }
 }
@@ -125,6 +130,29 @@ if (isset($_POST['submitPassword'])) {
             header('location: login.php');
         } else {
             array_push($errors, "Unrecognize Email");
+        }
+    }
+}
+
+if (isset($_POST['submitCode'])) {
+//Get data from form
+    $rCode = Quick::getPostData("rCode");
+    $user = R::findOne("user", "recovery = ?", [$rCode]);
+
+    //validation
+    if ($rCode == "") {
+        array_push($errors, "Recovery code required");
+    } else if ($user == null) {
+        array_push($errors, "No such recovery code");
+    }
+
+    if (count($errors) == 0) {
+
+        if ($user != null) {
+            Password::activateAcc($user);
+            header('location: login.php');
+        } else {
+            array_push($errors, "Unrecognize Code");
         }
     }
 }
