@@ -1,6 +1,7 @@
 <?php
-
-class XSLT {
+require_once("../Controllers/Security/Authorize.php");
+Authorize::onlyAllow("admin");
+class viewUsers {
   
   public function __construct($xmlfilename, $xslfilename) {
     $xml = new DOMDocument();
@@ -16,5 +17,5 @@ class XSLT {
   }
 }
 
-$worker = new XSLT("allUser.xml", "allUser.xsl");
+$worker = new viewUsers("allUser.xml", "allUser.xsl");
 ?>

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<allUser><User Id="1"><ID>1</ID><Name>Johann</Name><Email>johannljx@gmail.com</Email><Phone>0123456789</Phone><Address>Buckingham Palace, Sabah</Address><Role>admin</Role><Status>active</Status></User></allUser>
+<allUser><User Id="1"><ID>1</ID><Name>Johann</Name><Email>johannljx@gmail.com</Email><Phone>0123456789</Phone><Address>Buckingham Palace, Sabah</Address><Role>admin</Role><Status>active</Status></User><User Id="3"><ID>3</ID><Name>Yong Haw Quan</Name><Email>hawquan@gmail.com</Email><Phone/><Address/><Role>customer</Role><Status>locked</Status></User></allUser>
