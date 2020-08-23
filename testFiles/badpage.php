@@ -2,10 +2,21 @@
 /*
   Author: kelvin tham yit hang
   */
+require_once __DIR__ . '\..\Controllers\Security\Logger\LoggerFactory.php';
+$logger = new LoggerFactory("UNCAUGHTERROR");
+$logger->createLogger()->invalidLogger(null,null);
+
+
 
 require_once '../Controllers/Util/logging/vendor/autoload.php';
 require_once '../Controllers/Util/inputValidationLogger.php';
-use Monolog\Logger;
+
+
+
+echo "<h1>badpage.php</h>";
+
+echo $a;
+/*use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;
 use Monolog\Formatter\JsonFormatter;
@@ -44,10 +55,9 @@ try {
     //$message_string = "{$e->getMessage()} (file: {$e->getFile()}, line: {$e->getLine()})";
     //$log->error("Input validation Failure", array('exception' => $e));
     $ex = \inputValidationLogger::invalidLogger($e);
-}
+}*/
 //PSR-3, states that a logged exception must be in the exception element of the context array
 //$logger->error("checkUsername failed", array('exception' => $e));
-echo "<h1>badpage.php</h>";
 
 // Define default behavior if an exception isn't caught:
 //set_exception_handler( function($e) {        
@@ -57,3 +67,4 @@ echo "<h1>badpage.php</h>";
 //    $uncaught_log->pushHandler($uncaught_logstream);
 //    $uncaught_log->error("Uncaught exception", array('exception' => $e));
 //});
+
