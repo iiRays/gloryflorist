@@ -20,23 +20,18 @@ require_once 'DB.php';
 //require_once '../Controllers/Util/rb.php';
 //require_once '../Controllers/Util/DB.php';
 
-
+//Establish the database connnection
 DB::connect();
 
-try{
-    $deliveriesArray = R::getAll('select * from delivery');
-} catch (Exception $ex) {
-    
-}
+//get all data from delivery table in database
+$deliveriesArray = R::getAll('select * from delivery');
 
-
-
-
-createDeliveryXMLfile($deliveriesArray);
+//Display the data of sender column 
 foreach ($deliveriesArray as $result) {
     echo $result['sender'], '<br>';
 }
 
+createDeliveryXMLfile($deliveriesArray);
 
 function createDeliveryXMLfile($deliveriesArray) {
 
@@ -123,4 +118,3 @@ function createDeliveryXMLfile($deliveriesArray) {
     $dom->appendChild($root);
     $dom->save($filePath);
 }
-

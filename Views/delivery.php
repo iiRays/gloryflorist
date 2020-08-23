@@ -6,7 +6,7 @@
 
 //authorization check
 require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
-Authorize::onlyAllow("customer"); //temperory disable for better coding envir
+//Authorize::onlyAllow("customer"); //temperory disable for better coding envir
 
 $default_text = 'Type your free card message in the box or select one below.The card will put together with your flower at no additional cost.';
 ?>
@@ -29,12 +29,12 @@ $default_text = 'Type your free card message in the box or select one below.The 
 
                 <div class="column">
                     <form method="post" action="delivery.php" id='frm'>
-                        <?php require_once __DIR__ . '\..\Views\deliveryHandler.php';?>
+                        <?php require_once __DIR__ . '\..\Views\deliveryHandler.php'; ?>
                         <div class="input">
                             <label for="deliveryType">PLEASE SELECT A DELIVERY TYPE</label>
                             <select name="deliveryType">
-                                <option <?php if (isset($_POST['deliveryType']) && $_POST['deliveryType']=="delivery") echo "selected";?> value="delivery">Delivery</option>
-                                <option <?php if (isset($_POST['deliveryType']) && $_POST['deliveryType']=="pickup") echo "selected";?> value="pickup">Self Pickup</option>
+                                <option <?php if (isset($_POST['deliveryType']) && $_POST['deliveryType'] == "delivery") echo "selected"; ?> value="delivery">Delivery</option>
+                                <option <?php if (isset($_POST['deliveryType']) && $_POST['deliveryType'] == "pickup") echo "selected"; ?> value="pickup">Self Pickup</option>
                             </select>
                         </div>
                         <div class="input">
@@ -42,11 +42,8 @@ $default_text = 'Type your free card message in the box or select one below.The 
                             <input type="date" name="date" min="<?php echo date('Y-m-d'); ?>" value="<?php echo isset($_POST['date']) ? htmlspecialchars($_POST['date'], ENT_QUOTES) : ''; ?>" required="true">
                         </div>
                         <div>
-                            <label for="time" >PLEASE SELECT A DELIVERY/PICKUP TIME SLOT:</label>
-                            <select name="time" >
-                                <option <?php if (isset($_POST['time']) && $_POST['time']=="9AM - 1PM") echo "selected";?> value = "9AM - 1PM">9AM - 1PM</option>
-                                <option <?php if (isset($_POST['time']) && $_POST['time']=="1PM - 6PM") echo "selected";?> value = "1PM - 6PM">1PM - 6PM</option>
-                            </select>
+                            <label for="time" >PLEASE SELECT A DELIVERY/PICKUP TIME:</label>
+                            <input type="time" name="time" min="09:00" max="18:59" value="<?php echo isset($_POST['time']) ? htmlspecialchars($_POST['time'], ENT_QUOTES) : ''; ?>"/>
                         </div>
                         <div class="input">
                             <label for="cardmsg">CHOOSE YOUR PERSONAL CARD MESSAGE:</label>

@@ -27,42 +27,43 @@ Authorize::onlyAllow("customer"); //temperory disable for better coding envir
             <div id="content">
                 <form method="post" action="deliveryAddress.php">
                     <?php $echo = "hahahaha";
-                    require_once __DIR__ . '\..\Views\deliveryAddressHandler.php'; ?>
+                    require_once __DIR__ . '\..\Views\deliveryAddressHandler.php';
+                    ?>
                     <div style="background: white">
 
                         <div class="input"><h2>Delivery Address</h2></div>
                         <div class="input">           
-                            <input type="text" name="recipientname" required="true" autocomplete="off" value="<?php echo isset($_POST['recipientname']) ? htmlspecialchars($_POST['recipientname'], ENT_QUOTES) : ''; ?>"> 
+                            <input type="text" name="recipientname" required autocomplete="off" value="<?php echo isset($_POST['recipientname']) ? htmlspecialchars($_POST['recipientname'], ENT_QUOTES) : ''; ?>"> 
                             <label for="recipientname" class="label-name">
                                 <span class="content-name">Recipient's Name</span>
                             </label>
                         </div>
                         <div class="input">           
-                            <input type="text" name="company" required="false" autocomplete="off" value="<?php echo isset($_POST['company']) ? htmlspecialchars($_POST['company'], ENT_QUOTES) : ''; ?>"> 
+                            <input type="text" name="company" required autocomplete="off" value="<?php echo isset($_POST['company']) ? htmlspecialchars($_POST['company'], ENT_QUOTES) : ''; ?>"> 
                             <label for="company" class="label-name">
-                                <span class="content-name">Company(optional)</span>
+                                <span class="content-name">Company</span>
                             </label>
                         </div>
                         <div class="input">           
-                            <input type="text" name="address" required="true" autocomplete="off" value="<?php echo isset($_POST['address']) ? htmlspecialchars($_POST['address'], ENT_QUOTES) : ''; ?>"> 
+                            <input type="text" name="address" required autocomplete="off" value="<?php echo isset($_POST['address']) ? htmlspecialchars($_POST['address'], ENT_QUOTES) : ''; ?>"> 
                             <label for="address" class="label-name">
                                 <span class="content-name">Address</span>
                             </label>
                         </div>
                         <div class="input">           
-                            <input type="text" name="apartment-suite-unit-etc" required="false" autocomplete="false" value="<?php echo isset($_POST['apartment-suite-unit-etc']) ? htmlspecialchars($_POST['apartment-suite-unit-etc'], ENT_QUOTES) : ''; ?>"> 
+                            <input type="text" name="apartment-suite-unit-etc" required autocomplete="off" value="<?php echo isset($_POST['apartment-suite-unit-etc']) ? htmlspecialchars($_POST['apartment-suite-unit-etc'], ENT_QUOTES) : ''; ?>"> 
                             <label for="apartment-suite-unit-etc" class="label-name">
-                                <span class="content-name">Apartment, suite, unit etc. (optional)</span>
+                                <span class="content-name">Apartment, suite, unit etc.</span>
                             </label>
                         </div>
                         <div class="input">           
-                            <input type="text" name="city-town" required="true" autocomplete="off" value="<?php echo isset($_POST['city-town']) ? htmlspecialchars($_POST['city-town'], ENT_QUOTES) : ''; ?>"> 
+                            <input type="text" name="city-town" required autocomplete="off" value="<?php echo isset($_POST['city-town']) ? htmlspecialchars($_POST['city-town'], ENT_QUOTES) : ''; ?>"> 
                             <label for="city-town" class="label-name">
                                 <span class="content-name">City/Town</span>
                             </label>
                         </div>
                         <div class="input">           
-                            <input type="text" name="postcode" required="true" autocomplete="off" value="<?php echo isset($_POST['postcode']) ? htmlspecialchars($_POST['postcode'], ENT_QUOTES) : ''; ?>"> 
+                            <input type="text" name="postcode" required autocomplete="off" value="<?php echo isset($_POST['postcode']) ? htmlspecialchars($_POST['postcode'], ENT_QUOTES) : ''; ?>"> 
                             <label for="postcode" class="label-name">
                                 <span class="content-name">Postcode</span>
                             </label>
@@ -80,14 +81,15 @@ Authorize::onlyAllow("customer"); //temperory disable for better coding envir
                         <div class="input">
                             <a href="" >Return to previous page</a>
                         </div>
+                        <div class="input">
+                            <a href="cart.php" >Return to cart</a>
+                        </div>
                     </div>
                 </form>
             </div>
-            <div class="input">
-                <a href="cart.php" >Return to cart</a>
-            </div>
+
         </form>
 
-    </body>
+</body>
 </html>
 

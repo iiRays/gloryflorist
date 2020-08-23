@@ -14,7 +14,7 @@ require_once("../Controllers/Util/Quick.php");
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Glory Florist : delivery list</title>
+        <title>Glory Florist : pickup list</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link  rel="stylesheet" href="CSS/deliveryStaff.css">
     </head>
@@ -39,7 +39,7 @@ require_once("../Controllers/Util/Quick.php");
                 </ol>
                 <!-- Display today delivery and pickup -->
                 <div>
-                    <form method="post" action="delivery(Staff).php">
+                    <form method="post" action="pickup(Staff).php">
                         <label>Select a date and click "go" to view the delivery list</label>
                         <input type="date" name="date" 
                                value="">
@@ -49,11 +49,11 @@ require_once("../Controllers/Util/Quick.php");
 
                 <?php
                 //call here..
-                $header = "<h1>Delivery List</h1>"
+                $header = "<h1>Pickup List</h1>"
                         . "<h3>For Date: " . Quick::getPostData("date") . "</h3>"
                         . "<h4>Please deliver the flower to our beloved one, and Ensure them pickup their flower Ya. </h4>";
                 echo $header;
-                $deliveryList = new XSLTTransformation("deliveries.xml", "delivery_list_on_date.xsl");
+                $deliveryList = new XSLTTransformation("deliveries.xml", "pickup_list_on_date.xsl");
                 ?>
             </div>
         </div>

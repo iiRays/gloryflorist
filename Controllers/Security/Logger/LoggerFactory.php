@@ -11,13 +11,13 @@ require_once 'TemperingEventLogger.php';
 
 class LoggerFactory {
 
-    protected $loggerType;
+    private $loggerType;
 
     function __construct($type) {
         $this->loggerType = $type;
     }
 
-    function createLogger() {
+    public function createLogger() {
         if ($this->loggerType == null)
             return null;
 

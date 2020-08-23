@@ -9,7 +9,67 @@
         <City_town/>
         <Postcode>35500</Postcode>
         <Recipient>Joseph Yeak Jian King</Recipient>
-        <Timeslot>1PM - 6PM</Timeslot>
+        <Timeslot>13:30</Timeslot>
+        <CardMessage>Every year with you is sweeter than the last.</CardMessage>
+        <Sender>Jaren Yeap Wei Loon</Sender>
+        <Contact>012-4307437</Contact>
+        <Method>Delivery</Method>
+    </Delivery>
+    <Delivery Id="77">
+        <Date>2020-08-20</Date>
+        <Address>17, Jalan Satu, Taman Batang Padang, 35500 Bidor, Negeri Perak</Address>
+        <DeliveryFee>6.00</DeliveryFee>
+        <Company/>
+        <Asset_type/>
+        <City_town/>
+        <Postcode>35500</Postcode>
+        <Recipient>Joseph Yeak Jian King</Recipient>
+        <Timeslot>09:00</Timeslot>
+        <CardMessage>Every year with you is sweeter than the last.</CardMessage>
+        <Sender>Jaren Yeap Wei Loon</Sender>
+        <Contact>012-4307437</Contact>
+        <Method>Delivery</Method>
+    </Delivery>
+        <Delivery Id="77">
+        <Date>2020-08-20</Date>
+        <Address>17, Jalan Satu, Taman Batang Padang, 35500 Bidor, Negeri Perak</Address>
+        <DeliveryFee>6.00</DeliveryFee>
+        <Company/>
+        <Asset_type/>
+        <City_town/>
+        <Postcode>35500</Postcode>
+        <Recipient>Joseph Yeak Jian King</Recipient>
+        <Timeslot>09:00</Timeslot>
+        <CardMessage>Every year with you is sweeter than the last.</CardMessage>
+        <Sender>Jaren Yeap Wei Loon</Sender>
+        <Contact>012-4307437</Contact>
+        <Method>Delivery</Method>
+    </Delivery>
+        <Delivery Id="77">
+        <Date>2020-08-20</Date>
+        <Address>17, Jalan Satu, Taman Batang Padang, 35500 Bidor, Negeri Perak</Address>
+        <DeliveryFee>6.00</DeliveryFee>
+        <Company/>
+        <Asset_type/>
+        <City_town/>
+        <Postcode>35500</Postcode>
+        <Recipient>Joseph Yeak Jian King</Recipient>
+        <Timeslot>17:50</Timeslot>
+        <CardMessage>Every year with you is sweeter than the last.</CardMessage>
+        <Sender>Jaren Yeap Wei Loon</Sender>
+        <Contact>012-4307437</Contact>
+        <Method>Delivery</Method>
+    </Delivery>
+        <Delivery Id="77">
+        <Date>2020-08-20</Date>
+        <Address>17, Jalan Satu, Taman Batang Padang, 35500 Bidor, Negeri Perak</Address>
+        <DeliveryFee>6.00</DeliveryFee>
+        <Company/>
+        <Asset_type/>
+        <City_town/>
+        <Postcode>35500</Postcode>
+        <Recipient>Joseph Yeak Jian King</Recipient>
+        <Timeslot>15:34</Timeslot>
         <CardMessage>Every year with you is sweeter than the last.</CardMessage>
         <Sender>Jaren Yeap Wei Loon</Sender>
         <Contact>012-4307437</Contact>
@@ -21,7 +81,7 @@
         <Contact>016-3866617</Contact>
         <Method>SelfPickup</Method>
         <Date>2020-08-20</Date>
-        <Timeslot>9AM - 1PM</Timeslot>
+        <Timeslot>15:34</Timeslot>
     </SelfPickUp>
     <Delivery Id="17">
         <Date>2020-08-21</Date>
@@ -38,7 +98,7 @@
         <Contact>010-5078996</Contact>
         <Method>delivery</Method>
     </Delivery>
-        <Delivery Id="2">
+    <Delivery Id="2">
         <Date>2020-08-20</Date>
         <Address>17, Jalan Satu, Taman Batang Padang, 35500 Bidor, Negeri Perak</Address>
         <DeliveryFee>6.00</DeliveryFee>
@@ -47,7 +107,7 @@
         <City_town/>
         <Postcode>35500</Postcode>
         <Recipient>Joseph Yeak Jian King</Recipient>
-        <Timeslot>9AM - 1PM</Timeslot>
+        <Timeslot>15:00</Timeslot>
         <CardMessage>Every year with you is sweeter than the last.</CardMessage>
         <Sender>Jaren Yeap Wei Loon</Sender>
         <Contact>012-4307437</Contact>
@@ -59,7 +119,7 @@
         <Contact>016-3866617</Contact>
         <Method>SelfPickup</Method>
         <Date>2020-08-20</Date>
-        <Timeslot>1PM - 6PM</Timeslot>
+        <Timeslot>15:34</Timeslot>
     </SelfPickUp>
     <Delivery Id="17">
         <Date>2020-08-23</Date>

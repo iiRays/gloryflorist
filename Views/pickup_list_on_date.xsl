@@ -21,7 +21,7 @@ Author     : kelvin tham yit hang
     <xsl:template match="/">
         <html>
             <head>
-                <title>Delivery List </title>
+                <title>Pickup List </title>
             </head>
             <body>
                 <table border="1">
@@ -41,24 +41,20 @@ Author     : kelvin tham yit hang
                         <td>
                             <table border="1"><!-- 0900 deliveries -->
                                 <tr> 
-                                    <xsl:for-each select="deliveries/Delivery">
+                                    <xsl:for-each select="deliveries/SelfPickUp">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 0900 and 1000 > number(translate(Timeslot,':', ''))  ">
                                                 <tr>
                                                     <td>
                                                         <p>
-                                                            Date     : <xsl:value-of select="Date"/>
-                                                            <br/>
-                                                            Time     : <xsl:value-of select="Timeslot"/>
-                                                            <br/>
-                                                            Sender   : <xsl:value-of select="Sender"/>
-                                                            <br/>
-                                                            Recipient: <xsl:value-of select="Recipient"/>
+                                                            Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
                                                             contact  : <xsl:value-of select="Contact"/>
                                                             <br/>
-                                                            Address  : <xsl:value-of select="Address"/>
-                                                            <br/>
+                                                            Date     : <xsl:value-of select="Date"/>
+                                                            <br/>                        
+                                                            Time     : <xsl:value-of select="Timeslot"/>
+                                                            <br/>      
                                                         </p>
                                                     </td>
                                                 </tr>
@@ -71,24 +67,20 @@ Author     : kelvin tham yit hang
                         <td>
                             <table border="1"><!-- 1500 deliveries -->
                                 <tr> 
-                                    <xsl:for-each select="deliveries/Delivery">
+                                    <xsl:for-each select="deliveries/SelfPickUp">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1000 and 1100 > number(translate(Timeslot,':', ''))  ">
                                                 <tr>
                                                     <td>
                                                         <p>
-                                                            Date     : <xsl:value-of select="Date"/>
-                                                            <br/>
-                                                            Time     : <xsl:value-of select="Timeslot"/>
-                                                            <br/>
-                                                            Sender   : <xsl:value-of select="Sender"/>
-                                                            <br/>
-                                                            Recipient: <xsl:value-of select="Recipient"/>
+                                                            Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
                                                             contact  : <xsl:value-of select="Contact"/>
                                                             <br/>
-                                                            Address  : <xsl:value-of select="Address"/>
-                                                            <br/>
+                                                            Date     : <xsl:value-of select="Date"/>
+                                                            <br/>                        
+                                                            Time     : <xsl:value-of select="Timeslot"/>
+                                                            <br/>      
                                                         </p>
                                                     </td>
                                                 </tr>
@@ -101,24 +93,20 @@ Author     : kelvin tham yit hang
                         <td>
                             <table border="1"><!-- 1500 deliveries -->
                                 <tr> 
-                                    <xsl:for-each select="deliveries/Delivery">
+                                    <xsl:for-each select="deliveries/SelfPickUp">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1100 and 1200 > number(translate(Timeslot,':', ''))  ">
                                                 <tr>
                                                     <td>
                                                         <p>
-                                                            Date     : <xsl:value-of select="Date"/>
-                                                            <br/>
-                                                            Time     : <xsl:value-of select="Timeslot"/>
-                                                            <br/>
-                                                            Sender   : <xsl:value-of select="Sender"/>
-                                                            <br/>
-                                                            Recipient: <xsl:value-of select="Recipient"/>
+                                                            Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
                                                             contact  : <xsl:value-of select="Contact"/>
                                                             <br/>
-                                                            Address  : <xsl:value-of select="Address"/>
-                                                            <br/>
+                                                            Date     : <xsl:value-of select="Date"/>
+                                                            <br/>                        
+                                                            Time     : <xsl:value-of select="Timeslot"/>
+                                                            <br/>      
                                                         </p>
                                                     </td>
                                                 </tr>
@@ -131,24 +119,20 @@ Author     : kelvin tham yit hang
                         <td>
                             <table border="1"><!-- 1500 deliveries -->
                                 <tr> 
-                                    <xsl:for-each select="deliveries/Delivery">
+                                    <xsl:for-each select="deliveries/SelfPickUp">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1200 and 1300 > number(translate(Timeslot,':', ''))  ">
                                                 <tr>
                                                     <td>
                                                         <p>
-                                                            Date     : <xsl:value-of select="Date"/>
-                                                            <br/>
-                                                            Time     : <xsl:value-of select="Timeslot"/>
-                                                            <br/>
-                                                            Sender   : <xsl:value-of select="Sender"/>
-                                                            <br/>
-                                                            Recipient: <xsl:value-of select="Recipient"/>
+                                                            Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
                                                             contact  : <xsl:value-of select="Contact"/>
                                                             <br/>
-                                                            Address  : <xsl:value-of select="Address"/>
-                                                            <br/>
+                                                            Date     : <xsl:value-of select="Date"/>
+                                                            <br/>                        
+                                                            Time     : <xsl:value-of select="Timeslot"/>
+                                                            <br/>      
                                                         </p>
                                                     </td>
                                                 </tr>
@@ -161,24 +145,20 @@ Author     : kelvin tham yit hang
                         <td>
                             <table border="1"><!-- 1500 deliveries -->
                                 <tr> 
-                                    <xsl:for-each select="deliveries/Delivery">
+                                    <xsl:for-each select="deliveries/SelfPickUp">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1300 and 1400 > number(translate(Timeslot,':', ''))  ">
                                                 <tr>
                                                     <td>
                                                         <p>
-                                                            Date     : <xsl:value-of select="Date"/>
-                                                            <br/>
-                                                            Time     : <xsl:value-of select="Timeslot"/>
-                                                            <br/>
-                                                            Sender   : <xsl:value-of select="Sender"/>
-                                                            <br/>
-                                                            Recipient: <xsl:value-of select="Recipient"/>
+                                                            Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
                                                             contact  : <xsl:value-of select="Contact"/>
                                                             <br/>
-                                                            Address  : <xsl:value-of select="Address"/>
-                                                            <br/>
+                                                            Date     : <xsl:value-of select="Date"/>
+                                                            <br/>                        
+                                                            Time     : <xsl:value-of select="Timeslot"/>
+                                                            <br/>      
                                                         </p>
                                                     </td>
                                                 </tr>
@@ -191,24 +171,20 @@ Author     : kelvin tham yit hang
                         <td>
                             <table border="1"><!-- 1500 deliveries -->
                                 <tr> 
-                                    <xsl:for-each select="deliveries/Delivery">
+                                    <xsl:for-each select="deliveries/SelfPickUp">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1400 and 1500 > number(translate(Timeslot,':', ''))  ">
                                                 <tr>
                                                     <td>
                                                         <p>
-                                                            Date     : <xsl:value-of select="Date"/>
-                                                            <br/>
-                                                            Time     : <xsl:value-of select="Timeslot"/>
-                                                            <br/>
-                                                            Sender   : <xsl:value-of select="Sender"/>
-                                                            <br/>
-                                                            Recipient: <xsl:value-of select="Recipient"/>
+                                                            Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
                                                             contact  : <xsl:value-of select="Contact"/>
                                                             <br/>
-                                                            Address  : <xsl:value-of select="Address"/>
-                                                            <br/>
+                                                            Date     : <xsl:value-of select="Date"/>
+                                                            <br/>                        
+                                                            Time     : <xsl:value-of select="Timeslot"/>
+                                                            <br/>      
                                                         </p>
                                                     </td>
                                                 </tr>
@@ -221,24 +197,20 @@ Author     : kelvin tham yit hang
                         <td>
                             <table border="1"><!-- 1500 deliveries -->
                                 <tr> 
-                                    <xsl:for-each select="deliveries/Delivery">
+                                    <xsl:for-each select="deliveries/SelfPickUp">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1500 and 1600 > number(translate(Timeslot,':', ''))  ">
                                                 <tr>
                                                     <td>
                                                         <p>
-                                                            Date     : <xsl:value-of select="Date"/>
-                                                            <br/>
-                                                            Time     : <xsl:value-of select="Timeslot"/>
-                                                            <br/>
-                                                            Sender   : <xsl:value-of select="Sender"/>
-                                                            <br/>
-                                                            Recipient: <xsl:value-of select="Recipient"/>
+                                                            Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
                                                             contact  : <xsl:value-of select="Contact"/>
                                                             <br/>
-                                                            Address  : <xsl:value-of select="Address"/>
-                                                            <br/>
+                                                            Date     : <xsl:value-of select="Date"/>
+                                                            <br/>                        
+                                                            Time     : <xsl:value-of select="Timeslot"/>
+                                                            <br/>      
                                                         </p>
                                                     </td>
                                                 </tr>
@@ -251,23 +223,19 @@ Author     : kelvin tham yit hang
                         <td>
                             <table border="1"><!-- 1500 deliveries -->
                                 <tr> 
-                                    <xsl:for-each select="deliveries/Delivery">
+                                    <xsl:for-each select="deliveries/SelfPickUp">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1600 and 1700 > number(translate(Timeslot,':', ''))  ">
                                                 <td>
                                                     <p>
-                                                        Date     : <xsl:value-of select="Date"/>
-                                                        <br/>
-                                                        Time     : <xsl:value-of select="Timeslot"/>
-                                                        <br/>
-                                                        Sender   : <xsl:value-of select="Sender"/>
-                                                        <br/>
-                                                        Recipient: <xsl:value-of select="Recipient"/>
+                                                        Picker  : <xsl:value-of select="Sender"/>
                                                         <br/>
                                                         contact  : <xsl:value-of select="Contact"/>
                                                         <br/>
-                                                        Address  : <xsl:value-of select="Address"/>
-                                                        <br/>
+                                                        Date     : <xsl:value-of select="Date"/>
+                                                        <br/>                        
+                                                        Time     : <xsl:value-of select="Timeslot"/>
+                                                        <br/>      
                                                     </p>
                                                 </td>
                                             </xsl:if>                                           
@@ -276,26 +244,22 @@ Author     : kelvin tham yit hang
                                 </tr>                                        
                             </table><!-- end of table -->
                         </td>  
-                                                <td>
+                        <td>
                             <table border="1"><!-- 1500 deliveries -->
                                 <tr> 
-                                    <xsl:for-each select="deliveries/Delivery">
+                                    <xsl:for-each select="deliveries/SelfPickUp">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1700 and 1800 > number(translate(Timeslot,':', ''))  ">
                                                 <td>
                                                     <p>
-                                                        Date     : <xsl:value-of select="Date"/>
-                                                        <br/>
-                                                        Time     : <xsl:value-of select="Timeslot"/>
-                                                        <br/>
-                                                        Sender   : <xsl:value-of select="Sender"/>
-                                                        <br/>
-                                                        Recipient: <xsl:value-of select="Recipient"/>
+                                                        Picker  : <xsl:value-of select="Sender"/>
                                                         <br/>
                                                         contact  : <xsl:value-of select="Contact"/>
                                                         <br/>
-                                                        Address  : <xsl:value-of select="Address"/>
-                                                        <br/>
+                                                        Date     : <xsl:value-of select="Date"/>
+                                                        <br/>                        
+                                                        Time     : <xsl:value-of select="Timeslot"/>
+                                                        <br/>      
                                                     </p>
                                                 </td>
                                             </xsl:if>                                           
@@ -304,26 +268,22 @@ Author     : kelvin tham yit hang
                                 </tr>                                        
                             </table><!-- end of table -->
                         </td>  
-                                                <td>
+                        <td>
                             <table border="1"><!-- 1500 deliveries -->
                                 <tr> 
-                                    <xsl:for-each select="deliveries/Delivery">
+                                    <xsl:for-each select="deliveries/SelfPickUp">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1800 and 1900 > number(translate(Timeslot,':', ''))  ">
                                                 <td>
                                                     <p>
-                                                        Date     : <xsl:value-of select="Date"/>
-                                                        <br/>
-                                                        Time     : <xsl:value-of select="Timeslot"/>
-                                                        <br/>
-                                                        Sender   : <xsl:value-of select="Sender"/>
-                                                        <br/>
-                                                        Recipient: <xsl:value-of select="Recipient"/>
+                                                        Picker  : <xsl:value-of select="Sender"/>
                                                         <br/>
                                                         contact  : <xsl:value-of select="Contact"/>
                                                         <br/>
-                                                        Address  : <xsl:value-of select="Address"/>
-                                                        <br/>
+                                                        Date     : <xsl:value-of select="Date"/>
+                                                        <br/>                        
+                                                        Time     : <xsl:value-of select="Timeslot"/>
+                                                        <br/>      
                                                     </p>
                                                 </td>
                                             </xsl:if>                                           

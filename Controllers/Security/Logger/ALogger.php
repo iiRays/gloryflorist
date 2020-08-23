@@ -5,9 +5,6 @@
 
 abstract class ALogger {
   
-  function __construct() {
-  }
-  
   public function validLogger($extra,$fileinfo) {
   }
   
