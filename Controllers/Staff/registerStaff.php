@@ -47,7 +47,6 @@ if(count($validator->getError())>0){
     
     // Redirect with error message
     Quick::redirect("/Views/registerStaff.php?errors=" . $errorStr);
-    echo var_dump($validator);
     return;
 }
 
