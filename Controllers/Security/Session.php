@@ -2,8 +2,9 @@
 
 // Author : Johann Lee Jia Xuan
 
-require_once(__DIR__ . "/../Util/Cart.php");
+//require_once(__DIR__ . "/../Util/Cart.php");
 require_once(__DIR__ . "/../Util/CartSaver.php");
+require_once(__DIR__ . "/../Util/CartAdapter.php");
 
 class Session {
 
@@ -84,10 +85,10 @@ class Session {
         R::store($user);
 
         // RYAN'S WORK
-        $cart = new Cart();
+        $cartAdapter = new CartAdapter();
         $cartSaver = new CartSaver();
 
-        self::set("cart", $cart);
+        self::set("cartAdapter", $cartAdapter);
         self::set("cartSaver", $cartSaver);
     }
 

@@ -40,9 +40,9 @@ Authorize::onlyAllow("customer");
                         R::setup('mysql:host=localhost;dbname=flowerdb', 'root', '');
                         
                         // get cart from session
-                        $cart = Session::get("cart");
+                        $cartAdapter = Session::get("cartAdapter");
                         
-                        foreach ($cart->items as $item) {
+                        foreach ($cartAdapter->getItems() as $item) {
                             echo "<div class='item'>
                                     <img src='".$item->arrangement->image_url."'>
                                     <input type='textbox' name='quantity' class='quantity' value='".$item->quantity."'>

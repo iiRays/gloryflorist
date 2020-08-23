@@ -4,7 +4,15 @@ include __DIR__."/../Util/Item.php";
 require_once(__DIR__."/../Security/Session.php");
 
 class Cart {
-    public $items = [];
+    private $items = [];
+    
+    public function getItems() {
+        return $this->items;
+    }
+    
+    public function setItems() {
+        $this->items = items;
+    }
     
     public function addItem($id, $quantity) {
         $arrangement = R::load('arrangement', $id);
@@ -47,16 +55,6 @@ class Cart {
             $orderItem->order_id = $order->id;
             R::store($orderItem);
             
-            $orderItem = R::dispense("orderhistory");
-            $orderItem->name = $item->arrangement->name;
-            $orderItem->price = $item->arrangement->price;
-            $orderItem->image_url = $item->arrangement->image_url;
-            $orderItem->stalks = $item->arrangement->stalks;
-            R::store($orderItem);
         }
-    }
-    
-    public function save() {
-        Session::set("cart", $this);
     }
 }

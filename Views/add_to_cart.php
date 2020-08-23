@@ -5,13 +5,13 @@ include "../Controllers/Util/DB.php";
 require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Security/ErrorHandler.php");
 require_once("../Controllers/Security/Validator.php");
-require_once("../Controllers/Util/Cart.php");
+require_once("../Controllers/Util/CartAdapter.php");
 require_once("../Controllers/Util/Item.php");
 
 DB::connect();
 
 // get cart from session
-$cart = Session::get("cart");
+$cartAdapter = Session::get("cartAdapter");
 
 // get item id
 $itemId = $_GET['id'];
@@ -23,27 +23,25 @@ if (!$errorHandler->isAvailableArrangement($itemId)) {
 }
 
 // validate item not already in cart
-if ($cart->itemExists($itemId)) {
+if ($cartAdapter->itemExists($itemId)) {
     $errorHandler->addError("Arrangement #" . $itemId . " has already been added to your cart.");
 }
 
 if (!$errorHandler->errorsExist()) {
     // backup cart
-    $cartSaver = Session::get("cartSaver");
-    $cartSaver->backup($cart);
-    Session::set("cartSaver", $cartSaver);
+    $cartAdapter->backup();
 
     // create updated cart
-    $newCart = new Cart();
-    foreach ($cart->items as $item) {
-        $newCart->addItem($item->arrangement->id, $item->quantity);
+    $newCartAdapter = new CartAdapter();
+    foreach ($cartAdapter->getItems() as $item) {
+        $newCartAdapter->addItem($item->arrangement->id, $item->quantity);
     }
 
     // add new product to updated cart
-    $newCart->addItem($itemId, 1);
+    $newCartAdapter->addItem($itemId, 1);
 
     // save cart to session
-    $newCart->save();
+    $newCartAdapter->save();
 } else {
     // update error in session
     Session::set("error", $errorHandler->getErrors());

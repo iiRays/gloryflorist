@@ -14,20 +14,20 @@ DB::connect();
 //$targetDate = $_POST['targetDate'];
 
 // get cart from session
-$cart = Session::get("cart");
+$cartAdapter = Session::get("cartAdapter");
 
 // calculate grand total
 $grandTotal = 0;
-foreach ($cart->items as $item) {
+foreach ($cartAdapter->getItems() as $item) {
     $grandTotal += $item->arrangement->price * $item->quantity;
 }
 
 // create order
-$cart->makeOrder($grandTotal, "Pending");
+$cartAdapter->makeOrder($grandTotal, "Pending");
 
 
 // reset cart and cartsaver in session
-$_SESSION["cart"] = new Cart();
+$_SESSION["cartAdapter"] = new CartAdapter();
 $_SESSION["cartSaver"] = new CartSaver();
 
 // redirect to order completion page
