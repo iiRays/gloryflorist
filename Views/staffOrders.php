@@ -42,7 +42,7 @@ Authorize::onlyAllow("staff");
                         // $deadline =(new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->targetDate))))->diff(Quick::getCurrentTime())->format("%dd %hh %im");
                         date_default_timezone_set('Asia/Singapore');
                         $now = Quick::getCurrentTime();
-                        $deadlineDate = new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->targetDate)));
+                        $deadlineDate = new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->delivery->date)));
                         $deadlineDateStr = date_format($deadlineDate, "d/m/y h:ia");
                         $deadline = date_diff($now, $deadlineDate, false)->format(" %r%dd %hh %im left");
 

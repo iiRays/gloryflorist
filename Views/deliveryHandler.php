@@ -21,6 +21,8 @@ require_once __DIR__ . '\..\Controllers\Util\rb.php';
 //input validation
 require_once __DIR__ . '\..\Controllers\Security\Validator.php';
 
+// session usage
+require_once __DIR__ . '\..\Controllers\Security\Session.php';
 
 
 
@@ -78,7 +80,8 @@ if (isset($_POST['deliveryType']) && isset($_POST['date']) && isset($_POST['time
             $delivery->sendercontact = $sendercontact;
             $delivery->date = $date;
             $delivery->timeslot = $time;
-            $id = R::store($delivery);
+           // $id = R::store($delivery); DONT STORE YET
+            Session::set("delivery", $delivery);
             echo "store into databse already";
 
             //redirect to another page and die this page

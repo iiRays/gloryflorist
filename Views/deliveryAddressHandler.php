@@ -18,9 +18,10 @@ require_once __DIR__ . '\..\Controllers\Util\Quick.php';
 require_once __DIR__ . '\..\Controllers\Util\DB.php';
 require_once __DIR__ . '\..\Controllers\Util\rb.php';
 
+
 //input validation
 require_once __DIR__ . '\..\Controllers\Security\Validator.php';
-
+require_once __DIR__ . '\..\Controllers\Security\Session.php';
 
 if (isset($_POST['recipientname']) && isset($_POST['company']) && isset($_POST['address']) && isset($_POST['apartment-suite-unit-etc']) && isset($_POST['city-town']) && isset($_POST['postcode']) && isset($_POST['recipientcontact'])) {
  
@@ -86,8 +87,8 @@ if (isset($_POST['recipientname']) && isset($_POST['company']) && isset($_POST['
         $delivery->postcode = $postcode;
         $delivery->recipient = $recipient;
         $delivery->recipientcontact = $recipientcontact;
-        $id = R::store($delivery);
-
+//        $id = R::store($delivery); DONT STORE YET
+        Session::set("delivery", $delivery);
 
 
         //redirect to another page and die this page
