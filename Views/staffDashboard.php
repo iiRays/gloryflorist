@@ -40,6 +40,10 @@ $orderCount = count(R::find("orders", "status != ? AND status != ?", ["done", "d
                         <div id="counter"><?php echo $orderCount > 0 ? $orderCount : ""; // Show order count only if more than 0 ?></div>
                     </div>
                     <br/><br/><br/>
+                    <div class="item" id="delivery">
+                        Manage delivery
+                    </div>
+                    <br/><br/><br/>
                     <?php
                     if (Authorize::isUserA("admin")) {
 
@@ -80,6 +84,9 @@ $orderCount = count(R::find("orders", "status != ? AND status != ?", ["done", "d
         });
         $("#user").click(function () {
             window.location.href = "../Controllers/Util/Jxml/viewUsers.php";
+        });
+        $("#delivery").click(function () {
+            window.location.href = "delivery%28Staff%29.php";
         });
     </script>
 </html>
