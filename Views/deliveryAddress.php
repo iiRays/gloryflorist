@@ -50,7 +50,7 @@ Authorize::onlyAllow("customer"); //temperory disable for better coding envir
                             </label>
                         </div>
                         <div class="input">           
-                            <input type="text" name="apartment-suite-unit-etc" required="off" autocomplete="false" value="<?php echo isset($_POST['apartment-suite-unit-etc']) ? htmlspecialchars($_POST['apartment-suite-unit-etc'], ENT_QUOTES) : ''; ?>"> 
+                            <input type="text" name="apartment-suite-unit-etc" required="false" autocomplete="false" value="<?php echo isset($_POST['apartment-suite-unit-etc']) ? htmlspecialchars($_POST['apartment-suite-unit-etc'], ENT_QUOTES) : ''; ?>"> 
                             <label for="apartment-suite-unit-etc" class="label-name">
                                 <span class="content-name">Apartment, suite, unit etc. (optional)</span>
                             </label>
