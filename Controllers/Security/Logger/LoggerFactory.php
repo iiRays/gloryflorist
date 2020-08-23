@@ -25,7 +25,7 @@ class LoggerFactory {
             return new InputValidationLogger();
 
         if (strcasecmp($this->loggerType, "AUTHENTICATION") == 0)
-            return new AuthencationLogger();
+            return new AuthencationaLogger();
 
         if (strcasecmp($this->loggerType, "UNCAUGHTERROR") == 0)
             return new UncaughtErrorLogger();

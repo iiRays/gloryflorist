@@ -35,3 +35,4 @@ function get_fileinfo() {
     }
     return $fileinfo;
 }
+

@@ -3,19 +3,23 @@
   Author: kelvin tham yit hang
   */
 require_once __DIR__ . '\..\Controllers\Security\Logger\LoggerFactory.php';
+require_once __DIR__ . '\..\Controllers\Security\Logger\Tools.php';
 $logger = new LoggerFactory("UNCAUGHTERROR");
 $logger->createLogger()->invalidLogger(null,null);
 
 
+echo "<h1>badpage.php</h1>";
+$item = new Gay();
 
-require_once '../Controllers/Util/logging/vendor/autoload.php';
-require_once '../Controllers/Util/inputValidationLogger.php';
+//
+//require_once '../Controllers/Util/logging/vendor/autoload.php';
+//require_once '../Controllers/Util/inputValidationLogger.php';
 
 
 
-echo "<h1>badpage.php</h>";
 
-echo $a;
+
+
 /*use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;

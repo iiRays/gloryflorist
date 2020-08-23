@@ -12,7 +12,7 @@ use Monolog\Formatter\JsonFormatter;
 
 date_default_timezone_set('Asia/Kuala_Lumpur');
 
-class AuthencationaLogger extends ALogger {
+class AuthencationLogger extends ALogger {
     /* consider validLogger and invalidLogger for both fail and success cases
      */
 

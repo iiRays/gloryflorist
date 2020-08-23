@@ -50,6 +50,7 @@ class UncaughtErrorLogger extends ALogger{
         //handle the uncaught/unexpected error
         //store to database 
         set_error_handler(array($this, 'send_error_log_via_database'));
+        die("Some error eccured and are logged, please try again later..");
     }
 
     public function send_error_log_via_database($error_type, $error_string, $error_file, $error_line) {
@@ -60,7 +61,7 @@ class UncaughtErrorLogger extends ALogger{
         $error->error_file = $error_file;
         $error->error_line = $error_line;
         $id = R::store($error);
-        die("Some error eccured and are logged, please try again later..");
+
     }
 
     public function fetch_errors() {
