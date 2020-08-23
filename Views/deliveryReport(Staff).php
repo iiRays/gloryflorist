@@ -31,7 +31,6 @@ Authorize::onlyAllow("staff"); //temperory disable for better coding envir
             <div id='content'>
                 <ol>
                     <!--For self entry delivery or pickup -->
-                    <li><a href="../Views/delivery.php">Create New Delivery or Pickup</a></li>
                     <li><a href="../testFiles/deliveryReport(Staff).php">View Delivery and Pickup summary report</a></li>
                     <li><a href="../testFiles/delivery(Staff).php" name="list">View Delivery list</a></li>
                     <li><a href="../Views/pickup(Staff).php" name="list">View Pickup list</a></li>

@@ -20,11 +20,11 @@ if (!empty($_GET['start']) && !empty($_GET['end'])) {
     response(400, "Invalid Request", NULL);
 }
 
-function response($status, $hasData, $deliveryList) {
+function response($status, $hasData, $data) {
     header("HTTP/1.1 " . $status);
     $response['status'] = $status;
     $response['hasData'] = $hasData;
-    $response['deliveryList'] = $deliveryList;
+    $response['data'] = $data;
     $json_response = json_encode($response);
     echo $json_response;
 }
