@@ -12,10 +12,8 @@ require_once ('xmlClass.php');
 class DOMParser {
 
     private $flowers;
-    private $xlstProc;
 
     public function __construct($xmlFile, $xslFile) {
-        $this->xlstProc = new XSLTProcessor();
         $this->flowers = new SplObjectStorage();
         $this->readFromXML($xmlFile);
         $this->display($xmlFile, $xslFile);
