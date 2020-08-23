@@ -3,7 +3,7 @@
 require_once ("CartInterface.php");
 require_once ("Cart.php");
 
-class CartAdapter {
+class CartAdapter implements CartInterface {
     private $cart;
     
     public function __construct() {
