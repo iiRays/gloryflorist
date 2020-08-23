@@ -134,7 +134,7 @@ $arrangement5->stalks = 101;
 //Admin
 $user = R::dispense("user");
 $user->email="johannljx@gmail.com";
-$user->password="$2y$10$9.xw.GaAybqd06T/CT8WYudE3oieVNJV.P3v02uNaUqG5ci8z/wKq"; // password = 123
+$user->password='$2y$10$RSgNqn5EzNbC3d69yxWj/.rMkJojpp84Ag8qDoOSk8im/bFvZ0bae'; // password = admin123
 $user->name="Johann";
 $user->role="admin";
 $user->status="active";
