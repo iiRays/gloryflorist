@@ -8,13 +8,8 @@
 //echo "ahahhahaa" .__FILE__ ."\..\Views\Account.php";
 //require_once (dirname(__FILE__) ."\..\Views\Account.php");
 //require_once (__DIR__ ."\..\Views\Account.php");
-require_once '/../Security/Logger/DatabaseLogger.php';
-$edb = new DatabaseLogger();
-//$edb->sendError_Log();
-$edb = new EmailLogger();
-$edb->sendError_Log();
-
-require_once 'DB.php';
+require_once "../Controllers/Util/rb.php";
+require_once "../Controllers/Util/DB.php";
 
 
 //Establish the database connnection
@@ -45,11 +40,12 @@ function createDeliveryXMLfile($deliveriesArray) {
         $Id = $deliveriesArray[$i]['id'];
         $CardMessage = $deliveriesArray[$i]['cardmessage'];
         $Sender = $deliveriesArray[$i]['sender'];
-        $Contact = $deliveriesArray[$i]['contact'];
+        $Sendercontact = $deliveriesArray[$i]['sendercontact'];
         $Method = $deliveriesArray[$i]['method'];
+        $Date = $deliveriesArray[$i]['date'];
+        $Timeslot = $deliveriesArray[$i]['timeslot'];
 
         //delivery info
-        $Date = $deliveriesArray[$i]['date'];
         $Address = $deliveriesArray[$i]['address'];
         $Deliveryfee = $deliveriesArray[$i]['deliveryfee'];
         $Company = $deliveriesArray[$i]['company'];
@@ -57,16 +53,14 @@ function createDeliveryXMLfile($deliveriesArray) {
         $City_town = $deliveriesArray[$i]['city_town'];
         $Postcode = $deliveriesArray[$i]['postcode'];
         $Recipient = $deliveriesArray[$i]['recipient'];
-        $Timeslot = $deliveriesArray[$i]['timeslot'];
+        $Recipientcontact = $deliveriesArray[$i]['recipientcontact'];
+
 
 
         //for delivery 
         if (strtoupper($Method) == strtoupper("DELIVERY")) {
 
             $delivery = $dom->createElement('Delivery');
-
-            $date = $dom->createElement('Date', $Date);
-            $delivery->appendChild($date);
 
             $address = $dom->createElement('Address', $Address);
             $delivery->appendChild($address);
@@ -89,8 +83,8 @@ function createDeliveryXMLfile($deliveriesArray) {
             $recipient = $dom->createElement('Recipient', $Recipient);
             $delivery->appendChild($recipient);
 
-            $timeslot = $dom->createElement('Timeslot', $Timeslot);
-            $delivery->appendChild($timeslot);
+            $recipientcontact = $dom->createElement('Recipientcontact', $Recipientcontact);
+            $delivery->appendChild($recipientcontact);
         }
         //for selfpickup
         else {
@@ -98,14 +92,20 @@ function createDeliveryXMLfile($deliveriesArray) {
         }
         //general info
         $delivery->setAttribute('Id', $Id);
-        $cardmessage = $dom->createElement('CardMessage', $CardMessage);
-        $delivery->appendChild($cardmessage);
-
         $sender = $dom->createElement('Sender', $Sender);
         $delivery->appendChild($sender);
 
-        $contact = $dom->createElement('Contact', $Contact);
-        $delivery->appendChild($contact);
+        $sendercontact = $dom->createElement('Sendercontact', $Sendercontact);
+        $delivery->appendChild($sendercontact);
+
+        $date = $dom->createElement('Date', $Date);
+        $delivery->appendChild($date);
+
+        $timeslot = $dom->createElement('Timeslot', $Timeslot);
+        $delivery->appendChild($timeslot);
+
+        $cardmessage = $dom->createElement('CardMessage', $CardMessage);
+        $delivery->appendChild($cardmessage);
 
         $method = $dom->createElement('Method', $Method);
         $delivery->appendChild($method);

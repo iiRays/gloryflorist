@@ -28,14 +28,15 @@ Author     : kelvin tham yit hang
                 <table border="1">
                     <tr>
                         <th>Date</th>
+                        <th>Timeslot</th>
                         <th>Address</th>
                         <th>Asset type</th>
                         <th>City/town</th>
                         <th>Postcode</th>
                         <th>Sender</th>
+                        <th>Sendercontact</th>
                         <th>Recipient</th>
-                        <th>Contact</th>
-                        <th>Timeslot</th>
+                        <th>Recipientcontact</th>    
                     </tr>
                     <xsl:for-each select="deliveries/Delivery">
                         <xsl:variable name="start" select="php:function('getStartDate')"/>
@@ -48,6 +49,9 @@ Author     : kelvin tham yit hang
                             <tr>
                                 <td>
                                     <xsl:value-of select="Date"/>
+                                </td>
+                                <td>
+                                    <xsl:value-of select="Timeslot"/>
                                 </td>
                                 <td>
                                     <xsl:value-of select="Address"/>
@@ -65,13 +69,13 @@ Author     : kelvin tham yit hang
                                     <xsl:value-of select="Sender"/>
                                 </td>
                                 <td>
+                                    <xsl:value-of select="Sendercontact"/>
+                                </td>
+                                <td>
                                     <xsl:value-of select="Recipient"/>
                                 </td>
                                 <td>
-                                    <xsl:value-of select="Contact"/>
-                                </td>
-                                <td>
-                                    <xsl:value-of select="Timeslot"/>
+                                    <xsl:value-of select="Recipientcontact"/>
                                 </td>
                             </tr>
                         </xsl:if>
@@ -111,7 +115,7 @@ Author     : kelvin tham yit hang
                                     <xsl:value-of select="Sender"/>
                                 </td>
                                 <td>
-                                    <xsl:value-of select="Contact"/>
+                                    <xsl:value-of select="Sendercontact"/>
                                 </td>
                                 <td>
                                     <xsl:value-of select="Timeslot"/>

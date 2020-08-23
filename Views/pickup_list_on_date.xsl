@@ -49,7 +49,7 @@ Author     : kelvin tham yit hang
                                                         <p>
                                                             Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            contact  : <xsl:value-of select="Sendercontact"/>
                                                             <br/>
                                                             Date     : <xsl:value-of select="Date"/>
                                                             <br/>                        
@@ -75,7 +75,7 @@ Author     : kelvin tham yit hang
                                                         <p>
                                                             Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            contact  : <xsl:value-of select="Sendercontact"/>
                                                             <br/>
                                                             Date     : <xsl:value-of select="Date"/>
                                                             <br/>                        
@@ -101,7 +101,7 @@ Author     : kelvin tham yit hang
                                                         <p>
                                                             Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            contact  : <xsl:value-of select="Sendercontact"/>
                                                             <br/>
                                                             Date     : <xsl:value-of select="Date"/>
                                                             <br/>                        
@@ -127,7 +127,7 @@ Author     : kelvin tham yit hang
                                                         <p>
                                                             Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            contact  : <xsl:value-of select="Sendercontact"/>
                                                             <br/>
                                                             Date     : <xsl:value-of select="Date"/>
                                                             <br/>                        
@@ -153,7 +153,7 @@ Author     : kelvin tham yit hang
                                                         <p>
                                                             Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            contact  : <xsl:value-of select="Sendercontact"/>
                                                             <br/>
                                                             Date     : <xsl:value-of select="Date"/>
                                                             <br/>                        
@@ -179,7 +179,7 @@ Author     : kelvin tham yit hang
                                                         <p>
                                                             Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            contact  : <xsl:value-of select="Sendercontact"/>
                                                             <br/>
                                                             Date     : <xsl:value-of select="Date"/>
                                                             <br/>                        
@@ -205,7 +205,7 @@ Author     : kelvin tham yit hang
                                                         <p>
                                                             Picker  : <xsl:value-of select="Sender"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            contact  : <xsl:value-of select="Sendercontact"/>
                                                             <br/>
                                                             Date     : <xsl:value-of select="Date"/>
                                                             <br/>                        
@@ -230,7 +230,7 @@ Author     : kelvin tham yit hang
                                                     <p>
                                                         Picker  : <xsl:value-of select="Sender"/>
                                                         <br/>
-                                                        contact  : <xsl:value-of select="Contact"/>
+                                                        contact  : <xsl:value-of select="Sendercontact"/>
                                                         <br/>
                                                         Date     : <xsl:value-of select="Date"/>
                                                         <br/>                        
@@ -254,7 +254,7 @@ Author     : kelvin tham yit hang
                                                     <p>
                                                         Picker  : <xsl:value-of select="Sender"/>
                                                         <br/>
-                                                        contact  : <xsl:value-of select="Contact"/>
+                                                        contact  : <xsl:value-of select="Sendercontact"/>
                                                         <br/>
                                                         Date     : <xsl:value-of select="Date"/>
                                                         <br/>                        
@@ -278,7 +278,7 @@ Author     : kelvin tham yit hang
                                                     <p>
                                                         Picker  : <xsl:value-of select="Sender"/>
                                                         <br/>
-                                                        contact  : <xsl:value-of select="Contact"/>
+                                                        contact  : <xsl:value-of select="Sendercontact"/>
                                                         <br/>
                                                         Date     : <xsl:value-of select="Date"/>
                                                         <br/>                        

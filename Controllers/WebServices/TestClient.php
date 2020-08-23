@@ -25,8 +25,9 @@ if (isset($_POST['submit'])) {
         echo "<p>";
         echo "Id          : ".$a->id          ."<br/>";
         echo "Sender      : ".$a->sender      ."<br/>";
+        echo "Sendercontact     : ".$a->sendercontact     ."<br/>";
         echo "Recipient   : ".$a->recipient   ."<br/>";
-        echo "Contact     : ".$a->contact     ."<br/>";
+        echo "Recipientcontact     : ".$a->recipientcontact     ."<br/>";
         echo "Method      : ".$a->method      ."<br/>";
         echo "Date        : ".$a->date        ."<br/>";
         echo "Timeslot    : ".$a->timeslot    ."<br/>";

@@ -53,9 +53,11 @@ Author     : kelvin tham yit hang
                                                             <br/>
                                                             Sender   : <xsl:value-of select="Sender"/>
                                                             <br/>
+                                                            Sender contact   : <xsl:value-of select="Sendercontact"/>
+                                                            <br/>
                                                             Recipient: <xsl:value-of select="Recipient"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            Recipient contact  : <xsl:value-of select="Recipientcontact"/>
                                                             <br/>
                                                             Address  : <xsl:value-of select="Address"/>
                                                             <br/>
@@ -83,9 +85,11 @@ Author     : kelvin tham yit hang
                                                             <br/>
                                                             Sender   : <xsl:value-of select="Sender"/>
                                                             <br/>
+                                                            Sender contact   : <xsl:value-of select="Sendercontact"/>
+                                                            <br/>
                                                             Recipient: <xsl:value-of select="Recipient"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            Recipient contact  : <xsl:value-of select="Recipientcontact"/>
                                                             <br/>
                                                             Address  : <xsl:value-of select="Address"/>
                                                             <br/>
@@ -113,9 +117,11 @@ Author     : kelvin tham yit hang
                                                             <br/>
                                                             Sender   : <xsl:value-of select="Sender"/>
                                                             <br/>
+                                                            Sender contact   : <xsl:value-of select="Sendercontact"/>
+                                                            <br/>
                                                             Recipient: <xsl:value-of select="Recipient"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            Recipient contact  : <xsl:value-of select="Recipientcontact"/>
                                                             <br/>
                                                             Address  : <xsl:value-of select="Address"/>
                                                             <br/>
@@ -143,9 +149,11 @@ Author     : kelvin tham yit hang
                                                             <br/>
                                                             Sender   : <xsl:value-of select="Sender"/>
                                                             <br/>
+                                                            Sender contact   : <xsl:value-of select="Sendercontact"/>
+                                                            <br/>
                                                             Recipient: <xsl:value-of select="Recipient"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            Recipient contact  : <xsl:value-of select="Recipientcontact"/>
                                                             <br/>
                                                             Address  : <xsl:value-of select="Address"/>
                                                             <br/>
@@ -173,9 +181,11 @@ Author     : kelvin tham yit hang
                                                             <br/>
                                                             Sender   : <xsl:value-of select="Sender"/>
                                                             <br/>
+                                                            Sender contact   : <xsl:value-of select="Sendercontact"/>
+                                                            <br/>
                                                             Recipient: <xsl:value-of select="Recipient"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            Recipient contact  : <xsl:value-of select="Recipientcontact"/>
                                                             <br/>
                                                             Address  : <xsl:value-of select="Address"/>
                                                             <br/>
@@ -203,9 +213,11 @@ Author     : kelvin tham yit hang
                                                             <br/>
                                                             Sender   : <xsl:value-of select="Sender"/>
                                                             <br/>
+                                                            Sender contact   : <xsl:value-of select="Sendercontact"/>
+                                                            <br/>
                                                             Recipient: <xsl:value-of select="Recipient"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            Recipient contact  : <xsl:value-of select="Recipientcontact"/>
                                                             <br/>
                                                             Address  : <xsl:value-of select="Address"/>
                                                             <br/>
@@ -233,9 +245,11 @@ Author     : kelvin tham yit hang
                                                             <br/>
                                                             Sender   : <xsl:value-of select="Sender"/>
                                                             <br/>
+                                                            Sender contact   : <xsl:value-of select="Sendercontact"/>
+                                                            <br/>
                                                             Recipient: <xsl:value-of select="Recipient"/>
                                                             <br/>
-                                                            contact  : <xsl:value-of select="Contact"/>
+                                                            Recipient contact  : <xsl:value-of select="Recipientcontact"/>
                                                             <br/>
                                                             Address  : <xsl:value-of select="Address"/>
                                                             <br/>
@@ -254,78 +268,90 @@ Author     : kelvin tham yit hang
                                     <xsl:for-each select="deliveries/Delivery">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1600 and 1700 > number(translate(Timeslot,':', ''))  ">
-                                                <td>
-                                                    <p>
-                                                        Date     : <xsl:value-of select="Date"/>
-                                                        <br/>
-                                                        Time     : <xsl:value-of select="Timeslot"/>
-                                                        <br/>
-                                                        Sender   : <xsl:value-of select="Sender"/>
-                                                        <br/>
-                                                        Recipient: <xsl:value-of select="Recipient"/>
-                                                        <br/>
-                                                        contact  : <xsl:value-of select="Contact"/>
-                                                        <br/>
-                                                        Address  : <xsl:value-of select="Address"/>
-                                                        <br/>
-                                                    </p>
-                                                </td>
+                                                <tr>
+                                                    <td>
+                                                        <p>
+                                                            Date     : <xsl:value-of select="Date"/>
+                                                            <br/>
+                                                            Time     : <xsl:value-of select="Timeslot"/>
+                                                            <br/>
+                                                            Sender   : <xsl:value-of select="Sender"/>
+                                                            <br/>
+                                                            Sender contact   : <xsl:value-of select="Sendercontact"/>
+                                                            <br/>
+                                                            Recipient: <xsl:value-of select="Recipient"/>
+                                                            <br/>
+                                                            Recipient contact  : <xsl:value-of select="Recipientcontact"/>
+                                                            <br/>
+                                                            Address  : <xsl:value-of select="Address"/>
+                                                            <br/>
+                                                        </p>
+                                                    </td>
+                                                </tr>
                                             </xsl:if>                                           
                                         </xsl:if>   
                                     </xsl:for-each> 
                                 </tr>                                        
                             </table><!-- end of table -->
                         </td>  
-                                                <td>
+                        <td>
                             <table border="1"><!-- 1500 deliveries -->
                                 <tr> 
                                     <xsl:for-each select="deliveries/Delivery">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1700 and 1800 > number(translate(Timeslot,':', ''))  ">
-                                                <td>
-                                                    <p>
-                                                        Date     : <xsl:value-of select="Date"/>
-                                                        <br/>
-                                                        Time     : <xsl:value-of select="Timeslot"/>
-                                                        <br/>
-                                                        Sender   : <xsl:value-of select="Sender"/>
-                                                        <br/>
-                                                        Recipient: <xsl:value-of select="Recipient"/>
-                                                        <br/>
-                                                        contact  : <xsl:value-of select="Contact"/>
-                                                        <br/>
-                                                        Address  : <xsl:value-of select="Address"/>
-                                                        <br/>
-                                                    </p>
-                                                </td>
+                                                <tr>                                              
+                                                    <td>
+                                                        <p>
+                                                            Date     : <xsl:value-of select="Date"/>
+                                                            <br/>
+                                                            Time     : <xsl:value-of select="Timeslot"/>
+                                                            <br/>
+                                                            Sender   : <xsl:value-of select="Sender"/>
+                                                            <br/>
+                                                            Sender contact   : <xsl:value-of select="Sendercontact"/>
+                                                            <br/>
+                                                            Recipient: <xsl:value-of select="Recipient"/>
+                                                            <br/>
+                                                            Recipient contact  : <xsl:value-of select="Recipientcontact"/>
+                                                            <br/>
+                                                            Address  : <xsl:value-of select="Address"/>
+                                                            <br/>
+                                                        </p>
+                                                    </td>
+                                                </tr> 
                                             </xsl:if>                                           
                                         </xsl:if>   
                                     </xsl:for-each> 
                                 </tr>                                        
                             </table><!-- end of table -->
                         </td>  
-                                                <td>
+                        <td>
                             <table border="1"><!-- 1500 deliveries -->
                                 <tr> 
                                     <xsl:for-each select="deliveries/Delivery">
                                         <xsl:if test="Date = php:function('getSpecifiedDate')">
                                             <xsl:if test="number(translate(Timeslot,':', '')) >= 1800 and 1900 > number(translate(Timeslot,':', ''))  ">
-                                                <td>
-                                                    <p>
-                                                        Date     : <xsl:value-of select="Date"/>
-                                                        <br/>
-                                                        Time     : <xsl:value-of select="Timeslot"/>
-                                                        <br/>
-                                                        Sender   : <xsl:value-of select="Sender"/>
-                                                        <br/>
-                                                        Recipient: <xsl:value-of select="Recipient"/>
-                                                        <br/>
-                                                        contact  : <xsl:value-of select="Contact"/>
-                                                        <br/>
-                                                        Address  : <xsl:value-of select="Address"/>
-                                                        <br/>
-                                                    </p>
-                                                </td>
+                                                <tr>                                              
+                                                    <td>
+                                                        <p>
+                                                            Date     : <xsl:value-of select="Date"/>
+                                                            <br/>
+                                                            Time     : <xsl:value-of select="Timeslot"/>
+                                                            <br/>
+                                                            Sender   : <xsl:value-of select="Sender"/>
+                                                            <br/>
+                                                            Sender contact   : <xsl:value-of select="Sendercontact"/>
+                                                            <br/>
+                                                            Recipient: <xsl:value-of select="Recipient"/>
+                                                            <br/>
+                                                            Recipient contact  : <xsl:value-of select="Recipientcontact"/>
+                                                            <br/>
+                                                            Address  : <xsl:value-of select="Address"/>
+                                                            <br/>
+                                                        </p>
+                                                    </td>
+                                                </tr> 
                                             </xsl:if>                                           
                                         </xsl:if>   
                                     </xsl:for-each> 
