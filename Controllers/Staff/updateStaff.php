@@ -15,8 +15,10 @@ $staffCount = (int) Quick::getPostData("staffCount");
 $user = Session::get("user");
 $dbUser = R::load("user", $user->id);
 
-if($dbUser->role != "admin" || $dbUser->role != "inactive"){
+if($dbUser->role != "admin" || $dbUser->status != "active"){
+    
     Quick::redirect("Views/login.php");
+    die();
 }
 
 
