@@ -116,7 +116,6 @@ class Session {
     // Logout the user based on ID
     public static function logoutRemoteUser($id) {
         $user = R::load("user", $id);
-        echo var_dump($user);
 
         // If this user exists in DB and is logged in
         if ($user && $user->sessionToken) {

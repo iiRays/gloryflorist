@@ -34,12 +34,12 @@ if (isset($_POST['register'])) {
     if (empty($password_1 && $password_2)) {
         array_push($errors, "Password is required");
     }
-    $output ="";
+    $output = "";
     $cp = Password::checkPassword($password_1, $password_2, $output);
-    if($cp != ""){
+    if ($cp != "") {
         array_push($errors, $cp);
     }
-    
+
     if ($password_1 != $password_2) {
         array_push($errors, "Password does not match");
     }
@@ -64,7 +64,7 @@ if (isset($_POST['register'])) {
         R::store($user);
         //send email to registered user through email
         Email::send($email, "Welcome to Glory Florist !", "Hi $name ! Thanks for signing up to Glory Florist. Hope you have a fragrant day!"
-            . "Click <a href='https://localhost/GloryFlorist/Views/home.php'>HERE</a> to navigate to our website! ");
+                . "Click <a href='https://localhost/GloryFlorist/Views/home.php'>HERE</a> to navigate to our website! ");
         header('location: login.php');
     }
 }
@@ -75,13 +75,15 @@ if (isset($_POST['login'])) {
     $email = Quick::getPostData("email");
     $password = Quick::getPostData("password_1");
     $user = R::findOne("user", "email = ?", [$email]);
-    
+
 
     //validation
     if (empty($email)) {
         array_push($errors, "Email is required");
     } else if ($user == null) {
         array_push($errors, "Email is incorrect");
+    } else if ($user->status == "inactive") {
+        array_push($errors, "This account is deactivated.");
     } else if ($user->status == "invalid") {
         array_push($errors, "Your account is locked (Too many attempt). Recovery email sending.");
         Password::activateAccMail($user);
@@ -94,7 +96,7 @@ if (isset($_POST['login'])) {
         Password::addAttempt($user);
         Password::disableAcc($user);
     }
-    
+
     //if no more errors occur
     if (count($errors) == 0) {
         $password = Password::passVerify($password, $user['password']);

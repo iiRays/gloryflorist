@@ -1,15 +1,26 @@
 <?php
 
 require_once("../Util/Quick.php");
+require_once("../Util/DB.php");
 require_once("../Util/rb.php");
 require_once("../Security/Session.php");
 require_once("../Security/Authorize.php");
 
 Authorize::onlyAllow("admin");
 
-R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql or mariaDB
+DB::connect();
 
 $staffCount = (int) Quick::getPostData("staffCount");
+
+// To prevent unauthorized users, fetch from DB 
+$user = Session::get("user");
+$dbUser = R::load("user", $user->id);
+
+if($dbUser->role != "admin" || $dbUser->status != "active"){
+    
+    Quick::redirect("Views/login.php");
+    die();
+}
 
 
 for ($i = 1; $i <= $staffCount; $i++) {
@@ -31,6 +42,8 @@ for ($i = 1; $i <= $staffCount; $i++) {
     if ($staff->status != $newStatus && $staff->id != Session::get("user")->id) {
         $statusChanged = true;
         
+        Session::logoutRemoteUser($staff->id); // Logout target user
+        
         // Store a changelog object (not entity class)
         $changelog = R::dispense("changelog");
         $changelog->staffName = "[$staff->id] $staff->name";
@@ -44,6 +57,8 @@ for ($i = 1; $i <= $staffCount; $i++) {
     // Did the role change?
     if($staff->role != $newRole && $staff->id != Session::get("user")->id){
         $roleChanged = true;
+        
+        Session::logoutRemoteUser($staff->id); // Logout target user
         
         // Store a changelog object (not entity class)
         $changelog = R::dispense("changelog");
@@ -60,7 +75,7 @@ for ($i = 1; $i <= $staffCount; $i++) {
         // Update the staff in db and log him out
         R::store($staff);
         
-        Session::logoutRemoteUser($staff->id);
+        
     }
     
 }

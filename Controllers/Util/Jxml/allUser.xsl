@@ -44,8 +44,9 @@
                                 <xsl:value-of select="Status"/>
                             </td>
                         </tr>
-                        <p>Total number of user: <xsl:value-of select="count(//User/Name)"/></p>
+                        
                     </xsl:for-each>
+                    <p>Total number of user: <xsl:value-of select="count(//User/Name)"/></p>
                 </table>
             </body>
         </html>
