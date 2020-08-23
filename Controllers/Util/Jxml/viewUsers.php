@@ -1,5 +1,5 @@
 <?php
-require_once("../Controllers/Security/Authorize.php");
+require_once("../../Security/Authorize.php");
 Authorize::onlyAllow("admin");
 class viewUsers {
   

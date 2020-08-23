@@ -6,5 +6,5 @@ $logger = new LoggerFactory("UNCAUGHTERROR");
 $logger->createLogger()->invalidLogger(null, null);
 
 // Nothing wrong with this 
-echo "bb";
+echo new Gay();
 

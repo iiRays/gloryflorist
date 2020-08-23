@@ -83,7 +83,7 @@ if (isset($_POST['login'])) {
     } else if ($user == null) {
         array_push($errors, "Email is incorrect");
     } else if ($user->status == "inactive") {
-        array_push($errors, "Your account is invalid.");
+        array_push($errors, "This account is deactivated.");
     } else if ($user->status == "invalid") {
         array_push($errors, "Your account is locked (Too many attempt). Recovery email sending.");
         Password::activateAccMail($user);
