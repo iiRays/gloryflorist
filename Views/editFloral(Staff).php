@@ -50,7 +50,7 @@ $isAvailable = $floral->getAvailability($id);
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="CSS/common.css">
         <link rel="stylesheet" href="CSS/editFloral(Staff).css">
-        <title>Glory Florist : Edit Floral</title>
+        <title>Glory Florist : Edit Flower Arrangement</title>
     </head>
 
     <body>
@@ -61,7 +61,7 @@ $isAvailable = $floral->getAvailability($id);
             <div id='top'>
                 <div id='text'>
                     <a href='staffDashboard.php' id='back'>back to dashboard</a>
-                    <a id='title'>Edit Floral Arrangement</a>
+                    <a id='title'>Edit Flower Arrangement</a>
                 </div>
             </div>
 
