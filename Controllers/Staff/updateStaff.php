@@ -57,8 +57,10 @@ for ($i = 1; $i <= $staffCount; $i++) {
 
     // Did any change occur?
     if ($roleChanged || $statusChanged) {
-        // Update the staff in db
+        // Update the staff in db and log him out
         R::store($staff);
+        
+        Session::logoutRemoteUser($staff->id);
     }
     
 }

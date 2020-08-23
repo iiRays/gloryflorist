@@ -79,10 +79,10 @@ class Password {
         //instantiate the loggerFactory
         $e = new LoggerFactory("AUTHENTICATION");
         //log the addattempt activity
-        $e->createLogger()->invalidLogger($user."[action]=> addAttempt", $fileinfo);
+        $e->createLogger()->invalidLogger($user . "[action]=> addAttempt", $fileinfo);
         //log the tempering activity to user attempt
         $e = new LoggerFactory("TEMPERINGEVENT");
-        $e->createLogger()->invalidLogger($user."[action]=> addAttempt", $fileinfo);
+        $e->createLogger()->invalidLogger($user . "[action]=> addAttempt", $fileinfo);
     }
 
     static function clearAttempt($user) {
@@ -102,13 +102,14 @@ class Password {
         //instantiate the loggerFactory
         $e = new LoggerFactory("AUTHENTICATION");
         //log the addattempt activity
-        $e->createLogger()->validLogger($user ."[action]=> clearAttempt", $fileinfo);
+        $e->createLogger()->validLogger($user . "[action]=> clearAttempt", $fileinfo);
         //log the tempering activity to user attempt
         $e = new LoggerFactory("TEMPERINGEVENT");
-        $e->createLogger()->validLogger($user ."[action]=> clearAttempt", $fileinfo);
+        $e->createLogger()->validLogger($user . "[action]=> clearAttempt", $fileinfo);
     }
 
     static function disableAcc($user) {
+
         if ($user != null && $user->attempt > 5) {
             $user->status = "invalid";
             R::store($user);
@@ -124,17 +125,34 @@ class Password {
         //instantiate the loggerFactory
         $e = new LoggerFactory("AUTHENTICATION");
         //log the addattempt activity
-        $e->createLogger()->invalidLogger($user."[action]=> disableAcc", $fileinfo);
+        $e->createLogger()->invalidLogger($user . "[action]=> disableAcc", $fileinfo);
         //log the tempering activity to user attempt
         $e = new LoggerFactory("TEMPERINGEVENT");
-        $e->createLogger()->invalidLogger($user."[action]=> disableAcc", $fileinfo);
+        $e->createLogger()->invalidLogger($user . "[action]=> disableAcc", $fileinfo);
     }
 
+    static function activateAccMail($user) {
+        $random = Quick::generateRandomString(10);
+        
+        $user->status = "locked";
+        $user->recovery = $random;
+        R::store($user);
+        
+        Email::send($user->email, "Account Unlock Mail", "Hi, $user->name , due to multiple failed login attempt, account is now LOCKED. This is an account recovery mail." .
+                " Click <a href='https://localhost/GloryFlorist/Views/unlockAccount.php'>HERE</a> to unlock your account. Recovery code : $random");
+    }
+    
+    static function activateAcc($user) {
+        $user->status = "active";
+        $user->attempt = 0;
+        R::store($user);
+    }
+    
     static function forgetPass($email, $user) {
         // Generate random password
         $password = Quick::generateRandomString(10);
         $name = $user->name;
-        
+
         Email::send($email, "Forget Password Request.", "Hi, $name , we received your forget password request. Here is your new password." .
                 " New Password : $password");
 

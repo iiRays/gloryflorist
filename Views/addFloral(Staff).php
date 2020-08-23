@@ -84,13 +84,13 @@ foreach ($flower as $items) {
                         </div>
                     </div>
 
-                    <input type="submit" value="Add" name="add" />
+                    <input type="submit" value="Add" name="add"/>
                 </form>
             </div>
         </div>
     </body>
 
-    <script type="text/javascript">
+    <script type="text/javascript">      
         $("document").ready(function () {
 
             $('input[type=file]').on("change", function () {

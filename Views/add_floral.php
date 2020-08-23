@@ -3,7 +3,6 @@ Author: Chong Wei Jie
 ID: 19WMR09574
 -->
 <?php
-
 //include "../Controllers/Util/rb.php";
 //include "../Controllers/Util/DB.php";
 require_once ('../Controllers/Util/Floral/FloralArrangementAdapter.php');
@@ -17,8 +16,13 @@ $flowerId = $_POST['flowers'];
 $price = doubleval($_POST['price']);
 $imgLink = $_POST['flowerImgSrc'];
 
-$floral= new FloralArrangementAdapter();
-$floral->addData($name, $price, $stalk, $imgLink, $flowerId);
+if ($imgLink == null) {
+    echo '<script type="text/javascript">alert("Please wait for image to finish upload");history.go(-1);</script>';
+    //header('Location: ' . $_SERVER['HTTP_REFERER']);    
+} else {
+    $floral = new FloralArrangementAdapter();
+    $floral->addData($name, $price, $stalk, $imgLink, $flowerId);
+}
 
 //$flowers = R::load("flower", $flowerId);
 //$isAvailable = $flowers->isAvailable;
@@ -53,7 +57,7 @@ $floral->addData($name, $price, $stalk, $imgLink, $flowerId);
                 <div id="msgBorder">
                     <label>The new flower arrangement had been created </label>
                 </div>
-                
+
             </div>
             <a href="viewFloral%28Staff%29.php" id="back_button">Back</a>
         </div>

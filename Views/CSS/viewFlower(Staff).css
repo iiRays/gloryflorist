@@ -16,7 +16,7 @@ body{
 }
 
 #container #top #text #back{
-    margin-left: 240px;
+    margin-left: 40px;
 }
 
 html {
@@ -127,5 +127,4 @@ html {
     margin-right: 0px;
     width: 80px;
     height: 80px;
-    border: 1px solid black;
 }

@@ -6,6 +6,7 @@ require_once("../Util/Quick.php");
 require_once("../Util/Email.php");
 require_once("../Security/Authorize.php");
 require_once("../Security/Validator.php");
+require_once("../Security/Password.php");
 
 Authorize::onlyAllow("admin");
 
@@ -59,8 +60,8 @@ $user = R::dispense("user");
 $user->email = $email;
 $user->name = $name;
 $user->role = "staff";
-$user->status = "inactive";
-$user->password = $password;
+$user->status = "active";
+$user->password = Password::hashPassword($password);
 R::store($user);
 
 // Proceed to send an email
