@@ -1,4 +1,7 @@
 <?php
+/**
+ * @author Yong Haw Quan
+ */
 require_once("../../Security/Authorize.php");
 Authorize::onlyAllow("admin");
 class viewUsers {

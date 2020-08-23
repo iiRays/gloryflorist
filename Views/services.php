@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @author Yong Haw Quan
+ */
 require_once("../Controllers/Util/Quick.php");
 require_once("../Controllers/Util/rb.php");
 require_once("../Controllers/Security/Session.php");
