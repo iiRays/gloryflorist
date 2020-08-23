@@ -1,8 +1,8 @@
 <?php
 //To handle uncaught errors
-require_once __DIR__ . '/../Controllers/Security/Logger/LoggerFactory.php';
-$logger = new LoggerFactory("UNCAUGHTERROR");
-$logger->createLogger()->invalidLogger(null, null);
+//require_once __DIR__ . '/../Controllers/Security/Logger/LoggerFactory.php';
+//$logger = new LoggerFactory("UNCAUGHTERROR");
+//$logger->createLogger()->invalidLogger(null, null);
 
 require_once("../Controllers/Security/Authorize.php");
 require_once("../Controllers/Util/Quick.php");
@@ -51,7 +51,9 @@ Authorize::onlyAllow("staff");
                         // $deadline =(new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->targetDate))))->diff(Quick::getCurrentTime())->format("%dd %hh %im");
                         date_default_timezone_set('Asia/Singapore');
                         $now = Quick::getCurrentTime();
+                        $timeslot = $individualOrder->delivery->timeslot;
                         $deadlineDate = new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->delivery->date)));
+                        $deadlineDate->add(new DateInterval("PT". substr($timeslot, 0, 2) . "H" . substr($timeslot, 3, 2) . "M"));
                         $deadlineDateStr = date_format($deadlineDate, "d/m/y h:ia");
                         $deadline = date_diff($now, $deadlineDate, false)->format(" %r%dd %hh %im left");
 
