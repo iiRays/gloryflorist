@@ -4,7 +4,9 @@ Author: kelvin tham yit hang
 -->
 
 <!ELEMENT deliveries (Delivery | SelfPickUp)*>
-<!ELEMENT Delivery (Address, DeliveryFee, Company, Asset_type, City_town, Postcode, Recipient, Recipientcontact, Sender, Sendercontact, Date, Timeslot, CardMessage, Method)*>
+<!ELEMENT Delivery (Address, DeliveryFee, Company, Asset_type, City_town, Postcode, 
+                    Recipient, Recipientcontact, Sender, 
+                    Sendercontact, Date, Timeslot, CardMessage, Method)*>
 <!ATTLIST Delivery Id CDATA #REQUIRED>
 <!ELEMENT SelfPickUp (Sender, Sendercontact, Date, Timeslot, CardMessage, Method)*>
 <!ATTLIST SelfPickUp Id CDATA  #REQUIRED>

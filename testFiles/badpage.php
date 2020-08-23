@@ -4,12 +4,14 @@
   */
 require_once __DIR__ . '\..\Controllers\Security\Logger\LoggerFactory.php';
 require_once __DIR__ . '\..\Controllers\Security\Logger\Tools.php';
-$logger = new LoggerFactory("UNCAUGHTERROR");
-$logger->createLogger()->invalidLogger(null,null);
+//$logger = new LoggerFactory("UNCAUGHTERROR");
+//$logger->createLogger()->invalidLogger(null,null);
+$logger = new LoggerFactory;
+$logger = $logger->createLogger("UNCAUGHTERROR")->invalidLogger(null, null);
 
 
 echo "<h1>badpage.php</h1>";
-//$item = new Gay();
+$item = new Gay();
 
 //echo $haha;
 

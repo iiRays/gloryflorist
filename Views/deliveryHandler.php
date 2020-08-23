@@ -6,7 +6,10 @@
 //include the logger class to log the unhandle error/exception..
 require_once __DIR__ . '\..\Controllers\Security\Logger\LoggerFactory.php';
 
-$logger = new LoggerFactory("UNCAUGHTERROR");
+$logger = new LoggerFactory;
+$logger = $logger->createLogger("UNCAUGHTERROR");
+$logger->invalidLogger(null, null);
+
 //$logger->createLogger()->invalidLogger($e = NULL);
 //authorization check
 require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
@@ -78,7 +81,7 @@ if (isset($_POST['deliveryType']) && isset($_POST['date']) && isset($_POST['time
             $delivery->sendercontact = $sendercontact;
             $delivery->date = $date;
             $delivery->timeslot = $time;
-           // $id = R::store($delivery); DONT STORE YET
+            // $id = R::store($delivery); DONT STORE YET
             Session::set("delivery", $delivery);
             echo "store into databse already";
 
@@ -86,7 +89,6 @@ if (isset($_POST['deliveryType']) && isset($_POST['date']) && isset($_POST['time
             header("Location: http://localhost/GloryFlorist/Views/create_order.php");
             exit();
         } else {
-            session_start();
 
             //set session for the next delivery address page
             $_SESSION['deliverytype'] = $deliverytype;
@@ -95,7 +97,7 @@ if (isset($_POST['deliveryType']) && isset($_POST['date']) && isset($_POST['time
             $_SESSION['cardmsg'] = $cardmsg;
             $_SESSION['sender'] = $sender;
             $_SESSION['sendercontact'] = $sendercontact;
-            
+
             //redirect to another page and die this page
             header("Location: http://localhost/GloryFlorist/Views/deliveryAddress.php");
             exit();

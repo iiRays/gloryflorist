@@ -162,14 +162,14 @@ class Validator {
         }
         
         //instantiate the loggerFactory
-        $e = new LoggerFactory("INPUTVALIDATION");
+        $e = new LoggerFactory;
         //if the errMsg > 0, means got error = invalid validation then
         if (count($this->errMsg) > 0) {
-            $e->createLogger()->invalidLogger($this->errMsg, $fileinfo);
+            $e->createLogger("INPUTVALIDATION")->invalidLogger($this->errMsg, $fileinfo);
         } else {
             //else errMsg < 0, means no error = valid validation then
             //pass null to first parameter because we not catch exception here...
-            $e->createLogger()->validLogger(null, $fileinfo);
+            $e->createLogger("INPUTVALIDATION")->validLogger(null, $fileinfo);
         }
 
         return $this->errMsg;

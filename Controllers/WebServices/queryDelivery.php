@@ -14,8 +14,11 @@ if (!empty($_GET['start']) && !empty($_GET['end'])) {
     $endDate = Quick::getGetData("end");
     $deliveryList = R::find("delivery", "date >= ? and date <= ?", [$startDate, $endDate]);
 
-    
-    response(200, true, $deliveryList);
+    if (count($deliveryList) == 0) {
+        response(200, false, NULL);
+    } else {
+        response(200, true, $deliveryList);
+    }
 } else {
     response(400, "Invalid Request", NULL);
 }

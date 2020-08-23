@@ -83,10 +83,10 @@ Author     : kelvin tham yit hang
                 </table> <!-- end of the whole table -->
                 <!-- Applying xpath -->
                 <p>
-                    Total record: <xsl:value-of select="count(//Delivery[number(translate(Date, '-','')) >= number(translate(php:function('getStartDate'), '-',''))]/@Id)"></xsl:value-of>
+                    Total record: <xsl:value-of select="count(//Delivery[number(translate(Date, '-','')) >= number(translate(php:function('getStartDate'), '-','')) and number(translate(php:function('getEndDate'), '-','')) >= number(translate(Date, '-',''))]/@Id)"></xsl:value-of>
                 </p>
                 <p>
-                    Total delivery Fee: <xsl:value-of select="sum(//Delivery[number(translate(Date, '-','')) >= number(translate(php:function('getStartDate'), '-',''))]/DeliveryFee)"></xsl:value-of>
+                    Total delivery Fee: <xsl:value-of select="sum(//Delivery[number(translate(Date, '-','')) >= number(translate(php:function('getStartDate'), '-',''))and number(translate(php:function('getEndDate'), '-','')) >= number(translate(Date, '-',''))]/DeliveryFee)"></xsl:value-of>
                 </p>
               
                 <br/>
@@ -126,7 +126,7 @@ Author     : kelvin tham yit hang
                 </table> <!-- end of the whole table -->
                 <!-- Applying xpath -->
                 <p>
-                    Total record: <xsl:value-of select="count(//SelfPickUp[number(translate(Date, '-','')) >= number(translate(php:function('getStartDate'), '-',''))]/@Id)"></xsl:value-of>
+                    Total record: <xsl:value-of select="count(//SelfPickUp[number(translate(Date, '-','')) >= number(translate(php:function('getStartDate'), '-','')) and number(translate(php:function('getEndDate'), '-','')) >= number(translate(Date, '-',''))]/@Id)"></xsl:value-of>
                 </p>
             </body>         
         </html>

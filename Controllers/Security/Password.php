@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Yong Haw Quan
  */
@@ -40,14 +41,15 @@ class Password {
         }
 
         //instantiate the loggerFactory
-        $e = new LoggerFactory("INPUTVALIDATION");
+        $e = new LoggerFactory;
+        $e = $e->createLogger("INPUTVALIDATION");
         //if the $output != '', means got error = invalid validation then
         if ($output != '') {
-            $e->createLogger()->invalidLogger($output, $fileinfo);
+            $e->invalidLogger($output, $fileinfo);
         } else {
             //else $output == '', means no error = valid validation then
             //pass null to first parameter because we not catch exception here...
-            $e->createLogger()->validLogger($output, $fileinfo);
+            $e->validLogger($output, $fileinfo);
         }
 
         return $output;
@@ -78,12 +80,11 @@ class Password {
         }
 
         //instantiate the loggerFactory
-        $e = new LoggerFactory("AUTHENTICATION");
+        $e = new LoggerFactory;
         //log the addattempt activity
-        $e->createLogger()->invalidLogger($user . "[action]=> addAttempt", $fileinfo);
+        $e->createLogger("AUTHENTICATION")->invalidLogger($user . "[action]=> addAttempt", $fileinfo);
         //log the tempering activity to user attempt
-        $e = new LoggerFactory("TEMPERINGEVENT");
-        $e->createLogger()->invalidLogger($user . "[action]=> addAttempt", $fileinfo);
+        $e->createLogger("TEMPERINGEVENT")->invalidLogger($user . "[action]=> addAttempt", $fileinfo);
     }
 
     static function clearAttempt($user) {
@@ -101,12 +102,11 @@ class Password {
         }
 
         //instantiate the loggerFactory
-        $e = new LoggerFactory("AUTHENTICATION");
+        $e = new LoggerFactory();
         //log the addattempt activity
-        $e->createLogger()->validLogger($user . "[action]=> clearAttempt", $fileinfo);
+        $e->createLogger("AUTHENTICATION")->validLogger($user . "[action]=> clearAttempt", $fileinfo);
         //log the tempering activity to user attempt
-        $e = new LoggerFactory("TEMPERINGEVENT");
-        $e->createLogger()->validLogger($user . "[action]=> clearAttempt", $fileinfo);
+        $e->createLogger("TEMPERINGEVENT")->validLogger($user . "[action]=> clearAttempt", $fileinfo);
     }
 
     static function disableAcc($user) {
@@ -124,31 +124,30 @@ class Password {
         }
 
         //instantiate the loggerFactory
-        $e = new LoggerFactory("AUTHENTICATION");
         //log the addattempt activity
-        $e->createLogger()->invalidLogger($user . "[action]=> disableAcc", $fileinfo);
+        $e = new LoggerFactory();
+        $e->createLogger("AUTHENTICATION")->invalidLogger($user . "[action]=> disableAcc", $fileinfo);
         //log the tempering activity to user attempt
-        $e = new LoggerFactory("TEMPERINGEVENT");
-        $e->createLogger()->invalidLogger($user . "[action]=> disableAcc", $fileinfo);
+        $e->createLogger("TEMPERINGEVENT")->invalidLogger($user . "[action]=> disableAcc", $fileinfo);
     }
 
     static function activateAccMail($user) {
         $random = Quick::generateRandomString(10);
-        
+
         $user->status = "locked";
         $user->recovery = $random;
         R::store($user);
-        
+
         Email::send($user->email, "Account Unlock Mail", "Hi, $user->name , due to multiple failed login attempt, account is now LOCKED. This is an account recovery mail." .
                 " Click <a href='https://localhost/GloryFlorist/Views/unlockAccount.php'>HERE</a> to unlock your account. Recovery code : $random");
     }
-    
+
     static function activateAcc($user) {
         $user->status = "active";
         $user->attempt = 0;
         R::store($user);
     }
-    
+
     static function forgetPass($email, $user) {
         // Generate random password
         $password = Quick::generateRandomString(10);

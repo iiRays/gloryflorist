@@ -6,7 +6,7 @@
 
 //authorization check
 require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
-//Authorize::onlyAllow("customer"); //temperory disable for better coding envir
+Authorize::onlyAllow("customer"); //temperory disable for better coding envir
 
 $default_text = 'Type your free card message in the box or select one below.The card will put together with your flower at no additional cost.';
 ?>

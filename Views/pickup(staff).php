@@ -7,7 +7,7 @@
  */
 
 require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
-//Authorize::onlyAllow("staff"); //temperory disable for better coding envir
+Authorize::onlyAllow("staff"); //temperory disable for better coding envir
 require_once("XSLTTran_Delivery.php");
 require_once("../Controllers/Util/Quick.php");
 ?>

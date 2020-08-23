@@ -42,7 +42,7 @@ class TemperingEventLogger extends ALogger {
 //        });
 
         // add records to the log
-        $log->info("Tempering Event Success",array('info detail' => $array, 'user' =>  $_SESSION["user"]));
+        $log->info("Tempering Event Success",array('info detail' => $extra, 'user' =>  $_SESSION["user"]));
     }
 
     public function invalidLogger($e, $fileinfo) {
@@ -60,7 +60,7 @@ class TemperingEventLogger extends ALogger {
 
         //populate log's context and extra arrays
         // add records to the log
-        $log->warning("Tempering Event Failure", array('exception' => $e));
+        $log->warning("Tempering Event Failure", array('exception' => $e, 'fileinfo' => $fileinfo));
     }
     
 

@@ -76,19 +76,24 @@ class UncaughtErrorLogger extends ALogger {
     }
 
     public function exceptionHandler($e) {
+        
+        $file = $e->getfile();
+        $string = $e->getMessage();
+        $line = $e->getLine();
+        $exception = $e;
         $error = R::dispense('errors');
         $error->error_time = Quick::getCurrentTime();
-        $error->error_string = $e->getMessage();
-        $error->error_file = $e->getfile();
-        $error->error_line = $e->getLine();
+        $error->error_string = $string;
+        $error->error_file = $file;
+        $error->error_line = $line;
         $id = R::store($error);
 
         //Email the error to our developer/maintainer
         $email = "
         <p>Error id =  $id</p>
         <p>An error occurred on line 
-        <strong>" .$e->getLine() ."</strong> and in the <strong>file: " .$e->getfile() .".</strong> 
-        <p>" .$e->getMessage() ."</p>";
+        <strong>" .$line ."</strong> and in the <strong>file: " .$file .".</strong> 
+        <p>" .$string ."</p>";
 
         //$headers = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
@@ -111,7 +116,7 @@ class UncaughtErrorLogger extends ALogger {
         //consider email/username try to attempt
         // add records to the log
 
-        $log->error("Uncaught Error. ", array('exception' => $e));
+        $log->error("Uncaught Error. ", array('exception' => $exception));
          die("some error occur... try again later");
     }
 

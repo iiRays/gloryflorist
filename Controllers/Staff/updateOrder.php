@@ -1,8 +1,8 @@
 <?php
 //To handle uncaught errors
 require_once __DIR__ . '/../Security/Logger/LoggerFactory.php';
-$logger = new LoggerFactory("UNCAUGHTERROR");
-$logger->createLogger()->invalidLogger(null, null);
+$logger = new LoggerFactory;
+$logger->createLogger("UNCAUGHTERROR")->invalidLogger(null, null);
 
 require_once("../Util/Quick.php");
 require_once("../Util/rb.php");
