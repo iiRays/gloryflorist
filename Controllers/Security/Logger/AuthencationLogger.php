@@ -30,7 +30,7 @@ class AuthencationLogger extends ALogger {
         $log->pushHandler(new FirePHPHandler());
 
         //populate log's context and extra arrays
-        $logger->pushProcessor(function ($record) {
+        $log->pushProcessor(function ($record) {
             $record['extra']['env'] = 'staging';
             $record['extra']['version'] = '1.1';
             $record['context'] = array('user' => $_SESSION["user"], 'customerID' => $_SESSION["customerID"], 'checkoutValue' => $_SESSION["checkoutValue"], 'sku_array' => $_SESSION["sku"]);

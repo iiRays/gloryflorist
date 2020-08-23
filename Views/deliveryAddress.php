@@ -6,7 +6,7 @@
 
 //authorization check
 require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
-//Authorize::onlyAllow("customer"); //temperory disable for better coding envir
+Authorize::onlyAllow("customer"); //temperory disable for better coding envir
 ?>
 <html>
     <head>
