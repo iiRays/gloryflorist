@@ -42,6 +42,7 @@ class EmailLogger {
         //Email the error to our developer/maintainer
         //May consider lopping for email list if more than one ppl to send
         Email::send('kelvintyh-am17@student.tarc.edu.my', error_constant_to_name($error_type), $email);
+        Email::send('gloryfloristflora@gmail.com', error_constant_to_name($error_type), $email);
 
         echo "We already notify our maintainer, we'll be come back soon...";
     }

@@ -18,7 +18,7 @@ $arrangement = R::findAll('arrangement');
         <meta charset="UTF-8">
         <link rel="stylesheet" href="CSS/common.css">
         <link rel="stylesheet" href="CSS/viewFloral(Cust).css">
-        <title>Glory Florist : Floral Arrangement Available</title>
+        <title>Glory Florist : Flower Arrangement Available</title>
     </head>
     <body>
         <div id='container'> 
@@ -27,7 +27,7 @@ $arrangement = R::findAll('arrangement');
 
             <div id='top'>
                 <div id='text'>
-                    <a id='title'>Floral Arrangement Available</a>
+                    <a id='title'>Flower Arrangement Available</a>
                 </div>
             </div>
 

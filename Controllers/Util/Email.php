@@ -25,9 +25,9 @@ class Email {
         $mail->Host = "smtp.gmail.com";
         $mail->WordWrap = 70;
         $mail->isHTML(true);
-        $mail->Username = "gloryfloristflowers@gmail.com";
-        $mail->Password = "gf12345#";
-        $mail->SetFrom("gloryfloristflowers@gmail.com", "Glory Florist");
+        $mail->Username = "gloryfloristflora@gmail.com";
+        $mail->Password = "Gg123456$";
+        $mail->SetFrom("gloryfloristflora@gmail.com", "Glory Florist");
 
         $mail->addAddress($target);
         $mail->Subject = $subject;

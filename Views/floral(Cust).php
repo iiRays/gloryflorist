@@ -55,7 +55,7 @@ $isAvailable = $floral->getAvailability($id);
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="CSS/common.css">
         <link rel="stylesheet" href="CSS/floral(Cust).css">
-        <title>Glory Florist : Floral Arrangement</title>
+        <title>Glory Florist : Flower Arrangement</title>
     </head>
 
     <body>
@@ -64,7 +64,7 @@ $isAvailable = $floral->getAvailability($id);
             <?php Quick::printHeader("shop"); ?>
             <div id='top'>
                 <div id='text'>
-                    <a id='title'>Floral Arrangement</a>
+                    <a id='title'>Flower Arrangement</a>
                 </div>
             </div>
 

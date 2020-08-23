@@ -1,5 +1,6 @@
 <?php
 require_once("../Controllers/Security/Authorize.php");
+require_once("../Controllers/Util/Quick.php");
 Authorize::onlyAllow("staff");
 ?>
 <html>
@@ -13,13 +14,7 @@ Authorize::onlyAllow("staff");
     <body>
         <div id='container'> <!-- <form id='container'> ??? -->
 
-            <div id='hotbar'>
-                <a href='#' id='glory'>glory florist</a>
-                <a href='#' class='link'>shop</a>
-                <a href='#' class='link'>cart</a>
-                <a href='#' class='link' >account</a>
-                <a href='#' class='link' id='currentLink'>dashboard</a>
-            </div>
+            <?php Quick::printHeader("staffDashboard") ?>
 
             <div id='top'>
                 <div id='text'>
@@ -158,11 +153,11 @@ Authorize::onlyAllow("staff");
 
 
             //Wrap the status buttons with the correct order ID
-            $("#pending").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=pending");
-            $("#doing").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=doing");
-            $("#delivering").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=delivering");
-            $("#dropped").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=dropped");
-            $("#done").attr("href", "../Controllers/updateOrder.php?id=" + id + "&" + "status=done");
+            $("#pending").attr("href", "../Controllers/Staff/updateOrder.php?id=" + id + "&" + "status=pending");
+            $("#doing").attr("href", "../Controllers/Staff/updateOrder.php?id=" + id + "&" + "status=doing");
+            $("#delivering").attr("href", "../Controllers/Staff/updateOrder.php?id=" + id + "&" + "status=delivering");
+            $("#dropped").attr("href", "../Controllers/Staff/updateOrder.php?id=" + id + "&" + "status=dropped");
+            $("#done").attr("href", "../Controllers/Staff/updateOrder.php?id=" + id + "&" + "status=done");
 
             //Highlight the current status
             switch (status) {

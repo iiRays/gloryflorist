@@ -32,7 +32,7 @@ foreach ($flower as $items) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="CSS/common.css">
         <link rel="stylesheet" href="CSS/addFloral(Staff).css">
-        <title>Glory Florist : Add Floral</title>
+        <title>Glory Florist : Add Flower Arrangement</title>
     </head>
 
     <body>
@@ -43,7 +43,7 @@ foreach ($flower as $items) {
             <div id='top'>
                 <div id='text'>
                     <a href='staffDashboard.php' id='back'>back to dashboard</a>
-                    <a id='title'>Add Floral</a>
+                    <a id='title'>Add Flower Arrangement</a>
                 </div>
             </div>
 
