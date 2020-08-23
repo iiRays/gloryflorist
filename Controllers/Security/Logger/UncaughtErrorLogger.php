@@ -72,6 +72,7 @@ class UncaughtErrorLogger extends ALogger {
         // add records to the log
 
         $log->error("Uncaught Error.", array('exception' => $email));
+        die("some error occur... try again later");
     }
 
     public function exceptionHandler($e) {
@@ -111,6 +112,7 @@ class UncaughtErrorLogger extends ALogger {
         // add records to the log
 
         $log->error("Uncaught Error. ", array('exception' => $e));
+         die("some error occur... try again later");
     }
 
     public function fetch_errors() {
