@@ -1,4 +1,7 @@
 <?php 
+/**
+ * @author Yong Haw Quan
+ */
 require_once('services.php'); 
 require_once("../Controllers/Security/Authorize.php");
 Authorize::onlyAllow("guest");

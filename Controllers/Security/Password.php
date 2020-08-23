@@ -1,9 +1,10 @@
 <?php
-
+/**
+ * @author Yong Haw Quan
+ */
 require_once __DIR__ . '/../../Controllers/Util/rb.php';
 require_once __DIR__ . '/../../Controllers/Util/DB.php';
 require_once __DIR__ . '/../../Controllers/Security/Session.php';
-//try to logging all the validation success and failure
 require_once __DIR__ . '\..\Security\logger\LoggerFactory.php';
 
 DB::connect();

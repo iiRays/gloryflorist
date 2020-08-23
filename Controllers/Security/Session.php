@@ -108,10 +108,17 @@ class Session {
     }
 
     public static function stopSpecificSession($id) {
+        $currentSessionID = session_id();
+        session_commit();
+
         session_id($id);
         self::start();
         session_unset();
         session_destroy();
+
+        session_id($currentSessionID);
+        self::start();
+        session_commit();
     }
 
     // Logout the user based on ID
