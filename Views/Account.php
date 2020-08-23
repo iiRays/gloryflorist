@@ -4,6 +4,9 @@ require_once("../Controllers/Security/Authorize.php");
 require_once("../Controllers/Util/RoleStrategy/RoleStrategy.php");
 require_once("../Controllers/Util/Quick.php");
 Authorize::onlyAllow("customer");
+/**
+ * @author Yong Haw Quan
+ */
 ?>
 <!DOCTYPE html>
 <html>
