@@ -28,6 +28,7 @@ class Cart {
     public function makeOrder($grandTotal, $status) {
         // add order
         $user = Session::get("user");
+        $delivery = Session::get("delivery");
         
         $order = R::dispense("orders");
         $order->customer_id = $user->id;
@@ -35,6 +36,7 @@ class Cart {
         //$order->delivery_address = $deliveryAddress;
         $order->status = $status;
         //$order->targetDate = $targetDate;
+        $order->delivery = $delivery;
         R::store($order);
         
         // add order items
