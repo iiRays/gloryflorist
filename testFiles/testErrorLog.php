@@ -1,10 +1,10 @@
 <?php
 
 //include the logger class to log the unhandle error/exception..
-echo __DIR__;
 require_once __DIR__ . '/../Controllers/Security/Logger/LoggerFactory.php';
 
 $logger = new LoggerFactory("UNCAUGHTERROR");
+$logger->createLogger()->invalidLogger(null, null);
 
-//require_once __DIR__ . '..\Controllers\Security.php';
+//invalid object instantiation
 $item = new Gay();
