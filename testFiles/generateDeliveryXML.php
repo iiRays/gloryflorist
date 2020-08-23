@@ -14,11 +14,8 @@ $edb = new DatabaseLogger();
 $edb = new EmailLogger();
 $edb->sendError_Log();
 
-//require_once '../Controllers/Util/rb.php';
 require_once 'DB.php';
 
-//require_once '../Controllers/Util/rb.php';
-//require_once '../Controllers/Util/DB.php';
 
 //Establish the database connnection
 DB::connect();

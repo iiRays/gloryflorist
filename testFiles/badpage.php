@@ -10,6 +10,7 @@ $logger->createLogger()->invalidLogger(null,null);
 
 echo "<h1>badpage.php</h1>";
 //$item = new Gay();
+
 //echo $haha;
 
 
