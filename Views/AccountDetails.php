@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Yong Haw Quan
  */
@@ -7,15 +8,17 @@ require_once("../Controllers/Util/rb.php");
 require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Util/DB.php");
 require_once("../Controllers/Security/Password.php");
+require_once ('../Controllers/Util/Account/AccountAdapter.php');
 
 $errors = array();
 DB::connect();
 
 $currentAccount = Session::get("user");
-$name = $currentAccount["name"];
-$email = $currentAccount["email"];
-$phone = $currentAccount["phone"];
-$address = $currentAccount["address"];
+$user = new AccountAdapter();
+$name = $user->getName($currentAccount);
+$email = $user->getEmail($currentAccount);
+$phone = $user->getPhone($currentAccount);
+$address = $user->getAddress($currentAccount);
 
 
 if (isset($_POST['btnDone'])) {
@@ -56,24 +59,20 @@ if (isset($_POST['btnDone'])) {
     if (count($errors) == 0) {
 
         if ($password_1 && $password_2 != "") {
-
-            $user = Session::get("user");
-            $user->name = $name;
-            $user->phone = $phone;
-            $user->address = $address;
-            $user->password = Password::hashPassword($password_1);
-
-            R::store($user);
+            $user = new AccountAdapter();
+            $user->editName($currentAccount, $name);
+            $user->editPhone($currentAccount, $phone);
+            $user->editAddress($currentAccount, $address);
+            $user->editPassword($currentAccount, Password::hashPassword($password_1));
             header('location: Account.php');
         } else {
 
             if (count($errors) == 0) {
-                $user = Session::get("user");
-                $user->name = $name;
-                $user->phone = $phone;
-                $user->address = $address;
+                $user = new AccountAdapter();
+                $user->editName($currentAccount, $name);
+                $user->editPhone($currentAccount, $phone);
+                $user->editAddress($currentAccount, $address);
 
-                R::store($user);
                 header('location: Account.php');
             }
         }
