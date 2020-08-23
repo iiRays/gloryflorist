@@ -9,8 +9,10 @@ $logger->createLogger()->invalidLogger(null,null);
 
 
 echo "<h1>badpage.php</h1>";
-$item = new Gay();
+//$item = new Gay();
 //echo $haha;
+
+
 
 //
 //require_once '../Controllers/Util/logging/vendor/autoload.php';
