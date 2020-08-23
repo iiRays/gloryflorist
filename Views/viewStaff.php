@@ -1,9 +1,14 @@
 <?php
+//To handle uncaught errors
+require_once __DIR__ . '/../Controllers/Security/Logger/LoggerFactory.php';
+$logger = new LoggerFactory("UNCAUGHTERROR");
+$logger->createLogger()->invalidLogger(null, null);
+
 require_once("../Controllers/Security/Authorize.php");
 Authorize::onlyAllow("admin");
 
-require_once("../Controllers/Util/rb.php");
-require_once("../Controllers/Util/DB.php");
+require_once("../Controllers/Util/rba.php");
+require_once("../Controllers/Util/DBa.php");
 require_once("../Controllers/Util/XMLDatabase.php");
 require_once("../Controllers/Util/XMLFactory.php");
 
