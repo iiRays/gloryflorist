@@ -25,6 +25,7 @@ foreach ($cart->items as $item) {
 // create order
 $cart->makeOrder($grandTotal, "Pending");
 
+
 // reset cart and cartsaver in session
 $_SESSION["cart"] = new Cart();
 $_SESSION["cartSaver"] = new CartSaver();

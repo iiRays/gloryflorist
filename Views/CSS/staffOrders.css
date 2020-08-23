@@ -72,7 +72,6 @@ html {
   text-align: left;
   transition: 0.2s ease-in-out;
   
- 
 }
 
 #high{
@@ -281,4 +280,8 @@ a{
 .itemFocus > .orderID{
     background-color: transparent;
     color: white;
+}
+
+.finished{
+    opacity: 0.5;
 }

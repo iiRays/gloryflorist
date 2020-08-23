@@ -8,11 +8,9 @@ require_once __DIR__ . '\..\Controllers\Security\Logger\LoggerFactory.php';
 
 $logger = new LoggerFactory("UNCAUGHTERROR");
 //$logger->createLogger()->invalidLogger($e = NULL);
-
 //authorization check
 require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
-//Authorize::onlyAllow("customer"); //temperory disable for better coding envir
-
+Authorize::onlyAllow("customer"); //temperory disable for better coding envir
 //for other usage
 require_once __DIR__ . '\..\Controllers\Util\Quick.php';
 require_once __DIR__ . '\..\Controllers\Util\DB.php';
@@ -97,7 +95,7 @@ if (isset($_POST['deliveryType']) && isset($_POST['date']) && isset($_POST['time
             $_SESSION['cardmsg'] = $cardmsg;
             $_SESSION['sender'] = $sender;
             $_SESSION['sendercontact'] = $sendercontact;
-
+            
             //redirect to another page and die this page
             header("Location: http://localhost/GloryFlorist/Views/deliveryAddress.php");
             exit();

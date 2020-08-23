@@ -27,17 +27,21 @@ Authorize::onlyAllow("staff");
             <div id="content">
 
                 <br/>
-                <div class="masonryContainer">
+                
 
                     <?php
                     include "../Controllers/Util/DB.php";
 
                     DB::connect();
-                    $orderList = R::findAll("orders");
+                    // Get orders
+                    $orderList = R::find("orders","order by field(status,'pending', 'doing','dropped','done')");
                     $order = "";
+                    
+                    echo '<div class="masonryContainer">';
 
                     foreach ($orderList as $individualOrder) {
 
+                        // Load all data
                         $id = $individualOrder->id;
                         // $deadline =(new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->targetDate))))->diff(Quick::getCurrentTime())->format("%dd %hh %im");
                         date_default_timezone_set('Asia/Singapore');
@@ -59,7 +63,9 @@ Authorize::onlyAllow("staff");
                         //Get order item
                         $orderItemList = R::find("orderitem", "order_id = ?", [$id]);
                         $count = count($orderItemList);
-                        $order .= "<div class=\"item\" id=\"{$id}\" data-arrangementcount=\"{$count}\" data-targetdate=\"Target: {$deadlineDateStr}\" data-status=\"{$individualOrder->status}\" data-deadline=\"{$deadline}\">
+                        $finishedClass = $individualOrder->status == "done" || $individualOrder->status == "dropped" ? "finished" : "";  // marked completed ones
+                        
+                        $order .= "<div class=\"item {$finishedClass}\" id=\"{$id}\" data-arrangementcount=\"{$count}\" data-targetdate=\"Target: {$deadlineDateStr}\" data-status=\"{$individualOrder->status}\" data-deadline=\"{$deadline}\">
                         <div class=\"orderID\" >order {$id}</div>";
 
                         $counter = 0;
@@ -71,7 +77,7 @@ Authorize::onlyAllow("staff");
                         <div class=\"flowers\">{$arrangement->flower->flowerName}</div>";
                         }
 
-                        $order .= "<div class=\"deadline\">$deadline</div></div></div>";
+                        $order .= "<div class=\"deadline\">$deadline</div></div>";
                     }
 
 
@@ -96,8 +102,9 @@ Authorize::onlyAllow("staff");
 //                    </div>
 //                </div>";
 
-                    echo $order;
+                    echo $order ;
                     ?>
+                
                 </div>
             </div>
             <div class="overlay">
