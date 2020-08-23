@@ -55,12 +55,6 @@ class Cart {
             $orderItem->order_id = $order->id;
             R::store($orderItem);
             
-            $orderItem = R::dispense("orderhistory");
-            $orderItem->name = $item->arrangement->name;
-            $orderItem->price = $item->arrangement->price;
-            $orderItem->image_url = $item->arrangement->image_url;
-            $orderItem->stalks = $item->arrangement->stalks;
-            R::store($orderItem);
         }
     }
 }
