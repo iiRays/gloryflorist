@@ -9,11 +9,11 @@ class CartSaver implements MementoSaver {
     public $cartMemento;
     
     public function __construct() {
-        $this->cartMemento = new Cart();
+        $this->cartMemento = new CartAdapter();
     }
     
-    public function backup($cart) {
-        $this->cartMemento = $cart;
+    public function backup($cartAdapter) {
+        $this->cartMemento = $cartAdapter;
         $this->save();
     }
     
@@ -22,9 +22,9 @@ class CartSaver implements MementoSaver {
     }
     
     public function restore() {
-        Session::set("cart", $this->cartMemento);
+        Session::set("cartAdapter", $this->cartMemento);
         
-        $this->cartMemento = new Cart();
+        $this->cartMemento = new CartAdapter();
         $this->save();
     }
     

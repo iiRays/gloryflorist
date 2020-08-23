@@ -14,11 +14,11 @@ Authorize::onlyAllow("customer");
 R::setup('mysql:host=localhost;dbname=flowerdb', 'root', '');
 
 // get cart from session
-$cart = Session::get("cart");
+$cartAdapter = Session::get("cartAdapter");
 
 $totalPrice = 0;
 $cartItems = [];
-foreach ($cart->items as $item) {
+foreach ($cartAdapter->getItems() as $item) {
     $price = $item->arrangement->price * $item->quantity;
     $cartItems[] = new CartItem($item->arrangement->name, $item->quantity, $price);
     $totalPrice += $price;

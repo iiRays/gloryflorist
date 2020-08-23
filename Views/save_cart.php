@@ -23,17 +23,17 @@ for ($i = 0; $i < sizeof($quantities); $i++) {
 
 if (!$errorHandler->errorsExist()) {
     // get cart from session
-    $cart = Session::get("cart");
+    $cartAdapter = Session::get("cartAdapter");
     
     // backup cart
-    $cart->backup();
+    $cartAdapter->backup();
     
     // create updated cart
-    $newCart = new Cart();
+    $newCartAdapter = new CartAdapter();
     $i = 0;
-    foreach ($cart->items as $item) {
+    foreach ($cartAdapter->getItems() as $item) {
         if (!$quantities[$i] == 0) {
-            $newCart->addItem($item->arrangement->id, $quantities[$i]);
+            $newCartAdapter->addItem($item->arrangement->id, $quantities[$i]);
         }
         $i++;
     }
@@ -42,7 +42,7 @@ if (!$errorHandler->errorsExist()) {
     //echo "<br>new cart: " . $newCart->items[0]->quantity; // DEBUG
 
     // save cart to session
-    $newCart->save();
+    $newCartAdapter->save();
 } else {
     // update error in session
     Session::set("error", $errorHandler->getErrors());

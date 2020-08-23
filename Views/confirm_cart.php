@@ -10,11 +10,11 @@ require_once("../Controllers/Util/Item.php");
 
 DB::connect();
 
-$cart = Session::get("cart");
+$cartAdapter = Session::get("cartAdapter");
 
 // validate quantities
 $errorHandler = new ErrorHandler();
-if (sizeof($cart->items) == 0) {
+if (sizeof($cartAdapter->getItems()) == 0) {
     $errorHandler->addError("Your cart must have at least 1 item in order to proceed.");
 }
 
