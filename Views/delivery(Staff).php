@@ -5,6 +5,9 @@
  * 2. allow staff to navigate to other date
  * 3. generate report for delivery info 
  */
+
+require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
+Authorize::onlyAllow("staff"); //temperory disable for better coding envir
 require_once("XSLTTran_Delivery.php");
 require_once("../Controllers/Util/Quick.php");
 ?>
