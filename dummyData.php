@@ -1,8 +1,9 @@
 <?php
 
-include "../Controllers/Util/rb.php";
+require_once "Controllers/Util/rb.php";
+require_once "Controllers/Util/DB.php";
 
-R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql or mariaDB
+DB::connect();
 //$flower = R::find("flower", "flower_id = ?", ['TEST']);
 //$flower = R::load('flower', 'F01');
 //echo $flower;

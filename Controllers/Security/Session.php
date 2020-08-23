@@ -9,7 +9,7 @@ class Session {
 
     // Starts a session if none exists
     public static function start() {
-        if (session_id() == "") {
+        if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
     }
@@ -108,7 +108,7 @@ class Session {
 
     public static function stopSpecificSession($id) {
         session_id($id);
-        session_start();
+        self::start();
         session_unset();
         session_destroy();
     }

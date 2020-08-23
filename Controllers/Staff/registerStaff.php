@@ -1,6 +1,6 @@
 <?php
 //To handle uncaught errors
-require_once __DIR__ . '/../Controllers/Security/Logger/LoggerFactory.php';
+require_once __DIR__ . '/../Security/Logger/LoggerFactory.php';
 $logger = new LoggerFactory("UNCAUGHTERROR");
 $logger->createLogger()->invalidLogger(null, null);
 
