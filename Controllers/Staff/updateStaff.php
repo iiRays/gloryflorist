@@ -11,6 +11,14 @@ R::setup('mysql:host=localhost;dbname=flowerdb', 'root', ''); //for both mysql o
 
 $staffCount = (int) Quick::getPostData("staffCount");
 
+// To prevent unauthorized users, fetch from DB 
+$user = Session::get("user");
+$dbUser = R::load("user", $user->id);
+
+if($dbUser->role != "admin" || $dbUser->role != "inactive"){
+    Quick::redirect("Views/login.php");
+}
+
 
 for ($i = 1; $i <= $staffCount; $i++) {
     $staffId = (int) Quick::getPostData("staffId_" . $i);
@@ -31,6 +39,8 @@ for ($i = 1; $i <= $staffCount; $i++) {
     if ($staff->status != $newStatus && $staff->id != Session::get("user")->id) {
         $statusChanged = true;
         
+        Session::logoutRemoteUser($staff->id); // Logout target user
+        
         // Store a changelog object (not entity class)
         $changelog = R::dispense("changelog");
         $changelog->staffName = "[$staff->id] $staff->name";
@@ -44,6 +54,8 @@ for ($i = 1; $i <= $staffCount; $i++) {
     // Did the role change?
     if($staff->role != $newRole && $staff->id != Session::get("user")->id){
         $roleChanged = true;
+        
+        Session::logoutRemoteUser($staff->id); // Logout target user
         
         // Store a changelog object (not entity class)
         $changelog = R::dispense("changelog");
@@ -60,7 +72,7 @@ for ($i = 1; $i <= $staffCount; $i++) {
         // Update the staff in db and log him out
         R::store($staff);
         
-        Session::logoutRemoteUser($staff->id);
+        
     }
     
 }
