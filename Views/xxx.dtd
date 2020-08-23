@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/xxx.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE deliveries SYSTEM "xxx.dtd">
+
+    <deliveries>
+    ...
+    </deliveries>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT deliveries (Delivery|SelfPickUp)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Delivery (City_town|Address|DeliveryFee|CardMessage|Company|Asset_type|Postcode|Timeslot|Recipient|Recipientcontact|Sender|Sendercontact|Date|Method)*>
+<!ATTLIST Delivery
+    Id CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Address (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT DeliveryFee (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Company (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Asset_type (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT City_town (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Postcode (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Recipient (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Recipientcontact (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Sender (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Sendercontact (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Date (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Timeslot (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT CardMessage (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Method (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT SelfPickUp (Sender|Sendercontact|Date|Timeslot|CardMessage|Method)*>
+<!ATTLIST SelfPickUp
+    Id CDATA #IMPLIED
+  >

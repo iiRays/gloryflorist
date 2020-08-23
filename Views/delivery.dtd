@@ -3,18 +3,25 @@
 Author: kelvin tham yit hang
 -->
 
-<!ELEMENT deliveries (delivery*)>
-<!ELEMENT delivery (cardmessage, remark, name, contact, datetime, method)>
-<!ATTLIST delivery deliveryID ID #REQUIRED>
-<!ELEMENT method (delivery|selfpickup)>
-<!ELEMENT delivery (address, deliveryfee)>
-<!ELEMENT selfpickup(#PCDATA)>
-<!ELEMENT cardmessage(#PCDATA)>
-<!ELEMENT remarks (#PCDATA)>
-<!ELEMENT name (first, middle?, last)>
-<!ELEMENT first (#PCDATA)>
-<!ELEMENT middle (#PCDATA)>
-<!ELEMENT last (#PCDATA)>
-<!ELEMENT contact (#PCDATA)>
-<!ATTLIST contact kind (Home | Work | Cell | Fax) "Cell">
+<!ELEMENT deliveries (Delivery | SelfPickUp)*>
+<!ELEMENT Delivery (Address, DeliveryFee, Company, Asset_type, City_town, Postcode, Recipient, Recipientcontact, Sender, Sendercontact, Date, Timeslot, CardMessage, Method)*>
+<!ATTLIST Delivery Id CDATA #REQUIRED>
+<!ELEMENT SelfPickUp (Sender, Sendercontact, Date, Timeslot, CardMessage, Method)*>
+<!ATTLIST SelfPickUp Id CDATA  #REQUIRED>
+<!ELEMENT Address (#PCDATA)>
+<!ELEMENT DeliveryFee (#PCDATA)>
+<!ELEMENT Company (#PCDATA)>
+<!ELEMENT Asset_type (#PCDATA)>
+<!ELEMENT City_town (#PCDATA)>
+<!ELEMENT Postcode (#PCDATA)>
+<!ELEMENT Recipient (#PCDATA)>
+<!ELEMENT Recipientcontact (#PCDATA)>
+<!ELEMENT Sender (#PCDATA)>
+<!ELEMENT Sendercontact (#PCDATA)>
+<!ELEMENT Date (#PCDATA)>
+<!ELEMENT Timeslot (#PCDATA)>
+<!ELEMENT CardMessage (#PCDATA)>
+<!ELEMENT Method (#PCDATA)>
+
+
 

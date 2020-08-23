@@ -1,2 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
-<deliveries><Delivery Id="1"><Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company>Rumah Papar</Company><Asset_type>shop</Asset_type><City_town>Penampang</City_town><Postcode>88200</Postcode><Recipient>Johann</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-08-30</Date><Timeslot>12:30</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>delivery</Method></Delivery><Delivery Id="2"><Address>Wisma Merdeka, Lot B217, Jalan Tun Razak, Pusat Bandar Kota Kinabalu, 88000 Kota Kinabalu, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company/><Asset_type>Lot</Asset_type><City_town>Kota Kinabalu</City_town><Postcode>88000</Postcode><Recipient>Jackson</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-08-30</Date><Timeslot>16:20</Timeslot><CardMessage>I Love You</CardMessage><Method>delivery</Method></Delivery><Delivery Id="3"><Address>Kampung Matambai, Jalan Lintas, Kampung Kepayan, 88300 Kota Kinabalu, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company>Kampung Matambai</Company><Asset_type>shop</Asset_type><City_town>Kampung Kepayan</City_town><Postcode>88200</Postcode><Recipient>Haw Quan</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-08-31</Date><Timeslot>13:45</Timeslot><CardMessage>Happy Anniversary</CardMessage><Method>delivery</Method></Delivery><Delivery Id="4"><Address>32, Jalan Haji Saman, Pusat Bandar, 88000 Kota Kinabalu, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company/><Asset_type>shop</Asset_type><City_town>Pusat Bandar</City_town><Postcode>88200</Postcode><Recipient>Ryan</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-08-31</Date><Timeslot>17:30</Timeslot><CardMessage>Happy Holiday</CardMessage><Method>delivery</Method></Delivery><Delivery Id="5"><Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company>Rumah Papar</Company><Asset_type>shop</Asset_type><City_town>Penampang</City_town><Postcode>88200</Postcode><Recipient>Jeremy</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-09-01</Date><Timeslot>10:30</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>delivery</Method></Delivery><Delivery Id="6"><Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company>Rumah Papar</Company><Asset_type>shop</Asset_type><City_town>Penampang</City_town><Postcode>88200</Postcode><Recipient>Alson</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-09-02</Date><Timeslot>12:15</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>delivery</Method></Delivery><Delivery Id="7"><Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company>Rumah Papar</Company><Asset_type>shop</Asset_type><City_town>Penampang</City_town><Postcode>88200</Postcode><Recipient>Jack</Recipient><Recipientcontact/><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-09-02</Date><Timeslot>12:15</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>delivery</Method></Delivery><SelfPickUp Id="8"><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-09-02</Date><Timeslot>12:15</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>pickup</Method></SelfPickUp><SelfPickUp Id="9"><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-09-02</Date><Timeslot>12:15</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>pickup</Method></SelfPickUp><Delivery Id="10"><Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company>Rumah Papar</Company><Asset_type>shop</Asset_type><City_town>Penampang</City_town><Postcode>88200</Postcode><Recipient>Johann</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-08-30</Date><Timeslot>12:30</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>delivery</Method></Delivery><Delivery Id="11"><Address>Wisma Merdeka, Lot B217, Jalan Tun Razak, Pusat Bandar Kota Kinabalu, 88000 Kota Kinabalu, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company/><Asset_type>Lot</Asset_type><City_town>Kota Kinabalu</City_town><Postcode>88000</Postcode><Recipient>Jackson</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-08-30</Date><Timeslot>16:20</Timeslot><CardMessage>I Love You</CardMessage><Method>delivery</Method></Delivery><Delivery Id="12"><Address>Kampung Matambai, Jalan Lintas, Kampung Kepayan, 88300 Kota Kinabalu, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company>Kampung Matambai</Company><Asset_type>shop</Asset_type><City_town>Kampung Kepayan</City_town><Postcode>88200</Postcode><Recipient>Haw Quan</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-08-31</Date><Timeslot>13:45</Timeslot><CardMessage>Happy Anniversary</CardMessage><Method>delivery</Method></Delivery><Delivery Id="13"><Address>32, Jalan Haji Saman, Pusat Bandar, 88000 Kota Kinabalu, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company/><Asset_type>shop</Asset_type><City_town>Pusat Bandar</City_town><Postcode>88200</Postcode><Recipient>Ryan</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-08-31</Date><Timeslot>17:30</Timeslot><CardMessage>Happy Holiday</CardMessage><Method>delivery</Method></Delivery><Delivery Id="14"><Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company>Rumah Papar</Company><Asset_type>shop</Asset_type><City_town>Penampang</City_town><Postcode>88200</Postcode><Recipient>Jeremy</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-09-01</Date><Timeslot>10:30</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>delivery</Method></Delivery><Delivery Id="15"><Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company>Rumah Papar</Company><Asset_type>shop</Asset_type><City_town>Penampang</City_town><Postcode>88200</Postcode><Recipient>Alson</Recipient><Recipientcontact>0123456789</Recipientcontact><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-09-02</Date><Timeslot>12:15</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>delivery</Method></Delivery><Delivery Id="16"><Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address><DeliveryFee>5.9</DeliveryFee><Company>Rumah Papar</Company><Asset_type>shop</Asset_type><City_town>Penampang</City_town><Postcode>88200</Postcode><Recipient>Jack</Recipient><Recipientcontact/><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-09-02</Date><Timeslot>12:15</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>delivery</Method></Delivery><SelfPickUp Id="17"><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-09-02</Date><Timeslot>12:15</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>pickup</Method></SelfPickUp><SelfPickUp Id="18"><Sender>Kelvin</Sender><Sendercontact>0123456789</Sendercontact><Date>2020-09-02</Date><Timeslot>12:15</Timeslot><CardMessage>Happy Birthday</CardMessage><Method>pickup</Method></SelfPickUp></deliveries>
+<!DOCTYPE deliveries SYSTEM 'delivery.dtd'>
+<deliveries>
+    <Delivery Id="1">
+        <Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company>Rumah Papar</Company>
+        <Asset_type>shop</Asset_type>
+        <City_town>Penampang</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Johann</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-08-30</Date>
+        <Timeslot>12:30</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="2">
+        <Address>Wisma Merdeka, Lot B217, Jalan Tun Razak, Pusat Bandar Kota Kinabalu, 88000 Kota Kinabalu, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company/>
+        <Asset_type>Lot</Asset_type>
+        <City_town>Kota Kinabalu</City_town>
+        <Postcode>88000</Postcode>
+        <Recipient>Jackson</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-08-30</Date>
+        <Timeslot>16:20</Timeslot>
+        <CardMessage>I Love You</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="3">
+        <Address>Kampung Matambai, Jalan Lintas, Kampung Kepayan, 88300 Kota Kinabalu, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company>Kampung Matambai</Company>
+        <Asset_type>shop</Asset_type>
+        <City_town>Kampung Kepayan</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Haw Quan</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-08-31</Date>
+        <Timeslot>13:45</Timeslot>
+        <CardMessage>Happy Anniversary</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="4">
+        <Address>32, Jalan Haji Saman, Pusat Bandar, 88000 Kota Kinabalu, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company/>
+        <Asset_type>shop</Asset_type>
+        <City_town>Pusat Bandar</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Ryan</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-08-31</Date>
+        <Timeslot>17:30</Timeslot>
+        <CardMessage>Happy Holiday</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="5">
+        <Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company>Rumah Papar</Company>
+        <Asset_type>shop</Asset_type>
+        <City_town>Penampang</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Jeremy</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-09-01</Date>
+        <Timeslot>10:30</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="6">
+        <Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company>Rumah Papar</Company>
+        <Asset_type>shop</Asset_type>
+        <City_town>Penampang</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Alson</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-09-02</Date>
+        <Timeslot>12:15</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="7">
+        <Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company>Rumah Papar</Company>
+        <Asset_type>shop</Asset_type>
+        <City_town>Penampang</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Jack</Recipient>
+        <Recipientcontact/>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-09-02</Date>
+        <Timeslot>12:15</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <SelfPickUp Id="8">
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-09-02</Date>
+        <Timeslot>12:15</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>pickup</Method>
+    </SelfPickUp>
+    <SelfPickUp Id="9">
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-09-02</Date>
+        <Timeslot>12:15</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>pickup</Method>
+    </SelfPickUp>
+    <Delivery Id="10">
+        <Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company>Rumah Papar</Company>
+        <Asset_type>shop</Asset_type>
+        <City_town>Penampang</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Johann</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-08-30</Date>
+        <Timeslot>12:30</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="11">
+        <Address>Wisma Merdeka, Lot B217, Jalan Tun Razak, Pusat Bandar Kota Kinabalu, 88000 Kota Kinabalu, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company/>
+        <Asset_type>Lot</Asset_type>
+        <City_town>Kota Kinabalu</City_town>
+        <Postcode>88000</Postcode>
+        <Recipient>Jackson</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-08-30</Date>
+        <Timeslot>16:20</Timeslot>
+        <CardMessage>I Love You</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="12">
+        <Address>Kampung Matambai, Jalan Lintas, Kampung Kepayan, 88300 Kota Kinabalu, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company>Kampung Matambai</Company>
+        <Asset_type>shop</Asset_type>
+        <City_town>Kampung Kepayan</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Haw Quan</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-08-31</Date>
+        <Timeslot>13:45</Timeslot>
+        <CardMessage>Happy Anniversary</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="13">
+        <Address>32, Jalan Haji Saman, Pusat Bandar, 88000 Kota Kinabalu, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company/>
+        <Asset_type>shop</Asset_type>
+        <City_town>Pusat Bandar</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Ryan</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-08-31</Date>
+        <Timeslot>17:30</Timeslot>
+        <CardMessage>Happy Holiday</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="14">
+        <Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company>Rumah Papar</Company>
+        <Asset_type>shop</Asset_type>
+        <City_town>Penampang</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Jeremy</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-09-01</Date>
+        <Timeslot>10:30</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="15">
+        <Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company>Rumah Papar</Company>
+        <Asset_type>shop</Asset_type>
+        <City_town>Penampang</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Alson</Recipient>
+        <Recipientcontact>0123456789</Recipientcontact>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-09-02</Date>
+        <Timeslot>12:15</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <Delivery Id="16">
+        <Address>Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah</Address>
+        <DeliveryFee>5.9</DeliveryFee>
+        <Company>Rumah Papar</Company>
+        <Asset_type>shop</Asset_type>
+        <City_town>Penampang</City_town>
+        <Postcode>88200</Postcode>
+        <Recipient>Jack</Recipient>
+        <Recipientcontact/>
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-09-02</Date>
+        <Timeslot>12:15</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>delivery</Method>
+    </Delivery>
+    <SelfPickUp Id="17">
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-09-02</Date>
+        <Timeslot>12:15</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>pickup</Method>
+    </SelfPickUp>
+    <SelfPickUp Id="18">
+        <Sender>Kelvin</Sender>
+        <Sendercontact>0123456789</Sendercontact>
+        <Date>2020-09-02</Date>
+        <Timeslot>12:15</Timeslot>
+        <CardMessage>Happy Birthday</CardMessage>
+        <Method>pickup</Method>
+    </SelfPickUp>
+</deliveries>
