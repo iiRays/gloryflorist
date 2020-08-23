@@ -73,7 +73,7 @@ if (isset($_POST['login'])) {
 //Get data from form
     $email = Quick::getPostData("email");
     $password = Quick::getPostData("password_1");
-    $user = R::findOne("user", "email = ?", [$email]);
+    $user = R::findOne("user", "email = ? and status = ?", [$email, "active"]);
 
 
     //validation
