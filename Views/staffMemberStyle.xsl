@@ -3,9 +3,8 @@
 <!--
     Document   : testXSL.xsl
     Created on : August 9, 2020, 4:41 PM
-    Author     : mast3
-    Description:
-        Purpose of transformation follows.
+    Author     : Johann Lee Jia Xuan
+    
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">

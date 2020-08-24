@@ -1,4 +1,6 @@
 <?php
+// Author: Johann Lee Jia Xuan
+
 //To handle uncaught errors
 require_once __DIR__ . '/../Controllers/Security/Logger/LoggerFactory.php';
 $logger = new LoggerFactory;
@@ -34,28 +36,30 @@ Authorize::onlyAllow("staff");
             <div id="content">
 
                 <br/>
-                
 
-                    <?php
-                    require_once "../Controllers/Util/DB.php";
 
-                    DB::connect();
-                    // Get orders
-                    $orderList = R::find("orders","order by field(status,'pending', 'doing','dropped','done')");
-                    $order = "";
-                    
-                    echo '<div class="masonryContainer">';
+                <?php
+                require_once "../Controllers/Util/DB.php";
 
-                    foreach ($orderList as $individualOrder) {
+                DB::connect();
+                // Get orders
+                $orderList = R::find("orders", "order by field(status,'pending', 'doing','dropped','done')");
+                $order = "";
 
-                        // Load all data
-                        $id = $individualOrder->id;
-                        // $deadline =(new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->targetDate))))->diff(Quick::getCurrentTime())->format("%dd %hh %im");
+                echo '<div class="masonryContainer">';
+
+                foreach ($orderList as $individualOrder) {
+
+                    // Load all data
+                    $id = $individualOrder->id;
+
+                    // Display deadline
+                    if ($individualOrder->delivery != null) {
                         date_default_timezone_set('Asia/Singapore');
                         $now = Quick::getCurrentTime();
                         $timeslot = $individualOrder->delivery->timeslot;
                         $deadlineDate = new DateTime(date('Y-m-d H:i:s', strtotime($individualOrder->delivery->date)));
-                        $deadlineDate->add(new DateInterval("PT". substr($timeslot, 0, 2) . "H" . substr($timeslot, 3, 2) . "M"));
+                        $deadlineDate->add(new DateInterval("PT" . substr($timeslot, 0, 2) . "H" . substr($timeslot, 3, 2) . "M"));
                         $deadlineDateStr = date_format($deadlineDate, "d/m/y h:ia");
                         $deadline = date_diff($now, $deadlineDate, false)->format(" %r%dd %hh %im left");
 
@@ -63,31 +67,35 @@ Authorize::onlyAllow("staff");
                             // Overdue
                             $deadline = "Overdue";
                         }
+                    } else {
+                        $deadlineDateStr = "No deadline given";
+                        $deadline = "No deadline given";
+                    }
 
-                        // If finished and over deadline now
-                        if ($individualOrder->status == "done" || $individualOrder->status == "dropped") {
-                            $deadline = "";
-                        }
+                    // If finished and over deadline now
+                    if ($individualOrder->status == "done" || $individualOrder->status == "dropped") {
+                        $deadline = "";
+                    }
 
-                        //Get order item
-                        $orderItemList = R::find("orderitem", "order_id = ?", [$id]);
-                        $count = count($orderItemList);
-                        $finishedClass = $individualOrder->status == "done" || $individualOrder->status == "dropped" ? "finished" : "";  // marked completed ones
-                        
-                        $order .= "<div class=\"item {$finishedClass}\" id=\"{$id}\" data-arrangementcount=\"{$count}\" data-targetdate=\"Target: {$deadlineDateStr}\" data-status=\"{$individualOrder->status}\" data-deadline=\"{$deadline}\">
+                    //Get order item
+                    $orderItemList = R::find("orderitem", "order_id = ?", [$id]);
+                    $count = count($orderItemList);
+                    $finishedClass = $individualOrder->status == "done" || $individualOrder->status == "dropped" ? "finished" : "";  // marked completed ones
+
+                    $order .= "<div class=\"item {$finishedClass}\" id=\"{$id}\" data-arrangementcount=\"{$count}\" data-targetdate=\"Target: {$deadlineDateStr}\" data-status=\"{$individualOrder->status}\" data-deadline=\"{$deadline}\">
                         <div class=\"orderID\" >order {$id}</div>";
 
-                        $counter = 0;
-                        foreach ($orderItemList as $orderItem) {
-                            $arrangement = $orderItem->arrangement;
-                            $counter += 1;
-                            $order .= "  <div class=\"arrangement\" id=\"{$id}arrangement{$counter}\"  data-quantity=\"{$orderItem->quantity}\" data-name=\"{$arrangement->name}\" data-stalk=\"{$arrangement->stalks}\" data-flower=\"{$arrangement->flower->flowerName}\">{$arrangement->name} x {$orderItem->quantity}</div> 
+                    $counter = 0;
+                    foreach ($orderItemList as $orderItem) {
+                        $arrangement = $orderItem->arrangement;
+                        $counter += 1;
+                        $order .= "  <div class=\"arrangement\" id=\"{$id}arrangement{$counter}\"  data-quantity=\"{$orderItem->quantity}\" data-name=\"{$arrangement->name}\" data-stalk=\"{$arrangement->stalks}\" data-flower=\"{$arrangement->flower->flowerName}\">{$arrangement->name} x {$orderItem->quantity}</div> 
                         <div class=\"flowers\">{$arrangement->stalks} stalks</div>
                         <div class=\"flowers\">{$arrangement->flower->flowerName}</div>";
-                        }
-
-                        $order .= "<div class=\"deadline\">$deadline</div></div>";
                     }
+
+                    $order .= "<div class=\"deadline\">$deadline</div></div>";
+                }
 
 
 //
@@ -111,32 +119,32 @@ Authorize::onlyAllow("staff");
 //                    </div>
 //                </div>";
 
-                    echo $order ;
-                    ?>
-                
-                </div>
+                echo $order;
+                ?>
+
             </div>
-            <div class="overlay">
+        </div>
+        <div class="overlay">
+        </div>
+        <div class="itemFocus">
+            <div class="orderID" id="itemFocusOrderID"></div> 
+            <div class="arrangementContainer">
+
             </div>
-            <div class="itemFocus">
-                <div class="orderID" id="itemFocusOrderID"></div> 
-                <div class="arrangementContainer">
+
+            <div class="bottomBar">
+                <div class="targetDeadline" id="overlayTargetDeadline">12/12/2020</div>
+                <div class="deadline" id="overlayDeadline">3 hours left</div>
+                <div class="orderStatus">
+                    <a href="" class="pending" id="pending"><div>Pending</div></a>
+                    <a href="" class="doing" id="doing"><div>Doing</div></a>
+                    <a href="" class="delivering" id="delivering"> <div>Delivering</div></a>
+                    <a href="" class="done" id="done"> <div >Done</div></a>
+                    <a href="" class="dropped" id="dropped"> <div >Dropped</div></a>
 
                 </div>
-
-                <div class="bottomBar">
-                    <div class="targetDeadline" id="overlayTargetDeadline">12/12/2020</div>
-                    <div class="deadline" id="overlayDeadline">3 hours left</div>
-                    <div class="orderStatus">
-                        <a href="" class="pending" id="pending"><div>Pending</div></a>
-                        <a href="" class="doing" id="doing"><div>Doing</div></a>
-                        <a href="" class="delivering" id="delivering"> <div>Delivering</div></a>
-                        <a href="" class="done" id="done"> <div >Done</div></a>
-                        <a href="" class="dropped" id="dropped"> <div >Dropped</div></a>
-
-                    </div>
-                </div>
             </div>
+        </div>
     </body>
     <script>
         $(".item").click(function () {

@@ -183,6 +183,7 @@ R::store($orderItem3);
 $delivery1 = R::dispense("delivery");
 
 //add properties:
+
 $delivery1->cardmessage = "Happy Birthday";
 $delivery1->sender = "Kelvin";
 $delivery1->sendercontact = "0123456789";
@@ -313,7 +314,39 @@ $id = R::store($pickup1);
 //$pickup2->timeslot = "12:15";
 //$pickup2->method = "pickup";
 
-//R::storeAll([$delivery1, $pickup1]);
+$order1 = R::dispense("orders");
+$order1->customer_id = "1";
+$order1->grand_total = 1134;
+$order1->status = "Pending";
+$order1->delivery = $delivery1;
+R::store($order1);
+
+$orderItem1 = R::dispense("orderitem");
+$orderItem1->quantity = 2;
+$orderItem1->arrangement_id = "1";
+$orderItem1->order_id = "1";
+R::store($orderItem1);
+
+$orderItem2 = R::dispense("orderitem");
+$orderItem2->quantity = 1;
+$orderItem2->arrangement_id = "3";
+$orderItem2->order_id = "1";
+R::store($orderItem2);
+
+$order2 = R::dispense("orders");
+$order2->customer_id = "1";
+$order2->grand_total = 807;
+$order2->status = "Pending";
+$order2->delivery = $pickup1;
+R::store($order2);
+
+$orderItem3 = R::dispense("orderitem");
+$orderItem3->quantity = 3;
+$orderItem3->arrangement_id = "4";
+$orderItem3->order_id = "2";
+R::store($orderItem3);
+
+
 
 
 R::storeAll([$flower, $flower2, $flower3, $flower4, $arrangement, $arrangement2, $arrangement3, $arrangement4, $arrangement5]);

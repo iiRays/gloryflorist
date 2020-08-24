@@ -1,4 +1,6 @@
 <?php
+// Author: Johann Lee Jia Xuan
+
 require_once(__DIR__."/../Security/Authorize.php");
 
 
