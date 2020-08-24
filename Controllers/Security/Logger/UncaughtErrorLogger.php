@@ -100,7 +100,7 @@ class UncaughtErrorLogger extends ALogger {
         $em = new Email();
         $em::send('kelvintyh-am17@student.tarc.edu.my', '', $email);
         
-                 // create a log channel
+        // create a log channel
         $log = new Logger('Uncaught Error');
 
         $logstream = new StreamHandler(__DIR__ . '\..\logging\log.txt', Logger::DEBUG);
@@ -113,7 +113,6 @@ class UncaughtErrorLogger extends ALogger {
         $log->pushHandler(new FirePHPHandler());
 
         //populate log's context and extra arrays
-        //consider email/username try to attempt
         // add records to the log
 
         $log->error("Uncaught Error. ", array('exception' => $exception));

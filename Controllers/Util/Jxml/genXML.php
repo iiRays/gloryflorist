@@ -58,5 +58,5 @@ function createXMLfile($UserArray) {
     }
     $dom->appendChild($root);
     $dom->save($filePath);
-    header('location: XSLT.php');
+    header('location: viewUsers.php');
 }

@@ -48,6 +48,7 @@ require_once("../Controllers/Util/Quick.php");
 
                 <?php
                 //call here..
+                require __DIR__ . '\..\Controllers\Util\generateDeliveryXML.php';
                 $header = "<h1>Pickup List</h1>"
                         . "<h3>For Date: " . Quick::getPostData("date") . "</h3>"
                         . "<h4>Please deliver the flower to our beloved one, and Ensure them pickup their flower Ya. </h4>";

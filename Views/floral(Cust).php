@@ -101,9 +101,9 @@ $isAvailable = $floral->getAvailability($id);
                 <?php
                 if (Authorize::isUserA("customer")) {
                     if ($isAvailable == "false") {
-                        echo '<a href="add_to_cart.php?id=' . $id . '" id="addtocart_button" style="opacity: 0.5;filter: alpha(opacity=40);pointer-events: none;cursor: default;" >Add to cart</a>';
+                        echo '<a href="../Controllers/Ordering/add_to_cart.php?id=' . $id . '" id="addtocart_button" style="opacity: 0.5;filter: alpha(opacity=40);pointer-events: none;cursor: default;" >Add to cart</a>';
                     } else {
-                        echo '<a href="add_to_cart.php?id=' . $id . '" id="addtocart_button">Add to cart</a>';
+                        echo '<a href="../Controllers/Ordering/add_to_cart.php?id=' . $id . '" id="addtocart_button">Add to cart</a>';
                     }
                 } else {
                     echo '<a href="login.php" id="login_button">Login Now For More</a>';

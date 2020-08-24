@@ -33,14 +33,6 @@ class TemperingEventLogger extends ALogger {
         $log->pushHandler($logstream);
         $log->pushHandler(new FirePHPHandler());
 
-        //populate log's context and extra arrays
-//        $log->pushProcessor(function ($record) {
-//            //$record['extra']['Detail info'] = $array;
-//            $record['context'] = array(
-//                'user' => $_SESSION["user"]);
-//            return $record;
-//        });
-
         // add records to the log
         $log->info("Tempering Event Success",array('info detail' => $extra, 'user' =>  $_SESSION["user"]));
     }

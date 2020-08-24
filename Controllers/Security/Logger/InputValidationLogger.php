@@ -14,7 +14,7 @@ date_default_timezone_set('Asia/Kuala_Lumpur');
 
 class InputValidationLogger extends ALogger{
 
-    public function validLogger($extra=NULL, $fileinfo=NULL) {
+    public function validLogger($extra, $fileinfo) {
         // create a log channel
         $log = new Logger('Input Validation');
        
@@ -32,7 +32,7 @@ class InputValidationLogger extends ALogger{
         $log->info("Input validation Success. [File Info]=>" .$fileinfo);
     }
 
-    public function invalidLogger($e=NULL, $fileinfo=NULL) {
+    public function invalidLogger($e, $fileinfo) {
         // create a log channel
         $log = new Logger('Input Validation');
 

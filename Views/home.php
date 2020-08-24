@@ -1,6 +1,6 @@
 <?php
  require_once("../Controllers/Util/Quick.php");
-
+require_once("../Controllers/Security/Authorize.php");
 ?>
 <html>
     <head>
@@ -16,6 +16,8 @@
                 <a class='link' href='viewFloral(Cust).php'>shop</a>
                 <a class='link' href='cart.php'>cart</a>
                 <a class='link' href='Account.php'>account</a>
+                <?php echo Authorize::isUserA("staff") ? "<a class='link' href='staffDashboard.php'>dashboard</a>" : ""; ?>
+                <?php echo Authorize::isUserA("customer") ? "<a class='link' href='logout.php'>logout</a>" : ""; ?>
             </div>
         </div>
 
