@@ -150,7 +150,7 @@ $order1 = R::dispense("orders");
 $order1->customer_id = "1";
 $order1->grand_total = 1134;
 $order1->status = "Pending";
-$order1->delivery_id = null;
+$order1->delivery_id = 1;
 R::store($order1);
 
 $orderItem1 = R::dispense("orderitem");
@@ -169,7 +169,7 @@ $order2 = R::dispense("orders");
 $order2->customer_id = "1";
 $order2->grand_total = 807;
 $order2->status = "Pending";
-$order1->delivery_id = null;
+$order1->delivery_id = 2;
 R::store($order2);
 
 $orderItem3 = R::dispense("orderitem");
@@ -180,25 +180,26 @@ R::store($orderItem3);
 
 //delivery
 //To create a new bean (of type 'delivery') use:
-//$delivery1 = R::dispense("delivery");
-//
-////add properties:
-//$delivery1->cardmessage = "Happy Birthday";
-//$delivery1->sender = "Kelvin";
-//$delivery1->sendercontact = "0123456789";
-//$delivery1->date = "2020-08-30";
-//$delivery1->timeslot = "12:30";
-//$delivery1->method = "delivery";
-//$delivery1->address = "Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah";
-//$delivery1->deliveryfee = 5.9;
-//$delivery1->company = "Rumah Papar";
-//$delivery1->asset_type = "shop";
-//$delivery1->city_town = "Penampang";
-//$delivery1->postcode = 88200;
-//$delivery1->recipient = "Johann";
-//$delivery1->recipientcontact = "0123456789";
-//
-////store the bean in the database
+$delivery1 = R::dispense("delivery");
+
+//add properties:
+$delivery1->id = 1;
+$delivery1->cardmessage = "Happy Birthday";
+$delivery1->sender = "Kelvin";
+$delivery1->sendercontact = "0123456789";
+$delivery1->date = "2020-08-30";
+$delivery1->timeslot = "12:30";
+$delivery1->method = "delivery";
+$delivery1->address = "Rumah Papar, KDCA, 89507, 88200 Penampang, Sabah";
+$delivery1->deliveryfee = 5.9;
+$delivery1->company = "Rumah Papar";
+$delivery1->asset_type = "shop";
+$delivery1->city_town = "Penampang";
+$delivery1->postcode = 88200;
+$delivery1->recipient = "Johann";
+$delivery1->recipientcontact = "0123456789";
+
+//store the bean in the database
 //$id = R::store($delivery1);
 //
 //$delivery2 = R::dispense("delivery");
@@ -216,7 +217,7 @@ R::store($orderItem3);
 //$delivery2->postcode = 88000;
 //$delivery2->recipient = "Jackson";
 //$delivery2->recipientcontact = "0123456789";
-//
+
 //$delivery3 = R::dispense("delivery");
 //$delivery3->cardmessage = "Happy Anniversary";
 //$delivery3->sender = "Kelvin";
@@ -297,14 +298,15 @@ R::store($orderItem3);
 //$delivery7->recipient = "Jack";
 //
 //
-//$pickup1 = R::dispense("delivery");
-//$pickup1->cardmessage = "Happy Birthday";
-//$pickup1->sender = "Kelvin";
-//$pickup1->sendercontact = "0123456789";
-//$pickup1->date = "2020-09-02";
-//$pickup1->timeslot = "12:15";
-//$pickup1->method = "pickup";
-//
+$pickup1 = R::dispense("delivery");
+$pickup1->id = 2;
+$pickup1->cardmessage = "Happy Birthday";
+$pickup1->sender = "Kelvin";
+$pickup1->sendercontact = "0123456789";
+$pickup1->date = "2020-09-02";
+$pickup1->timeslot = "12:15";
+$pickup1->method = "pickup";
+
 //$pickup2 = R::dispense("delivery");
 //$pickup2->cardmessage = "Happy Birthday";
 //$pickup2->sender = "Kelvin";
@@ -313,7 +315,7 @@ R::store($orderItem3);
 //$pickup2->timeslot = "12:15";
 //$pickup2->method = "pickup";
 
-//R::storeAll([$delivery1, $delivery2, $delivery3, $delivery4, $delivery5, $delivery6, $delivery7, $pickup1, $pickup2, ]);
+R::storeAll([$delivery1, $pickup1]);
 
 
 R::storeAll([$flower, $flower2, $flower3, $flower4, $arrangement, $arrangement2, $arrangement3, $arrangement4, $arrangement5]);
