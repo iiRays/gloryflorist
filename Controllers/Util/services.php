@@ -8,7 +8,7 @@ require_once("../Controllers/Security/Session.php");
 require_once("../Controllers/Util/DB.php");
 require_once("../Controllers/Util/Email.php");
 require_once("../Controllers/Security/Password.php");
-require_once __DIR__ . '\..\Controllers\Security\Logger\LoggerFactory.php';
+require_once __DIR__ . '\..\Security\Logger\LoggerFactory.php';
 $logger = new LoggerFactory;
 $logger = $logger->createLogger("UNCAUGHTERROR");
 $logger->invalidLogger(null, null);
