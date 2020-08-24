@@ -39,7 +39,7 @@ $default_text = 'Type your free card message in the box or select one below.The 
                         </div>
                         <div class="input">
                             <label for="date">PLEASE SELECT A DELIVERY/PICKUP DATE:</label>
-                            <input type="date" name="date" min="<?php echo date('Y-m-d'); ?>" value="<?php echo isset($_POST['date']) ? htmlspecialchars($_POST['date'], ENT_QUOTES) : ''; ?>" required="true">
+                            <input type="date" name="date" min="<?php echo Date('Y-m-d', strtotime('+1 days'));; ?>" value="<?php echo isset($_POST['date']) ? htmlspecialchars($_POST['date'], ENT_QUOTES) : ''; ?>" required="true">
                         </div>
                         <div>
                             <label for="time" >PLEASE SELECT A DELIVERY/PICKUP TIME:</label>
