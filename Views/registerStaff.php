@@ -27,7 +27,7 @@ Authorize::onlyAllow("admin");
 
       <div id='top'>
         <div id='text'>
-          <a href='#' id='back'>back &nbsp; to the shop</a>
+          <a href='staffDashboard.php' id='back'>back &nbsp; to dashboard</a>
           <a id='title'>Register a Staff</a>
         </div>
       </div>

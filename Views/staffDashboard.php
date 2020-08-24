@@ -30,7 +30,7 @@ $orderCount = count(R::find("orders", "status != ? AND status != ?", ["done", "d
 
             <div id='top'>
                 <div id='text'>
-                    <a href='#' id='back'>back &nbsp; to &nbsp; the shop</a>
+                    
                     <a id='title'>Staff Dashboard</a>
                 </div>
             </div>
@@ -84,7 +84,7 @@ $orderCount = count(R::find("orders", "status != ? AND status != ?", ["done", "d
             window.location.href = "viewFlower%28Staff%29.php";
         });
         $("#user").click(function () {
-            window.location.href = "../Controllers/Util/Jxml/viewUsers.php";
+            window.location.href = "../Controllers/Util/Jxml/genXML.php";
         });
         $("#delivery").click(function () {
             window.location.href = "delivery%28Staff%29.php";

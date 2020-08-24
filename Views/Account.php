@@ -1,5 +1,5 @@
 <?php
-include('AccountDetails.php');
+require_once('AccountDetails.php');
 require_once("../Controllers/Security/Authorize.php");
 require_once("../Controllers/Util/RoleStrategy/RoleStrategy.php");
 require_once("../Controllers/Util/Quick.php");

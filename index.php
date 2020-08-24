@@ -11,13 +11,9 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        include 'Controllers/Util/DB.php';
-        include 'TestClasses.php';
+        require_once("Controllers/Util/Quick.php");
         
-        $result = DB::select("SELECT * from subjects", "Subject");
-        foreach($result as $subject){
-           echo $subject->yearOfStudy;
-        }
+        Quick::redirect("Views/home.php");
         
         ?>
     </body>

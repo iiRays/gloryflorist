@@ -1,12 +1,13 @@
 <?php
 
-include "../Controllers/Util/rb.php";
-include "../Controllers/Util/DB.php";
-require_once("../Controllers/Security/Session.php");
-require_once("../Controllers/Security/ErrorHandler.php");
-require_once("../Controllers/Security/Validator.php");
-require_once("../Controllers/Util/CartAdapter.php");
-require_once("../Controllers/Util/Item.php");
+include "../Util/rb.php";
+include "../Util/DB.php";
+require_once("../Security/Session.php");
+require_once("../Security/ErrorHandler.php");
+require_once("../Security/Validator.php");
+require_once("../Util/CartAdapter.php");
+require_once("../Util/Item.php");
+require_once("../Util/Quick.php");
 
 DB::connect();
 
@@ -48,4 +49,4 @@ if (!$errorHandler->errorsExist()) {
 }
 
 // redirect to cart page
-header('location: cart.php');
+Quick::redirect("/Views/cart.php");
