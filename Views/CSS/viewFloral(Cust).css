@@ -86,3 +86,7 @@ html {
     width: 80px;
     height: 80px;
 }
+
+#container #content #list{
+    margin-top: auto;
+}
