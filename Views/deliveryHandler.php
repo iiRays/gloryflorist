@@ -13,7 +13,7 @@ $logger->invalidLogger(null, null);
 //$logger->createLogger()->invalidLogger($e = NULL);
 //authorization check
 require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
-Authorize::onlyAllow("customer"); //temperory disable for better coding envir
+Authorize::onlyAllow("customer");
 //for other usage
 require_once __DIR__ . '\..\Controllers\Util\Quick.php';
 require_once __DIR__ . '\..\Controllers\Util\DB.php';
@@ -39,34 +39,24 @@ if (isset($_POST['deliveryType']) && isset($_POST['date']) && isset($_POST['time
     $sendercontact = Quick::getPostData("sendercontact");
 
 //validate input
-    $validator = new Validator();
-    $validator->validateName($sender);
-    $validator->validatePhone($sendercontact);
 
-//get error msg
-    $errMsg = array();
-    $errMsg = $validator->getError();
+    if (!preg_match("/^[a-zA-Z ]*$/", $sender)) {
+        $nameErr = "Name can only have letters and space only";
+    }
+    if (!preg_match('/^[0-9]{10,11}+$/', $sendercontact)) {
+        $phoErr = "Phone must consist of 10 or 11 digits";
+    }
 
 //check got error or not
-    if (count($errMsg) != 0) {
+    if (isset($nameErr) || isset($phoErr)) {
         //if got error proceed here
-
-        $result = array();
-        foreach ($errMsg as $msgs) {
-            foreach ($msgs as $msg) {
-                $result[] = $msg;
-            }
-        }
-        //store error msg into variable(folo ur seq in validate input thre
         //display error 
-        $m = "";
-        if (isset($result[0])) {
-            $m .= 'Sender name: ' . $result[0] . '<br/>';
+        if (isset($nameErr)) {
+            echo 'Sender name: ' . $nameErr . '<br/>';
         }
-        if (isset($result[1])) {
-            $m .= 'Contact number: ' . $result[1] . '<br/>';
+        if (isset($phoErr)) {
+            echo 'Contact number: ' . $phoErr . '<br/>';
         }
-        echo $m;
     } else {
         //if no error proceed here
         if ($deliverytype == "pickup") {

@@ -19,9 +19,9 @@ DB::connect();
 $deliveriesArray = R::getAll('select * from delivery');
 
 //Display the data of sender column 
-foreach ($deliveriesArray as $result) {
-    echo $result['sender'], '<br>';
-}
+//foreach ($deliveriesArray as $result) {
+//    echo $result['sender'], '<br>';
+//}
 
 createDeliveryXMLfile($deliveriesArray);
 

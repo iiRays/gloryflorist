@@ -79,7 +79,6 @@ Authorize::onlyAllow("customer"); //temperory disable for better coding envir
                             <input type="submit" name="submit"/>
                         </div>
                         <div class="input">
-                            <a href="" >Return to previous page</a>
                         </div>
                         <div class="input">
                             <a href="cart.php" >Return to cart</a>

@@ -45,6 +45,7 @@ Authorize::onlyAllow("staff"); //temperory disable for better coding envir
                     </form>
                 </div>
                 <?php
+                require __DIR__ . '\..\Controllers\Util\generateDeliveryXML.php';
                 $header = "<h1>Delivery Summary Report</h1>"
                         . "<h3>For Date   : " . Quick::getPostData("start") . " util " . Quick::getPostData("end") . "</h3>"
                         . "<h4>Prepared by: </h4>";
