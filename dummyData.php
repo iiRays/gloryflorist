@@ -150,7 +150,7 @@ $order1 = R::dispense("orders");
 $order1->customer_id = "1";
 $order1->grand_total = 1134;
 $order1->status = "Pending";
-$order1->delivery = null;
+$order1->delivery_id = null;
 R::store($order1);
 
 $orderItem1 = R::dispense("orderitem");
@@ -169,7 +169,7 @@ $order2 = R::dispense("orders");
 $order2->customer_id = "1";
 $order2->grand_total = 807;
 $order2->status = "Pending";
-$order1->delivery = null;
+$order1->delivery_id = null;
 R::store($order2);
 
 $orderItem3 = R::dispense("orderitem");
