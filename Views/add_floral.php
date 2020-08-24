@@ -17,7 +17,10 @@ $price = doubleval($_POST['price']);
 $imgLink = $_POST['flowerImgSrc'];
 
 if ($imgLink == null) {
-    echo '<script type="text/javascript">alert("Please wait for image to finish upload");history.go(-1);</script>';
+    echo '<script type="text/javascript">'
+    . 'alert("Please wait for image to finish upload");'
+    . 'window.location.href = "addFloral(Staff).php"'
+    . '</script>';
     //header('Location: ' . $_SERVER['HTTP_REFERER']);    
 } else {
     $floral = new FloralArrangementAdapter();

@@ -42,7 +42,8 @@ ID: 19WMR09574
                             <input type="file" id="img" name="image" accept="image/*" required>
                         </div>
                         <div id="right"> 
-                            <img id="flowerImg" src="" alt="flower" /><br />
+                            <label id="label">No Image Uploaded</label>
+                            <img id="flowerImg" src="" alt="flower" style="display: none;" /><br />
                             <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value=""/>
                         </div>
                         <div id="bottom">
@@ -95,9 +96,16 @@ ID: 19WMR09574
                         "data": formData,
                         beforeSend: function (xhr) {
                             console.log("Uploading");
+                            document.getElementById("label").style.display = "block";
+                            document.getElementById("label").innerHTML = "Uploading...";
+                            document.getElementById("flowerImg").src = null;
+                            document.getElementById("flowerImgSrc").value = null;
+                            document.getElementById("flowerImg").style.display = "none";
                         },
                         success: function (res) {
                             console.log(res.data.link);
+                            document.getElementById("label").style.display = "none";
+                            document.getElementById("flowerImg").style.display = "block";
                             document.getElementById("flowerImg").src = res.data.link;
                             document.getElementById("flowerImgSrc").value = res.data.link;
                         },

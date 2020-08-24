@@ -3,7 +3,6 @@ Author: Chong Wei Jie
 ID: 19WMR09574
 -->
 <?php
-
 //include "../Controllers/Util/rb.php";
 //include "../Controllers/Util/DB.php";
 require_once ('../Controllers/Util/Floral/FloralArrangementAdapter.php');
@@ -18,13 +17,21 @@ $flowerId = $_POST['flowers'];
 $price = doubleval($_POST['price']);
 $imgLink = $_POST['flowerImgSrc'];
 
-$floral= new FloralArrangementAdapter();
+if ($imgLink == null) {
+    echo '<script type="text/javascript">'
+    . 'alert("Please wait for image to finish upload");'
+    . 'window.location.href = "editFloral(Staff).php?id=' . $id . '"'
+    . '</script>';
+    //header('Location: ' . $_SERVER['HTTP_REFERER']);    
+} else {
+    $floral = new FloralArrangementAdapter();
 
-$floral->editImgSrc($id, $imgLink);
-$floral->editName($id, $name);
-$floral->editPrice($id, $price);
-$floral->editFlower($id, $flowerId);
-$floral->editStalks($id, $stalk);
+    $floral->editImgSrc($id, $imgLink);
+    $floral->editName($id, $name);
+    $floral->editPrice($id, $price);
+    $floral->editFlower($id, $flowerId);
+    $floral->editStalks($id, $stalk);
+}
 
 //$flower = R::load("flower", $flowerId);
 //$isAvailable = $flower->isAvailable;
@@ -59,7 +66,7 @@ $floral->editStalks($id, $stalk);
                 <div id="msgBorder">
                     <label>The flower arrangement had been updated</label>
                 </div>
-                
+
             </div>
             <a href="viewFloral%28Staff%29.php" id="back_button">Back</a>
         </div>

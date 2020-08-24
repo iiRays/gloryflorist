@@ -3,11 +3,9 @@ Author: Chong Wei Jie
 ID: 19WMR09574
 -->
 <?php
-/*
 require_once("../Controllers/Security/Authorize.php");
 Authorize::onlyAllow("staff");
- * 
- */
+
 ?>
 <!DOCTYPE html>
 <?php
@@ -74,6 +72,7 @@ $isAvailable = $results[4];
                         <input type="text" id="name" name="name" value="<?php echo $name; ?>" size="20" required/><br />
                         <label>Image:</label><br />
                         <div id="left"> 
+                            <label id="label" style="display: none;">Uploading...</label>
                             <img id="flowerImg" name="flowerImg" src="<?php echo $imgSrc; ?>" alt="flower" /><br />
                             <input type="hidden" id="flowerImgSrc" name="flowerImgSrc" value="<?php echo $imgSrc; ?>" />
                         </div>
@@ -132,10 +131,17 @@ $isAvailable = $results[4];
                         "data": formData,
                         beforeSend: function (xhr) {
                             console.log("Uploading");
+                            document.getElementById("label").style.display = "block";
+                            document.getElementById("flowerImg").style.display = "none";
+                            document.getElementById("flowerImg").src = null;
+                            document.getElementById("flowerImgSrc").value = null;
                         },
                         success: function (res) {
                             console.log(res.data.link);
+                            document.getElementById("label").style.display = "none";
+                            document.getElementById("flowerImg").style.display = "block";
                             document.getElementById("flowerImg").src = res.data.link;
+                            document.getElementById("flowerImg").value = res.data.link;
                             document.getElementById("flowerImgSrc").value = res.data.link;
                         },
                         error: function () {

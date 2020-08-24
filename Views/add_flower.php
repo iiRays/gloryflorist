@@ -22,7 +22,10 @@ if (!empty($_POST['isAvailable'])) {
 }
 
 if ($imgLink == null) {
-    echo '<script type="text/javascript">alert("Please wait for image to finish upload");history.go(-1);</script>';
+    echo '<script type="text/javascript">'
+    . 'alert("Please wait for image to finish upload");'
+    . 'window.location.href = "addFlower(Staff).php"'
+    . '</script>';
     //header('Location: ' . $_SERVER['HTTP_REFERER']);    
 } else {
     $flower = new FlowerAdapter();
