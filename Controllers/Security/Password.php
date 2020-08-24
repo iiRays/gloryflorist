@@ -103,7 +103,7 @@ class Password {
 
         //instantiate the loggerFactory
         $e = new LoggerFactory();
-        //log the addattempt activity
+        //log the clearattempt activity
         $e->createLogger("AUTHENTICATION")->validLogger($user . "[action]=> clearAttempt", $fileinfo);
         //log the tempering activity to user attempt
         $e->createLogger("TEMPERINGEVENT")->validLogger($user . "[action]=> clearAttempt", $fileinfo);
