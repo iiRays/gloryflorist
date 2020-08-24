@@ -146,6 +146,38 @@ $user->attempt = 0;
 
 R::store($user);
 
+$order1 = R::dispense("orders");
+$order1->customer_id = "1";
+$order1->grand_total = 1134;
+$order1->status = "Pending";
+$order1->delivery = null;
+R::store($order1);
+
+$orderItem1 = R::dispense("orderitem");
+$orderItem1->quantity = 2;
+$orderItem1->arrangement_id = "1";
+$orderItem1->order_id = "1";
+R::store($orderItem1);
+
+$orderItem2 = R::dispense("orderitem");
+$orderItem2->quantity = 1;
+$orderItem2->arrangement_id = "3";
+$orderItem2->order_id = "1";
+R::store($orderItem2);
+
+$order2 = R::dispense("orders");
+$order2->customer_id = "1";
+$order2->grand_total = 807;
+$order2->status = "Pending";
+$order1->delivery = null;
+R::store($order2);
+
+$orderItem3 = R::dispense("orderitem");
+$orderItem3->quantity = 3;
+$orderItem3->arrangement_id = "4";
+$orderItem3->order_id = "2";
+R::store($orderItem3);
+
 //delivery
 //To create a new bean (of type 'delivery') use:
 //$delivery1 = R::dispense("delivery");
