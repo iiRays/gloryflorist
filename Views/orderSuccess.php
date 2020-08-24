@@ -15,7 +15,7 @@ Authorize::onlyAllow("customer");
 
     <div id='container'>
 
-      <?php Quick::printHeader("account")?>;
+      <?php Quick::printHeader("orderSuccess")?>;
 
       <div id='top'>
         <div id='content'>
