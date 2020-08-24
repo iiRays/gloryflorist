@@ -51,12 +51,14 @@ if (isset($_POST['deliveryType']) && isset($_POST['date']) && isset($_POST['time
     if (isset($nameErr) || isset($phoErr)) {
         //if got error proceed here
         //display error 
+        echo '<div style="margin-bottom: 10px; margin-left: 25%;border: 1px solid black; width: 50%; color:white; background-color:#FF6347; padding: 10px">';
         if (isset($nameErr)) {
             echo 'Sender name: ' . $nameErr . '<br/>';
         }
         if (isset($phoErr)) {
             echo 'Contact number: ' . $phoErr . '<br/>';
         }
+        echo '</div>';
     } else {
         //if no error proceed here
         if ($deliverytype == "pickup") {

@@ -50,6 +50,7 @@ if (isset($_POST['recipientname']) && isset($_POST['company']) && isset($_POST['
     if (isset($nameErr) || isset($phoErr) || isset($numErr)) {
         //if got error proceed here
         //display error 
+        echo '<div style="margin-left: 25%;border: 1px solid black; width: 50%; color:white; background-color:#FF6347; padding: 10px">';
         if (isset($nameErr)) {
             echo 'Sender name: ' . $nameErr . '<br/>';
         }
@@ -59,6 +60,7 @@ if (isset($_POST['recipientname']) && isset($_POST['company']) && isset($_POST['
         if (isset($numErr)) {
             echo 'Postcode: ' . $numErr . '<br/>';
         }
+        echo '</div>';
     } else {
         //if no error proceed here...
         //store in database
