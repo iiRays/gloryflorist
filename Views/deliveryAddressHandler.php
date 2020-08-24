@@ -83,7 +83,7 @@ if (isset($_POST['recipientname']) && isset($_POST['company']) && isset($_POST['
 
 
         //redirect to another page and die this page
-        header("Location: http://localhost/GloryFlorist/Views/create_order.php");
+        header("Location: http://localhost/GloryFlorist/Controllers/Ordering/create_order.php");
         exit();
     }
 } else {
