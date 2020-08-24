@@ -77,6 +77,7 @@ for ($i = 1; $i <= $staffCount; $i++) {
     // Did any change occur?
     if ($roleChanged || $statusChanged) {
         // Update the staff in db and log him out
+        $staff->sessionToken = null;
         R::store($staff);
         
         

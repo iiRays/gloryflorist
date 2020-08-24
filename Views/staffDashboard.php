@@ -30,7 +30,7 @@ $orderCount = count(R::find("orders", "status != ? AND status != ?", ["done", "d
 
             <div id='top'>
                 <div id='text'>
-                    <a href='#' id='back'>back &nbsp; to &nbsp; the shop</a>
+                    
                     <a id='title'>Staff Dashboard</a>
                 </div>
             </div>
