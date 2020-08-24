@@ -14,36 +14,36 @@ class AccountAdapter implements AccountInterface {
         $this->user = new AccountInfo();
     }
 
-    public function editAddress($id, $address) {
-        $this->user->editAddress($id, $address);
+    public function editAddress($currentAcc, $address) {
+        $this->user->editAddress($currentAcc, $address);
     }
 
-    public function editName($id, $name) {
-        $this->user->editName($id, $name);
+    public function editName($currentAcc, $name) {
+        $this->user->editName($currentAcc, $name);
     }
 
-    public function editPassword($id, $password) {
-        $this->user->editPassword($id, $password);
+    public function editPassword($currentAcc, $password) {
+        $this->user->editPassword($currentAcc, $password);
     }
 
-    public function editPhone($id, $phone) {
-        $this->user->editPhone($id, $phone);
+    public function editPhone($currentAcc, $phone) {
+        $this->user->editPhone($currentAcc, $phone);
     }
 
-    public function getAddress($id) {
-        return $this->user->getAddress($id);
+    public function getAddress($currentAcc) {
+        return $this->user->getAddress($currentAcc);
     }
 
-    public function getEmail($id) {
-        return $this->user->getEmail($id);
+    public function getEmail($currentAcc) {
+        return $this->user->getEmail($currentAcc);
     }
 
-    public function getName($id) {
-        return $this->user->getName($id);
+    public function getName($currentAcc) {
+        return $this->user->getName($currentAcc);
     }
 
-    public function getPhone($id) {
-        return $this->user->getPhone($id);
+    public function getPhone($currentAcc) {
+        return $this->user->getPhone($currentAcc);
     }
 
 }
