@@ -89,7 +89,7 @@ if (isset($_POST['deliveryType']) && isset($_POST['date']) && isset($_POST['time
             $_SESSION['sendercontact'] = $sendercontact;
 
             //redirect to another page and die this page
-            header("Location: http://localhost/GloryFlorist/Controllers/Ordering/deliveryAddress.php");
+            header("Location: http://localhost/GloryFlorist/Views/deliveryAddress.php");
             exit();
         }
     }

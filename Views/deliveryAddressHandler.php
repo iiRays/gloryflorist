@@ -8,11 +8,9 @@ require_once __DIR__ . '\..\Controllers\Security\Logger\LoggerFactory.php';
 
 $logger = new LoggerFactory("UNCAUGHTERROR");
 //$logger->createLogger()->invalidLogger($e = NULL);
-
 //authorization check
 require_once __DIR__ . '\..\Controllers\Security\Authorize.php';
 Authorize::onlyAllow("customer"); //temperory disable for better coding envir
-
 //for other usage
 require_once __DIR__ . '\..\Controllers\Util\Quick.php';
 require_once __DIR__ . '\..\Controllers\Util\DB.php';
@@ -24,7 +22,7 @@ require_once __DIR__ . '\..\Controllers\Security\Validator.php';
 require_once __DIR__ . '\..\Controllers\Security\Session.php';
 
 if (isset($_POST['recipientname']) && isset($_POST['company']) && isset($_POST['address']) && isset($_POST['apartment-suite-unit-etc']) && isset($_POST['city-town']) && isset($_POST['postcode']) && isset($_POST['recipientcontact'])) {
- 
+
 
 //get data inputed
     $recipient = Quick::getPostData("recipientname");
@@ -36,38 +34,31 @@ if (isset($_POST['recipientname']) && isset($_POST['company']) && isset($_POST['
     $recipientcontact = Quick::getPostData("recipientcontact");
 
 //validate input
-    $validator = new Validator();
-    $validator->validateName($recipient);
-    $validator->validatePhone($recipientcontact);
-    $validator->validateNumOnly($postcode);
+    if (!preg_match("/^[a-zA-Z ]*$/", $recipient)) {
+        $nameErr = "Name can only have letters and space only";
+    }
+    if (!preg_match('/^[0-9]{10,11}+$/', $recipientcontact)) {
+        $phoErr = "Phone must consist of 10 or 11 digits";
+    }
 
-//get error msg
-    $errMsg = array();
-    $errMsg = $validator->getError();
+    if (!preg_match('/^[0-9]*$/', $postcode)) {
+        $numErr = "Number only";
+    }
+
 
 //check got error or not
-    if (count($errMsg) != 0) {
+    if (isset($nameErr) || isset($phoErr) || isset($numErr)) {
         //if got error proceed here
-
-        $result = array();
-        foreach ($errMsg as $msgs) {
-            foreach ($msgs as $msg) {
-                $result[] = $msg;
-            }
-        }
-        //store error msg into variable(folo ur seq in validate input thre
         //display error 
-        $m = "";
-        if (isset($result[0])) {
-            $m .= 'Recipient name: ' . $result[0] . '<br/>';
+        if (isset($nameErr)) {
+            echo 'Sender name: ' . $nameErr . '<br/>';
         }
-        if (isset($result[1])) {
-            $m .= 'Contact number: ' . $result[1] . '<br/>';
+        if (isset($phoErr)) {
+            echo 'Contact number: ' . $phoErr . '<br/>';
         }
-        if (isset($result[2])) {
-            $m .= 'Post Code: ' . $result[2] . '<br/>';
+        if (isset($numErr)) {
+            echo 'Postcode: ' . $numErr . '<br/>';
         }
-        echo $m;
     } else {
         //if no error proceed here...
         //store in database
@@ -97,5 +88,4 @@ if (isset($_POST['recipientname']) && isset($_POST['company']) && isset($_POST['
     }
 } else {
     //page's input field is not set/post
-
 }

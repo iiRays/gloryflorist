@@ -26,10 +26,12 @@ Authorize::onlyAllow("customer"); //temperory disable for better coding envir
 
             <div id="content">
                 <form method="post" action="deliveryAddress.php">
-                    <?php $echo = "hahahaha";
-                    require_once __DIR__ . '\..\Views\deliveryAddressHandler.php';
-                    ?>
-                    <div style="background: white">
+                    <div style="background: white; padding-top: 15px;">
+                        <div style="margin-left: 25%;border: 1px solid black; width: 50%; color:white; background-color:#FF6347; padding: 10px">
+                        <?php
+                        require_once __DIR__ . '\..\Views\deliveryAddressHandler.php';
+                        ?>
+                        </div>
 
                         <div class="input"><h2>Delivery Address</h2></div>
                         <div class="input">           
