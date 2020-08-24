@@ -86,7 +86,7 @@ if (isset($_POST['deliveryType']) && isset($_POST['date']) && isset($_POST['time
             echo "store into databse already";
 
             //redirect to another page and die this page
-            header("Location: http://localhost/GloryFlorist/Views/create_order.php");
+            header("Location: http://localhost/GloryFlorist/Controllers/Ordering/create_order.php");
             exit();
         } else {
 
@@ -99,7 +99,7 @@ if (isset($_POST['deliveryType']) && isset($_POST['date']) && isset($_POST['time
             $_SESSION['sendercontact'] = $sendercontact;
 
             //redirect to another page and die this page
-            header("Location: http://localhost/GloryFlorist/Views/deliveryAddress.php");
+            header("Location: http://localhost/GloryFlorist/Controllers/Ordering/deliveryAddress.php");
             exit();
         }
     }
